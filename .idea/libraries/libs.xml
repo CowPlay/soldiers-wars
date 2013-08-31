@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="libs" type="flex">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/libs" />
+      <root url="file://$PROJECT_DIR$/assets" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

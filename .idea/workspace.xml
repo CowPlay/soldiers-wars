@@ -2,17 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0c58ea7-91d2-429f-8aac-01418852bc28" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/html/facebook/debug/out/facebook_debug.swf" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Preloader.as" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/facebook/release/out/facebook_release.swf" afterPath="$PROJECT_DIR$/html/facebook/release/out/facebook_release.swf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/vk/debug/out/vk_debug.swf" afterPath="$PROJECT_DIR$/html/vk/debug/out/vk_debug.swf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.as" afterPath="$PROJECT_DIR$/src/Main.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/sceneVillage.swc" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/preloader.swf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/sceneVillage.swc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/sceneVillage.swf" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/preloader.fla" afterPath="$PROJECT_DIR$/assets/preloader.fla" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/preloader.swc" afterPath="$PROJECT_DIR$/assets/preloader.swc" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/sceneVillage.fla" afterPath="$PROJECT_DIR$/assets/sceneVillage.fla" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/libs.xml" afterPath="$PROJECT_DIR$/.idea/libraries/libs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="com.cowplay.soldiers.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377940778605" ignored="false" />
-    <file path="/fragment.js2" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377940852004" ignored="false" />
+    <file path="/fragment.js2" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377942911866" ignored="false" />
     <file path="/index.html" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377766927350" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/html/out/gremlins.swf" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377780274267" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/html/index.html" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377712949321" ignored="false" />
@@ -54,6 +57,7 @@
     <file path="$PROJECT_DIR$/../com.bwf.ifit/src/model/SocialNetProxy.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377786970014" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.ifit/src/model/InitProxy.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377786970014" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.ifit/src/view/library/DefinitionPointers.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377786970014" ignored="false" />
+    <file path="$PROJECT_DIR$/libs/sceneVillage.swc!/catalog.xml" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377942874382" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +124,7 @@
       <file leaf-file-name="Main.as" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="0" selection-start="1971" selection-end="1971" vertical-scroll-proportion="-0.63590604">
+            <state line="127" column="14" selection-start="3069" selection-end="3069" vertical-scroll-proportion="0.3456376">
               <folding>
                 <element signature="e#11#42#0" expanded="true" />
               </folding>
@@ -131,7 +135,7 @@
       <file leaf-file-name="soldiers.iml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/soldiers.iml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="42" selection-start="1406" selection-end="1406" vertical-scroll-proportion="0.0">
+            <state line="28" column="23" selection-start="1406" selection-end="1406" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -234,7 +238,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -661,7 +665,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/sceneVillage.swc!/library.swf">
+    <entry file="jar://$PROJECT_DIR$/assets/sceneVillage.swc!/library.swf">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6913" column="23" selection-start="399719" selection-end="399719" vertical-scroll-proportion="0.0" />
       </provider>
@@ -713,7 +717,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/soldiers.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="42" selection-start="1406" selection-end="1406" vertical-scroll-proportion="0.0">
+        <state line="28" column="23" selection-start="1406" selection-end="1406" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -727,7 +731,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="0" selection-start="1971" selection-end="1971" vertical-scroll-proportion="-0.63590604">
+        <state line="127" column="14" selection-start="3069" selection-end="3069" vertical-scroll-proportion="0.3456376">
           <folding>
             <element signature="e#11#42#0" expanded="true" />
           </folding>
