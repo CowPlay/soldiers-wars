@@ -10,6 +10,7 @@ package models.gameInfo.AppHelper
 import core.Debug;
 
 import flash.display.Sprite;
+import flash.display.StageDisplayState;
 import flash.events.Event;
 import flash.geom.Point;
 import flash.system.Capabilities;
@@ -23,11 +24,12 @@ public class AppHelper extends Sprite
      */
     private var _applicationSize:Point;
     private var _screenResolution:Point;
+    private var _fullScreenEnable:Boolean;
+
     private var _screenAspectRatio:Number;
     private var _socialNetwork:ESocialNetworkType;
     private var _currentDirectory:String;
     private var _applicationName:String;
-
     /*
      * Properties
      */
@@ -55,6 +57,26 @@ public class AppHelper extends Sprite
     public function get currentDirectory():String
     {
         return _currentDirectory;
+    }
+
+    public function get applicationName():String
+    {
+        return _applicationName;
+    }
+
+    public function get fullScreenEnable():Boolean
+    {
+        return _fullScreenEnable;
+    }
+
+    public function set fullScreenEnable(value:Boolean):void
+    {
+        if (_fullScreenEnable == value)
+            return;
+
+        _fullScreenEnable = value;
+
+        Main.stageValue.displayState = _fullScreenEnable ? StageDisplayState.FULL_SCREEN_INTERACTIVE : StageDisplayState.NORMAL;
     }
 
     /*
@@ -100,7 +122,6 @@ public class AppHelper extends Sprite
         {
             Debug.assert(false, "can't detect social network");
         }
-
     }
 }
 }

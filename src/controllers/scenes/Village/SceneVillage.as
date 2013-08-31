@@ -5,21 +5,25 @@
  * Time: 1:48 PM
  * To change this template use File | Settings | File Templates.
  */
-package controllers.scenes.Village
+package controllers.scenes.village
 {
-import controllers.scenes.Base.ESceneType;
-import controllers.scenes.Base.SceneBase;
+import com.greensock.TweenLite;
+import com.greensock.plugins.ScrollRectPlugin;
+import com.greensock.plugins.TweenPlugin;
 
-import core.Debug;
+import controllers.scenes.base.ESceneType;
+import controllers.scenes.base.SceneBase;
+import controllers.scenes.base.views.ScrollContainer;
 
+import flash.display.StageDisplayState;
+
+import flash.events.Event;
 import flash.events.MouseEvent;
+import flash.geom.Rectangle;
+import flash.ui.Multitouch;
 
 import models.gameInfo.GameInfo;
 import models.gameInfo.VillageManager.Houses.EHouseVillageType;
-
-import models.resources.ResourceLoader;
-
-import models.resources.managers.ResourceManagerVillage;
 
 public class SceneVillage extends SceneBase
 {
@@ -46,13 +50,20 @@ public class SceneVillage extends SceneBase
         super.prepareViews();
 
         _rootView = new gSceneVillage();
-        addChild(_rootView);
+//        _rootView.scrollRect = new Rectangle(0, 0, 500, 500);
+
+
+        var sc:ScrollContainer = new ScrollContainer(_rootView);
+
+        addChild(sc);
 
         GameInfo.Instance.villageManager.getHouseByType(EHouseVillageType.EHVT_ALTAR).view = _rootView.buttonHouseAltar;
 //        GameInfo.Instance.villageManager.getHouseByType(EHouseVillageType.EHVT_CASTLE).view = _rootView.buttonHouseCastle;
 //        GameInfo.Instance.villageManager.getHouseByType(EHouseVillageType.EHVT_MARKET).view = _rootView.buttonHouseMarket;
 //        GameInfo.Instance.villageManager.getHouseByType(EHouseVillageType.EHVT_MILITARY_ACADEMY).view = _rootView.buttonHouseMilitaryAcademy;
 //        GameInfo.Instance.villageManager.getHouseByType(EHouseVillageType.EHVT_TAVERN).view = _rootView.buttonHouseTavern;
+
+
     }
 
     public static function didButtonChangeSceneClicked():void
@@ -67,6 +78,7 @@ public class SceneVillage extends SceneBase
     //! Default constructor
     public function SceneVillage()
     {
+        TweenPlugin.activate([ScrollRectPlugin]);
     }
 
     //! Destructor

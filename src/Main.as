@@ -1,17 +1,20 @@
 package
 {
 
-import controllers.scenes.Base.ESceneType;
-import controllers.scenes.Base.SceneBase;
+import controllers.scenes.base.ESceneType;
+import controllers.scenes.base.SceneBase;
 
 import flash.display.DisplayObject;
 import flash.display.MovieClip;
 import flash.display.Shape;
 import flash.display.Stage;
 import flash.display.StageAlign;
+import flash.display.StageDisplayState;
 import flash.display.StageScaleMode;
 import flash.events.Event;
+import flash.events.MouseEvent;
 import flash.system.Security;
+import flash.ui.ContextMenu;
 
 import models.gameInfo.GameInfo;
 
@@ -74,6 +77,11 @@ public class Main extends MovieClip
 
         _stage = stage;
         _root = root;
+
+        //edit context menu
+        var contextMenuSimple:ContextMenu = new ContextMenu();
+        contextMenuSimple.hideBuiltInItems();
+        contextMenu = contextMenuSimple;
 
         stage.scaleMode = StageScaleMode.NO_SCALE;
         stage.align = StageAlign.TOP_LEFT;

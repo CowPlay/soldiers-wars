@@ -8,6 +8,9 @@
             <entry library-name="assets" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="greensock" library-level="application">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="flex_4.6" />
         </dependencies>
@@ -65,6 +68,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="libs" level="project" />
     <orderEntry type="library" exported="" name="assets" level="project" />
+    <orderEntry type="library" exported="" name="greensock" level="application" />
   </component>
 </module>
 

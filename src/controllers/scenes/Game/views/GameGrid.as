@@ -5,7 +5,7 @@
  * Time: 1:43 PM
  * To change this template use File | Settings | File Templates.
  */
-package controllers.scenes.Game.views
+package controllers.scenes.game.views
 {
 import core.Debug;
 import core.IDisposable;

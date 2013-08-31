@@ -5,7 +5,7 @@
  * Time: 11:43 AM
  * To change this template use File | Settings | File Templates.
  */
-package controllers.scenes.Game.views.Soldiers
+package controllers.scenes.game.views.Soldiers
 {
 import core.Debug;
 

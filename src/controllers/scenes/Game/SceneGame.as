@@ -5,10 +5,10 @@
  * Time: 1:48 PM
  * To change this template use File | Settings | File Templates.
  */
-package controllers.scenes.Game
+package controllers.scenes.game
 {
-import controllers.scenes.Base.ESceneType;
-import controllers.scenes.Base.SceneBase;
+import controllers.scenes.base.ESceneType;
+import controllers.scenes.base.SceneBase;
 
 import flash.display.Sprite;
 

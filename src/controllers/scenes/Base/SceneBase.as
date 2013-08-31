@@ -5,10 +5,10 @@
  * Time: 1:44 PM
  * To change this template use File | Settings | File Templates.
  */
-package controllers.scenes.Base
+package controllers.scenes.base
 {
-import controllers.scenes.Game.SceneGame;
-import controllers.scenes.Village.SceneVillage;
+import controllers.scenes.game.SceneGame;
+import controllers.scenes.village.SceneVillage;
 
 import core.Debug;
 import core.IDisposable;
@@ -122,6 +122,16 @@ public class SceneBase extends MovieClip implements IDisposable
     //! Fires after scene initialize
     protected function onLoadingEnd():void
     {
+    }
+
+    public function onFullScreenEnabled():void
+    {
+
+    }
+
+    public function onFullScreenDisabled():void
+    {
+
     }
 
 
