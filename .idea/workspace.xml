@@ -2,23 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0c58ea7-91d2-429f-8aac-01418852bc28" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/core/Debug.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/core/IDisposable.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Preloader.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/core/Utils.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/libs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/html/facebook/debug/out/facebook_debug.swf" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Preloader.as" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/facebook/release/out/facebook_release.swf" afterPath="$PROJECT_DIR$/html/facebook/release/out/facebook_release.swf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/vk/debug/out/vk_debug.swf" afterPath="$PROJECT_DIR$/html/vk/debug/out/vk_debug.swf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.as" afterPath="$PROJECT_DIR$/src/Main.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="com.cowplay.soldiers.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377780808123" ignored="false" />
-    <file path="/fragment.js2" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377786666494" ignored="false" />
+    <file path="/Dummy.txt" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377940778605" ignored="false" />
+    <file path="/fragment.js2" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377940852004" ignored="false" />
     <file path="/index.html" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377766927350" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/html/out/gremlins.swf" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377780274267" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/html/index.html" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377712949321" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/src/Main.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377716934256" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/src/Api/APIConnector.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377771419868" ignored="false" />
-    <file path="/Main.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377716741111" ignored="false" />
-    <file path="/Preloader.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377763438469" ignored="false" />
+    <file path="/Main.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377941196707" ignored="false" />
+    <file path="/Preloader.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377940841153" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/src/Preloader.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377763770036" ignored="false" />
     <file path="/a.dummy" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377786615779" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/swc/music.swf" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377720058980" ignored="false" />
@@ -36,7 +37,6 @@
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/src/Api/VKMediator.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377771289299" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/src/ServerConnector/Remote.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377771918755" ignored="false" />
     <file path="/Remote.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377771911940" ignored="false" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377780707137" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf/com.bwf.gremlins/html/out/gremlins.swf" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377784399002" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf/com.bwf.gremlins/src/Main.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377784365948" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.ifit/src/Ifit.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377784593601" ignored="false" />
@@ -71,7 +71,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -108,6 +107,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -117,30 +117,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.as" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Main.as" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="146" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0">
+            <state line="94" column="0" selection-start="1971" selection-end="1971" vertical-scroll-proportion="-0.63590604">
               <folding>
-                <element signature="e#11#28#0" expanded="true" />
+                <element signature="e#11#42#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="soldiers.iml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="soldiers.iml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/soldiers.iml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="42" selection-start="1406" selection-end="1406" vertical-scroll-proportion="0.6174603">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Preloader.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Preloader.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="0" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
+            <state line="28" column="42" selection-start="1406" selection-end="1406" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -171,17 +162,17 @@
         <option value="$PROJECT_DIR$/html/vk/debug/index.html" />
         <option value="$PROJECT_DIR$/html/facebook/debug/index.html" />
         <option value="$PROJECT_DIR$/html/facebook/release/index.html" />
-        <option value="$PROJECT_DIR$/src/controllers/Preloader.as" />
         <option value="$PROJECT_DIR$/src/Soldiers.as" />
         <option value="$PROJECT_DIR$/src/Preloader.as" />
-        <option value="$PROJECT_DIR$/src/Main.as" />
         <option value="$PROJECT_DIR$/soldiers.iml" />
+        <option value="$PROJECT_DIR$/src/controllers/Preloader.as" />
+        <option value="$PROJECT_DIR$/src/Main.as" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="263" />
+    <option name="x" value="12" />
     <option name="y" value="22" />
     <option name="width" value="1833" />
     <option name="height" value="1160" />
@@ -214,7 +205,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -243,13 +234,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="libs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -277,8 +268,8 @@
       <recent name="controllers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/controllers" />
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/core" />
     </key>
   </component>
@@ -566,33 +557,33 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="263" y="22" width="1833" height="1160" extended-state="0" />
+    <frame x="12" y="22" width="1833" height="1160" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298077" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32884616" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24958031" sideWeight="0.6701923" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24958031" sideWeight="0.6" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -655,19 +646,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="flex">
-          <url>file://$PROJECT_DIR$/src/Preloader.as</url>
-          <line>31</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="flex">
-          <url>file://$PROJECT_DIR$/src/Main.as</url>
-          <line>18</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="8" />
+      <option name="time" value="11" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -675,6 +654,13 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/soldiers.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="42" selection-start="1406" selection-end="1406" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://$PROJECT_DIR$/libs/sceneVillage.swc!/library.swf">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6913" column="23" selection-start="399719" selection-end="399719" vertical-scroll-proportion="0.0" />
@@ -712,52 +698,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/vk/debug/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="40" selection-start="721" selection-end="721" vertical-scroll-proportion="0.5116279">
-          <folding />
-        </state>
+        <state line="22" column="40" selection-start="721" selection-end="721" vertical-scroll-proportion="0.5116279" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/facebook/debug/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="23" selection-start="118" selection-end="118" vertical-scroll-proportion="0.093023255">
-          <folding />
-        </state>
+        <state line="4" column="23" selection-start="118" selection-end="118" vertical-scroll-proportion="0.093023255" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/facebook/release/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="41" selection-start="833" selection-end="833" vertical-scroll-proportion="0.55813956">
+        <state line="24" column="41" selection-start="833" selection-end="833" vertical-scroll-proportion="0.55813956" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/soldiers.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="42" selection-start="1406" selection-end="1406" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/../SDK's/flex_4.6/frameworks/libs/player/11.1/playerglobal.swc!/library.swf">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="905" column="25" selection-start="39620" selection-end="39620" vertical-scroll-proportion="0.3327616">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Preloader.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="0" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
+        <state line="9508" column="25" selection-start="409136" selection-end="409136" vertical-scroll-proportion="0.33266732">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="146" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0">
+        <state line="94" column="0" selection-start="1971" selection-end="1971" vertical-scroll-proportion="-0.63590604">
           <folding>
-            <element signature="e#11#28#0" expanded="true" />
+            <element signature="e#11#42#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/soldiers.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="42" selection-start="1406" selection-end="1406" vertical-scroll-proportion="0.6174603">
-          <folding />
         </state>
       </provider>
     </entry>
