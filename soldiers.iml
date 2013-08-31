@@ -5,7 +5,7 @@
       <configuration name="facebook.debug" pure-as="true" main-class="Main" output-file="facebook_debug.swf" output-folder="$MODULE_DIR$/html/facebook/debug/out">
         <dependencies target-player="11.1">
           <entries>
-            <entry library-name="libs" library-level="project">
+            <entry library-name="assets" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -21,7 +21,7 @@
       <configuration name="facebook.release" pure-as="true" main-class="Main" output-file="facebook_release.swf" output-folder="$MODULE_DIR$/html/facebook/release/out">
         <dependencies target-player="11.1">
           <entries>
-            <entry library-name="libs" library-level="project">
+            <entry library-name="assets" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -40,7 +40,7 @@
       <configuration name="vk.debug" pure-as="true" main-class="Main" output-file="vk_debug.swf" output-folder="$MODULE_DIR$/html/vk/debug/out">
         <dependencies target-player="11.1">
           <entries>
-            <entry library-name="libs" library-level="project">
+            <entry library-name="assets" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -64,6 +64,7 @@
     <orderEntry type="jdk" jdkName="flex_4.6" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="libs" level="project" />
+    <orderEntry type="library" exported="" name="assets" level="project" />
   </component>
 </module>
 

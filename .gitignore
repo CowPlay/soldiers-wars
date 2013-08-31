@@ -12,3 +12,4 @@ bin-release/
 
 #flash binaries
 *.swf
+*.fla

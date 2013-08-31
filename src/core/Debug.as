@@ -9,7 +9,6 @@ package core
 {
 import flash.utils.getTimer;
 
-
 public class Debug
 {
     /*
@@ -49,7 +48,6 @@ public class Debug
 
     public static function assert(expression:Boolean, warning:String = "Assertion failed!"):void
     {
-        //TODO: implement only when debug session
         CONFIG::DEBUG
         {
             if (!expression)

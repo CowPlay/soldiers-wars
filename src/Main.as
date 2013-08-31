@@ -1,15 +1,44 @@
 package
 {
 
+import controllers.scenes.Base.ESceneType;
+import controllers.scenes.Base.SceneBase;
+
+import flash.display.DisplayObject;
 import flash.display.MovieClip;
 import flash.display.Shape;
+import flash.display.Stage;
 import flash.display.StageAlign;
 import flash.display.StageScaleMode;
 import flash.events.Event;
-import flash.text.TextField;
+import flash.system.Security;
+
+import models.gameInfo.GameInfo;
+
+import mx.utils.StringUtil;
 
 public class Main extends MovieClip
 {
+    /*
+     * Static fields
+     */
+    private static var _stage:Stage;
+    private static var _root:DisplayObject;
+
+    /*
+     * Static properties
+     */
+
+    public static function get stageValue():Stage
+    {
+        return _stage;
+    }
+
+    public static function get rootValue():DisplayObject
+    {
+        return _root;
+    }
+
     /*
      * Fields
      */
@@ -18,7 +47,6 @@ public class Main extends MovieClip
     private var _preloaderPercent:Shape;
 
 
-//    [SWF(frameRate="60", width="807", height="730")]
     public function Main()
     {
         if (stage)
@@ -26,41 +54,33 @@ public class Main extends MovieClip
         else
             addEventListener(Event.ADDED_TO_STAGE, init);
 
-        var textField:TextField = new TextField();
-
-        var text:String;
+        var buildConfigurationStr:String;
 
         if (SOCIAL::FACEBOOK)
         {
-            text = "facebook";
-
-            if (CONFIG::DEBUG)
-            {
-                text += ".debug";
-            }
+            buildConfigurationStr = StringUtil.substitute("build configuration: facebook.{0}", CONFIG::DEBUG ? "debug" : "release")
         }
         else if (SOCIAL::VK)
         {
-            text = "vk";
-
-            if (CONFIG::DEBUG)
-            {
-                text += ".debug";
-            }
+            buildConfigurationStr = StringUtil.substitute("build configuration: vk.{0}", CONFIG::DEBUG ? "debug" : "release")
         }
 
-        textField.text = text;
-
-        addChild(textField);
-
+        trace(buildConfigurationStr);
     }
 
     private function init(e:Event = null):void
     {
         removeEventListener(Event.ADDED_TO_STAGE, init);
 
+        _stage = stage;
+        _root = root;
+
         stage.scaleMode = StageScaleMode.NO_SCALE;
         stage.align = StageAlign.TOP_LEFT;
+        stage.color = 0xF5F5F5;
+
+        Security.allowInsecureDomain("*");
+        Security.allowDomain('*');
 
         start();
     }
@@ -128,8 +148,6 @@ public class Main extends MovieClip
 
     private function dispose():void
     {
-        trace("dispose preloader");
-
         removeEventListener(Event.ENTER_FRAME, onEnterFrame);
         if (_preloaderBackground)
         {
@@ -146,8 +164,14 @@ public class Main extends MovieClip
     private function run():void
     {
         nextFrame();
+        //add root view of all scenes
+        addChild(SceneBase.rootView);
 
-        //TODO: run
+        //init model
+        var gi:GameInfo = GameInfo.Instance;
+
+        //init view+controller
+        SceneBase.setScene(ESceneType.EST_VILLAGE);
     }
 }
 }
