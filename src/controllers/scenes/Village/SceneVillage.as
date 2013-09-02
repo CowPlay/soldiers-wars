@@ -7,7 +7,6 @@
  */
 package controllers.scenes.village
 {
-import com.greensock.TweenLite;
 import com.greensock.plugins.ScrollRectPlugin;
 import com.greensock.plugins.TweenPlugin;
 
@@ -15,12 +14,11 @@ import controllers.scenes.base.ESceneType;
 import controllers.scenes.base.SceneBase;
 import controllers.scenes.base.views.ScrollContainer;
 
-import flash.display.StageDisplayState;
+import core.Utils;
 
-import flash.events.Event;
-import flash.events.MouseEvent;
-import flash.geom.Rectangle;
-import flash.ui.Multitouch;
+import flash.filters.GlowFilter;
+
+import flash.geom.Point;
 
 import models.gameInfo.GameInfo;
 import models.gameInfo.VillageManager.Houses.EHouseVillageType;
@@ -31,6 +29,7 @@ public class SceneVillage extends SceneBase
      * Fields
      */
     private var _rootView:gSceneVillage;
+    private var _rootViewScroll:ScrollContainer;
 
     /*
      * Properties
@@ -50,14 +49,15 @@ public class SceneVillage extends SceneBase
         super.prepareViews();
 
         _rootView = new gSceneVillage();
-//        _rootView.scrollRect = new Rectangle(0, 0, 500, 500);
+        Utils.cacheAsBitmap(_rootView);
 
+        _rootViewScroll = new ScrollContainer(_rootView, new Point(760, 700));
 
-        var sc:ScrollContainer = new ScrollContainer(_rootView);
-
-        addChild(sc);
+        addChild(_rootViewScroll);
 
         GameInfo.Instance.villageManager.getHouseByType(EHouseVillageType.EHVT_ALTAR).view = _rootView.buttonHouseAltar;
+
+        _rootView.buttonHouseAltar.filters = [new GlowFilter(0x00CC00)];
 //        GameInfo.Instance.villageManager.getHouseByType(EHouseVillageType.EHVT_CASTLE).view = _rootView.buttonHouseCastle;
 //        GameInfo.Instance.villageManager.getHouseByType(EHouseVillageType.EHVT_MARKET).view = _rootView.buttonHouseMarket;
 //        GameInfo.Instance.villageManager.getHouseByType(EHouseVillageType.EHVT_MILITARY_ACADEMY).view = _rootView.buttonHouseMilitaryAcademy;

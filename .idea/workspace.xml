@@ -2,26 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0c58ea7-91d2-429f-8aac-01418852bc28" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/preloader.swc" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/html/script/swfobject.js" afterPath="$PROJECT_DIR$/html/common/script/swfobject.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/gameInfo/AppHelper/AppHelper.as" afterPath="$PROJECT_DIR$/src/models/gameInfo/AppHelper/AppHelper.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/scenes/game/views/ArrowView.as" afterPath="$PROJECT_DIR$/src/controllers/scenes/game/views/ArrowView.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/scenes/base/ESceneType.as" afterPath="$PROJECT_DIR$/src/controllers/scenes/base/ESceneType.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/scenes/game/views/GameGrid.as" afterPath="$PROJECT_DIR$/src/controllers/scenes/game/views/GameGrid.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/scenes/game/views/Houses/HouseBaseView.as" afterPath="$PROJECT_DIR$/src/controllers/scenes/game/views/Houses/HouseBaseView.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.as" afterPath="$PROJECT_DIR$/src/Main.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/scenes/base/SceneBase.as" afterPath="$PROJECT_DIR$/src/controllers/scenes/base/SceneBase.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/scenes/game/SceneGame.as" afterPath="$PROJECT_DIR$/src/controllers/scenes/game/SceneGame.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/scenes/game/views/Soldiers/SoldierView.as" afterPath="$PROJECT_DIR$/src/controllers/scenes/game/views/Soldiers/SoldierView.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/sceneVillage.swc" afterPath="$PROJECT_DIR$/assets/sceneVillage.swc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/Utils.as" afterPath="$PROJECT_DIR$/src/core/Utils.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/facebook/debug/index.html" afterPath="$PROJECT_DIR$/html/facebook/debug/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/facebook/release/index.html" afterPath="$PROJECT_DIR$/html/facebook/release/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/vk/debug/index.html" afterPath="$PROJECT_DIR$/html/vk/debug/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/soldiers.iml" afterPath="$PROJECT_DIR$/soldiers.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="com.cowplay.soldiers.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377961465148" ignored="false" />
+    <file path="/Dummy.txt" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378106118170" ignored="false" />
     <file path="/fragment.js2" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377960832006" ignored="false" />
     <file path="/index.html" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377960367013" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/html/out/gremlins.swf" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377780274267" ignored="false" />
@@ -66,7 +54,7 @@
     <file path="$PROJECT_DIR$/../com.bwf.ifit/src/view/library/DefinitionPointers.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377786970014" ignored="false" />
     <file path="$PROJECT_DIR$/libs/sceneVillage.swc!/catalog.xml" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377942874382" ignored="false" />
     <file path="/SceneBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377960898881" ignored="false" />
-    <file path="/SceneVillage.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377962476939" ignored="false" />
+    <file path="/SceneVillage.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378107928026" ignored="false" />
     <file path="/SceneGame.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377946495715" ignored="false" />
     <file path="/DeviceHelper.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377947070596" ignored="false" />
     <file path="/ESocialNetworkType.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377946970744" ignored="false" />
@@ -81,10 +69,11 @@
     <file path="/EHouseVillageType.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377947932292" ignored="false" />
     <file path="/ResourceLoader.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377955870874" ignored="false" />
     <file path="/MoneyManager.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377950532045" ignored="false" />
-    <file path="/fragment.js" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377956527577" ignored="false" />
+    <file path="/fragment.js" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377975698031" ignored="false" />
     <file path="/Definition.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377956225497" ignored="false" />
     <file path="$PROJECT_DIR$/../untitled/html-template/index.template.html" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377960739253" ignored="false" />
-    <file path="/ScrollContainer.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377963917492" ignored="false" />
+    <file path="/ScrollContainer.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378107079863" ignored="false" />
+    <file path="/Utils.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378107682807" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,15 +146,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameInfo.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/gameInfo/GameInfo.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="0" selection-start="1262" selection-end="1262" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SceneBase.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/scenes/base/SceneBase.as">
           <provider selected="true" editor-type-id="text-editor">
@@ -175,33 +155,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SceneVillage.as" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="SceneVillage.as" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controllers/scenes/village/SceneVillage.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="19" selection-start="2180" selection-end="2180" vertical-scroll-proportion="0.0">
+            <state line="57" column="89" selection-start="1314" selection-end="1314" vertical-scroll-proportion="0.26928473">
               <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#197#228#0" expanded="true" />
+                <element signature="e#197#243#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScrollContainer.as" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/controllers/scenes/base/views/ScrollContainer.as">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/facebook/debug/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="0" selection-start="1723" selection-end="1723" vertical-scroll-proportion="0.36886394">
-              <folding>
-                <element signature="e#200#231#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VillageManager.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/gameInfo/VillageManager/VillageManager.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="20" selection-start="1526" selection-end="1526" vertical-scroll-proportion="0.0">
+            <state line="42" column="16" selection-start="1126" selection-end="1126" vertical-scroll-proportion="-19.958334">
               <folding />
             </state>
           </provider>
@@ -225,13 +193,11 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/models/gameInfo/VillageManager/Houses/mines/HouseVillageMineGold.as" />
         <option value="$PROJECT_DIR$/src/models/gameInfo/VillageManager/Houses/mines/HouseVillageMineGems.as" />
         <option value="$PROJECT_DIR$/src/models/gameInfo/VillageManager/Houses/HouseVillageBase.as" />
         <option value="$PROJECT_DIR$/src/models/resources/ResourceLoader.as" />
         <option value="$PROJECT_DIR$/src/controllers/scenes/Village/Definition.as" />
         <option value="$PROJECT_DIR$/src/models/resources/managers/ResourceManagerVillage.as" />
-        <option value="$PROJECT_DIR$/html/facebook/debug/index.html" />
         <option value="$PROJECT_DIR$/src/controllers/scenes/views/ScrollCOntainer.as" />
         <option value="$PROJECT_DIR$/src/controllers/scenes/Base/SceneBase.as" />
         <option value="$PROJECT_DIR$/src/Main.as" />
@@ -239,14 +205,16 @@
         <option value="$PROJECT_DIR$/src/controllers/scenes/Village/SceneVillage.as" />
         <option value="$PROJECT_DIR$/src/controllers/scenes/Base/views/ScrollContainer.as" />
         <option value="$PROJECT_DIR$/src/models/gameInfo/AppHelper/AppHelper.as" />
-        <option value="$PROJECT_DIR$/src/controllers/scenes/village/SceneVillage.as" />
         <option value="$PROJECT_DIR$/src/controllers/scenes/base/views/ScrollContainer.as" />
+        <option value="$PROJECT_DIR$/html/facebook/debug/index.html" />
+        <option value="$PROJECT_DIR$/src/core/Utils.as" />
+        <option value="$PROJECT_DIR$/src/controllers/scenes/village/SceneVillage.as" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="12" />
+    <option name="x" value="6" />
     <option name="y" value="22" />
     <option name="width" value="1833" />
     <option name="height" value="1160" />
@@ -279,6 +247,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -344,6 +313,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.cowplay.soldiers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.cowplay.soldiers-wars" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -500,7 +487,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -517,11 +503,11 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CreateActionScriptClassDialog.DESTINATION_PACKAGE_RECENT_KEY">
@@ -567,6 +553,19 @@
       <option name="trusted" value="true" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -593,19 +592,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -825,19 +811,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="12" y="22" width="1833" height="1160" extended-state="0" />
+    <frame x="6" y="22" width="1833" height="1160" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298077" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298077" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24958031" sideWeight="0.29326922" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24958031" sideWeight="0.20769231" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32884616" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -852,6 +837,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298077" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -914,7 +900,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="42" />
+      <option name="time" value="56" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -922,69 +908,9 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/models/gameInfo/VillageManager/Houses/HouseVillageBase.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="21" selection-start="2049" selection-end="2049" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#208#226#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/Debug.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="16" selection-start="775" selection-end="775" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/assets/sceneVillage.swc!/library.swf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="31" selection-start="5256" selection-end="5259" vertical-scroll-proportion="0.33280507">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/resources/ResourceLoader.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="27" selection-start="2088" selection-end="2088" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/resources/managers/ResourceManagerVillage.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="392" selection-end="392" vertical-scroll-proportion="0.28162056">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#196#228#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="182" column="5" selection-start="4628" selection-end="4628" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/facebook/debug/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="690" selection-end="690" vertical-scroll-proportion="0.37955466">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/gameInfo/VillageManager/Houses/EHouseVillageType.as">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="0" selection-start="159" selection-end="159" vertical-scroll-proportion="0.014822135">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/gameInfo/VillageManager/VillageManager.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="20" selection-start="1526" selection-end="1526" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -998,16 +924,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/gameInfo/GameInfo.as">
+    <entry file="jar://$PROJECT_DIR$/../SDK's/greensock/greensock.swc!/library.swf">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="0" selection-start="1262" selection-end="1262" vertical-scroll-proportion="0.0">
+        <state line="2869" column="13" selection-start="138061" selection-end="138061" vertical-scroll-proportion="0.7256098" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/gameInfo/VillageManager/VillageManager.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="20" selection-start="1526" selection-end="1526" vertical-scroll-proportion="0.71146244">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/../SDK's/greensock/greensock.swc!/library.swf">
+    <entry file="file://$PROJECT_DIR$/html/facebook/release/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2869" column="13" selection-start="138061" selection-end="138061" vertical-scroll-proportion="0.7256098">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/scenes/base/views/ScrollContainer.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="20" selection-start="925" selection-end="925" vertical-scroll-proportion="0.33239833">
+          <folding>
+            <element signature="e#200#218#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../SDK's/flex_4.6/frameworks/libs/air/airglobal.swc!/library.swf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13530" column="69" selection-start="598099" selection-end="598099" vertical-scroll-proportion="0.14">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/assets/sceneVillage.swc!/library.swf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6952" column="60" selection-start="400539" selection-end="400539" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/gameInfo/VillageManager/Houses/HouseVillageBase.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="0" selection-start="1056" selection-end="1056" vertical-scroll-proportion="0.33239833">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#208#226#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../SDK's/flex_4.6/frameworks/libs/player/11.1/playerglobal.swc!/library.swf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9471" column="25" selection-start="407509" selection-end="407509" vertical-scroll-proportion="0.33285713">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/Utils.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="40" selection-start="357" selection-end="370" vertical-scroll-proportion="0.29453015">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#174#209#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/facebook/debug/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="16" selection-start="1126" selection-end="1126" vertical-scroll-proportion="-19.958334">
           <folding />
         </state>
       </provider>
@@ -1019,28 +1007,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/scenes/village/SceneVillage.as">
+    <entry file="file://$PROJECT_DIR$/src/models/gameInfo/GameInfo.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="19" selection-start="2180" selection-end="2180" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#197#228#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../SDK's/flex_4.6/frameworks/libs/player/11.1/playerglobal.swc!/library.swf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1826" column="20" selection-start="80775" selection-end="80775" vertical-scroll-proportion="0.20428571">
+        <state line="62" column="0" selection-start="1262" selection-end="1262" vertical-scroll-proportion="-0.4516129">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/scenes/base/views/ScrollContainer.as">
+    <entry file="file://$PROJECT_DIR$/src/Main.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="0" selection-start="1723" selection-end="1723" vertical-scroll-proportion="0.36886394">
+        <state line="182" column="5" selection-start="4628" selection-end="4628" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/scenes/village/SceneVillage.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="89" selection-start="1314" selection-end="1314" vertical-scroll-proportion="0.26928473">
           <folding>
-            <element signature="e#200#231#0" expanded="true" />
+            <element signature="e#197#243#0" expanded="true" />
           </folding>
         </state>
       </provider>

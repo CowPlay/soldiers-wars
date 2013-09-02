@@ -7,9 +7,8 @@
  */
 package controllers.scenes.base.views
 {
-import com.greensock.TweenLite;
-
 import core.Debug;
+import core.IDisposable;
 
 import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
@@ -17,9 +16,9 @@ import flash.events.MouseEvent;
 import flash.geom.Point;
 import flash.geom.Rectangle;
 
-import mx.utils.StringUtil;
-
-public class ScrollContainer extends Sprite
+//! Represents scroll container for some display object.
+//! Container must be less or equal than target.
+public class ScrollContainer extends Sprite implements IDisposable
 {
     /*
      * Fields
@@ -27,6 +26,9 @@ public class ScrollContainer extends Sprite
 
     private var _target:DisplayObjectContainer;
     private var _dragging:Boolean;
+
+    private var _containerSize:Point;
+    private var _targetSize:Point;
 
     private var _mouseLastPosition:Point;
 
@@ -39,44 +41,52 @@ public class ScrollContainer extends Sprite
      */
 
     //! Default constructor
-    public function ScrollContainer(target:DisplayObjectContainer)
+    public function ScrollContainer(target:DisplayObjectContainer, containerSize:Point)
     {
         Debug.assert(target != null);
+        Debug.assert(containerSize != null);
 
         _target = target;
+        _containerSize = containerSize;
+        _targetSize = new Point(_target.width, _target.height);
 
-        _target.scrollRect = new Rectangle(0, 0, 500, 500);
+        //check size
+        Debug.assert(_targetSize.length >= _containerSize.length);
 
         addChild(_target);
 
-        addEventListener(MouseEvent.MOUSE_DOWN, startScroll);
-        Main.stageValue.addEventListener(MouseEvent.MOUSE_UP, stopScroll);
+        scrollRect = new Rectangle(0, 0, _containerSize.x, _containerSize.y);
 
-//        restriction  = Main.stageValue.stageWidth - _rootView.width;
+        addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
+
+        centerTarget();
+    }
+
+    public function centerTarget():void
+    {
+        scrollRect = new Rectangle(-_targetSize.x / 2, -_targetSize.y / 2, _containerSize.x, _containerSize.y);
     }
 
 
-    private function startScroll(e:MouseEvent):void
+    private function onMouseDown(e:MouseEvent):void
     {
         _dragging = true;
-        Main.stageValue..addEventListener(MouseEvent.MOUSE_MOVE, scroll);
+
+        Main.stageValue.addEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
+        Main.stageValue.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
 
         _mouseLastPosition = new Point(e.stageX, e.stageY);
-
-//        _rootView.removeEventListener(MouseEvent.MOUSE_DOWN, startScroll);
-//        _rootView.addEventListener(Event.ENTER_FRAME, updateMovement);
     }
 
-    private function stopScroll(e:MouseEvent):void
+    private function onMouseUp(e:MouseEvent):void
     {
         _dragging = false;
-        Main.stageValue..removeEventListener(MouseEvent.MOUSE_MOVE, scroll);
 
-//        _rootView.addEventListener(MouseEvent.MOUSE_DOWN, startScroll);
-//        _rootView.removeEventListener(Event.ENTER_FRAME, updateMovement);
+        Main.stageValue.removeEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
+        Main.stageValue.removeEventListener(MouseEvent.MOUSE_UP, onMouseUp);
     }
 
-    private function scroll(e:MouseEvent):void
+    private function onMouseMove(e:MouseEvent):void
     {
         if (!_dragging)
             return;
@@ -84,17 +94,40 @@ public class ScrollContainer extends Sprite
         var deltaX:int = _mouseLastPosition.x - e.stageX;
         var deltaY:int = _mouseLastPosition.y - e.stageY;
 
-        trace(StringUtil.substitute("x: {0}          y: {1}"), deltaX, deltaY);
+        var x0:Number = scrollRect.x + deltaX;
+        var y0:Number = scrollRect.y + deltaY;
+
+        x0 = x0 > 0 ? 0 : x0;
+        x0 = x0 < -_targetSize.x ? -_targetSize.x : x0;
 
 
-        _target.scrollRect = new Rectangle(_target.scrollRect.x + deltaX, _target.scrollRect.y + deltaY, _target.scrollRect.width, _target.scrollRect.height);
+        y0 = y0 > 0 ? 0 : y0;
+        y0 = y0 < -_targetSize.y ? -_targetSize.y : y0;
+
+        scrollRect = new Rectangle(x0, y0, _containerSize.x, _containerSize.y);
+
+        var newX:Number = _target.x - deltaX;
+        var newY:Number = _target.y - deltaY;
 
         _mouseLastPosition = new Point(e.stageX, e.stageY);
     }
 
-//    private function updateMovement(e:Event):void
-//    {
-//        _rootView.scrollRect.x += 2 * ((Math.max(Math.min(restriction, this.mouseX), 0)) - _rootView.scrollRect.x);
-//    }
+    /*
+     * IDisposable
+     */
+
+    public function cleanup():void
+    {
+        _containerSize = null;
+        _targetSize = null;
+        _mouseLastPosition = null;
+
+        _target = null;
+
+        removeEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
+        Main.stageValue.removeEventListener(MouseEvent.MOUSE_UP, onMouseUp);
+        Main.stageValue.removeEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
+
+    }
 }
 }
