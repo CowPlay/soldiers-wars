@@ -5,7 +5,7 @@
  * Time: 1:02 PM
  * To change this template use File | Settings | File Templates.
  */
-package models.gameInfo.AppHelper
+package models.gameInfo.managerApp
 {
 public class ESocialNetworkType
 {

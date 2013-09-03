@@ -5,16 +5,12 @@
  * Time: 1:59 PM
  * To change this template use File | Settings | File Templates.
  */
-package models.gameInfo.VillageManager.Houses
+package models.gameInfo.managerVillage.Houses
 {
-import core.Debug;
-
-import flash.display.SimpleButton;
-
 import models.gameInfo.GameInfo;
-import models.gameInfo.VillageManager.Houses.base.EHouseVillageState;
-import models.gameInfo.VillageManager.Houses.base.EHouseVillageType;
-import models.gameInfo.VillageManager.Houses.base.HouseVillageBase;
+import models.gameInfo.managerVillage.Houses.base.EHouseVillageState;
+import models.gameInfo.managerVillage.Houses.base.EHouseVillageType;
+import models.gameInfo.managerVillage.Houses.base.HouseVillageBase;
 
 public class HouseVillageAltar extends HouseVillageBase
 {

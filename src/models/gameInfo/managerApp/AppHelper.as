@@ -5,15 +5,16 @@
  * Time: 7:41 PM
  * To change this template use File | Settings | File Templates.
  */
-package models.gameInfo.AppHelper
+package models.gameInfo.managerApp
 {
-import controllers.scenes.base.SceneBase;
+import controllers.scenes.base.ControlScene;
 
 import core.Debug;
 
 import flash.display.Sprite;
 import flash.display.StageDisplayState;
 import flash.events.Event;
+import flash.events.FullScreenEvent;
 import flash.geom.Point;
 import flash.system.Capabilities;
 
@@ -83,7 +84,7 @@ public class AppHelper extends Sprite
         _applicationSize = _fullScreenEnable ? _screenResolution : new Point(Main.stageValue.stageWidth, Main.stageValue.stageHeight);
         trace(StringUtil.substitute("Application size: {0}x{1}", _applicationSize.x, _applicationSize.y));
 
-        SceneBase.currentScene.onDisplayStateChanged(_fullScreenEnable);
+        ControlScene.currentScene.onDisplayStateChanged(_fullScreenEnable);
     }
 
     /*
@@ -117,6 +118,9 @@ public class AppHelper extends Sprite
         _applicationName = fullPath.substring(fullPath.lastIndexOf("/") + 1, fullPath.length);
         trace(StringUtil.substitute("Application name: {0}", _applicationName));
 
+        //detect "ESC" key
+        Main.stageValue.addEventListener(FullScreenEvent.FULL_SCREEN, onFullscreenModeChanged);
+
         if (SOCIAL::FACEBOOK)
         {
             _socialNetwork = ESocialNetworkType.ESNT_FACEBOOK;
@@ -129,6 +133,11 @@ public class AppHelper extends Sprite
         {
             Debug.assert(false, "can't detect social network");
         }
+    }
+
+    private function onFullscreenModeChanged(e:FullScreenEvent):void
+    {
+        fullScreenEnable = e.fullScreen;
     }
 }
 }

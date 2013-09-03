@@ -5,14 +5,13 @@
  * Time: 1:58 PM
  * To change this template use File | Settings | File Templates.
  */
-package models.gameInfo.VillageManager.Houses.base
+package models.gameInfo.managerVillage.Houses.base
 {
 
 import core.Debug;
 import core.IDisposable;
 
 import flash.display.MovieClip;
-
 import flash.events.MouseEvent;
 
 import models.gameInfo.GameInfo;

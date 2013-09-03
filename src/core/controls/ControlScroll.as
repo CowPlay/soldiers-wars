@@ -5,20 +5,20 @@
  * Time: 4:53 PM
  * To change this template use File | Settings | File Templates.
  */
-package controllers.scenes.base.views
+package core.controls
 {
+import controllers.scenes.base.ControlScene;
+
 import core.Debug;
-import core.IDisposable;
 
 import flash.display.DisplayObjectContainer;
-import flash.display.Sprite;
 import flash.events.MouseEvent;
 import flash.geom.Point;
 import flash.geom.Rectangle;
 
 //! Represents scroll container for some display object.
 //! Container must be less or equal than target.
-public class ScrollContainer extends Sprite implements IDisposable
+public class ControlScroll extends ControlBase
 {
     /*
      * Fields
@@ -58,14 +58,16 @@ public class ScrollContainer extends Sprite implements IDisposable
      */
 
     //! Default constructor
-    public function ScrollContainer(target:DisplayObjectContainer, containerSize:Point)
+    public function ControlScroll(target:DisplayObjectContainer, containerSize:Point, sceneOwner:ControlScene)
     {
+        super(sceneOwner);
+
         Debug.assert(target != null);
         Debug.assert(containerSize != null);
 
         _target = target;
-        _containerSize = containerSize;
         _targetSize = new Point(_target.width, _target.height);
+        _containerSize = containerSize;
 
         //check size
         Debug.assert(_targetSize.length >= _containerSize.length);
@@ -133,7 +135,8 @@ public class ScrollContainer extends Sprite implements IDisposable
      * IDisposable
      */
 
-    public function cleanup():void
+
+    public override function cleanup():void
     {
         _containerSize = null;
         _targetSize = null;
@@ -144,8 +147,8 @@ public class ScrollContainer extends Sprite implements IDisposable
         removeEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
         Main.stageValue.removeEventListener(MouseEvent.MOUSE_UP, onMouseUp);
         Main.stageValue.removeEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
+
+        super.cleanup();
     }
-
-
 }
 }

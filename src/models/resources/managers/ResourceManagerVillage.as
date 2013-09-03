@@ -7,12 +7,6 @@
  */
 package models.resources.managers
 {
-import models.gameInfo.GameInfo;
-
-import mx.utils.LoaderUtil;
-
-import mx.utils.StringUtil;
-
 public class ResourceManagerVillage
 {
     public static function get librarySceneVillage():String

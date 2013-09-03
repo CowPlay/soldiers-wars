@@ -5,18 +5,17 @@
  * Time: 2:53 PM
  * To change this template use File | Settings | File Templates.
  */
-package models.gameInfo.VillageManager
+package models.gameInfo.managerVillage
 {
 import core.Debug;
 
-import models.gameInfo.GameInfo;
-import models.gameInfo.VillageManager.Houses.base.EHouseVillageState;
-import models.gameInfo.VillageManager.Houses.base.EHouseVillageType;
-import models.gameInfo.VillageManager.Houses.HouseVillageAltar;
-import models.gameInfo.VillageManager.Houses.base.HouseVillageBase;
-import models.gameInfo.VillageManager.Houses.mines.HouseVillageBakeshop;
-import models.gameInfo.VillageManager.Houses.mines.HouseVillageMineGems;
-import models.gameInfo.VillageManager.Houses.mines.HouseVillageMineGold;
+import models.gameInfo.managerVillage.Houses.HouseVillageAltar;
+import models.gameInfo.managerVillage.Houses.base.EHouseVillageState;
+import models.gameInfo.managerVillage.Houses.base.EHouseVillageType;
+import models.gameInfo.managerVillage.Houses.base.HouseVillageBase;
+import models.gameInfo.managerVillage.Houses.mines.HouseVillageBakeshop;
+import models.gameInfo.managerVillage.Houses.mines.HouseVillageMineGems;
+import models.gameInfo.managerVillage.Houses.mines.HouseVillageMineGold;
 
 public class VillageManager
 {

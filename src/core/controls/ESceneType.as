@@ -5,8 +5,10 @@
  * Time: 2:46 PM
  * To change this template use File | Settings | File Templates.
  */
-package controllers.scenes.base
+package core.controls
 {
+
+//! Please provide your types
 public class ESceneType
 {
     public static const EST_GAME:ESceneType = new ESceneType();

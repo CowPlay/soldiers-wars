@@ -5,7 +5,7 @@
  * Time: 2:02 PM
  * To change this template use File | Settings | File Templates.
  */
-package models.gameInfo.MoneyManager
+package models.gameInfo.managerMoney
 {
 public class MoneyManager
 {

@@ -10,24 +10,26 @@ package controllers.scenes.village
 import com.greensock.plugins.ScrollRectPlugin;
 import com.greensock.plugins.TweenPlugin;
 
-import controllers.scenes.base.ESceneType;
-import controllers.scenes.base.SceneBase;
-import controllers.scenes.base.views.ScrollContainer;
+import core.controls.ControlScroll;
+import core.controls.ESceneType;
+import controllers.scenes.base.ControlScene;
+
+import core.Utils;
 
 import flash.display.Sprite;
 import flash.events.MouseEvent;
 import flash.filters.GlowFilter;
 
-import models.gameInfo.VillageManager.Houses.base.EHouseVillageType;
+import models.gameInfo.managerVillage.Houses.base.EHouseVillageType;
 
-public class SceneVillage extends SceneBase
+public class SceneVillage extends ControlScene
 {
     /*
      * Fields
      */
     //scene
     private var _sceneView:gSceneVillage;
-    private var _rootViewScroll:ScrollContainer;
+    private var _rootViewScroll:ControlScroll;
 
     //ui
     private var _popup:gPopup;
@@ -38,6 +40,7 @@ public class SceneVillage extends SceneBase
     protected var _controlBottom:gControlBottom;
     protected var _controlMultiplayer:gControlMultiPlayer;
     protected var _controlSingleplayer:gControlSinglePlayer;
+    protected var _controlAddFriend:gControlAddFriend;
 
 
     /*
@@ -59,14 +62,14 @@ public class SceneVillage extends SceneBase
 
         _sceneView = new gSceneVillage();
 
-        _rootViewScroll = new ScrollContainer(_sceneView, _appHelper.applicationSize);
+        _rootViewScroll = new ControlScroll(_sceneView, appHelper.applicationSize, this);
 
         _layerScene.addChild(_rootViewScroll);
 
-        _villageManager.getHouseByType(EHouseVillageType.EHVT_ALTAR).view = _sceneView.buttonHouseAltar;
+        villageManager.getHouseByType(EHouseVillageType.EHVT_ALTAR).view = _sceneView.buttonHouseAltar;
         _sceneView.buttonHouseAltar.filters = [new GlowFilter(0x00CC00)];
 
-        _villageManager.getHouseByType(EHouseVillageType.EHVT_MINE_GOLD).view = _sceneView.buttonHouseMineGold;
+        villageManager.getHouseByType(EHouseVillageType.EHVT_MINE_GOLD).view = _sceneView.buttonHouseMineGold;
 //        GameInfo.Instance.villageManager.getHouseByType(EHouseVillageType.EHVT_CASTLE).view = _sceneView.buttonHouseCastle;
 //        GameInfo.Instance.villageManager.getHouseByType(EHouseVillageType.EHVT_MARKET).view = _sceneView.buttonHouseMarket;
 //        GameInfo.Instance.villageManager.getHouseByType(EHouseVillageType.EHVT_MILITARY_ACADEMY).view = _sceneView.buttonHouseMilitaryAcademy;
@@ -80,7 +83,7 @@ public class SceneVillage extends SceneBase
             _controlBottomStrip = new Sprite();
 
             _controlBottomStrip.graphics.beginFill(0x000000, 0.8);
-            _controlBottomStrip.graphics.drawRect(0, 0, _appHelper.screenResolution.x, 45);
+            _controlBottomStrip.graphics.drawRect(0, 0, appHelper.screenResolution.x, 45);
             _controlBottomStrip.graphics.endFill();
 
             _layerUI.addChild(_controlBottomStrip);
@@ -95,6 +98,9 @@ public class SceneVillage extends SceneBase
 
             _controlSingleplayer = new gControlSinglePlayer();
             _layerUI.addChild(_controlSingleplayer);
+
+            _controlAddFriend = new gControlAddFriend();
+            _layerUI.addChild(_controlAddFriend);
         }
 
         _popup = new gPopup();
@@ -102,46 +108,36 @@ public class SceneVillage extends SceneBase
         _layerUI.addChild(_popup);
     }
 
-    //! Place all views here
-    protected override function placeViews():void
-    {
-        super.placeViews();
 
-        updateViewsPositions();
-
-        //hide popup
-        _popup.visible = false;
-        _popup.y = -_popup.height;
-    }
 
     private function updateViewsPositions():void
     {
-        _popup.x = _appHelper.applicationSize.x / 2 - _popup.width / 2;
+        _popup.x = appHelper.applicationSize.x / 2 - _popup.width / 2;
 
+        Utils.alignHorizontal(_controlMultiplayer, 0.2, 0.5);
+        Utils.alignVertical(_controlMultiplayer, 1, 1);
 
-        alignHorizontal(_controlMultiplayer, 0.2, 0.5);
-        alignVertical(_controlMultiplayer, 1, 1);
+        Utils.alignHorizontal(_controlBottom, 0.5, 0.5);
+        Utils.alignVertical(_controlBottom, 1, 1);
 
-        alignHorizontal(_controlBottom, 0.5, 0.5);
-        alignVertical(_controlBottom, 1, 1);
+        Utils.alignHorizontal(_controlSingleplayer, 0.8, 0.5);
+        Utils.alignVertical(_controlSingleplayer, 1, 1);
 
-        alignHorizontal(_controlSingleplayer, 0.8, 0.5);
-        alignVertical(_controlSingleplayer, 1, 1);
+        Utils.alignVertical(_controlBottomStrip, 1, 1);
 
-        alignVertical(_controlBottomStrip, 1, 1);
+        Utils.alignHorizontal(_controlAddFriend, 0.05, 0.5);
+        Utils.alignVertical(_controlAddFriend, 1, 1.2);
     }
 
     public function onClick(e:MouseEvent):void
     {
-        _appHelper.fullScreenEnable = !_appHelper.fullScreenEnable;
-
 //        _popup.visible = true;
 //        TweenLite.to(_popup, 1.25, { y: -_popup.height * 0.1, ease: Back.easeOut});
     }
 
     public static function didButtonChangeSceneClicked():void
     {
-        SceneBase.setScene(ESceneType.EST_GAME_MAP);
+        ControlScene.setScene(ESceneType.EST_GAME_MAP);
     }
 
     /*
@@ -169,14 +165,26 @@ public class SceneVillage extends SceneBase
     }
 
     /*
-     * Event handlers
+     * IControl
      */
+
+    //! Place all views here
+    public override function placeViews():void
+    {
+        super.placeViews();
+
+        updateViewsPositions();
+
+        //hide popup
+        _popup.visible = false;
+        _popup.y = -_popup.height;
+    }
 
     public override function onDisplayStateChanged(isFullScreenNow:Boolean):void
     {
         super.onDisplayStateChanged(isFullScreenNow);
 
-        _rootViewScroll.containerSize = isFullScreenNow ? _appHelper.screenResolution : _appHelper.applicationSize;
+        _rootViewScroll.containerSize = isFullScreenNow ? appHelper.screenResolution : appHelper.applicationSize;
 
         updateViewsPositions();
     }

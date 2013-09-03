@@ -9,9 +9,9 @@ package models.gameInfo
 {
 import core.Debug;
 
-import models.gameInfo.AppHelper.AppHelper;
-import models.gameInfo.MoneyManager.MoneyManager;
-import models.gameInfo.VillageManager.VillageManager;
+import models.gameInfo.managerApp.AppHelper;
+import models.gameInfo.managerMoney.MoneyManager;
+import models.gameInfo.managerVillage.VillageManager;
 
 public class GameInfo
 {

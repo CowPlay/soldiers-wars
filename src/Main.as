@@ -1,18 +1,16 @@
 package
 {
 
-import controllers.scenes.base.ESceneType;
-import controllers.scenes.base.SceneBase;
+import core.controls.ESceneType;
+import controllers.scenes.base.ControlScene;
 
 import flash.display.DisplayObject;
 import flash.display.MovieClip;
 import flash.display.Shape;
 import flash.display.Stage;
 import flash.display.StageAlign;
-import flash.display.StageDisplayState;
 import flash.display.StageScaleMode;
 import flash.events.Event;
-import flash.events.MouseEvent;
 import flash.system.Security;
 import flash.ui.ContextMenu;
 
@@ -173,13 +171,13 @@ public class Main extends MovieClip
     {
         nextFrame();
         //add root view of all scenes
-        addChild(SceneBase.rootView);
+        addChild(ControlScene.rootView);
 
         //init model
         var gi:GameInfo = GameInfo.Instance;
 
         //init view+controller
-        SceneBase.setScene(ESceneType.EST_VILLAGE);
+        ControlScene.setScene(ESceneType.EST_VILLAGE);
     }
 }
 }
