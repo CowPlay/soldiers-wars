@@ -19,6 +19,7 @@ import controllers.scenes.village.SceneVillage;
 
 import core.Debug;
 import core.Utils;
+import core.socialApi.SocialNetworkManager;
 
 import flash.display.MovieClip;
 
@@ -43,6 +44,7 @@ public class ControlScene extends ControlBase
     private static var _appHelper:AppHelper;
     private static var _moneyManager:MoneyManager;
     private static var _villageManager:VillageManager;
+    private static var _socialManager:SocialNetworkManager;
 
     /*
      * Static properties
@@ -76,6 +78,11 @@ public class ControlScene extends ControlBase
     public static function get villageManager():VillageManager
     {
         return _villageManager;
+    }
+
+    public static function get socialManager():SocialNetworkManager
+    {
+        return _socialManager;
     }
 
     /*

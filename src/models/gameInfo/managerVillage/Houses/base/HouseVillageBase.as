@@ -131,7 +131,7 @@ public class HouseVillageBase implements IDisposable
         {
             case  EHouseVillageState.EHVS_OPEN:
             {
-                trace("show info");
+                Debug.log("show info");
                 break;
             }
             case EHouseVillageState.EHVS_CLOSED:

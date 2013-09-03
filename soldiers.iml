@@ -11,11 +11,14 @@
             <entry library-name="greensock" library-level="application">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="graphAPI_Web_1.8.1" library-level="application">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="flex_4.6" />
         </dependencies>
         <compiler-options>
-          <option name="additionalOptions" value="-frame=Preloader,Main -define+=SOCIAL::FACEBOOK,true -define+=SOCIAL::VK,false -define+=SOCIAL::OK,false -define+=SOCIAL::MM,false -define+=CONFIG::DEBUG,true" />
+          <option name="additionalOptions" value="-frame=Preloader,Main -define+=SOCIAL::FACEBOOK,true -define+=SOCIAL::VK,false -define+=SOCIAL::OK,false -define+=SOCIAL::MM,false -define+=SOCIAL::OFFLINE,false -define+=CONFIG::DEBUG,true" />
         </compiler-options>
         <packaging-air-desktop />
         <packaging-android />
@@ -30,6 +33,9 @@
             <entry library-name="greensock" library-level="application">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="graphAPI_Web_1.8.1" library-level="application">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="flex_4.6" />
         </dependencies>
@@ -37,7 +43,7 @@
           <map>
             <entry key="compiler.debug.swf" value="false" />
           </map>
-          <option name="additionalOptions" value="-define+=SOCIAL::FACEBOOK,true -define+=SOCIAL::VK,false -define+=SOCIAL::OK,false -define+=SOCIAL::MM,false -define+=CONFIG::DEBUG,false" />
+          <option name="additionalOptions" value="-define+=SOCIAL::FACEBOOK,true -define+=SOCIAL::VK,false -define+=SOCIAL::OK,false -define+=SOCIAL::MM,false -define+=SOCIAL::OFFLINE,false -define+=CONFIG::DEBUG,false" />
         </compiler-options>
         <packaging-air-desktop />
         <packaging-android />
@@ -52,11 +58,61 @@
             <entry library-name="greensock" library-level="application">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="graphAPI_Web_1.8.1" library-level="application">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="flex_4.6" />
         </dependencies>
         <compiler-options>
-          <option name="additionalOptions" value="-define+=SOCIAL::FACEBOOK,false -define+=SOCIAL::VK,true -define+=SOCIAL::OK,false -define+=SOCIAL::MM,false -define+=CONFIG::DEBUG,true" />
+          <option name="additionalOptions" value="-define+=SOCIAL::FACEBOOK,false -define+=SOCIAL::VK,true -define+=SOCIAL::OK,false -define+=SOCIAL::MM,false -define+=SOCIAL::OFFLINE,false -define+=CONFIG::DEBUG,true" />
+        </compiler-options>
+        <packaging-air-desktop />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
+      <configuration name="offline.debug" pure-as="true" main-class="Main" output-file="offline_debug.swf" output-folder="$MODULE_DIR$/html/facebook/debug/out">
+        <dependencies target-player="11.1">
+          <entries>
+            <entry library-name="assets" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="greensock" library-level="application">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="graphAPI_Web_1.8.1" library-level="application">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="flex_4.6" />
+        </dependencies>
+        <compiler-options>
+          <option name="additionalOptions" value="-frame=Preloader,Main -define+=SOCIAL::FACEBOOK,false -define+=SOCIAL::VK,false -define+=SOCIAL::OK,false -define+=SOCIAL::MM,false -define+=SOCIAL::OFFLINE,true -define+=CONFIG::DEBUG,true" />
+        </compiler-options>
+        <packaging-air-desktop />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
+      <configuration name="offline.release" pure-as="true" main-class="Main" output-file="offline_release.swf" output-folder="$MODULE_DIR$/html/facebook/release/out">
+        <dependencies target-player="11.1">
+          <entries>
+            <entry library-name="assets" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="greensock" library-level="application">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="graphAPI_Web_1.8.1" library-level="application">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="flex_4.6" />
+        </dependencies>
+        <compiler-options>
+          <map>
+            <entry key="compiler.debug.swf" value="false" />
+          </map>
+          <option name="additionalOptions" value="-define+=SOCIAL::FACEBOOK,false -define+=SOCIAL::VK,false -define+=SOCIAL::OK,false -define+=SOCIAL::MM,false -define+=SOCIAL::OFFLINE,true -define+=CONFIG::DEBUG,false" />
         </compiler-options>
         <packaging-air-desktop />
         <packaging-android />
@@ -75,6 +131,7 @@
     <orderEntry type="library" exported="" name="libs" level="project" />
     <orderEntry type="library" exported="" name="assets" level="project" />
     <orderEntry type="library" exported="" name="greensock" level="application" />
+    <orderEntry type="library" exported="" name="graphAPI_Web_1.8.1" level="application" />
   </component>
 </module>
 

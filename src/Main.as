@@ -1,6 +1,7 @@
 package
 {
 
+import core.Debug;
 import core.controls.ESceneType;
 import controllers.scenes.base.ControlScene;
 
@@ -65,8 +66,13 @@ public class Main extends MovieClip
         {
             buildConfigurationStr = StringUtil.substitute("build configuration: vk.{0}", CONFIG::DEBUG ? "debug" : "release")
         }
+        else if (SOCIAL::OFFLINE)
+        {
+            buildConfigurationStr = StringUtil.substitute("build configuration: offline.{0}", CONFIG::DEBUG ? "debug" : "release")
+        }
 
-        trace(buildConfigurationStr);
+        Debug.log(buildConfigurationStr);
+
     }
 
     private function init(e:Event = null):void
@@ -131,7 +137,6 @@ public class Main extends MovieClip
     // this function may never be called if the load is instant
     private function beginLoading():void
     {
-        trace("begin Loading");
         _preloaderBackground = new Shape();
         _preloaderBackground.graphics.beginFill(0x333333);
         _preloaderBackground.graphics.lineStyle(2, 0x000000);

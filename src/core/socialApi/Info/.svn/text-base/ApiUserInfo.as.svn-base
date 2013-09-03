@@ -1,0 +1,39 @@
+package Api.Info 
+{
+	import flash.display.Bitmap;
+	import flash.display.Loader;
+	import flash.events.IOErrorEvent;
+	import flash.net.URLRequest;
+	/**
+	 * ...
+	 * @author me
+	 */
+	public class ApiUserInfo 
+	{
+		public var id			: String;
+		public var lastName		: String;
+		public var firstName	: String;
+		public var picUrl		: String;
+		public var installed	: Boolean;
+		public var pic			: Loader;
+		
+		public function ApiUserInfo() 
+		{
+			
+		}
+		
+		public function loadPicture(): void {
+			if (!picUrl || picUrl == "")
+				return;
+				
+			pic	= new Loader();
+			pic.load(new URLRequest(picUrl));
+			pic.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, picErrorHandler);
+		}
+		
+		private function picErrorHandler(e:IOErrorEvent):void {
+			
+		}
+	}
+
+}

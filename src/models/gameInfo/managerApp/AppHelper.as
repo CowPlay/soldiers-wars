@@ -82,7 +82,7 @@ public class AppHelper extends Sprite
         Main.stageValue.displayState = _fullScreenEnable ? StageDisplayState.FULL_SCREEN_INTERACTIVE : StageDisplayState.NORMAL;
 
         _applicationSize = _fullScreenEnable ? _screenResolution : new Point(Main.stageValue.stageWidth, Main.stageValue.stageHeight);
-        trace(StringUtil.substitute("Application size: {0}x{1}", _applicationSize.x, _applicationSize.y));
+        Debug.log(StringUtil.substitute("Application size: {0}x{1}", _applicationSize.x, _applicationSize.y));
 
         ControlScene.currentScene.onDisplayStateChanged(_fullScreenEnable);
     }
@@ -102,21 +102,21 @@ public class AppHelper extends Sprite
         removeEventListener(Event.ADDED_TO_STAGE, init);
 
         _applicationSize = new Point(Main.stageValue.stageWidth, Main.stageValue.stageHeight);
-        trace(StringUtil.substitute("Application size: {0}x{1}", _applicationSize.x, _applicationSize.y));
+        Debug.log(StringUtil.substitute("Application size: {0}x{1}", _applicationSize.x, _applicationSize.y));
 
         _screenResolution = new Point(Capabilities.screenResolutionX, Capabilities.screenResolutionY);
-        trace(StringUtil.substitute("Screen resolution: {0}x{1}", _screenResolution.x, _screenResolution.y));
+        Debug.log(StringUtil.substitute("Screen resolution: {0}x{1}", _screenResolution.x, _screenResolution.y));
 
         _screenAspectRatio = this.screenResolution.x / this.screenResolution.y;
-        trace(StringUtil.substitute("Screen aspect ratio: {0}", _screenAspectRatio));
+        Debug.log(StringUtil.substitute("Screen aspect ratio: {0}", _screenAspectRatio));
 
         var fullPath:String = unescape(Main.rootValue.loaderInfo.url);
 
         _currentDirectory = fullPath.substring(0, fullPath.lastIndexOf("/") + 1);
-        trace(StringUtil.substitute("Current directory: {0}", _currentDirectory));
+        Debug.log(StringUtil.substitute("Current directory: {0}", _currentDirectory));
 
         _applicationName = fullPath.substring(fullPath.lastIndexOf("/") + 1, fullPath.length);
-        trace(StringUtil.substitute("Application name: {0}", _applicationName));
+        Debug.log(StringUtil.substitute("Application name: {0}", _applicationName));
 
         //detect "ESC" key
         Main.stageValue.addEventListener(FullScreenEvent.FULL_SCREEN, onFullscreenModeChanged);

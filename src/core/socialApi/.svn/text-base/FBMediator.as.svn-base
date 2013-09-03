@@ -1,0 +1,315 @@
+package Api
+{
+import Api.Info.ApiUserInfo;
+
+import com.demonsters.debugger.MonsterDebugger;
+import com.facebook.graph.Facebook;
+
+import flash.display.DisplayObject;
+
+import mx.utils.StringUtil;
+
+/**
+ * ...
+ * @author me
+ */
+public class FBMediator implements IMediator
+{
+    private const APP_ID:String = "341522739302403";
+
+    private var _callback:Function;
+    private var _callbackError:Function;
+    private var _flashVars:Object;
+
+    private var _userInfo:ApiUserInfo;
+    private var _friendsList:Array;
+    private var _userId:String;
+
+    private var _apiConnector:APIConnector;
+
+    public function FBMediator()
+    {
+
+    }
+
+    public function init(stage:DisplayObject, completeCallback:Function, errorCallback:Function):void
+    {
+        _apiConnector = APIConnector.getInstance();
+        _callback = completeCallback;
+        _callbackError = errorCallback;
+
+        MonsterDebugger.trace(this, "ver. 3.0.3");
+        MonsterDebugger.trace(this, "starting FB init");
+
+        Facebook.init(APP_ID, onInitComplete);
+    }
+
+    private function onInitComplete(response:Object, fail:Object):void
+    {
+        MonsterDebugger.trace(this, "init done");
+        MonsterDebugger.trace(this, response);
+
+        if (response)
+        { //already logged in because of existing session
+            MonsterDebugger.trace(this, "Logged In");
+
+            getMyInfo();
+        }
+        else
+        {
+            MonsterDebugger.trace(this, "Not Logged In");
+            MonsterDebugger.trace(this, "starting FB Login");
+
+//                var options:Object = {perms:"publish_stream"};
+
+            Facebook.login(onLoginComplete, null);
+        }
+    }
+
+    private function onLoginComplete(response:Object, fail:Object):void
+    {
+        MonsterDebugger.trace(this, "login done");
+        MonsterDebugger.trace(this, response);
+
+        if (response)
+        {
+            MonsterDebugger.trace(this, response);
+            MonsterDebugger.trace(this, "Logged In");
+        }
+        else
+        {
+            MonsterDebugger.trace(this, "Login Failed");
+            MonsterDebugger.trace(this, response);
+
+            return;
+        }
+
+        getMyInfo();
+    }
+
+    private function getMyInfo():void
+    {
+        MonsterDebugger.trace(this, "starting get my info");
+        Facebook.api('/me', onMyInfoComplete, {fields: "id, first_name, last_name, picture"});
+    }
+
+
+    private function onMyInfoComplete(response:Object, fail:Object):void
+    {
+        MonsterDebugger.trace(this, "my info complete");
+        MonsterDebugger.trace(this, response);
+
+        if (!response || !(response is Object))
+        {
+            callErrorFunction();
+            return;
+        }
+
+        _userInfo = parseUserInfo(response);
+
+        if (!_userInfo)
+        {
+            callErrorFunction();
+            return;
+        }
+
+        _userId = _userInfo.id;
+
+
+        {//get friends info
+            MonsterDebugger.trace(this, "starting getFriendsInfo");
+            Facebook.api('/me/friends', onFriendsInfoComplete, {fields: "id, first_name, last_name, picture, installed"});
+        }
+    }
+
+    private function onFriendsInfoComplete(response:Object, fail:Object):void
+    {
+        var list:Array;
+
+        MonsterDebugger.trace(this, "get friendsInfo done");
+        MonsterDebugger.trace(this, response);
+
+        list = parseFriendsInfo(response as Object);
+
+        if (!list)
+        {
+            callErrorFunction();
+            return;
+        }
+
+        _friendsList = [];
+
+        for (var i:int = 0; i < list.length; i++)
+        {
+            if ((list[i] as ApiUserInfo).installed)
+                _friendsList.push(list[i]);
+
+            list[i].loadPicture();
+        }
+
+        _friendsList = _friendsList.slice(0, 100);
+
+        callCompleteFunction();
+    }
+
+    private function parseFriendsInfo(friendsInfoObj:Object):Array
+    {
+        var result:Array = null;
+
+        if (!friendsInfoObj || !(friendsInfoObj is Array))
+            return result;
+
+        var friendsInfo:Array = friendsInfoObj as Array;
+
+        result = [];
+
+        for (var i:int = 0; i < friendsInfo.length; i++)
+            result.push(parseUserInfo(friendsInfo[i]));
+
+        return result;
+    }
+
+
+    private static function parseUserInfo(info:Object):ApiUserInfo
+    {
+        var result:ApiUserInfo = null;
+
+        if (info)
+        {
+            result = new ApiUserInfo();
+            result.firstName = info.first_name as String;
+            result.id = info.id as String;
+            result.lastName = info.last_name as String;
+            result.picUrl = info.picture ? (info.picture.data ? info.picture.data.url as String : null) : null;
+            result.installed = info.installed ? true : false;
+        }
+
+        return result;
+    }
+
+    private function callCompleteFunction():void
+    {
+        if (_callback != null)
+            _callback();
+    }
+
+    private function callErrorFunction():void
+    {
+        if (_callbackError != null)
+            _callbackError();
+    }
+
+    public function getFriendsList():Array
+    {
+        return _friendsList;
+    }
+
+    public function getUserId():String
+    {
+        return _userId;
+    }
+
+    public function getUserInfo():ApiUserInfo
+    {
+        return _userInfo;
+    }
+
+    public function getFlashVars():Object
+    {
+        return _flashVars;
+    }
+
+    public function showInviteFriendsWindow(onComplete:Function, onError:Function):void
+    {
+        MonsterDebugger.trace(this, "show Invite Friends Dialog");
+        Facebook.ui("apprequests", { message: "Invite friends" }, onShowInviteFriendsWindowComplete);
+    }
+
+    private function onShowInviteFriendsWindowComplete(resp:*):void
+    {
+        MonsterDebugger.trace(this, "show Invite Friends Dialog done");
+        MonsterDebugger.trace(this, resp);
+    }
+
+    public function getTotalFriends(uid:String = "", count:int = 0, offset:int = 0):void
+    {
+        MonsterDebugger.trace(this, "get total Friends");
+        Facebook.api('/me/friends', totalFriendsComplete, {fields: "id, first_name, last_name, picture"});
+    }
+
+    private function totalFriendsComplete(response:Object, fail:Object):void
+    {
+        var arrFriends:Array;
+        var event:APIEvent;
+
+        MonsterDebugger.trace(this, "get total Friends done");
+        MonsterDebugger.trace(this, response);
+
+        arrFriends = parseFriendsInfo(response as Object);
+        if (!arrFriends)
+        {
+            _apiConnector.dispatchEvent(new APIEvent(APIEvent.GET_FRIENDS_FAIL));
+            return;
+        }
+
+        event = new APIEvent(APIEvent.GET_FRIENDS_SUCCESS);
+        event.users = arrFriends;
+        _apiConnector.dispatchEvent(event);
+    }
+
+    public function postToWall(titleText:String, messageText:String, picUrl:String, linkUrl:String = "", ownerId:String = ""):void
+    {
+        var param:Object =
+        {
+            link: linkUrl,
+            picture: picUrl,
+            name: "Happy Catch",
+            caption: titleText,
+            description: messageText
+        };
+
+        MonsterDebugger.trace(this, "wallpost:");
+        MonsterDebugger.trace(this, param);
+        Facebook.ui("feed", param, onPostToWallComplete);
+        //Facebook.api("/me/feed", onPostToWallComplete, param, "POST");
+    }
+
+    private function onPostToWallComplete(response:*):void
+    {
+        MonsterDebugger.trace(this, "wallpost done");
+        MonsterDebugger.trace(this, response);
+    }
+
+    public function transferVotes(money:Number, votes:Number, onComplete:Function, onError:Function):void
+    {
+        var productLink:String = StringUtil.substitute("http://www.tolenica.com/gremlins/og/currency_euro_pack_{0}.html", money);
+
+        var param:Object =
+        {
+            action: "purchaseitem",
+            product: productLink
+        };
+
+        _callback = onComplete;
+        _callbackError = onError;
+
+        Facebook.ui("pay", param, onTransferVoteComplete);
+    }
+
+    private function onTransferVoteComplete(response:*):void
+    {
+        MonsterDebugger.trace(this, "transfer vote complete");
+
+        if (response.error_code)
+        {
+            if (_callbackError != null)
+                _callbackError();
+        }
+        else  //purchasing success
+        {
+            if (_callback != null)
+                _callback();
+        }
+    }
+}
+}

@@ -8,6 +8,7 @@
 package models.gameInfo
 {
 import core.Debug;
+import core.socialApi.SocialNetworkManager;
 
 import models.gameInfo.managerApp.AppHelper;
 import models.gameInfo.managerMoney.MoneyManager;
@@ -41,6 +42,7 @@ public class GameInfo
     private var _appHelper:AppHelper;
     private var _villageManager:VillageManager;
     private var _moneyManager:MoneyManager;
+    private var _socialManager:SocialNetworkManager;
 
 
     //game
@@ -66,6 +68,11 @@ public class GameInfo
     public function get moneyManager():MoneyManager
     {
         return _moneyManager;
+    }
+
+    public function get socialManager():SocialNetworkManager
+    {
+        return _socialManager;
     }
 //
 //    public function get currentGame():GameBase
@@ -119,6 +126,7 @@ public class GameInfo
         _appHelper = new AppHelper();
         _villageManager = new VillageManager();
         _moneyManager = new MoneyManager();
+        _socialManager = new SocialNetworkManager();
     }
 
 }

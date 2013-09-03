@@ -57,6 +57,11 @@ public class Debug
         }
     }
 
+    public static function log(message:String):void
+    {
+        trace(message);
+    }
+
 
 }
 }

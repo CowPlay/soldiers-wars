@@ -1,0 +1,367 @@
+package Api
+{
+import Api.Info.ApiUserInfo;
+import Api.vk.APIConnection;
+
+import com.demonsters.debugger.MonsterDebugger;
+
+import flash.display.Bitmap;
+import flash.display.BitmapData;
+import flash.display.DisplayObject;
+import flash.display.Loader;
+import flash.display.LoaderInfo;
+import flash.events.Event;
+import flash.events.IOErrorEvent;
+import flash.net.URLRequest;
+import flash.system.LoaderContext;
+import flash.utils.ByteArray;
+
+/**
+ * ...
+ * @author me
+ */
+internal class VKMediator implements IMediator
+{
+    private var _callback:Function;
+    private var _callbackError:Function;
+    private var _flashVars:Object;
+
+    private var _userInfo:ApiUserInfo;
+    private var _friendsList:Array;
+    private var _userId:String;
+
+    private var _callbackPicture:Function;
+    private var _picsLoader:Loader;
+    private var _context:LoaderContext;
+    private var _friendsUids:Array;
+    private var _currFriend:Number;
+
+    private var _apiConnector:APIConnector;
+    private var _vkConnector:APIConnection;
+
+    public function VKMediator()
+    {
+    }
+
+    public function init(stage:DisplayObject, completeCallback:Function, errorCallback:Function):void
+    {
+        _callback = completeCallback;
+        _callbackError = errorCallback;
+        _flashVars = stage.loaderInfo.parameters;
+        _apiConnector = APIConnector.getInstance();
+
+        if (!_flashVars.viewer_id)
+        {
+            /*_flashVars.viewer_id = "138097180";
+             _flashVars.api_id = "3199236";
+             _flashVars.auth_key = "fcd9732201a6189c9b9aee86f9e07d29";
+             _flashVars.secret = "a5e25fb22f";
+             _flashVars.api_url = "http://api.vk.com/api.php";
+             _flashVars.user_id = "181421777";
+             _flashVars.sid = "8a4fb7b83965005e4c1931f4057e17c6d294652f8cc858f46438a23b611a9b";*/
+
+            /*_flashVars.viewer_id = "181421777"; //ЛИСИН
+             _flashVars.api_id = "3282151";
+             _flashVars.auth_key = "7bc22b6717a2e5e7dd070322e14d0c58";
+             _flashVars.secret = "7468832880";
+             _flashVars.api_url = "http://api.vk.com/api.php";
+             _flashVars.user_id = "8660543";
+             _flashVars.sid = "eff12cb8ad2dbc9b736b9a9ac5513ff93273f806bbb28ad97a7ef3ccafc8d9";*/
+
+            _flashVars.viewer_id = "104424071"; //ME
+            _flashVars.api_id = "3183782";
+            _flashVars.auth_key = "b67dfdc7e179f5694174e348c4392e26";
+            _flashVars.secret = "8944aac4b6";
+            _flashVars.api_url = "http://api.vk.com/api.php";
+            _flashVars.user_id = "104424071";
+            _flashVars.sid = "59186844ad6ebaafd1b2e8fb81fcd10f5e5c9b480e575f0240ae47ea04b3f2bd5100a0232dddbabbf05ca";
+        }
+        _userId = _flashVars.viewer_id;
+
+        _context = new LoaderContext(true);
+        _picsLoader = new Loader();
+        _picsLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, picLoadHandler);
+        _picsLoader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, picErrorHandler);
+
+        _vkConnector = new APIConnection(_flashVars);
+
+        MonsterDebugger.trace(this, "END VK INIT");
+
+        getUserFriends();
+    }
+
+    private function onError(response:*):void
+    {
+        trace("some API error");
+        callErrorFunction();
+    }
+
+    private function callCompleteFunction():void
+    {
+        if (_callback != null)
+            _callback();
+    }
+
+    private function callErrorFunction():void
+    {
+        MonsterDebugger.trace(this, "CALL ERROR FUNCTION");
+        if (_callbackError != null)
+            _callbackError();
+    }
+
+    private function getMainUser(users:Array):void
+    {
+        for (var i:int = 0; i < users.length; i++)
+            if (users[i].id == _userId)
+            {
+                _userInfo = users[i];
+                users.splice(i, 1);
+                break;
+            }
+    }
+
+    private function getUserFriends():void
+    {
+        MonsterDebugger.trace(this, "USER FRIENDS GETTED");
+        _vkConnector.api("friends.getAppUsers", { }, friendsIdsHandler, onError);
+    }
+
+    private function friendsIdsHandler(response:Array):void
+    {
+        var uids:String;
+        MonsterDebugger.trace(this, "FRIENDS IDS HANDLER");
+
+        if (!response)
+        {
+            callErrorFunction();
+            return;
+        }
+
+        _friendsUids = response;
+        uids = _userId;
+        if (_friendsUids && _friendsUids.length)
+            uids += "," + _friendsUids.join(",");
+
+        _vkConnector.api("users.get", { uids: uids, fields: "uid,first_name,last_name,photo" }, getFriendIdsHandler, onError);
+    }
+
+    private function getFriendIdsHandler(response:Array):void
+    {
+        var friendInfo:ApiUserInfo;
+        MonsterDebugger.trace(this, "GET FRIENDS IDS HANDLER");
+        if (!response || !response.length)
+        {
+            callErrorFunction();
+            return;
+        }
+
+        _friendsList = [];
+        for (var i:int = 0; i < response.length; i++)
+        {
+            friendInfo = new ApiUserInfo();
+            friendInfo.firstName = response[i].first_name;
+            friendInfo.lastName = response[i].last_name;
+            friendInfo.picUrl = response[i].photo;
+            friendInfo.id = response[i].uid;
+            friendInfo.loadPicture();
+
+            _friendsList.push(friendInfo);
+        }
+
+        getMainUser(_friendsList);
+        callCompleteFunction();
+
+        //_currFriend	= 0;
+        //loadPicture(_friendsList[0].picUrl, friendPicLoaded);
+    }
+
+    private function friendPicLoaded(picture:Bitmap):void
+    {
+        if (picture)
+            _friendsList[_currFriend].pic = picture;
+
+        _currFriend++;
+        if (_currFriend < _friendsList.length)
+            loadPicture(_friendsList[_currFriend].picUrl, friendPicLoaded);
+        else
+        {
+            getMainUser(_friendsList);
+            callCompleteFunction();
+        }
+    }
+
+    private function loadPicture(url:String, callback:Function):void
+    {
+        _callbackPicture = callback;
+        _picsLoader.load(new URLRequest(url));
+    }
+
+    private function picErrorHandler(e:IOErrorEvent):void
+    {
+        trace("picture loading error");
+        _callbackPicture(null);
+    }
+
+    private function loader2ByteArray(event:Event):void
+    {
+        var lInfo:LoaderInfo = LoaderInfo(event.target);
+        var ba:ByteArray = lInfo.bytes;
+        var reloader:Loader = new Loader();
+        reloader.loadBytes(ba);
+        reloader.contentLoaderInfo.addEventListener(Event.COMPLETE, picLoadHandler);
+    }
+
+    private function picLoadHandler(e:Event):void
+    {
+        var imageInfo:LoaderInfo;
+        var bmd:BitmapData
+        var bitmap:Bitmap;
+
+        try
+        {
+            imageInfo = LoaderInfo(e.target);
+            bmd = new BitmapData(imageInfo.width, imageInfo.height);
+            bmd.draw(imageInfo.loader.content);
+            bitmap = new Bitmap(bmd);
+            if (_callbackPicture != null)
+                _callbackPicture(bitmap);
+        }
+        catch (e:Error)
+        {
+            MonsterDebugger.trace(this, "pic DRAWED ERROR" + e.message);
+            _callbackPicture(null);
+        }
+    }
+
+    public function getTotalFriends(uid:String = "", count:int = 0, offset:int = 0):void
+    {
+        var params:Object;
+
+        params = new Object();
+        if (uid != "") params.uid = uid;
+        if (count) params.count = count;
+        if (offset) params.offset = offset;
+        params.fields = "uid,first_name,last_name,photo_big";
+
+        _vkConnector.api("friends.get", params, friendsGetHandler, friendsGetError);
+    }
+
+    private function friendsGetError(response:*):void
+    {
+        _apiConnector.dispatchEvent(new APIEvent(APIEvent.GET_FRIENDS_FAIL));
+    }
+
+    private function friendsGetHandler(response:*):void
+    {
+        var event:APIEvent;
+
+        if (!response || !(response is Array))
+        {
+            _apiConnector.dispatchEvent(new APIEvent(APIEvent.GET_FRIENDS_FAIL));
+            return;
+        }
+
+        event = new APIEvent(APIEvent.GET_FRIENDS_SUCCESS);
+        event.users = getUsersInfo(response as Array);
+        _apiConnector.dispatchEvent(event);
+    }
+
+    private function getUsersInfo(apiInfo:Array):Array
+    {
+        var users:Array;
+
+        if (!apiInfo)
+            return null;
+
+        users = [];
+        for (var i:int = 0; i < apiInfo.length; i++)
+            users.push(getApiInfo(apiInfo[i]));
+
+        return users;
+    }
+
+    private function getApiInfo(info:Object):ApiUserInfo
+    {
+        var userInfo:ApiUserInfo;
+
+        userInfo = new ApiUserInfo();
+        userInfo.firstName = (info.first_name && info.first_name is String) ? info.first_name : "";
+        userInfo.lastName = (info.last_name && info.last_name is String) ? info.last_name : "";
+        userInfo.picUrl = (info.photo_big && info.photo_big is String) ? info.photo_big : "";
+        userInfo.id = info.uid ? String(info.uid) : "";
+
+        return userInfo;
+    }
+
+    public function getFriendsList():Array
+    {
+        return _friendsList;
+    };
+    public function getUserId():String
+    {
+        return _userId;
+    }
+
+    public function getUserInfo():ApiUserInfo
+    {
+        return _userInfo;
+    }
+
+    public function getFlashVars():Object
+    {
+        return _flashVars;
+    }
+
+    public function showInviteFriendsWindow(onComplete:Function, onError:Function):void
+    {
+        _callback = onComplete;
+        _callbackError = onError;
+        _vkConnector.callMethod("showInviteBox", { }, onInviteHandler, this.onError);
+    }
+
+    private function onInviteHandler(response:Object):void
+    {
+        callCompleteFunction();
+    }
+
+    public function postToWall(titleText:String, messageText:String, picUrl:String, linkUrl:String = "", ownerId:String = ""):void
+    {
+        var params:Object;
+
+        params = new Object();
+        if (ownerId != "") params.owner_id = ownerId;
+        params.attachments = picUrl;
+        params.message = messageText;
+
+        _vkConnector.api("wall.post", params, wallPostHandler, wallPostFail);
+    }
+
+    private function wallPostFail(resp:*):void
+    {
+
+    }
+
+    private function wallPostHandler(response:*):void
+    {
+
+    }
+
+    public function transferVotes(money:Number, votes:Number, onComplete:Function, onError:Function):void
+    {
+        var transferItem:String
+        transferItem = "euro" + money.toString();
+
+        _callback = onComplete;
+        _callbackError = onError;
+
+        _vkConnector.callMethod("showOrderBox", { type: 'item', item: transferItem });
+        _vkConnector.addEventListener("onOrderSuccess", orderSuccessHandler);
+    }
+
+    private function orderSuccessHandler(response:*):void
+    {
+        _vkConnector.removeEventListener("onOrderSuccess", orderSuccessHandler);
+        callCompleteFunction();
+    }
+}
+}
