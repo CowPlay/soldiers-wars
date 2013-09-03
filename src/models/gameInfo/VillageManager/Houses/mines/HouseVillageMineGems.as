@@ -9,6 +9,9 @@ package models.gameInfo.VillageManager.Houses.mines
 {
 import models.gameInfo.GameInfo;
 import models.gameInfo.VillageManager.Houses.*;
+import models.gameInfo.VillageManager.Houses.base.EHouseVillageState;
+import models.gameInfo.VillageManager.Houses.base.EHouseVillageType;
+import models.gameInfo.VillageManager.Houses.base.HouseVillageBase;
 
 public class HouseVillageMineGems extends HouseVillageBase
 {

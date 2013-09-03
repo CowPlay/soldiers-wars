@@ -15,7 +15,7 @@
           <sdk name="flex_4.6" />
         </dependencies>
         <compiler-options>
-          <option name="additionalOptions" value="-define+=SOCIAL::FACEBOOK,true -define+=SOCIAL::VK,false -define+=SOCIAL::OK,false -define+=SOCIAL::MM,false -define+=CONFIG::DEBUG,true" />
+          <option name="additionalOptions" value="-frame=Preloader,Main -define+=SOCIAL::FACEBOOK,true -define+=SOCIAL::VK,false -define+=SOCIAL::OK,false -define+=SOCIAL::MM,false -define+=CONFIG::DEBUG,true" />
         </compiler-options>
         <packaging-air-desktop />
         <packaging-android />
@@ -25,6 +25,9 @@
         <dependencies target-player="11.1">
           <entries>
             <entry library-name="assets" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="greensock" library-level="application">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -44,6 +47,9 @@
         <dependencies target-player="11.1">
           <entries>
             <entry library-name="assets" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="greensock" library-level="application">
               <dependency linkage="Merged" />
             </entry>
           </entries>

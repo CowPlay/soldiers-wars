@@ -36,6 +36,23 @@ public class ScrollContainer extends Sprite implements IDisposable
      * Properties
      */
 
+    public function get containerSize():Point
+    {
+        return _containerSize;
+    }
+
+    public function set containerSize(value:Point):void
+    {
+        if (_containerSize.equals(value))
+            return;
+
+        _containerSize = value;
+
+        scrollRect = new Rectangle(0, 0, _containerSize.x, _containerSize.y);
+
+        centerTarget();
+    }
+
     /*
      * Methods
      */
@@ -127,7 +144,8 @@ public class ScrollContainer extends Sprite implements IDisposable
         removeEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
         Main.stageValue.removeEventListener(MouseEvent.MOUSE_UP, onMouseUp);
         Main.stageValue.removeEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
-
     }
+
+
 }
 }

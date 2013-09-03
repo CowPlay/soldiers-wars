@@ -7,6 +7,8 @@
  */
 package models.gameInfo.AppHelper
 {
+import controllers.scenes.base.SceneBase;
+
 import core.Debug;
 
 import flash.display.Sprite;
@@ -77,6 +79,11 @@ public class AppHelper extends Sprite
         _fullScreenEnable = value;
 
         Main.stageValue.displayState = _fullScreenEnable ? StageDisplayState.FULL_SCREEN_INTERACTIVE : StageDisplayState.NORMAL;
+
+        _applicationSize = _fullScreenEnable ? _screenResolution : new Point(Main.stageValue.stageWidth, Main.stageValue.stageHeight);
+        trace(StringUtil.substitute("Application size: {0}x{1}", _applicationSize.x, _applicationSize.y));
+
+        SceneBase.currentScene.onDisplayStateChanged(_fullScreenEnable);
     }
 
     /*

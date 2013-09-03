@@ -5,13 +5,14 @@
  * Time: 1:58 PM
  * To change this template use File | Settings | File Templates.
  */
-package models.gameInfo.VillageManager.Houses
+package models.gameInfo.VillageManager.Houses.base
 {
 
 import core.Debug;
 import core.IDisposable;
 
-import flash.display.SimpleButton;
+import flash.display.MovieClip;
+
 import flash.events.MouseEvent;
 
 import models.gameInfo.GameInfo;
@@ -22,7 +23,7 @@ public class HouseVillageBase implements IDisposable
      * Fields
      */
 
-    private var _view:SimpleButton;
+    private var _view:MovieClip;
 
     private var _level:int;
     private var _state:EHouseVillageState;
@@ -36,12 +37,12 @@ public class HouseVillageBase implements IDisposable
         return null;
     }
 
-    public function get view():SimpleButton
+    public function get view():MovieClip
     {
         return _view;
     }
 
-    public function set view(value:SimpleButton):void
+    public function set view(value:MovieClip):void
     {
         if (_view)
         {
@@ -80,6 +81,7 @@ public class HouseVillageBase implements IDisposable
             return;
 
         _state = value;
+
     }
 
     /*

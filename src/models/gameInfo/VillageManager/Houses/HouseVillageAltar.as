@@ -12,6 +12,9 @@ import core.Debug;
 import flash.display.SimpleButton;
 
 import models.gameInfo.GameInfo;
+import models.gameInfo.VillageManager.Houses.base.EHouseVillageState;
+import models.gameInfo.VillageManager.Houses.base.EHouseVillageType;
+import models.gameInfo.VillageManager.Houses.base.HouseVillageBase;
 
 public class HouseVillageAltar extends HouseVillageBase
 {

@@ -10,12 +10,13 @@ package models.gameInfo.VillageManager
 import core.Debug;
 
 import models.gameInfo.GameInfo;
-import models.gameInfo.VillageManager.Houses.EHouseVillageState;
-import models.gameInfo.VillageManager.Houses.EHouseVillageType;
+import models.gameInfo.VillageManager.Houses.base.EHouseVillageState;
+import models.gameInfo.VillageManager.Houses.base.EHouseVillageType;
 import models.gameInfo.VillageManager.Houses.HouseVillageAltar;
-import models.gameInfo.VillageManager.Houses.HouseVillageBase;
+import models.gameInfo.VillageManager.Houses.base.HouseVillageBase;
 import models.gameInfo.VillageManager.Houses.mines.HouseVillageBakeshop;
 import models.gameInfo.VillageManager.Houses.mines.HouseVillageMineGems;
+import models.gameInfo.VillageManager.Houses.mines.HouseVillageMineGold;
 
 public class VillageManager
 {
@@ -58,6 +59,10 @@ public class VillageManager
 
         var houseMineGems:HouseVillageMineGems = new HouseVillageMineGems(EHouseVillageState.EHVS_CLOSED, 1);
         _houses.push(houseMineGems);
+
+
+        var houseMineGold0:HouseVillageMineGold = new HouseVillageMineGold(EHouseVillageState.EHVS_CLOSED, 1);
+        _houses.push(houseMineGold0);
     }
 
     public function getHouseByType(type:EHouseVillageType):HouseVillageBase

@@ -12,11 +12,16 @@ import controllers.scenes.village.SceneVillage;
 
 import core.Debug;
 import core.IDisposable;
+import core.Utils;
 
+import flash.display.DisplayObject;
 import flash.display.MovieClip;
 import flash.display.Sprite;
-import flash.events.Event;
 
+import models.gameInfo.AppHelper.AppHelper;
+import models.gameInfo.GameInfo;
+import models.gameInfo.MoneyManager.MoneyManager;
+import models.gameInfo.VillageManager.VillageManager;
 import models.resources.ResourceLoader;
 
 //! Represents base class of all scenes
@@ -93,6 +98,8 @@ public class SceneBase extends MovieClip implements IDisposable
 
         _currentScene.onLoadingEnd();
 
+        Utils.cacheAsBitmap(_currentScene);
+
         _rootView.addChild(_currentScene);
 
         //TODO: remove loader
@@ -102,7 +109,22 @@ public class SceneBase extends MovieClip implements IDisposable
      * Fields
      */
 
+    protected var _layerScene:MovieClip;
+    protected var _layerUI:MovieClip;
+
+    //ui
+    protected var _controlGameName:gControlGameName;
+    protected var _controlTopStrip:Sprite;
+    protected var _controlOptions:gControlOptions;
+
+
     protected var _resourceLoaderBase:ResourceLoader;
+
+    //Cache of singletons
+    protected var _gameInfo:GameInfo;
+    protected var _appHelper:AppHelper;
+    protected var _moneyManager:MoneyManager;
+    protected var _villageManager:VillageManager;
 
     /*
      * Properties
@@ -124,16 +146,10 @@ public class SceneBase extends MovieClip implements IDisposable
     {
     }
 
-    public function onFullScreenEnabled():void
+    public function onDisplayStateChanged(isFullScreenNow:Boolean):void
     {
-
+        updateViewsPositions();
     }
-
-    public function onFullScreenDisabled():void
-    {
-
-    }
-
 
     /*
      * Methods
@@ -142,6 +158,12 @@ public class SceneBase extends MovieClip implements IDisposable
     //! Default constructor
     public function SceneBase()
     {
+        Debug.assert(GameInfo.Instance != null, "Please instantiate scenes after initialize game model.")
+
+        _gameInfo = GameInfo.Instance;
+        _appHelper = _gameInfo.appHelper;
+        _moneyManager = _gameInfo.moneyManager;
+        _villageManager = _gameInfo.villageManager;
     }
 
     //! Destructor
@@ -162,14 +184,70 @@ public class SceneBase extends MovieClip implements IDisposable
     //! Initialize all views here.
     protected function prepareViews():void
     {
-        //init background
-//        var backgroundClass:Class = ResourceLoader.getClass(ResourceManagerBase.getSceneBackgroundByType(this.type));
-//
+        _layerScene = new MovieClip();
+        addChild(_layerScene);
+
+        _layerUI = new MovieClip();
+        addChild(_layerUI);
+
+
+        {//ui
+
+            _controlGameName = new gControlGameName();
+            _layerUI.addChild(_controlGameName);
+
+            _controlTopStrip = new Sprite();
+
+            _controlTopStrip.graphics.beginFill(0x000000, 0.8);
+            _controlTopStrip.graphics.drawRect(0, 0, _appHelper.screenResolution.x, 45);
+            _controlTopStrip.graphics.endFill();
+
+            _layerUI.addChild(_controlTopStrip);
+
+            _controlOptions = new gControlOptions();
+            _controlTopStrip.addChild(_controlOptions);
+        }
+
     }
 
     //! Place all views here
     protected function placeViews():void
     {
+        _controlTopStrip.y = _controlGameName.height;
+
+        _controlOptions.y = _controlTopStrip.height / 2 - _controlOptions.height / 2;
+
+        updateViewsPositions();
     }
+
+    private function updateViewsPositions():void
+    {
+        alignHorizontal(_controlOptions, 0.9, 0.5);
+    }
+
+
+    /*
+     * Helper functions
+     */
+
+    //@param offset  - vertical offset in percent. 0.0 - align top of application, 1.0 - align bottom of application.
+    //@param targetAnchorPoint - vertical target anchor in percent
+    protected function alignVertical(target:DisplayObject, offsetAppSize:Number = 0, targetAnchorPoint:Number = 0):void
+    {
+        Debug.assert(target != null);
+
+        target.y = _appHelper.applicationSize.y * offsetAppSize - target.height * targetAnchorPoint;
+    }
+
+    //@param offset  - horizontal offset in percent. 0.0 - align left of application, 1.0 - align right of application.
+    //@param targetAnchorPoint - horizontal target anchor in percent
+    protected function alignHorizontal(target:DisplayObject, offsetAppSize:Number = 0, targetAnchorPoint:Number = 0):void
+    {
+        Debug.assert(target != null);
+
+        target.x = _appHelper.applicationSize.x * offsetAppSize - target.width * targetAnchorPoint;
+    }
+
+
 }
 }

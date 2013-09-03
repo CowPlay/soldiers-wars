@@ -5,7 +5,7 @@
  * Time: 1:58 PM
  * To change this template use File | Settings | File Templates.
  */
-package models.gameInfo.VillageManager.Houses
+package models.gameInfo.VillageManager.Houses.base
 {
 public class EHouseVillageType
 {
