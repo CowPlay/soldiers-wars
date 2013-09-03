@@ -115,6 +115,7 @@ public class SceneBase extends MovieClip implements IDisposable
     //ui
     protected var _controlGameName:gControlGameName;
     protected var _controlTopStrip:Sprite;
+    protected var _controlPlayerInfo:gControlPlayerInfo;
     protected var _controlOptions:gControlOptions;
 
 
@@ -196,16 +197,22 @@ public class SceneBase extends MovieClip implements IDisposable
             _controlGameName = new gControlGameName();
             _layerUI.addChild(_controlGameName);
 
-            _controlTopStrip = new Sprite();
+            {//control strip
+                _controlTopStrip = new Sprite();
 
-            _controlTopStrip.graphics.beginFill(0x000000, 0.8);
-            _controlTopStrip.graphics.drawRect(0, 0, _appHelper.screenResolution.x, 45);
-            _controlTopStrip.graphics.endFill();
+                _controlTopStrip.graphics.beginFill(0x000000, 0.8);
+                _controlTopStrip.graphics.drawRect(0, 0, _appHelper.screenResolution.x, 45);
+                _controlTopStrip.graphics.endFill();
 
-            _layerUI.addChild(_controlTopStrip);
+                _layerUI.addChild(_controlTopStrip);
 
-            _controlOptions = new gControlOptions();
-            _controlTopStrip.addChild(_controlOptions);
+                _controlOptions = new gControlOptions();
+                _controlTopStrip.addChild(_controlOptions);
+            }
+
+            _controlPlayerInfo = new gControlPlayerInfo();
+            _layerUI.addChild(_controlPlayerInfo);
+
         }
 
     }
@@ -214,8 +221,9 @@ public class SceneBase extends MovieClip implements IDisposable
     protected function placeViews():void
     {
         _controlTopStrip.y = _controlGameName.height;
-
         _controlOptions.y = _controlTopStrip.height / 2 - _controlOptions.height / 2;
+
+        _controlPlayerInfo.y = _controlTopStrip.y + _controlTopStrip.height - _controlPlayerInfo.height / 2;
 
         updateViewsPositions();
     }
@@ -223,6 +231,9 @@ public class SceneBase extends MovieClip implements IDisposable
     private function updateViewsPositions():void
     {
         alignHorizontal(_controlOptions, 0.9, 0.5);
+        alignHorizontal(_controlPlayerInfo, 0.1);
+
+
     }
 
 

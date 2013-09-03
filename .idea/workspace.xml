@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0c58ea7-91d2-429f-8aac-01418852bc28" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controllers/scenes/base/views/SceneBaseUI.as" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/models/gameInfo/VillageManager/Houses/EHouseVillageState.as" afterPath="$PROJECT_DIR$/src/models/gameInfo/VillageManager/Houses/base/EHouseVillageState.as" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/models/gameInfo/VillageManager/Houses/EHouseVillageType.as" afterPath="$PROJECT_DIR$/src/models/gameInfo/VillageManager/Houses/base/EHouseVillageType.as" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/models/gameInfo/VillageManager/Houses/HouseVillageBase.as" afterPath="$PROJECT_DIR$/src/models/gameInfo/VillageManager/Houses/base/HouseVillageBase.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/sceneVillage.swc" afterPath="$PROJECT_DIR$/assets/sceneVillage.swc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/gameInfo/AppHelper/AppHelper.as" afterPath="$PROJECT_DIR$/src/models/gameInfo/AppHelper/AppHelper.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/gameInfo/VillageManager/Houses/HouseVillageAltar.as" afterPath="$PROJECT_DIR$/src/models/gameInfo/VillageManager/Houses/HouseVillageAltar.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/gameInfo/VillageManager/Houses/mines/HouseVillageBakeshop.as" afterPath="$PROJECT_DIR$/src/models/gameInfo/VillageManager/Houses/mines/HouseVillageBakeshop.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/gameInfo/VillageManager/Houses/mines/HouseVillageMineGems.as" afterPath="$PROJECT_DIR$/src/models/gameInfo/VillageManager/Houses/mines/HouseVillageMineGems.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/gameInfo/VillageManager/Houses/mines/HouseVillageMineGold.as" afterPath="$PROJECT_DIR$/src/models/gameInfo/VillageManager/Houses/mines/HouseVillageMineGold.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/scenes/base/views/ScrollContainer.as" afterPath="$PROJECT_DIR$/src/controllers/scenes/base/views/ScrollContainer.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/gameInfo/VillageManager/VillageManager.as" afterPath="$PROJECT_DIR$/src/models/gameInfo/VillageManager/VillageManager.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/facebook/debug/index.html" afterPath="$PROJECT_DIR$/html/facebook/debug/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/soldiers.iml" afterPath="$PROJECT_DIR$/soldiers.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/ui.swc" afterPath="$PROJECT_DIR$/assets/ui.swc" />
     </list>
     <ignored path="com.cowplay.soldiers.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,7 +50,7 @@
     <file path="$PROJECT_DIR$/../com.bwf.ifit/src/model/InitProxy.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377786970014" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.ifit/src/view/library/DefinitionPointers.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377786970014" ignored="false" />
     <file path="$PROJECT_DIR$/libs/sceneVillage.swc!/catalog.xml" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377942874382" ignored="false" />
-    <file path="/SceneBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378199629816" ignored="false" />
+    <file path="/SceneBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378200395491" ignored="false" />
     <file path="/SceneVillage.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378199844389" ignored="false" />
     <file path="/SceneGame.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377946495715" ignored="false" />
     <file path="/DeviceHelper.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377947070596" ignored="false" />
@@ -155,10 +141,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SceneVillage.as" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SceneVillage.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/scenes/village/SceneVillage.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="131" column="0" selection-start="3884" selection-end="3884" vertical-scroll-proportion="0.73211783">
+            <state line="117" column="172" selection-start="3446" selection-end="3446" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#197#243#0" expanded="true" />
               </folding>
@@ -166,10 +152,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SceneBase.as" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="SceneBase.as" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controllers/scenes/base/SceneBase.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="242" column="51" selection-start="5786" selection-end="5786" vertical-scroll-proportion="0.0">
+            <state line="225" column="75" selection-start="5277" selection-end="5277" vertical-scroll-proportion="0.68443197">
               <folding>
                 <element signature="e#194#235#0" expanded="true" />
               </folding>
@@ -273,8 +259,8 @@
         <option value="$PROJECT_DIR$/html/facebook/debug/index.html" />
         <option value="$PROJECT_DIR$/src/models/gameInfo/AppHelper/AppHelper.as" />
         <option value="$PROJECT_DIR$/src/controllers/scenes/base/views/SceneBaseUI.as" />
-        <option value="$PROJECT_DIR$/src/controllers/scenes/base/SceneBase.as" />
         <option value="$PROJECT_DIR$/src/controllers/scenes/village/SceneVillage.as" />
+        <option value="$PROJECT_DIR$/src/controllers/scenes/base/SceneBase.as" />
       </list>
     </option>
   </component>
@@ -1252,20 +1238,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/scenes/base/SceneBase.as">
+    <entry file="file://$PROJECT_DIR$/src/controllers/scenes/village/SceneVillage.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="242" column="51" selection-start="5786" selection-end="5786" vertical-scroll-proportion="0.0">
+        <state line="117" column="172" selection-start="3446" selection-end="3446" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#194#235#0" expanded="true" />
+            <element signature="e#197#243#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/scenes/village/SceneVillage.as">
+    <entry file="file://$PROJECT_DIR$/src/controllers/scenes/base/SceneBase.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="0" selection-start="3884" selection-end="3884" vertical-scroll-proportion="0.73211783">
+        <state line="225" column="75" selection-start="5277" selection-end="5277" vertical-scroll-proportion="0.68443197">
           <folding>
-            <element signature="e#197#243#0" expanded="true" />
+            <element signature="e#194#235#0" expanded="true" />
           </folding>
         </state>
       </provider>
