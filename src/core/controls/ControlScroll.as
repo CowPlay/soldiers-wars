@@ -7,7 +7,7 @@
  */
 package core.controls
 {
-import controllers.scenes.base.ControlScene;
+import core.controls.ControlScene;
 
 import core.Debug;
 

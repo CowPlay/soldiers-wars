@@ -2,39 +2,241 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0c58ea7-91d2-429f-8aac-01418852bc28" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/core/socialApi/ConstantsSocial.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/core/socialApi/ESocialNetworkType.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/gregory_tkach.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/gameInfo/managerApp/AppHelper.as" afterPath="$PROJECT_DIR$/src/models/gameInfo/managerApp/AppHelper.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/scenes/base/ControlScene.as" afterPath="$PROJECT_DIR$/src/controllers/scenes/base/ControlScene.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/Debug.as" afterPath="$PROJECT_DIR$/src/core/Debug.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/gameInfo/GameInfo.as" afterPath="$PROJECT_DIR$/src/models/gameInfo/GameInfo.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/gameInfo/managerVillage/Houses/base/HouseVillageBase.as" afterPath="$PROJECT_DIR$/src/models/gameInfo/managerVillage/Houses/base/HouseVillageBase.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controllers/scenes/base/ControlSceneBase.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/core/models/resources/LoaderPicture.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/core/models/resources/LoaderPictureInfo.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/core/socialApi/SocialManagerBase.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/html/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/html/vk/debug/script/urlParams.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/html/common/script/swfobject.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/.svn/prop-base/APIConnector.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/.svn/prop-base/APIEvent.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/.svn/prop-base/FBMediator.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/.svn/prop-base/IMediator.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/.svn/prop-base/MMMediator.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/.svn/prop-base/OKMediator.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/.svn/prop-base/VKMediator.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/.svn/text-base/APIConnector.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/.svn/text-base/APIEvent.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/.svn/text-base/FBMediator.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/.svn/text-base/IMediator.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/.svn/text-base/MMMediator.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/.svn/text-base/OKMediator.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/.svn/text-base/VKMediator.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/Info/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/Info/.svn/prop-base/ApiUserInfo.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/Info/.svn/text-base/ApiUserInfo.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/SocialNetworkManager.as" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/.svn/prop-base/EventMailruCall.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/.svn/prop-base/MailruCall.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/.svn/prop-base/MailruCallEvent.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/.svn/text-base/EventMailruCall.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/.svn/text-base/MailruCall.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/.svn/text-base/MailruCallEvent.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/api/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/api/.svn/prop-base/DataProvider.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/api/.svn/prop-base/MD5.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/api/.svn/text-base/DataProvider.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/api/.svn/text-base/MD5.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/api/serialization/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/api/serialization/json/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/api/serialization/json/.svn/prop-base/JSON.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/api/serialization/json/.svn/prop-base/JSONDecoder.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/api/serialization/json/.svn/prop-base/JSONEncoder.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/api/serialization/json/.svn/prop-base/JSONParseError.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/api/serialization/json/.svn/prop-base/JSONToken.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/api/serialization/json/.svn/prop-base/JSONTokenType.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/api/serialization/json/.svn/prop-base/JSONTokenizer.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/api/serialization/json/.svn/text-base/JSON.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/api/serialization/json/.svn/text-base/JSONDecoder.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/api/serialization/json/.svn/text-base/JSONEncoder.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/api/serialization/json/.svn/text-base/JSONParseError.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/api/serialization/json/.svn/text-base/JSONToken.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/api/serialization/json/.svn/text-base/JSONTokenType.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/api/serialization/json/.svn/text-base/JSONTokenizer.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/crypto/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/crypto/.svn/prop-base/MD5.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/crypto/.svn/text-base/MD5.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/images/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/images/.svn/prop-base/PNGEncoder.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/images/.svn/text-base/PNGEncoder.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/json/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/json/.svn/prop-base/JSON.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/json/.svn/prop-base/JSONDecoder.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/json/.svn/prop-base/JSONEncoder.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/json/.svn/prop-base/JSONParseError.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/json/.svn/prop-base/JSONToken.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/json/.svn/prop-base/JSONTokenType.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/json/.svn/prop-base/JSONTokenizer.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/json/.svn/text-base/JSON.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/json/.svn/text-base/JSONDecoder.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/json/.svn/text-base/JSONEncoder.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/json/.svn/text-base/JSONParseError.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/json/.svn/text-base/JSONToken.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/json/.svn/text-base/JSONTokenType.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/json/.svn/text-base/JSONTokenizer.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/utils/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/utils/.svn/prop-base/IntUtil.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/adobe/utils/.svn/text-base/IntUtil.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/.svn/prop-base/Odnoklassniki.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/.svn/text-base/Odnoklassniki.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/core/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/core/.svn/prop-base/OdnoklassnikiSession.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/core/.svn/text-base/OdnoklassnikiSession.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/events/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/events/.svn/prop-base/ApiCallbackEvent.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/events/.svn/prop-base/ApiServerEvent.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/events/.svn/text-base/ApiCallbackEvent.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/events/.svn/text-base/ApiServerEvent.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/net/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/net/.svn/prop-base/OdnoklassnikiRequest.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/net/.svn/prop-base/PostRequest.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/net/.svn/text-base/OdnoklassnikiRequest.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/net/.svn/text-base/PostRequest.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/discussions/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/discussions/.svn/prop-base/Discussions.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/discussions/.svn/text-base/Discussions.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/errors/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/errors/.svn/prop-base/Errors.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/errors/.svn/text-base/Errors.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/events/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/events/.svn/prop-base/Events.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/events/.svn/text-base/Events.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/friends/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/friends/.svn/prop-base/Friends.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/friends/.svn/text-base/Friends.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/messages/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/messages/.svn/prop-base/Messages.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/messages/.svn/text-base/Messages.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/notifications/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/notifications/.svn/prop-base/Notifications.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/notifications/.svn/text-base/Notifications.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/payment/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/photos/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/photos/.svn/prop-base/Photos.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/photos/.svn/text-base/Photos.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/share/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/share/.svn/prop-base/Share.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/share/.svn/text-base/Share.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/stream/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/stream/.svn/prop-base/Stream.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/stream/.svn/text-base/Stream.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/users/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/users/.svn/prop-base/Users.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/users/.svn/text-base/Users.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/widget/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/widget/.svn/prop-base/Widget.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/sdk/widget/.svn/text-base/Widget.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/.svn/prop-base/APIConnection.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/.svn/text-base/APIConnection.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/APIConnection.as" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/.svn/prop-base/DataProvider.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/.svn/prop-base/MD5.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/.svn/text-base/DataProvider.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/.svn/text-base/MD5.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/DataProvider.as" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/MD5.as" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/.svn/prop-base/JSON.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/.svn/prop-base/JSONDecoder.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/.svn/prop-base/JSONEncoder.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/.svn/prop-base/JSONParseError.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/.svn/prop-base/JSONToken.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/.svn/prop-base/JSONTokenType.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/.svn/prop-base/JSONTokenizer.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/.svn/text-base/JSON.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/.svn/text-base/JSONDecoder.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/.svn/text-base/JSONEncoder.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/.svn/text-base/JSONParseError.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/.svn/text-base/JSONToken.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/.svn/text-base/JSONTokenType.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/.svn/text-base/JSONTokenizer.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/JSON.as" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/JSONDecoder.as" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/JSONEncoder.as" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/JSONParseError.as" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/JSONToken.as" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/JSONTokenType.as" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/JSONTokenizer.as" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/events/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/events/.svn/prop-base/CustomEvent.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/events/.svn/text-base/CustomEvent.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/events/CustomEvent.as" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/ui/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/ui/.svn/prop-base/VKButton.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/ui/.svn/prop-base/VKButtonDisplayState.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/ui/.svn/text-base/VKButton.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/ui/.svn/text-base/VKButtonDisplayState.as.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/ui/VKButton.as" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/socialApi/vk/ui/VKButtonDisplayState.as" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/scenes/base/ControlScene.as" afterPath="$PROJECT_DIR$/src/core/controls/ControlScene.as" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/scenes/game/SceneGame.as" afterPath="$PROJECT_DIR$/src/controllers/scenes/game/ControlSceneGame.as" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/scenes/village/SceneVillage.as" afterPath="$PROJECT_DIR$/src/controllers/scenes/village/ControlSceneVillage.as" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/core/socialApi/FBMediator.as" afterPath="$PROJECT_DIR$/src/core/socialApi/SocialManagerFB.as" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/core/socialApi/IMediator.as" afterPath="$PROJECT_DIR$/src/core/socialApi/ISocialManager.as" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/core/socialApi/VKMediator.as" afterPath="$PROJECT_DIR$/src/core/socialApi/SocialManagerVK.as" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/models/gameInfo/GameInfo.as" afterPath="$PROJECT_DIR$/src/core/models/GameInfo.as" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/models/gameInfo/managerApp/AppHelper.as" afterPath="$PROJECT_DIR$/src/core/models/managerApp/AppHelper.as" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/models/gameInfo/managerApp/ESocialNetworkType.as" afterPath="$PROJECT_DIR$/src/core/models/managerApp/ESocialNetworkType.as" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/models/gameInfo/managerMoney/MoneyManager.as" afterPath="$PROJECT_DIR$/src/core/models/managerMoney/MoneyManager.as" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/models/gameInfo/managerVillage/Houses/HouseVillageAltar.as" afterPath="$PROJECT_DIR$/src/core/models/managerVillage/Houses/HouseVillageAltar.as" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/models/gameInfo/managerVillage/Houses/base/EHouseVillageState.as" afterPath="$PROJECT_DIR$/src/core/models/managerVillage/Houses/base/EHouseVillageState.as" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/models/gameInfo/managerVillage/Houses/base/EHouseVillageType.as" afterPath="$PROJECT_DIR$/src/core/models/managerVillage/Houses/base/EHouseVillageType.as" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/models/gameInfo/managerVillage/Houses/base/HouseVillageBase.as" afterPath="$PROJECT_DIR$/src/core/models/managerVillage/Houses/base/HouseVillageBase.as" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/models/gameInfo/managerVillage/Houses/mines/HouseVillageBakeshop.as" afterPath="$PROJECT_DIR$/src/core/models/managerVillage/Houses/mines/HouseVillageBakeshop.as" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/models/gameInfo/managerVillage/Houses/mines/HouseVillageMineGems.as" afterPath="$PROJECT_DIR$/src/core/models/managerVillage/Houses/mines/HouseVillageMineGems.as" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/models/gameInfo/managerVillage/Houses/mines/HouseVillageMineGold.as" afterPath="$PROJECT_DIR$/src/core/models/managerVillage/Houses/mines/HouseVillageMineGold.as" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/models/gameInfo/managerVillage/VillageManager.as" afterPath="$PROJECT_DIR$/src/core/models/managerVillage/VillageManager.as" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/models/resources/ResourceLoader.as" afterPath="$PROJECT_DIR$/src/core/models/resources/LoaderSWF.as" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/models/resources/managers/ResourceManagerVillage.as" afterPath="$PROJECT_DIR$/src/core/models/resources/managers/ResourceManagerVillage.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/socialApi/ConstantsSocial.as" afterPath="$PROJECT_DIR$/src/core/socialApi/ConstantsSocial.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/controls/ControlBase.as" afterPath="$PROJECT_DIR$/src/core/controls/ControlBase.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/scenes/base/views/ControlOptions.as" afterPath="$PROJECT_DIR$/src/controllers/scenes/base/views/ControlOptions.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/scenes/base/views/ControlPlayerInfo.as" afterPath="$PROJECT_DIR$/src/controllers/scenes/base/views/ControlPlayerInfo.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/controls/ControlScroll.as" afterPath="$PROJECT_DIR$/src/core/controls/ControlScroll.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/scenes/base/views/ControlStripTop.as" afterPath="$PROJECT_DIR$/src/controllers/scenes/base/views/ControlStripTop.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/socialApi/mailru/api/DataProvider.as" afterPath="$PROJECT_DIR$/src/core/socialApi/mailru/api/DataProvider.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/controls/IControl.as" afterPath="$PROJECT_DIR$/src/core/controls/IControl.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/socialApi/MMMediator.as" afterPath="$PROJECT_DIR$/src/core/socialApi/MMMediator.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.as" afterPath="$PROJECT_DIR$/src/Main.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/soldiers.iml" afterPath="$PROJECT_DIR$/soldiers.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/socialApi/OKMediator.as" afterPath="$PROJECT_DIR$/src/core/socialApi/OKMediator.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/socialApi/info/SocialUserInfo.as" afterPath="$PROJECT_DIR$/src/core/socialApi/info/SocialUserInfo.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/Utils.as" afterPath="$PROJECT_DIR$/src/core/Utils.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/facebook/debug/index.html" afterPath="$PROJECT_DIR$/html/facebook/debug/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/offline/debug/index.html" afterPath="$PROJECT_DIR$/html/offline/debug/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/offline/release/index.html" afterPath="$PROJECT_DIR$/html/offline/release/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/vk/debug/index.html" afterPath="$PROJECT_DIR$/html/vk/debug/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="com.cowplay.soldiers.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378116446499" ignored="false" />
-    <file path="/fragment.js2" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378214181376" ignored="false" />
-    <file path="/index.html" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377960367013" ignored="false" />
+    <file path="/Dummy.txt" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378304861469" ignored="false" />
+    <file path="/fragment.js2" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378305336888" ignored="false" />
+    <file path="/index.html" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378292153836" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/html/out/gremlins.swf" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377780274267" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/html/index.html" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377712949321" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/src/Main.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377716934256" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/src/Api/APIConnector.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377771419868" ignored="false" />
-    <file path="/Main.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378213920287" ignored="false" />
+    <file path="/Main.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378309873679" ignored="false" />
     <file path="/Preloader.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378127788583" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/src/Preloader.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377763770036" ignored="false" />
-    <file path="/a.dummy" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378211892888" ignored="false" />
+    <file path="/a.dummy" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378297882731" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/swc/music.swf" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377720058980" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/swc/graphics.swf" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377720058980" ignored="false" />
     <file path="/Soldiers.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377786425326" ignored="false" />
     <file path="/ActionScript Class.txt.ft" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377763085103" ignored="false" />
     <file path="/ActionScript Class with Supers.txt.ft" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377763119971" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/src/Api/FBMediator.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377772419337" ignored="false" />
-    <file path="/FBMediator.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378212998964" ignored="false" />
+    <file path="/FBMediator.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378218130370" ignored="false" />
     <file path="/Debug.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378209832442" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/src/GameInfo/GameData.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377769010396" ignored="false" />
     <file path="/GameData.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377768941782" ignored="false" />
@@ -43,7 +245,7 @@
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/src/Api/VKMediator.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377771289299" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/src/ServerConnector/Remote.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377771918755" ignored="false" />
     <file path="/Remote.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378109915191" ignored="false" />
-    <file path="$PROJECT_DIR$/../com.bwf/com.bwf.gremlins/html/out/gremlins.swf" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378124691577" ignored="false" />
+    <file path="$PROJECT_DIR$/../com.bwf/com.bwf.gremlins/html/out/gremlins.swf" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378308313580" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf/com.bwf.gremlins/src/Main.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378124604307" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.ifit/src/Ifit.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377784593601" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.ifit/src/model/ServerProxy.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377786970013" ignored="false" />
@@ -66,8 +268,8 @@
     <file path="/SceneGame.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377946495715" ignored="false" />
     <file path="/DeviceHelper.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377947070596" ignored="false" />
     <file path="/ESocialNetworkType.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378211962381" ignored="false" />
-    <file path="/AppHelper.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378209871823" ignored="false" />
-    <file path="/GameInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378212848818" ignored="false" />
+    <file path="/AppHelper.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378218851175" ignored="false" />
+    <file path="/GameInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378305000362" ignored="false" />
     <file path="/ResourceManagerVillage.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377955606841" ignored="false" />
     <file path="/HouseVillageBaseView.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377947610530" ignored="false" />
     <file path="/VillageManager.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378136680839" ignored="false" />
@@ -77,7 +279,7 @@
     <file path="/EHouseVillageType.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377947932292" ignored="false" />
     <file path="/ResourceLoader.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377955870874" ignored="false" />
     <file path="/MoneyManager.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377950532045" ignored="false" />
-    <file path="/fragment.js" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378205130732" ignored="false" />
+    <file path="/fragment.js" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378305886361" ignored="false" />
     <file path="/Definition.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377956225497" ignored="false" />
     <file path="$PROJECT_DIR$/../untitled/html-template/index.template.html" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377960739253" ignored="false" />
     <file path="/ScrollContainer.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378109211412" ignored="false" />
@@ -92,21 +294,44 @@
     <file path="/ControlStripTop.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378205317626" ignored="false" />
     <file path="/IControl.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378203209291" ignored="false" />
     <file path="/ControlOptions.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378204517489" ignored="false" />
-    <file path="/ControlPlayerInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378205358615" ignored="false" />
+    <file path="/ControlPlayerInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378307279804" ignored="false" />
     <file path="/ControlScroll.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378204720183" ignored="false" />
     <file path="/ControlBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378205952299" ignored="false" />
     <file path="/ApiUserInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378208810160" ignored="false" />
     <file path="/VKButton.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378213224965" ignored="false" />
-    <file path="/ConstantsSocial.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378209551169" ignored="false" />
-    <file path="/VKMediator.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378212832026" ignored="false" />
+    <file path="/ConstantsSocial.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378299041224" ignored="false" />
+    <file path="/VKMediator.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378218258442" ignored="false" />
     <file path="/APIConnector.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378211983389" ignored="false" />
-    <file path="/SocialNetworkManager.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378214046507" ignored="false" />
+    <file path="/SocialNetworkManager.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378215638585" ignored="false" />
     <file path="/OKMediator.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378213055771" ignored="false" />
     <file path="/MMMediator.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378213067666" ignored="false" />
     <file path="/VKButtonDisplayState.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378213228552" ignored="false" />
-    <file path="/DataProvider.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378213236430" ignored="false" />
+    <file path="/DataProvider.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378291472649" ignored="false" />
     <file path="/MD5.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378213254829" ignored="false" />
-    <file path="/ControlScene.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378213444751" ignored="false" />
+    <file path="/ControlScene.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378305037071" ignored="false" />
+    <file path="/IMediator.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378218043151" ignored="false" />
+    <file path="/APIConnection.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378219228961" ignored="false" />
+    <file path="/SocialManagerFB.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378299061748" ignored="false" />
+    <file path="/SocialManagerVK.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378303639032" ignored="false" />
+    <file path="/SocialManagerBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378298921783" ignored="false" />
+    <file path="$PROJECT_DIR$/html/facebook/release/index.html" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378279064056" ignored="false" />
+    <file path="/main.js" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378281471017" ignored="false" />
+    <file path="/SocialManagerVKObsolete.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378294877903" ignored="false" />
+    <file path="/urlParams.js" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378291252228" ignored="false" />
+    <file path="/ISocialManager.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378301391038" ignored="false" />
+    <file path="$PROJECT_DIR$/../com.bwf/com.bwf.gremlins/.idea/workspace.xml" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378304069613" ignored="false" />
+    <file path="$PROJECT_DIR$/../com.bwf/com.bwf.gremlins/src/WallPost.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378297948196" ignored="false" />
+    <file path="$PROJECT_DIR$/../com.bwf/com.bwf.gremlins/src/Windows/CPRecordWindow.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378297955099" ignored="false" />
+    <file path="$PROJECT_DIR$/../com.bwf/com.bwf.gremlins/src/Windows/CPostRequestWindow.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378297958575" ignored="false" />
+    <file path="$PROJECT_DIR$/../com.bwf/com.bwf.gremlins/src/Windows/CANotificationWindow.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378297962069" ignored="false" />
+    <file path="$PROJECT_DIR$/../com.bwf/com.bwf.gremlins/src/Windows/CWindowNotification.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378297966599" ignored="false" />
+    <file path="$PROJECT_DIR$/../com.bwf/com.bwf.gremlins/src/Api/IMediator.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378300351774" ignored="false" />
+    <file path="/ControlSceneBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378302485820" ignored="false" />
+    <file path="/ControlSceneGame.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378301817506" ignored="false" />
+    <file path="/ControlSceneVillage.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378302530596" ignored="false" />
+    <file path="/PictureLoader.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378304179793" ignored="false" />
+    <file path="/LoaderPicture.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378308640224" ignored="false" />
+    <file path="/LoaderPictureInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378306926254" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,93 +395,101 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ControlScene.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controllers/scenes/base/ControlScene.as">
+      <file leaf-file-name="Main.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="121" column="25" selection-start="3049" selection-end="3049" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#194#217#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FBMediator.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/socialApi/FBMediator.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="241" column="16" selection-start="5521" selection-end="5521" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#25#60#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataProvider.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/socialApi/mailru/api/DataProvider.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="28" selection-start="59" selection-end="59" vertical-scroll-proportion="0.0">
+            <state line="66" column="0" selection-start="1282" selection-end="1282" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MD5.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/socialApi/mailru/api/MD5.as">
+      <file leaf-file-name="SocialManagerVK.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/core/socialApi/SocialManagerVK.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="242" column="28" selection-start="9477" selection-end="9477" vertical-scroll-proportion="0.0">
+            <state line="183" column="20" selection-start="4514" selection-end="4514" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="APIEvent.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/socialApi/APIEvent.as">
+      <file leaf-file-name="ControlOptions.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/scenes/base/views/ControlOptions.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="68" selection-start="272" selection-end="272" vertical-scroll-proportion="0.0">
+            <state line="52" column="62" selection-start="1061" selection-end="1061" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VKMediator.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/socialApi/VKMediator.as">
+      <file leaf-file-name="LoaderPictureInfo.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/core/models/resources/LoaderPictureInfo.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="28" selection-start="532" selection-end="532" vertical-scroll-proportion="0.0">
+            <state line="31" column="5" selection-start="671" selection-end="671" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#25#43#0" expanded="true" />
+                <element signature="e#191#209#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SocialNetworkManager.as" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/core/socialApi/SocialNetworkManager.as">
+      <file leaf-file-name="ControlPlayerInfo.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/scenes/base/views/ControlPlayerInfo.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="35" selection-start="1473" selection-end="1473" vertical-scroll-proportion="0.3389328">
+            <state line="58" column="7" selection-start="1268" selection-end="1268" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#25#67#0" expanded="true" />
+                <element signature="e#200#218#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OKMediator.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/socialApi/OKMediator.as">
+      <file leaf-file-name="ISocialManager.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/core/socialApi/ISocialManager.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="26" selection-start="367" selection-end="367" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#25#67#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MMMediator.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/socialApi/MMMediator.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="77" selection-start="1471" selection-end="1471" vertical-scroll-proportion="0.0">
+            <state line="30" column="35" selection-start="640" selection-end="640" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SocialUserInfo.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/core/socialApi/info/SocialUserInfo.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="65" column="29" selection-start="1404" selection-end="1404" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoaderPicture.as" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/core/models/resources/LoaderPicture.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="83" column="12" selection-start="2348" selection-end="2348" vertical-scroll-proportion="0.37626627">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#191#209#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Debug.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/core/Debug.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="54" column="0" selection-start="1190" selection-end="1190" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ControlSceneBase.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/scenes/base/ControlSceneBase.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="0" selection-start="432" selection-end="432" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#193#248#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -279,28 +512,28 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/core/socialApi/SocialNetworkConnector.as" />
-        <option value="$PROJECT_DIR$/src/models/gameInfo/GameInfo.as" />
-        <option value="$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/Odnoklassniki.as" />
-        <option value="$PROJECT_DIR$/src/core/socialApi/FBMediator.as" />
-        <option value="$PROJECT_DIR$/src/core/socialApi/IMediator.as" />
-        <option value="$PROJECT_DIR$/src/core/socialApi/vk/ui/VKButton.as" />
-        <option value="$PROJECT_DIR$/src/core/socialApi/vk/ui/VKButtonDisplayState.as" />
-        <option value="$PROJECT_DIR$/src/core/socialApi/mailru/api/DataProvider.as" />
-        <option value="$PROJECT_DIR$/src/core/socialApi/mailru/api/MD5.as" />
+        <option value="$PROJECT_DIR$/src/core/socialApi/SocialManagerFB.as" />
+        <option value="$PROJECT_DIR$/src/core/socialApi/SocialManagerBase.as" />
+        <option value="$PROJECT_DIR$/src/core/socialApi/ISocialManager.as" />
         <option value="$PROJECT_DIR$/src/controllers/scenes/base/ControlScene.as" />
-        <option value="$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/JSONDecoder.as" />
-        <option value="$PROJECT_DIR$/src/core/socialApi/VKMediator.as" />
-        <option value="$PROJECT_DIR$/src/core/socialApi/OKMediator.as" />
-        <option value="$PROJECT_DIR$/src/core/socialApi/MMMediator.as" />
+        <option value="$PROJECT_DIR$/src/controllers/scenes/game/ControlSceneGame.as" />
+        <option value="$PROJECT_DIR$/src/models/gameInfo/GameInfo.as" />
+        <option value="$PROJECT_DIR$/src/controllers/scenes/village/ControlSceneVillage.as" />
+        <option value="$PROJECT_DIR$/src/core/socialApi/SocialManagerVK.as" />
+        <option value="$PROJECT_DIR$/src/models/resources/PictureLoader.as" />
+        <option value="$PROJECT_DIR$/src/core/models/GameInfo.as" />
+        <option value="$PROJECT_DIR$/src/core/controls/ControlScene.as" />
+        <option value="$PROJECT_DIR$/src/controllers/scenes/base/ControlSceneBase.as" />
+        <option value="$PROJECT_DIR$/src/core/models/resources/LoaderPictureInfo.as" />
+        <option value="$PROJECT_DIR$/src/controllers/scenes/base/views/ControlPlayerInfo.as" />
         <option value="$PROJECT_DIR$/src/Main.as" />
-        <option value="$PROJECT_DIR$/src/core/socialApi/SocialNetworkManager.as" />
+        <option value="$PROJECT_DIR$/src/core/models/resources/LoaderPicture.as" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="32" />
+    <option name="x" value="107" />
     <option name="y" value="22" />
     <option name="width" value="1833" />
     <option name="height" value="1160" />
@@ -384,6 +617,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.cowplay.soldiers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.cowplay.soldiers-wars" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -402,11 +657,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gameInfo" />
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -424,7 +683,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -442,37 +701,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="socialApi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers-wars" />
+              <option name="myItemId" value="scenes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socialApi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vk" />
+              <option name="myItemId" value="village" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -490,11 +727,67 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controls" />
+              <option name="myItemId" value="scenes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.cowplay.soldiers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.cowplay.soldiers-wars" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scenes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.cowplay.soldiers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.cowplay.soldiers-wars" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scenes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -522,7 +815,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="html" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="debug" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -539,35 +840,36 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="copyright.profiles" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../com.bwf.crosswords" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CreateActionScriptClassDialog.DESTINATION_PACKAGE_RECENT_KEY">
+      <recent name="core.models.resources" />
+      <recent name="models.resources" />
+      <recent name="controllers.scenes.base" />
       <recent name="core.socialApi" />
       <recent name="controllers.controls" />
-      <recent name="controllers.scenes.base.views" />
-      <recent name="" />
-      <recent name="controllers.scenes.views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/controllers/scenes/base" />
       <recent name="$PROJECT_DIR$/src/core/controls" />
-      <recent name="$PROJECT_DIR$/src/controllers/controls" />
-      <recent name="$PROJECT_DIR$/src/models/gameInfo/VillageManager/Houses/base" />
+      <recent name="$PROJECT_DIR$/html/vk/debug/script" />
       <recent name="$PROJECT_DIR$/html/common" />
+      <recent name="$PROJECT_DIR$/html/vk/debug" />
+      <recent name="$PROJECT_DIR$/src/controllers/scenes/base" />
     </key>
   </component>
-  <component name="RunManager" selected="Flash App.vk.debug">
+  <component name="RunManager" selected="Flash App.vk.soldiers.network">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
@@ -593,19 +895,6 @@
       </option>
       <option name="moduleName" value="" />
       <option name="trusted" value="true" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -634,6 +923,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -816,6 +1118,78 @@
       <ConfigurationWrapper RunnerId="FlexDebugRunner" />
       <method />
     </configuration>
+    <configuration default="false" name="vk.soldiers.local" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="vk.debug" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="true" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browserFamily" value="FIREFOX" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="soldiers" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://vk.soldiers.local" />
+      <option name="usbDebugPort" value="7936" />
+      <RunnerSettings RunnerId="FlexDebugRunner" />
+      <ConfigurationWrapper RunnerId="FlexDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="vk.soldiers.network" type="FlashRunConfigurationType" factoryName="Flash App" singleton="true">
+      <option name="BCName" value="vk.debug" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="true" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browserFamily" value="CHROME" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="soldiers" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://vk.com/app3858242_3460424" />
+      <option name="usbDebugPort" value="7936" />
+      <RunnerSettings RunnerId="FlexDebugRunner" />
+      <ConfigurationWrapper RunnerId="FlexDebugRunner" />
+      <method />
+    </configuration>
     <configuration default="false" name="offline.debug" type="FlashRunConfigurationType" factoryName="Flash App" singleton="true">
       <option name="BCName" value="offline.debug" />
       <option name="IOSSimulatorSdkPath" value="" />
@@ -848,6 +1222,8 @@
       <option name="screenWidth" value="0" />
       <option name="url" value="$PROJECT_DIR$/html/offline/debug/index.html" />
       <option name="usbDebugPort" value="7936" />
+      <RunnerSettings RunnerId="FlexDebugRunner" />
+      <ConfigurationWrapper RunnerId="FlexDebugRunner" />
       <method />
     </configuration>
     <configuration default="false" name="offline.release" type="FlashRunConfigurationType" factoryName="Flash App" singleton="true">
@@ -884,12 +1260,14 @@
       <option name="usbDebugPort" value="7936" />
       <method />
     </configuration>
-    <list size="5">
+    <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Flash App.facebook.debug" />
       <item index="1" class="java.lang.String" itemvalue="Flash App.facebook.release" />
       <item index="2" class="java.lang.String" itemvalue="Flash App.vk.debug" />
-      <item index="3" class="java.lang.String" itemvalue="Flash App.offline.debug" />
-      <item index="4" class="java.lang.String" itemvalue="Flash App.offline.release" />
+      <item index="3" class="java.lang.String" itemvalue="Flash App.vk.soldiers.local" />
+      <item index="4" class="java.lang.String" itemvalue="Flash App.vk.soldiers.network" />
+      <item index="5" class="java.lang.String" itemvalue="Flash App.offline.debug" />
+      <item index="6" class="java.lang.String" itemvalue="Flash App.offline.release" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -923,8 +1301,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="32" y="22" width="1833" height="1160" extended-state="0" />
-    <editor active="false" />
+    <frame x="107" y="22" width="1833" height="1160" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298077" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -932,10 +1310,10 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298077" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28653845" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24958031" sideWeight="0.20769231" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24958031" sideWeight="0.16057692" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32884616" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -945,7 +1323,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24958031" sideWeight="0.67115384" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24958031" sideWeight="0.7134615" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1012,7 +1390,14 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="81" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="flex">
+          <url>file://$PROJECT_DIR$/src/controllers/scenes/base/views/ControlPlayerInfo.as</url>
+          <line>56</line>
+          <option name="timeStamp" value="144" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="147" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1020,136 +1405,126 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/controllers/scenes/base/views/ControlPlayerInfo.as">
+    <entry file="file://$PROJECT_DIR$/src/core/controls/ControlBase.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="20" selection-start="522" selection-end="522" vertical-scroll-proportion="0.0">
+        <state line="24" column="21" selection-start="497" selection-end="497" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/scenes/village/ControlSceneVillage.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="0" selection-start="1354" selection-end="1354" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/socialApi/ok/odnoklassniki/Odnoklassniki.as">
+    <entry file="file://$PROJECT_DIR$/src/core/socialApi/SocialManagerBase.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="22" selection-start="814" selection-end="814" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#42#83#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/socialApi/IMediator.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="4" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#26#68#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/socialApi/vk/ui/VKButton.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="23" selection-start="23" selection-end="23" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#31#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/socialApi/vk/ui/VKButtonDisplayState.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="23" selection-start="23" selection-end="23" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#31#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/socialApi/mailru/api/DataProvider.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="28" selection-start="59" selection-end="59" vertical-scroll-proportion="0.0">
+        <state line="62" column="19" selection-start="1354" selection-end="1354" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/socialApi/mailru/api/MD5.as">
+    <entry file="file://$PROJECT_DIR$/src/core/models/GameInfo.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="242" column="28" selection-start="9477" selection-end="9477" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/socialApi/FBMediator.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="241" column="16" selection-start="5521" selection-end="5521" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#25#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/socialApi/vk/api/serialization/json/JSONDecoder.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="233" column="27" selection-start="7422" selection-end="7422" vertical-scroll-proportion="5.216418">
+        <state line="140" column="44" selection-start="3111" selection-end="3111" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="e#182#200#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/socialApi/APIEvent.as">
+    <entry file="file://$PROJECT_DIR$/src/controllers/scenes/base/ControlSceneBase.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="68" selection-start="272" selection-end="272" vertical-scroll-proportion="0.0">
+        <state line="18" column="0" selection-start="432" selection-end="432" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#193#248#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/Debug.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="0" selection-start="1190" selection-end="1190" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/socialApi/VKMediator.as">
+    <entry file="file://$PROJECT_DIR$/src/core/socialApi/ISocialManager.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="28" selection-start="532" selection-end="532" vertical-scroll-proportion="0.0">
+        <state line="30" column="35" selection-start="640" selection-end="640" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/controls/ControlScene.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="63" selection-start="2115" selection-end="2115" vertical-scroll-proportion="-1.1939218">
           <folding>
-            <element signature="e#25#43#0" expanded="true" />
+            <element signature="e#184#207#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/socialApi/OKMediator.as">
+    <entry file="file://$PROJECT_DIR$/src/core/socialApi/SocialManagerVK.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="26" selection-start="367" selection-end="367" vertical-scroll-proportion="0.0">
+        <state line="183" column="20" selection-start="4514" selection-end="4514" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/models/resources/LoaderPictureInfo.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="5" selection-start="671" selection-end="671" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#25#67#0" expanded="true" />
+            <element signature="e#191#209#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/socialApi/MMMediator.as">
+    <entry file="file://$PROJECT_DIR$/src/controllers/scenes/base/views/ControlOptions.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="77" selection-start="1471" selection-end="1471" vertical-scroll-proportion="0.0">
+        <state line="52" column="62" selection-start="1061" selection-end="1061" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/scenes/base/views/ControlPlayerInfo.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="7" selection-start="1268" selection-end="1268" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#200#218#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/socialApi/info/SocialUserInfo.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="29" selection-start="1404" selection-end="1404" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../SDK's/flex_4.6/frameworks/libs/player/11.1/playerglobal.swc!/library.swf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3650" column="25" selection-start="156916" selection-end="156916" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="106" selection-start="1563" selection-end="1563" vertical-scroll-proportion="0.5335968">
-          <folding>
-            <element signature="e#11#29#0" expanded="true" />
-          </folding>
+        <state line="66" column="0" selection-start="1282" selection-end="1282" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/scenes/base/ControlScene.as">
+    <entry file="file://$PROJECT_DIR$/src/core/models/resources/LoaderPicture.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="25" selection-start="3049" selection-end="3049" vertical-scroll-proportion="0.0">
+        <state line="83" column="12" selection-start="2348" selection-end="2348" vertical-scroll-proportion="0.37626627">
           <folding>
-            <element signature="e#194#217#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/socialApi/SocialNetworkManager.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="35" selection-start="1473" selection-end="1473" vertical-scroll-proportion="0.3389328">
-          <folding>
-            <element signature="e#25#67#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#191#209#0" expanded="true" />
           </folding>
         </state>
       </provider>

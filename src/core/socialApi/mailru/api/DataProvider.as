@@ -9,10 +9,10 @@ import mailru.api.serialization.json.*;
 public class DataProvider
 {
 
+    //! идентификатор приложения;
     private var _api_id:Number;
     private var _api_secret:String;
     private var _viewer_id:String;
-    private var _request_params:Array;
     private var _api_url:String = "http://www.appsmail.ru/platform/api?";
     private var _global_options:Object;
 
@@ -20,7 +20,6 @@ public class DataProvider
     public function DataProvider(url:String, api_id:Number, api_secret:String, viewer_id:String)
     {
         /**
-         *  app_id - идентификатор приложения;
          * method - имя метода API который нужно вызвать;
          * sig - подпись запроса;
          */
@@ -130,10 +129,11 @@ public class DataProvider
     private function _generate_signature(request_params:Object):String
     {
         var signature:String = "";
-        var sorted_array:Array = new Array();
+
+        var sorted_array:Array = [];
         for (var key:String in request_params)
         {
-            sorted_array.push(key + "=" + request_params[key]);
+            sorted_array.push(key + "=" + request_params.[key]);
         }
         sorted_array.sort();
 
@@ -145,6 +145,7 @@ public class DataProvider
         }
         if (_viewer_id.length > 0) signature = _viewer_id.toString() + signature;
         signature += _api_secret;
+
         return MD5.encrypt(signature);
     }
 }

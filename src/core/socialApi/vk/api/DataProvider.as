@@ -32,9 +32,8 @@ package core.socialApi.vk.api {
     
     public function request(method: String, options: Object = null):void {
       var onComplete: Function, onError: Function;
-	  //Main.txt.text += "request ";
       if (options == null) {
-        options = new Object();
+        options = {};
       }
       options.onComplete = options.onComplete ? options.onComplete : (_global_options.onComplete ? _global_options.onComplete : null);
       options.onError = options.onError ? options.onError : (_global_options.onError ? _global_options.onError : null);
@@ -66,7 +65,6 @@ package core.socialApi.vk.api {
       }
       variables['sig'] = _generate_signature(request_params);
       variables['sid'] = _api_sid;
-	  //Main.txt.text += "send " + _api_sid;
       var request:URLRequest = new URLRequest();
       request.url = _api_url;
       request.method = URLRequestMethod.POST;
@@ -107,7 +105,7 @@ package core.socialApi.vk.api {
      */
     private function _generate_signature(request_params: Object): String {
       var signature: String = "";
-      var sorted_array: Array = new Array();
+      var sorted_array: Array = [];
       for (var key: String in request_params) {
         sorted_array.push(key + "=" + request_params[key]);
       }

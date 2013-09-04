@@ -1,9 +1,10 @@
 package
 {
 
+import core.controls.ControlScene;
+
 import core.Debug;
 import core.controls.ESceneType;
-import controllers.scenes.base.ControlScene;
 
 import flash.display.DisplayObject;
 import flash.display.MovieClip;
@@ -12,12 +13,15 @@ import flash.display.Stage;
 import flash.display.StageAlign;
 import flash.display.StageScaleMode;
 import flash.events.Event;
+import flash.external.ExternalInterface;
 import flash.system.Security;
 import flash.ui.ContextMenu;
 
-import models.gameInfo.GameInfo;
+import core.models.GameInfo;
 
 import mx.utils.StringUtil;
+
+import core.socialApi.vk.APIConnection;
 
 public class Main extends MovieClip
 {
@@ -64,11 +68,21 @@ public class Main extends MovieClip
         }
         else if (SOCIAL::VK)
         {
+            Security.allowInsecureDomain("vk.com");
+            Security.allowDomain('vk.com');
+
             buildConfigurationStr = StringUtil.substitute("build configuration: vk.{0}", CONFIG::DEBUG ? "debug" : "release")
         }
         else if (SOCIAL::OFFLINE)
         {
+            Security.allowInsecureDomain("*");
+            Security.allowDomain('*');
+
             buildConfigurationStr = StringUtil.substitute("build configuration: offline.{0}", CONFIG::DEBUG ? "debug" : "release")
+        }
+        else
+        {
+            Debug.assert(false, "Can't detect social network");
         }
 
         Debug.log(buildConfigurationStr);
@@ -90,9 +104,6 @@ public class Main extends MovieClip
         stage.scaleMode = StageScaleMode.NO_SCALE;
         stage.align = StageAlign.TOP_LEFT;
         stage.color = 0xF5F5F5;
-
-        Security.allowInsecureDomain("*");
-        Security.allowDomain('*');
 
         start();
     }
@@ -175,14 +186,25 @@ public class Main extends MovieClip
     private function run():void
     {
         nextFrame();
+
         //add root view of all scenes
         addChild(ControlScene.rootView);
 
-        //init model
-        var gi:GameInfo = GameInfo.Instance;
+        //init social network connection
+        GameInfo.Instance.initSocialManager(onInitSocialComplete, onInitSocialError);
+    }
+
+    private static function onInitSocialComplete():void
+    {
+        Debug.log("Init model complete. Start the game.");
 
         //init view+controller
         ControlScene.setScene(ESceneType.EST_VILLAGE);
+    }
+
+    private static function onInitSocialError():void
+    {
+        Debug.assert(false, "Can't login to social network");
     }
 }
 }

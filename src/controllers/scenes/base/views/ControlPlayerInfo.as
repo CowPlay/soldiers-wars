@@ -7,8 +7,14 @@
  */
 package controllers.scenes.base.views
 {
+import core.Debug;
 import core.controls.ControlBase;
-import controllers.scenes.base.ControlScene;
+import core.controls.ControlScene;
+
+import flash.display.Bitmap;
+import flash.display.Loader;
+
+import mx.utils.StringUtil;
 
 public class ControlPlayerInfo extends ControlBase
 {
@@ -16,6 +22,8 @@ public class ControlPlayerInfo extends ControlBase
      * Fields
      */
     private var _rootView:gControlPlayerInfo;
+
+    private var _loaderPicture:Loader;
 
     /*
      * Properties
@@ -37,7 +45,20 @@ public class ControlPlayerInfo extends ControlBase
     {
         _rootView = new gControlPlayerInfo();
         addChild(_rootView);
+
+        _rootView.labelPlayerName.text = StringUtil.substitute("{0} {1}", ControlScene.socialManager.userInfo.firstName, ControlScene.socialManager.userInfo.lastName);
+
+        ControlScene.loaderPicture.loadPicture(ControlScene.socialManager.userInfo.picUrl, onUserAvatarLoaded, null);
     }
+
+
+    private function onUserAvatarLoaded(bmp:Bitmap):void
+    {
+        Debug.assert(bmp != null);
+
+
+    }
+
 
     /*
      * IDisposable

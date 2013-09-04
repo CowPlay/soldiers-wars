@@ -24,7 +24,6 @@ public class MMMediator // implements IMediator
 //        _apiConnector = GameInfo.Instance.socialManager;
 //        _callback = completeCallback;
 //        _callbackError = errorCallback
-//        _flashVars = Main.stageValue.loaderInfo.parameters;
 //        _userId = _flashVars.vid;
 //
 //        MailruCall.addEventListener(Event.COMPLETE, mailruReadyHandler);
@@ -134,7 +133,7 @@ public class MMMediator // implements IMediator
 //        return _flashVars;
 //    }
 //
-//    public function showInviteFriendsWindow(onComplete:Function, onError:Function):void
+//    public function inviteFriends(onComplete:Function, onError:Function):void
 //    {
 //        MailruCall.exec("mailru.app.friends.invite");
 //    }

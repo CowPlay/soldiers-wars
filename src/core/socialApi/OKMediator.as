@@ -1,12 +1,12 @@
 package core.socialApi
 {
-import core.socialApi.Info.SocialUserInfo;
+import core.socialApi.info.SocialUserInfo;
 import core.socialApi.ok.odnoklassniki.Odnoklassniki;
 import core.socialApi.ok.odnoklassniki.events.ApiCallbackEvent;
 import core.socialApi.ok.odnoklassniki.events.ApiServerEvent;
 import core.socialApi.ok.odnoklassniki.sdk.stream.Stream;
 
-import models.gameInfo.GameInfo;
+import core.models.GameInfo;
 
 public class OKMediator //implements IMediator
 {
@@ -31,7 +31,6 @@ public class OKMediator //implements IMediator
 //        _apiConnector = GameInfo.Instance.socialManager;
 //        _callback = completeCallback;
 //        _callbackError = errorCallback
-//        _flashVars = Main.stageValue.loaderInfo.parameters;
 //        _userId = _flashVars.logged_user_id;
 //
 //        Odnoklassniki.initialize(Main.stageValue, API_KEY);
@@ -168,7 +167,7 @@ public class OKMediator //implements IMediator
 //        return _flashVars;
 //    }
 //
-//    public function showInviteFriendsWindow(onComplete:Function, onError:Function):void
+//    public function inviteFriends(onComplete:Function, onError:Function):void
 //    {
 //        Odnoklassniki.showInvite();
 //    }

@@ -8,13 +8,13 @@
 package controllers.scenes.base.views
 {
 import core.controls.ControlBase;
-import controllers.scenes.base.ControlScene;
+import core.controls.ControlScene;
 
 import core.Debug;
 
 import flash.events.MouseEvent;
 
-import models.gameInfo.GameInfo;
+import core.models.GameInfo;
 
 public class ControlOptions extends ControlBase
 {

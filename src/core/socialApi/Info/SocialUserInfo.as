@@ -1,4 +1,4 @@
-package core.socialApi.Info
+package core.socialApi.info
 {
 import core.Debug;
 
@@ -43,6 +43,41 @@ public class SocialUserInfo
     {
         Debug.assert(false, e.toString());
     }
+
+    //    private function loadPicture(url:String, callback:Function):void
+//    {
+//        _callbackPicture = callback;
+//        _loaderPics.load(new URLRequest(url));
+//    }
+//
+//    private function picErrorHandler(e:IOErrorEvent):void
+//    {
+//        trace("picture loading error");
+//        _callbackPicture(null);
+//    }
+//
+//    private function onPictureLoaded(e:Event):void
+//    {
+//        var imageInfo:LoaderInfo;
+//        var bmd:BitmapData;
+//        var bitmap:Bitmap;
+//
+//        try
+//        {
+//            imageInfo = LoaderInfo(e.target);
+//            bmd = new BitmapData(imageInfo.width, imageInfo.height);
+//            bmd.draw(imageInfo.loader.content);
+//            bitmap = new Bitmap(bmd);
+//
+//            if (_callbackPicture != null)
+//                _callbackPicture(bitmap);
+//        }
+//        catch (e:Error)
+//        {
+//            Debug.assert(false, e.message);
+//            _callbackPicture(null);
+//        }
+//    }
 }
 
 }

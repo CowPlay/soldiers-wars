@@ -9,18 +9,37 @@ package core.socialApi
 {
 public class ConstantsSocial
 {
+
+    /*
+     * Common
+     */
+    public static const SOCIAL_APPLICATION_NAME:String = "Soldiers wars";
+
+
+    public static const SOCIAL_ACCESS_FRIENDS:Boolean = true;
+    public static const SOCIAL_ACCESS_WALL:Boolean = true;
+
+    public static const SOCIAL_FRIENDS_COUNT:uint = 100;
+
+
     /*
      * Constants vk.com
      */
 
-    public static const API_ID:String = "3183782";
-    public static const API_URL:String = "http://api.vk.com/api.php";
+    public static const VK_API_ID:String = "3858242";
+    public static const VK_API_URL:String = "http://api.vk.com/api.php";
 
-    public static const AUTH_KEY:String = "b67dfdc7e179f5694174e348c4392e26";
-    public static const SECRET:String = "8944aac4b6";
-    public static const VIEWER_ID:String = "3460424";
-    public static const USER_ID:String = "3460424";
+    public static const VK_AUTH_KEY:String = "b67dfdc7e179f5694174e348c4392e26";
+    public static const VK_SECRET:String = "8944aac4b6";
+    public static const VK_VIEWER_ID:String = "3460424";
+    public static const VK_USER_ID:String = "3460424";
 
+
+    /*
+     * Constants facebook
+     */
+
+    public static const FB_APP_ID:String = "341522739302403";
 
 }
 }

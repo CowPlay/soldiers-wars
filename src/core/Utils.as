@@ -10,7 +10,7 @@ package core
 import flash.display.DisplayObject;
 import flash.display.DisplayObjectContainer;
 
-import models.gameInfo.GameInfo;
+import core.models.GameInfo;
 
 public class Utils
 {

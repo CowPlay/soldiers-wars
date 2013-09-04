@@ -8,7 +8,7 @@
 package controllers.scenes.base.views
 {
 import core.controls.ControlBase;
-import controllers.scenes.base.ControlScene;
+import core.controls.ControlScene;
 
 import core.Debug;
 import core.Utils;
