@@ -1,10 +1,11 @@
 package core.socialApi.info
 {
 import core.Debug;
+import core.Utils;
+import core.models.GameInfo;
 
-import flash.display.Loader;
-import flash.events.IOErrorEvent;
-import flash.net.URLRequest;
+import flash.display.Bitmap;
+import flash.display.BitmapData;
 
 public class SocialUserInfo
 {
@@ -12,12 +13,42 @@ public class SocialUserInfo
      * Fields
      */
 
+
     public var id:String;
     public var lastName:String;
     public var firstName:String;
-    public var picUrl:String;
     public var installed:Boolean;
-    public var pic:Loader;
+
+    private var _picture:Bitmap;
+
+
+    /*
+     * Properties
+     */
+
+    public function set urlPicture(url:String):void
+    {
+        Debug.assert(_picture == null, "Picture already loaded");
+
+        GameInfo.Instance.loaderPicture.loadPicture(url, onLoadPictureComplete);
+    }
+
+    private function onLoadPictureComplete(pictureValue:Bitmap):void
+    {
+        Debug.assert(pictureValue != null);
+
+        _picture = pictureValue;
+    }
+
+
+    public function set picture(value:Bitmap):void
+    {
+        if (_picture == value)
+            return;
+
+        _picture = value;
+    }
+
 
     /*
      * Methods
@@ -26,58 +57,21 @@ public class SocialUserInfo
     //! Default constructor
     public function SocialUserInfo()
     {
-
     }
 
-    public function loadPicture():void
+    //! Always returns clone of original picture
+    public function getPictureClone():Bitmap
     {
-        if (!picUrl || picUrl == "")
-            return;
+        if (_picture == null)
+            return null;
 
-        pic = new Loader();
-        pic.load(new URLRequest(picUrl));
-        pic.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, onLoadPicError);
+        var result:Bitmap = null;
+
+        var bmpDataClone:BitmapData = _picture.bitmapData.clone();
+        result = new Bitmap(bmpDataClone);
+
+        return result;
     }
-
-    private static function onLoadPicError(e:IOErrorEvent):void
-    {
-        Debug.assert(false, e.toString());
-    }
-
-    //    private function loadPicture(url:String, callback:Function):void
-//    {
-//        _callbackPicture = callback;
-//        _loaderPics.load(new URLRequest(url));
-//    }
-//
-//    private function picErrorHandler(e:IOErrorEvent):void
-//    {
-//        trace("picture loading error");
-//        _callbackPicture(null);
-//    }
-//
-//    private function onPictureLoaded(e:Event):void
-//    {
-//        var imageInfo:LoaderInfo;
-//        var bmd:BitmapData;
-//        var bitmap:Bitmap;
-//
-//        try
-//        {
-//            imageInfo = LoaderInfo(e.target);
-//            bmd = new BitmapData(imageInfo.width, imageInfo.height);
-//            bmd.draw(imageInfo.loader.content);
-//            bitmap = new Bitmap(bmd);
-//
-//            if (_callbackPicture != null)
-//                _callbackPicture(bitmap);
-//        }
-//        catch (e:Error)
-//        {
-//            Debug.assert(false, e.message);
-//            _callbackPicture(null);
-//        }
-//    }
 }
 
 }

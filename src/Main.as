@@ -4,7 +4,7 @@ package
 import core.controls.ControlScene;
 
 import core.Debug;
-import core.controls.ESceneType;
+import controllers.scenes.base.ESceneType;
 
 import flash.display.DisplayObject;
 import flash.display.MovieClip;
@@ -18,6 +18,8 @@ import flash.system.Security;
 import flash.ui.ContextMenu;
 
 import core.models.GameInfo;
+
+import models.GameInfoSoldiers;
 
 import mx.utils.StringUtil;
 
@@ -187,16 +189,19 @@ public class Main extends MovieClip
     {
         nextFrame();
 
-        //add root view of all scenes
-        addChild(ControlScene.rootView);
+        //init model
+        GameInfoSoldiers.initGameInfoSoldiers();
 
         //init social network connection
-        GameInfo.Instance.initSocialManager(onInitSocialComplete, onInitSocialError);
+        GameInfoSoldiers.Instance.initSocialManager(onInitSocialComplete, onInitSocialError);
     }
 
-    private static function onInitSocialComplete():void
+    private function onInitSocialComplete():void
     {
         Debug.log("Init model complete. Start the game.");
+
+        //add root view of all scenes
+        addChild(ControlScene.rootView);
 
         //init view+controller
         ControlScene.setScene(ESceneType.EST_VILLAGE);

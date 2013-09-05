@@ -1,5 +1,7 @@
-package core.socialApi
+package core.socialApi.managers
 {
+import core.models.GameInfo;
+import core.socialApi.*;
 import core.Debug;
 import core.socialApi.info.SocialUserInfo;
 import core.socialApi.vk.APIConnection;
@@ -45,7 +47,7 @@ public class SocialManagerVK extends SocialManagerBase
 
     protected function init(onComplete:Function, onError:Function):void
     {
-        _friendsFields = "uid,first_name,last_name,photo_big";
+        _friendsFields = "uid,first_name,last_name,photo_100";
 
         _apiConnection = new APIConnection(_flashVars);
 
@@ -185,8 +187,10 @@ public class SocialManagerVK extends SocialManagerBase
 
         userInfo.firstName = response.hasOwnProperty("first_name") ? response.first_name : "";
         userInfo.lastName = response.hasOwnProperty("last_name") ? response.last_name : "";
-        userInfo.picUrl = response.hasOwnProperty("photo_big") ? response.photo_big : "";
         userInfo.id = response.hasOwnProperty("uid") ? String(response.uid) : "";
+
+        //load picture
+        userInfo.urlPicture = response.hasOwnProperty("photo_100") ? response.photo_100 : "";
 
         return userInfo;
     }

@@ -9,7 +9,7 @@ package controllers.scenes.game
 {
 import controllers.scenes.base.ControlSceneBase;
 
-import core.controls.ESceneType;
+import controllers.scenes.base.ESceneType;
 
 import flash.display.Sprite;
 
@@ -27,7 +27,7 @@ public class ControlSceneGame extends ControlSceneBase
     /*
      * Properties
      */
-    public override function get type():ESceneType
+    public override function get type():String
     {
         return ESceneType.EST_GAME;
     }

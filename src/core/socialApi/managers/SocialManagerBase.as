@@ -5,8 +5,9 @@
  * Time: 3:59 PM
  * To change this template use File | Settings | File Templates.
  */
-package core.socialApi
+package core.socialApi.managers
 {
+import core.socialApi.*;
 import core.Debug;
 import core.socialApi.info.SocialUserInfo;
 
@@ -70,6 +71,8 @@ public class SocialManagerBase implements ISocialManager
     //! Default constructor
     public function SocialManagerBase(onComplete:Function, onError:Function)
     {
+        Debug.assert(onComplete != null);
+
         _flashVars = Main.stageValue.loaderInfo.parameters;
     }
 

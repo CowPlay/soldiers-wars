@@ -13,16 +13,20 @@ import com.greensock.plugins.TweenPlugin;
 import controllers.scenes.base.ControlSceneBase;
 
 import core.controls.ControlScroll;
-import core.controls.ESceneType;
+import controllers.scenes.base.ESceneType;
 import core.controls.ControlScene;
 
 import core.Utils;
+import core.models.GameInfo;
+import core.models.GameInfo;
 
 import flash.display.Sprite;
 import flash.events.MouseEvent;
 import flash.filters.GlowFilter;
 
-import core.models.managerVillage.Houses.base.EHouseVillageType;
+import models.GameInfoSoldiers;
+
+import models.managerVillage.Houses.base.EHouseVillageType;
 
 public class ControlSceneVillage extends ControlSceneBase
 {
@@ -49,7 +53,7 @@ public class ControlSceneVillage extends ControlSceneBase
      * Properties
      */
 
-    public override function get type():ESceneType
+    public override function get type():String
     {
         return ESceneType.EST_VILLAGE;
     }

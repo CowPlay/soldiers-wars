@@ -7,13 +7,16 @@
  */
 package core
 {
+import core.models.GameInfo;
+
+import flash.display.Bitmap;
+import flash.display.BitmapData;
 import flash.display.DisplayObject;
 import flash.display.DisplayObjectContainer;
 
-import core.models.GameInfo;
-
 public class Utils
 {
+
     //@param offset  - vertical offset in percent. 0.0 - align top of application, 1.0 - align bottom of application.
     //@param targetAnchorPoint - vertical target anchor in percent
     public static function alignVertical(target:DisplayObject, offsetAppSize:Number = 0, targetAnchorPoint:Number = 0):void

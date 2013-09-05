@@ -5,7 +5,7 @@
  * Time: 1:58 PM
  * To change this template use File | Settings | File Templates.
  */
-package core.models.managerVillage.Houses.base
+package models.managerVillage.Houses.base
 {
 
 import core.Debug;
@@ -15,6 +15,8 @@ import flash.display.MovieClip;
 import flash.events.MouseEvent;
 
 import core.models.GameInfo;
+
+import models.GameInfoSoldiers;
 
 public class HouseVillageBase implements IDisposable
 {
@@ -111,7 +113,7 @@ public class HouseVillageBase implements IDisposable
         if (canBuild())
         {
             //TODO: build
-            GameInfo.Instance.villageManager.didHouseBuild(this);
+            GameInfoSoldiers.Instance.villageManager.didHouseBuild(this);
         }
     }
 

@@ -41,5 +41,14 @@ public class ConstantsSocial
 
     public static const FB_APP_ID:String = "341522739302403";
 
+    /*
+     * Offline
+     */
+
+    public static const OFFLINE_USER_ID:String = "777";
+    public static const OFFLINE_FIRST_NAME:String = "first_name";
+    public static const OFFLINE_LAST_NAME:String = "last_name";
+    public static const OFFLINE_CALLBACK_DELAY:uint = 1000;
+
 }
 }

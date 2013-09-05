@@ -1,5 +1,7 @@
-package core.socialApi
+package core.socialApi.managers
 {
+import core.socialApi.*;
+
 import com.facebook.graph.Facebook;
 
 import core.Debug;
@@ -179,7 +181,7 @@ public class SocialManagerFB extends SocialManagerBase
             result.firstName = info.first_name as String;
             result.id = info.id as String;
             result.lastName = info.last_name as String;
-            result.picUrl = info.picture ? (info.picture.data ? info.picture.data.url as String : null) : null;
+            result.urlPicture = info.picture ? (info.picture.data ? info.picture.data.url as String : null) : null;
             result.installed = info.installed ? true : false;
         }
 

@@ -1,5 +1,6 @@
-package core.socialApi
+package core.socialApi.managers
 {
+import core.socialApi.*;
 import core.socialApi.info.SocialUserInfo;
 
 /**

@@ -5,7 +5,7 @@
  * Time: 2:57 PM
  * To change this template use File | Settings | File Templates.
  */
-package core.models.managerVillage.Houses.base
+package models.managerVillage.Houses.base
 {
 public class EHouseVillageState
 {

@@ -5,16 +5,16 @@
  * Time: 2:12 PM
  * To change this template use File | Settings | File Templates.
  */
-package core.models.managerVillage.Houses.mines
+package models.managerVillage.Houses.mines
 {
 import core.Debug;
 
 import flash.display.MovieClip;
 
 import core.models.GameInfo;
-import core.models.managerVillage.Houses.base.EHouseVillageState;
-import core.models.managerVillage.Houses.base.EHouseVillageType;
-import core.models.managerVillage.Houses.base.HouseVillageBase;
+import models.managerVillage.Houses.base.EHouseVillageState;
+import models.managerVillage.Houses.base.EHouseVillageType;
+import models.managerVillage.Houses.base.HouseVillageBase;
 
 public class HouseVillageMineGold extends HouseVillageBase
 {

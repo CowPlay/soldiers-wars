@@ -8,14 +8,13 @@
 package core.models
 {
 import core.Debug;
-import core.models.resources.LoaderPicture;
-import core.socialApi.ISocialManager;
-import core.socialApi.SocialManagerFB;
-import core.socialApi.SocialManagerVK;
-
 import core.models.managerApp.AppHelper;
 import core.models.managerMoney.MoneyManager;
-import core.models.managerVillage.VillageManager;
+import core.models.resources.LoaderPicture;
+import core.socialApi.managers.ISocialManager;
+import core.socialApi.managers.SocialManagerFB;
+import core.socialApi.managers.SocialManagerOffline;
+import core.socialApi.managers.SocialManagerVK;
 
 public class GameInfo
 {
@@ -23,14 +22,13 @@ public class GameInfo
      * Singleton realization
      */
 
-    private static const _instance:GameInfo = new GameInfo();
+    protected static var _instance:GameInfo;
 
-    //! Default constructor
-    public function GameInfo()
+    public static function initGameInfo():void
     {
-        Debug.assert(!_instance, "Class is singleton.");
+        Debug.assert(_instance == null, "GameInfo already initialized.");
 
-        init();
+        _instance = new GameInfo();
     }
 
     public static function get Instance():GameInfo
@@ -43,8 +41,7 @@ public class GameInfo
      */
 
     private var _appHelper:AppHelper;
-    //TODO: move to GameInfoSoldiers
-    private var _villageManager:VillageManager;
+
     private var _moneyManager:MoneyManager;
     private var _socialManager:ISocialManager;
     private var _loaderPicture:LoaderPicture;
@@ -65,11 +62,6 @@ public class GameInfo
         return _appHelper;
     }
 
-    public function get villageManager():VillageManager
-    {
-        return _villageManager;
-    }
-
     public function get moneyManager():MoneyManager
     {
         return _moneyManager;
@@ -84,7 +76,6 @@ public class GameInfo
     {
         return _loaderPicture;
     }
-
 
 //
 //    public function get currentGame():GameBase
@@ -133,13 +124,19 @@ public class GameInfo
      * Methods
      */
 
-    private function init():void
+    //! Default constructor
+    public function GameInfo()
+    {
+        Debug.assert(_instance == null, "Class is singleton.");
+
+        init();
+    }
+
+    protected function init():void
     {
         _appHelper = new AppHelper();
-        _villageManager = new VillageManager();
         _moneyManager = new MoneyManager();
         _loaderPicture = new LoaderPicture();
-
     }
 
     public function initSocialManager(onComplete:Function, onError:Function):void
@@ -166,10 +163,8 @@ public class GameInfo
 
         SOCIAL::OFFLINE
         {
-            _socialManager = null;//new VKMediator();
+            _socialManager = new SocialManagerOffline(onComplete, onError);
         }
     }
-
-
 }
 }

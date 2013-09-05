@@ -71,7 +71,7 @@
         <packaging-android />
         <packaging-ios />
       </configuration>
-      <configuration name="offline.debug" pure-as="true" main-class="Main" output-file="offline_debug.swf" output-folder="$MODULE_DIR$/html/facebook/debug/out">
+      <configuration name="offline.debug" pure-as="true" main-class="Main" output-file="offline_debug.swf" output-folder="$MODULE_DIR$/html/offline/debug/out">
         <dependencies target-player="11.1">
           <entries>
             <entry library-name="assets" library-level="project">
@@ -93,7 +93,7 @@
         <packaging-android />
         <packaging-ios />
       </configuration>
-      <configuration name="offline.release" pure-as="true" main-class="Main" output-file="offline_release.swf" output-folder="$MODULE_DIR$/html/facebook/release/out">
+      <configuration name="offline.release" pure-as="true" main-class="Main" output-file="offline_release.swf" output-folder="$MODULE_DIR$/html/offline/release/out">
         <dependencies target-player="11.1">
           <entries>
             <entry library-name="assets" library-level="project">

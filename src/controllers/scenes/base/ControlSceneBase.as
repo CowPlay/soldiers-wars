@@ -16,8 +16,28 @@ import core.models.resources.LoaderSWF;
 
 import flash.display.MovieClip;
 
+import models.GameInfoSoldiers;
+
+import models.managerVillage.VillageManager;
+
 public class ControlSceneBase extends ControlScene
 {
+    /*
+     * Static fields
+     */
+
+    private static var _gameInfoSoldiers:GameInfoSoldiers;
+    private static var _villageManager:VillageManager;
+
+    /*
+     * Static properties
+     */
+    public static function get villageManager():VillageManager
+    {
+        return _villageManager;
+    }
+
+
     /*
      * Fields
      */
@@ -44,6 +64,11 @@ public class ControlSceneBase extends ControlScene
     //! Default constructor
     public function ControlSceneBase()
     {
+        if(_gameInfoSoldiers == null)
+        {
+            _gameInfoSoldiers = GameInfoSoldiers.Instance;
+            _villageManager = _gameInfoSoldiers.villageManager;
+        }
     }
 
 

@@ -5,7 +5,7 @@
  * Time: 2:35 PM
  * To change this template use File | Settings | File Templates.
  */
-package core.socialApi
+package core.socialApi.managers
 {
 public class ESocialNetworkType
 {
