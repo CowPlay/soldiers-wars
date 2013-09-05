@@ -40,6 +40,10 @@ public class SocialUserInfo
         _picture = pictureValue;
     }
 
+    public function get hasPicture():Boolean
+    {
+        return _picture != null;
+    }
 
     public function set picture(value:Bitmap):void
     {

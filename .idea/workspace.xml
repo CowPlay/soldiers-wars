@@ -2,40 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0c58ea7-91d2-429f-8aac-01418852bc28" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/models/GameInfoSoldiers.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/core/socialApi/managers/SocialManagerOffline.as" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/core/models/managerApp/ESocialNetworkType.as" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/core/controls/ESceneType.as" afterPath="$PROJECT_DIR$/src/controllers/scenes/base/ESceneType.as" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/core/models/managerVillage/Houses/HouseVillageAltar.as" afterPath="$PROJECT_DIR$/src/models/managerVillage/Houses/HouseVillageAltar.as" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/core/models/managerVillage/Houses/base/EHouseVillageState.as" afterPath="$PROJECT_DIR$/src/models/managerVillage/Houses/base/EHouseVillageState.as" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/core/models/managerVillage/Houses/base/EHouseVillageType.as" afterPath="$PROJECT_DIR$/src/models/managerVillage/Houses/base/EHouseVillageType.as" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/core/models/managerVillage/Houses/base/HouseVillageBase.as" afterPath="$PROJECT_DIR$/src/models/managerVillage/Houses/base/HouseVillageBase.as" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/core/models/managerVillage/Houses/mines/HouseVillageBakeshop.as" afterPath="$PROJECT_DIR$/src/models/managerVillage/Houses/mines/HouseVillageBakeshop.as" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/core/models/managerVillage/Houses/mines/HouseVillageMineGems.as" afterPath="$PROJECT_DIR$/src/models/managerVillage/Houses/mines/HouseVillageMineGems.as" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/core/models/managerVillage/Houses/mines/HouseVillageMineGold.as" afterPath="$PROJECT_DIR$/src/models/managerVillage/Houses/mines/HouseVillageMineGold.as" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/core/models/managerVillage/VillageManager.as" afterPath="$PROJECT_DIR$/src/models/managerVillage/VillageManager.as" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/core/socialApi/ESocialNetworkType.as" afterPath="$PROJECT_DIR$/src/core/socialApi/managers/ESocialNetworkType.as" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/core/socialApi/ISocialManager.as" afterPath="$PROJECT_DIR$/src/core/socialApi/managers/ISocialManager.as" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/core/socialApi/SocialManagerBase.as" afterPath="$PROJECT_DIR$/src/core/socialApi/managers/SocialManagerBase.as" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/core/socialApi/SocialManagerFB.as" afterPath="$PROJECT_DIR$/src/core/socialApi/managers/SocialManagerFB.as" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/core/socialApi/SocialManagerVK.as" afterPath="$PROJECT_DIR$/src/core/socialApi/managers/SocialManagerVK.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/socialApi/ConstantsSocial.as" afterPath="$PROJECT_DIR$/src/core/socialApi/ConstantsSocial.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/scenes/base/views/ControlOptions.as" afterPath="$PROJECT_DIR$/src/controllers/scenes/base/views/ControlOptions.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/ui.swc" afterPath="$PROJECT_DIR$/assets/ui.swc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/scenes/base/views/ControlPlayerInfo.as" afterPath="$PROJECT_DIR$/src/controllers/scenes/base/views/ControlPlayerInfo.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/controls/ControlScene.as" afterPath="$PROJECT_DIR$/src/core/controls/ControlScene.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/scenes/base/ControlSceneBase.as" afterPath="$PROJECT_DIR$/src/controllers/scenes/base/ControlSceneBase.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/scenes/game/ControlSceneGame.as" afterPath="$PROJECT_DIR$/src/controllers/scenes/game/ControlSceneGame.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/scenes/village/ControlSceneVillage.as" afterPath="$PROJECT_DIR$/src/controllers/scenes/village/ControlSceneVillage.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/models/GameInfo.as" afterPath="$PROJECT_DIR$/src/core/models/GameInfo.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/models/resources/LoaderPicture.as" afterPath="$PROJECT_DIR$/src/core/models/resources/LoaderPicture.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.as" afterPath="$PROJECT_DIR$/src/Main.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/socialApi/info/SocialUserInfo.as" afterPath="$PROJECT_DIR$/src/core/socialApi/info/SocialUserInfo.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/Utils.as" afterPath="$PROJECT_DIR$/src/core/Utils.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/offline/debug/index.html" afterPath="$PROJECT_DIR$/html/offline/debug/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/offline/release/index.html" afterPath="$PROJECT_DIR$/html/offline/release/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/soldiers.iml" afterPath="$PROJECT_DIR$/soldiers.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="com.cowplay.soldiers.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -114,7 +82,7 @@
     <file path="/ControlStripTop.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378205317626" ignored="false" />
     <file path="/IControl.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378203209291" ignored="false" />
     <file path="/ControlOptions.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378365855037" ignored="false" />
-    <file path="/ControlPlayerInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378373623846" ignored="false" />
+    <file path="/ControlPlayerInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378375285339" ignored="false" />
     <file path="/ControlScroll.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378204720183" ignored="false" />
     <file path="/ControlBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378205952299" ignored="false" />
     <file path="/ApiUserInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378208810160" ignored="false" />
@@ -156,7 +124,7 @@
     <file path="/ESceneType.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378364998495" ignored="false" />
     <file path="/.gitignore" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378366121964" ignored="false" />
     <file path="/SocialManagerOffline.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378373448831" ignored="false" />
-    <file path="/SocialUserInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378372592600" ignored="false" />
+    <file path="/SocialUserInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378374050402" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,18 +191,9 @@
       <file leaf-file-name="ControlPlayerInfo.as" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controllers/scenes/base/views/ControlPlayerInfo.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="19" selection-start="782" selection-end="782" vertical-scroll-proportion="0.49710983">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SocialUserInfo.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/socialApi/info/SocialUserInfo.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="36" selection-start="1128" selection-end="1128" vertical-scroll-proportion="0.0">
+            <state line="36" column="25" selection-start="683" selection-end="683" vertical-scroll-proportion="0.4755245">
               <folding>
-                <element signature="e#30#48#0" expanded="true" />
+                <element signature="e#200#233#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -334,10 +293,10 @@
         <option value="$PROJECT_DIR$/src/core/socialApi/SocialManagerOffline.as" />
         <option value="$PROJECT_DIR$/src/core/socialApi/managers/SocialManagerFB.as" />
         <option value="$PROJECT_DIR$/src/core/Utils.as" />
-        <option value="$PROJECT_DIR$/src/core/socialApi/info/SocialUserInfo.as" />
         <option value="$PROJECT_DIR$/src/core/socialApi/ConstantsSocial.as" />
         <option value="$PROJECT_DIR$/src/core/socialApi/managers/SocialManagerOffline.as" />
         <option value="$PROJECT_DIR$/src/core/socialApi/managers/SocialManagerVK.as" />
+        <option value="$PROJECT_DIR$/src/core/socialApi/info/SocialUserInfo.as" />
         <option value="$PROJECT_DIR$/src/controllers/scenes/base/views/ControlPlayerInfo.as" />
       </list>
     </option>
@@ -674,46 +633,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers-wars" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="offline" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers-wars" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="offline" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1207,7 +1126,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="9" y="22" width="1833" height="1160" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298077" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1228,7 +1147,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24958031" sideWeight="0.71442306" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24958031" sideWeight="0.71442306" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1295,13 +1214,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="flex">
-          <url>file://$PROJECT_DIR$/src/controllers/scenes/base/views/ControlPlayerInfo.as</url>
-          <line>66</line>
-          <option name="timeStamp" value="162" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="164" />
     </breakpoint-manager>
   </component>
@@ -1412,7 +1324,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/socialApi/info/SocialUserInfo.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="36" selection-start="1128" selection-end="1128" vertical-scroll-proportion="0.0">
+        <state line="42" column="34" selection-start="814" selection-end="824" vertical-scroll-proportion="0.5014451">
           <folding>
             <element signature="e#30#48#0" expanded="true" />
           </folding>
@@ -1421,8 +1333,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/scenes/base/views/ControlPlayerInfo.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="19" selection-start="782" selection-end="782" vertical-scroll-proportion="0.49710983">
-          <folding />
+        <state line="36" column="25" selection-start="683" selection-end="683" vertical-scroll-proportion="0.4755245">
+          <folding>
+            <element signature="e#200#233#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
