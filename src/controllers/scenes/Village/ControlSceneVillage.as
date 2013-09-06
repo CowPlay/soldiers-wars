@@ -10,21 +10,19 @@ package controllers.scenes.village
 import com.greensock.plugins.ScrollRectPlugin;
 import com.greensock.plugins.TweenPlugin;
 
-import controllers.scenes.base.ControlSceneBase;
+import controllers.EPopupType;
 
-import core.controls.ControlScroll;
-import controllers.scenes.base.ESceneType;
-import core.controls.ControlScene;
+import controllers.scenes.base.ControlSceneBase;
+import controllers.ESceneType;
+import controllers.scenes.base.views.ControlScalableStrip;
+import controllers.scenes.village.views.ControlPopupHouse;
 
 import core.Utils;
-import core.models.GameInfo;
-import core.models.GameInfo;
+import core.controls.ControlScene;
+import core.controls.ControlScroll;
 
-import flash.display.Sprite;
 import flash.events.MouseEvent;
 import flash.filters.GlowFilter;
-
-import models.GameInfoSoldiers;
 
 import models.managerVillage.Houses.base.EHouseVillageType;
 
@@ -38,10 +36,9 @@ public class ControlSceneVillage extends ControlSceneBase
     private var _rootViewScroll:ControlScroll;
 
     //ui
-    private var _popup:gPopup;
+    private var _popupHouse:ControlPopupHouse;
 
-
-    protected var _controlBottomStrip:Sprite;
+    protected var _controlBottomStrip:ControlScalableStrip;
 
     protected var _controlBottom:gControlBottom;
     protected var _controlMultiplayer:gControlMultiPlayer;
@@ -83,19 +80,11 @@ public class ControlSceneVillage extends ControlSceneBase
 
         addEventListener(MouseEvent.CLICK, onClick);
 
-
-        {//bottom strip
-
-            _controlBottomStrip = new Sprite();
-
-            _controlBottomStrip.graphics.beginFill(0x000000, 0.8);
-            _controlBottomStrip.graphics.drawRect(0, 0, appHelper.screenResolution.x, 45);
-            _controlBottomStrip.graphics.endFill();
-
-            _layerUI.addChild(_controlBottomStrip);
-        }
-
         {//controls
+
+            _controlBottomStrip = new ControlScalableStrip(this);
+            _layerUI.addChild(_controlBottomStrip);
+
             _controlBottom = new gControlBottom();
             _layerUI.addChild(_controlBottom);
 
@@ -109,36 +98,35 @@ public class ControlSceneVillage extends ControlSceneBase
             _layerUI.addChild(_controlAddFriend);
         }
 
-        _popup = new gPopup();
-        _popup.gotoAndStop(0);
-        _layerUI.addChild(_popup);
+        _popupHouse = new ControlPopupHouse(this);
+        _popupHouse.hide(null, 0);
+        _layerPopups.addChild(_popupHouse);
     }
-
 
 
     private function updateViewsPositions():void
     {
-        _popup.x = appHelper.applicationSize.x / 2 - _popup.width / 2;
+        Utils.alignHorizontalAbsolute(_controlMultiplayer, 0.2, 0.5);
+        Utils.alignVerticalAbsolute(_controlMultiplayer, 1, 1);
 
-        Utils.alignHorizontal(_controlMultiplayer, 0.2, 0.5);
-        Utils.alignVertical(_controlMultiplayer, 1, 1);
+        Utils.alignHorizontalAbsolute(_controlBottom, 0.5, 0.5);
+        Utils.alignVerticalAbsolute(_controlBottom, 1, 1);
 
-        Utils.alignHorizontal(_controlBottom, 0.5, 0.5);
-        Utils.alignVertical(_controlBottom, 1, 1);
+        Utils.alignHorizontalAbsolute(_controlSingleplayer, 0.8, 0.5);
+        Utils.alignVerticalAbsolute(_controlSingleplayer, 1, 1);
 
-        Utils.alignHorizontal(_controlSingleplayer, 0.8, 0.5);
-        Utils.alignVertical(_controlSingleplayer, 1, 1);
+        Utils.alignVerticalAbsolute(_controlBottomStrip, 1, 1);
 
-        Utils.alignVertical(_controlBottomStrip, 1, 1);
-
-        Utils.alignHorizontal(_controlAddFriend, 0.05, 0.5);
-        Utils.alignVertical(_controlAddFriend, 1, 1.2);
+        Utils.alignHorizontalAbsolute(_controlAddFriend, 0.05, 0.5);
+        Utils.alignVerticalAbsolute(_controlAddFriend, 1, 1.2);
     }
 
     public function onClick(e:MouseEvent):void
     {
-//        _popup.visible = true;
-//        TweenLite.to(_popup, 1.25, { y: -_popup.height * 0.1, ease: Back.easeOut});
+        if(sceneOwner.currentPopup == null)
+        {
+            showPopup(EPopupType.EPT_VILLAGE_HOUSE);
+        }
     }
 
     public static function didButtonChangeSceneClicked():void
@@ -180,17 +168,13 @@ public class ControlSceneVillage extends ControlSceneBase
         super.placeViews();
 
         updateViewsPositions();
-
-        //hide popup
-        _popup.visible = false;
-        _popup.y = -_popup.height;
     }
 
     public override function onDisplayStateChanged(isFullScreenNow:Boolean):void
     {
         super.onDisplayStateChanged(isFullScreenNow);
 
-        _rootViewScroll.containerSize = isFullScreenNow ? appHelper.screenResolution : appHelper.applicationSize;
+        _rootViewScroll.containerSize = appHelper.applicationSize;
 
         updateViewsPositions();
     }

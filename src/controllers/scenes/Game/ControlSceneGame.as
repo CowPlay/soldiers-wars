@@ -9,7 +9,7 @@ package controllers.scenes.game
 {
 import controllers.scenes.base.ControlSceneBase;
 
-import controllers.scenes.base.ESceneType;
+import controllers.ESceneType;
 
 import flash.display.Sprite;
 

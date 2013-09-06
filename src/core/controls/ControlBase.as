@@ -13,6 +13,7 @@ import core.Debug;
 
 import flash.display.DisplayObject;
 import flash.display.DisplayObjectContainer;
+import flash.display.MovieClip;
 import flash.display.Sprite;
 
 //! Base class for most controls
@@ -22,7 +23,10 @@ public class ControlBase extends Sprite implements IControl
      * Fields
      */
 
-    protected var _sceneOwner:ControlScene;
+    private var _sceneOwner:ControlScene;
+
+    private var _layerScene:MovieClip;
+    private var _layerUI:MovieClip;
 
     /*
      * Properties

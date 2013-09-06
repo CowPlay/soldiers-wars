@@ -7,8 +7,9 @@
  */
 package controllers.scenes.base
 {
+import controllers.scenes.base.views.ControlOptions;
 import controllers.scenes.base.views.ControlPlayerInfo;
-import controllers.scenes.base.views.ControlStripTop;
+import controllers.scenes.base.views.ControlScalableStrip;
 
 import core.Utils;
 import core.controls.ControlScene;
@@ -17,7 +18,6 @@ import core.models.resources.LoaderSWF;
 import flash.display.MovieClip;
 
 import models.GameInfoSoldiers;
-
 import models.managerVillage.VillageManager;
 
 public class ControlSceneBase extends ControlScene
@@ -42,13 +42,12 @@ public class ControlSceneBase extends ControlScene
      * Fields
      */
 
-    protected var _layerScene:MovieClip;
-    protected var _layerUI:MovieClip;
-
     //ui
     protected var _controlGameName:gControlGameName;
 
-    protected var _controlStripTop:ControlStripTop;
+    protected var _controlStripTop:ControlScalableStrip;
+
+    private var _controlOptions:ControlOptions;
     protected var _controlPlayerInfo:ControlPlayerInfo;
 
     protected var _resourceLoaderBase:LoaderSWF;
@@ -64,7 +63,7 @@ public class ControlSceneBase extends ControlScene
     //! Default constructor
     public function ControlSceneBase()
     {
-        if(_gameInfoSoldiers == null)
+        if (_gameInfoSoldiers == null)
         {
             _gameInfoSoldiers = GameInfoSoldiers.Instance;
             _villageManager = _gameInfoSoldiers.villageManager;
@@ -74,21 +73,18 @@ public class ControlSceneBase extends ControlScene
 
     protected override function prepareViews():void
     {
-        _layerScene = new MovieClip();
-        addChild(_layerScene);
-
-        _layerUI = new MovieClip();
-        addChild(_layerUI);
+      super.prepareViews();
 
         {//ui
-
             _controlGameName = new gControlGameName();
             _layerUI.addChild(_controlGameName);
 
             //control strip
-            _controlStripTop = new ControlStripTop(this);
+            _controlStripTop = new ControlScalableStrip(this);
             _layerUI.addChild(_controlStripTop);
 
+            _controlOptions = new ControlOptions(sceneOwner);
+            _layerUI.addChild(_controlOptions);
 
             _controlPlayerInfo = new ControlPlayerInfo(this);
             _layerUI.addChild(_controlPlayerInfo);
@@ -111,7 +107,8 @@ public class ControlSceneBase extends ControlScene
 
     private function updateViewsPositions():void
     {
-        Utils.alignHorizontal(_controlPlayerInfo, 0.1);
+        Utils.alignHorizontalAbsolute(_controlPlayerInfo, 0.1);
+        Utils.alignHorizontalAbsolute(_controlOptions, 0.9, 0.5);
     }
 
     public override function placeViews():void
@@ -124,6 +121,8 @@ public class ControlSceneBase extends ControlScene
         _controlStripTop.y = _controlGameName.height;
 
         _controlPlayerInfo.y = _controlStripTop.y + _controlStripTop.height - _controlPlayerInfo.height / 2;
+
+        _controlOptions.y = _controlStripTop.y + (_controlStripTop.height / 2) - _controlOptions.height / 2;
 
         updateViewsPositions();
     }
@@ -139,8 +138,14 @@ public class ControlSceneBase extends ControlScene
 
         cleanupWithChildren(_layerScene);
         _layerScene = null;
+
         cleanupWithChildren(_layerUI);
         _layerUI = null;
+
+        _controlGameName = null;
+        _controlOptions = null;
+        _controlPlayerInfo = null;
+        _controlStripTop = null;
 
         super.cleanup();
     }

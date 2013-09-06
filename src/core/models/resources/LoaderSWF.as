@@ -9,6 +9,7 @@ package core.models.resources
 {
 import core.Debug;
 import core.IDisposable;
+import core.Utils;
 
 import flash.display.Loader;
 import flash.events.Event;
@@ -48,17 +49,6 @@ public class LoaderSWF implements IDisposable
         Debug.assert(result != null);
 
         return result;
-    }
-
-    private static function removeLoader(loader:LoaderSWF):void
-    {
-        Debug.assert(loader != null);
-
-        var loaderIndex:int = _loaders.indexOf(loader);
-
-        Debug.assert(loaderIndex != -1, "Loader not found.");
-
-        _loaders.splice(loaderIndex, 1);
     }
 
     /*
@@ -121,7 +111,7 @@ public class LoaderSWF implements IDisposable
         Debug.assert(false, "ResourceLoader::ioErrorHandler" + e.text);
     }
 
-    private  function securityErrorHandler(e:Event):void
+    private function securityErrorHandler(e:Event):void
     {
         _loader.contentLoaderInfo.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, securityErrorHandler);
 
@@ -145,7 +135,7 @@ public class LoaderSWF implements IDisposable
 
     public function cleanup():void
     {
-        removeLoader(this);
+        Utils.removeValue(_loaders, this);
 
         _loader.unload();
         //todo:implement

@@ -4,7 +4,7 @@ package
 import core.controls.ControlScene;
 
 import core.Debug;
-import controllers.scenes.base.ESceneType;
+import controllers.ESceneType;
 
 import flash.display.DisplayObject;
 import flash.display.MovieClip;
@@ -96,6 +96,7 @@ public class Main extends MovieClip
         removeEventListener(Event.ADDED_TO_STAGE, init);
 
         _stage = stage;
+
         _root = root;
 
         //edit context menu

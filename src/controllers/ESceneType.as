@@ -5,7 +5,7 @@
  * Time: 2:46 PM
  * To change this template use File | Settings | File Templates.
  */
-package controllers.scenes.base
+package controllers
 {
 
 //! Please provide your types

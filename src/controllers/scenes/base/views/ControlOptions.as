@@ -21,7 +21,6 @@ public class ControlOptions extends ControlBase
     /*
      * Fields
      */
-    private var _controlOwner:ControlStripTop;
     private var _rootView:gControlOptions;
 
     /*
@@ -33,12 +32,9 @@ public class ControlOptions extends ControlBase
      */
 
     //! Default constructor
-    public function ControlOptions(controlOwner:ControlStripTop, sceneOwner:ControlScene)
+    public function ControlOptions(sceneOwner:ControlScene)
     {
         super(sceneOwner);
-
-        Debug.assert(controlOwner != null);
-        _controlOwner = controlOwner;
 
         init();
     }
@@ -49,6 +45,7 @@ public class ControlOptions extends ControlBase
         addChild(_rootView);
 
         _rootView.buttonFullscreen.addEventListener(MouseEvent.CLICK, onButtonFullscreenClicked);
+
 
     }
 
@@ -64,8 +61,6 @@ public class ControlOptions extends ControlBase
 
     public override function cleanup():void
     {
-        _controlOwner = null;
-
         removeChild(_rootView);
         _rootView = null;
 

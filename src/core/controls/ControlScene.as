@@ -7,12 +7,14 @@
  */
 package core.controls
 {
-import controllers.scenes.base.ESceneType;
+import controllers.ESceneType;
 import controllers.scenes.game.ControlSceneGame;
 import controllers.scenes.village.ControlSceneVillage;
 
+import core.Constants;
 import core.Debug;
 import core.Utils;
+import core.controls.popups.IControlPopup;
 import core.models.GameInfo;
 import core.models.managerApp.AppHelper;
 import core.models.managerMoney.MoneyManager;
@@ -20,6 +22,8 @@ import core.models.resources.LoaderPicture;
 import core.socialApi.managers.ISocialManager;
 
 import flash.display.MovieClip;
+
+import mx.utils.StringUtil;
 
 //! Represents base class of all scenes
 public class ControlScene extends ControlBase
@@ -142,8 +146,12 @@ public class ControlScene extends ControlBase
     /*
      * Fields
      */
+    protected var _layerScene:MovieClip;
+    protected var _layerUI:MovieClip;
+    protected var _layerPopups:MovieClip;
 
-
+    private var _popups:Array;
+    private var _currentPopup:IControlPopup;
     /*
      * Properties
      */
@@ -153,6 +161,26 @@ public class ControlScene extends ControlBase
         //Implement in derived classes
         Debug.assert(false);
         return null;
+    }
+
+    public function get layerScene():MovieClip
+    {
+        return _layerScene;
+    }
+
+    public function get layerUI():MovieClip
+    {
+        return _layerUI;
+    }
+
+    public function get layerPopups():MovieClip
+    {
+        return _layerPopups;
+    }
+
+    public function get currentPopup():IControlPopup
+    {
+        return _currentPopup;
     }
 
     /*
@@ -174,7 +202,9 @@ public class ControlScene extends ControlBase
     {
         super(this);
 
-        if(_gameInfo == null)
+        _popups = [];
+
+        if (_gameInfo == null)
         {
             _gameInfo = GameInfo.Instance;
             _appHelper = _gameInfo.appHelper;
@@ -194,6 +224,83 @@ public class ControlScene extends ControlBase
     //! Initialize all views here.
     protected function prepareViews():void
     {
+        _layerScene = new MovieClip();
+        addChild(_layerScene);
+
+        _layerUI = new MovieClip();
+        addChild(_layerUI);
+
+        _layerPopups = new MovieClip();
+        addChild(_layerPopups);
+    }
+
+    public function showPopup(popupType:String, delay:Number = 1.25):void
+    {
+        Debug.assert(popupType != null && popupType != "");
+        Debug.assert(_currentPopup == null);
+
+        _currentPopup = getPopupByType(popupType);
+
+        _layerUI.mouseChildren = false;
+        _layerScene.mouseChildren = false;
+
+        _currentPopup.show(onShowPopupComplete, delay);
+    }
+
+    protected function onShowPopupComplete(popup:IControlPopup):void
+    {
+    }
+
+
+    public function hidePopup(delay:Number = 1.25):void
+    {
+        Debug.assert(_currentPopup != null, "Nothing to hide");
+
+        _currentPopup.hide(onHidePopupComplete, delay);
+    }
+
+    protected function onHidePopupComplete(popup:IControlPopup):void
+    {
+        _currentPopup = null;
+
+        _layerUI.mouseChildren = true;
+        _layerScene.mouseChildren = true;
+    }
+
+
+    protected function getPopupByType(popupType:String):IControlPopup
+    {
+        Debug.assert(popupType != null && popupType != "");
+
+        var result:IControlPopup = null;
+
+        for each(var item:IControlPopup in _popups)
+        {
+            if (item.type == popupType)
+            {
+                result = item;
+                break;
+            }
+        }
+
+        Debug.assert(result != null, StringUtil.substitute("Can't find popup: {0} in scene: {1}", popupType, type));
+
+        return result;
+    }
+
+    //! Please do not call manually
+    public function registerPopup(value:IControlPopup):void
+    {
+        Debug.assert(value != null);
+        Debug.assert(_popups.indexOf(value) == Constants.INDEX_NONE);
+
+        _popups.push(value);
+    }
+
+    //! Please do not call manually
+    public function unregisterPopup(value:IControlPopup):void
+    {
+        Utils.removeValue(_popups, value);
     }
 
     /*
