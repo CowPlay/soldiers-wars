@@ -7,10 +7,13 @@
  */
 package controllers.scenes.base.views
 {
-import core.controls.ControlBase;
-import core.controls.ControlScene;
+import core.controls.IControlScene;
+import core.controls.implementations.ControlBase;
+import core.models.interfaces.IManagerSocial;
 
 import flash.display.Bitmap;
+
+import models.GameInfo;
 
 import mx.utils.StringUtil;
 
@@ -19,7 +22,7 @@ public class ControlPlayerInfo extends ControlBase
     /*
      * Fields
      */
-    private var _rootView:gControlPlayerInfo;
+    private var _sourceViewTyped:gControlPlayerInfo;
 
     private var _userPicture:Bitmap;
 
@@ -32,7 +35,7 @@ public class ControlPlayerInfo extends ControlBase
      */
 
     //! Default constructor
-    public function ControlPlayerInfo(sceneOwner:ControlScene)
+    public function ControlPlayerInfo(sceneOwner:IControlScene)
     {
         super(sceneOwner);
 
@@ -41,20 +44,19 @@ public class ControlPlayerInfo extends ControlBase
 
     private function init():void
     {
-        _rootView = new gControlPlayerInfo();
-        addChild(_rootView);
+        _sourceViewTyped = new gControlPlayerInfo();
+        setSourceView(_sourceViewTyped);
 
-        _rootView.labelPlayerName.text = StringUtil.substitute("{0} {1}", ControlScene.socialManager.userInfo.firstName, ControlScene.socialManager.userInfo.lastName);
+        var managerSocial:IManagerSocial = GameInfo.Instance.managerSocial;
 
-        if (ControlScene.socialManager.userInfo.hasPicture)
-        {
-            _userPicture = ControlScene.socialManager.userInfo.getPictureClone();
+        _sourceViewTyped.labelPlayerName.text = StringUtil.substitute("{0} {1}", managerSocial.userInfo.firstName, managerSocial.userInfo.lastName);
 
-            _userPicture.width = _rootView.imageAvatar.width;
-            _userPicture.height = _rootView.imageAvatar.height;
+        _userPicture = managerSocial.userInfo.pictureClone;
 
-            _rootView.imageAvatar.addChild(_userPicture);
-        }
+        _userPicture.width = _sourceViewTyped.imageAvatar.width;
+        _userPicture.height = _sourceViewTyped.imageAvatar.height;
+
+        _sourceViewTyped.imageAvatar.addChild(_userPicture);
     }
 
     /*
@@ -63,11 +65,11 @@ public class ControlPlayerInfo extends ControlBase
 
     public override function cleanup():void
     {
-        _rootView.removeChild(_userPicture);
+        _sourceViewTyped.removeChild(_userPicture);
         _userPicture = null;
 
-        removeChild(_rootView);
-        _rootView = null;
+        removeChild(_sourceViewTyped);
+        _sourceViewTyped = null;
 
         super.cleanup();
     }

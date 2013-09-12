@@ -1,10 +1,6 @@
-package URLService 
+package core.URLService
 {
-	/**
-	 * ...
-	 * @author ...
-	 */
-	public class QueryParams 
+	public class QueryParams
 	{
 		public var path			: String;
 		public var onComplete	: Function;

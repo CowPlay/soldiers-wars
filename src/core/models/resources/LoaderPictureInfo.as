@@ -7,8 +7,6 @@
  */
 package core.models.resources
 {
-import core.Debug;
-
 import flash.display.Loader;
 
 public class LoaderPictureInfo

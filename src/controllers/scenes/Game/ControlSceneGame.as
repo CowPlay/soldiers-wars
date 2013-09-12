@@ -7,13 +7,12 @@
  */
 package controllers.scenes.game
 {
-import controllers.scenes.base.ControlSceneBase;
-
 import controllers.ESceneType;
+import controllers.scenes.base.ControlSceneGameBase;
 
 import flash.display.Sprite;
 
-public class ControlSceneGame extends ControlSceneBase
+public class ControlSceneGame extends ControlSceneGameBase
 {
     /*
      * Fields

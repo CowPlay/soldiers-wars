@@ -7,21 +7,19 @@
  */
 package controllers.scenes.base.views
 {
-import core.controls.ControlBase;
-import core.controls.ControlScene;
-
-import core.Debug;
+import core.controls.IControlScene;
+import core.controls.implementations.ControlBase;
 
 import flash.events.MouseEvent;
 
-import core.models.GameInfo;
+import models.GameInfo;
 
 public class ControlOptions extends ControlBase
 {
     /*
      * Fields
      */
-    private var _rootView:gControlOptions;
+    private var _sourceViewTyped:gControlOptions;
 
     /*
      * Properties
@@ -32,7 +30,7 @@ public class ControlOptions extends ControlBase
      */
 
     //! Default constructor
-    public function ControlOptions(sceneOwner:ControlScene)
+    public function ControlOptions(sceneOwner:IControlScene)
     {
         super(sceneOwner);
 
@@ -41,17 +39,15 @@ public class ControlOptions extends ControlBase
 
     private function init():void
     {
-        _rootView = new gControlOptions();
-        addChild(_rootView);
+        _sourceViewTyped = new gControlOptions();
+        setSourceView(_sourceViewTyped);
 
-        _rootView.buttonFullscreen.addEventListener(MouseEvent.CLICK, onButtonFullscreenClicked);
-
-
+        _sourceViewTyped.buttonFullscreen.addEventListener(MouseEvent.CLICK, onButtonFullscreenClicked);
     }
 
     private function onButtonFullscreenClicked(e:MouseEvent):void
     {
-        GameInfo.Instance.appHelper.fullScreenEnable = !GameInfo.Instance.appHelper.fullScreenEnable;
+        GameInfo.Instance.managerApp.fullScreenEnable = !GameInfo.Instance.managerApp.fullScreenEnable;
     }
 
     /*
@@ -61,8 +57,7 @@ public class ControlOptions extends ControlBase
 
     public override function cleanup():void
     {
-        removeChild(_rootView);
-        _rootView = null;
+        _sourceViewTyped = null;
 
         super.cleanup();
     }

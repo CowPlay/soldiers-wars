@@ -7,12 +7,12 @@
  */
 package controllers.scenes.base.views
 {
-import core.Utils;
-import core.controls.ControlBase;
-import core.controls.ControlScene;
-import core.models.GameInfo;
+import core.controls.IControlScene;
+import core.controls.implementations.ControlBase;
 
 import flash.display.Sprite;
+
+import models.GameInfo;
 
 public class ControlScalableStrip extends ControlBase
 {
@@ -30,7 +30,7 @@ public class ControlScalableStrip extends ControlBase
      */
 
     //! Default constructor
-    public function ControlScalableStrip(sceneOwner:ControlScene)
+    public function ControlScalableStrip(sceneOwner:IControlScene)
     {
         super(sceneOwner);
 
@@ -41,10 +41,10 @@ public class ControlScalableStrip extends ControlBase
     {
         _background = new Sprite();
         _background.graphics.beginFill(0x000000, 0.8);
-        _background.graphics.drawRect(0, 0, GameInfo.Instance.appHelper.applicationSize.x, 45);
+        _background.graphics.drawRect(0, 0, GameInfo.Instance.managerApp.applicationSize.x, 45);
         _background.graphics.endFill();
 
-        addChild(_background);
+        setSourceView(_background);
     }
 
     /*
@@ -56,7 +56,7 @@ public class ControlScalableStrip extends ControlBase
     {
         super.onDisplayStateChanged(isFullScreenNow);
 
-        _background.width = GameInfo.Instance.appHelper.applicationSize.x;
+        _background.width = GameInfo.Instance.managerApp.applicationSize.x;
     }
 
 

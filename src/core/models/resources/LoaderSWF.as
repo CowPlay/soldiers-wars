@@ -9,7 +9,7 @@ package core.models.resources
 {
 import core.Debug;
 import core.IDisposable;
-import core.Utils;
+import core.utils.Utils;
 
 import flash.display.Loader;
 import flash.events.Event;

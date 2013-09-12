@@ -1,10 +1,9 @@
 package
 {
 
-import core.controls.ControlScene;
+import controllers.ESceneType;
 
 import core.Debug;
-import controllers.ESceneType;
 
 import flash.display.DisplayObject;
 import flash.display.MovieClip;
@@ -13,17 +12,12 @@ import flash.display.Stage;
 import flash.display.StageAlign;
 import flash.display.StageScaleMode;
 import flash.events.Event;
-import flash.external.ExternalInterface;
 import flash.system.Security;
 import flash.ui.ContextMenu;
 
-import core.models.GameInfo;
-
-import models.GameInfoSoldiers;
+import models.GameInfo;
 
 import mx.utils.StringUtil;
-
-import core.socialApi.vk.APIConnection;
 
 public class Main extends MovieClip
 {
@@ -191,26 +185,23 @@ public class Main extends MovieClip
         nextFrame();
 
         //init model
-        GameInfoSoldiers.initGameInfoSoldiers();
-
-        //init social network connection
-        GameInfoSoldiers.Instance.initSocialManager(onInitSocialComplete, onInitSocialError);
+        GameInfo.initGameInfo(onInitModelComplete, onInitModelError);
     }
 
-    private function onInitSocialComplete():void
+    private function onInitModelComplete():void
     {
         Debug.log("Init model complete. Start the game.");
 
         //add root view of all scenes
-        addChild(ControlScene.rootView);
+        addChild(GameInfo.Instance.managerViewController.rootView);
 
         //init view+controller
-        ControlScene.setScene(ESceneType.EST_VILLAGE);
+        GameInfo.Instance.managerViewController.setScene(ESceneType.EST_VILLAGE);
     }
 
-    private static function onInitSocialError():void
+    private static function onInitModelError():void
     {
-        Debug.assert(false, "Can't login to social network");
+        Debug.assert(false, "Init model error");
     }
 }
 }
