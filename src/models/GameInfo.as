@@ -7,12 +7,16 @@
  */
 package models
 {
-import core.Debug;
-import core.models.GameInfoBase;
-import core.models.implementations.app.ManagerAppBase;
-import core.models.implementations.currency.ManagerCurrencyBase;
-import core.models.resources.LoaderPicture;
+import flash.display.DisplayObjectContainer;
+import flash.display.Stage;
 
+import models.data.LevelInfo;
+import models.game.ManagerGameSoldiers;
+import models.game.managerHouses.ManagerHouses;
+import models.implementations.app.ManagerAppBase;
+import models.implementations.levels.ManagerLevelsBase;
+import models.implementations.resources.ManagerResourceBase;
+import models.interfaces.IManagerGame;
 import models.string.ManagerString;
 import models.viewController.ManagerViewController;
 import models.village.ManagerVillage;
@@ -29,12 +33,12 @@ public class GameInfo extends GameInfoBase
      * Static methods
      */
 
-    public static function initGameInfo(onComplete:Function, onError:Function):void
+    public static function initGameInfo(stageValue:Stage, rootValue:DisplayObjectContainer):void
     {
         Debug.assert(_instance == null, "GameInfoSoldiers already initialized.");
         Debug.assert(_instanceTyped == null, "GameInfoSoldiers already initialized.");
 
-        _instanceTyped = new GameInfo(onComplete, onError);
+        _instanceTyped = new GameInfo(stageValue, rootValue);
         _instance = _instanceTyped;
     }
 
@@ -48,6 +52,8 @@ public class GameInfo extends GameInfoBase
      */
 
     private var _managerVillage:ManagerVillage;
+    private var _managerGameSoldiers:ManagerGameSoldiers;
+    private var _managerHouses:ManagerHouses;
 
     /*
      * Properties
@@ -58,31 +64,92 @@ public class GameInfo extends GameInfoBase
         return _managerVillage;
     }
 
+    public function get managerGameSoldiers():ManagerGameSoldiers
+    {
+        return _managerGameSoldiers;
+    }
+
+    public function get managerHouses():ManagerHouses
+    {
+        return _managerHouses;
+    }
+
     /*
      * Methods
      */
 
     //! Default constructor
-    public function GameInfo(onComplete:Function, onError:Function)
+    public function GameInfo(stageValue:Stage, rootValue:DisplayObjectContainer)
     {
-        Debug.assert(_instance == null, "Class is singleton.");
-        Debug.assert(_instanceTyped == null, "Class is singleton.");
+        super(stageValue, rootValue);
 
-        init();
-
-        super(onComplete, onError);
+        init(stageValue, rootValue);
     }
 
-    protected function init():void
+    protected function init(stageValue:Stage, rootValue:DisplayObjectContainer):void
     {
-        _managerApp = new ManagerAppBase();
-        _managerCurrency = new ManagerCurrencyBase();
-        _managerViewController = new ManagerViewController();
+//        _managerRemote = new ManagerRemote();
+//        _managerPurchases = new ManagerPurchases();
+
+        _managerApp = new ManagerAppBase(stageValue);
+        _managerViewController = new ManagerViewController(stageValue, rootValue);
         _managerString = new ManagerString();
 
-        _loaderPicture = new LoaderPicture();
+        _managerLevels = new ManagerLevelsBase();
 
-        _managerVillage = new ManagerVillage();
+        _managerResources = new ManagerResourceBase();
+        _managerHouses = new ManagerHouses();
     }
+
+    public override function run(onComplete:Function):void
+    {
+        deserializeLevels();
+
+        super.run(onComplete);
+    }
+
+    public override function onGameStart(value:IManagerGame):void
+    {
+        _managerGameSoldiers = value as ManagerGameSoldiers;
+        super.onGameStart(value);
+    }
+
+    /*
+     * Serialization
+     */
+
+    private function deserializeLevels():void
+    {
+
+        var houseData:Object =
+        {
+            owner: "eho_player",
+            type: "eht_barracks",
+            level: 0,
+            level_max: 5,
+            position_x: 4,
+            position_y: 4,
+            position_exit_x: 1,
+            position_exit_y: 1,
+            soldiers: 10,
+            soldiers_max: 20
+        };
+
+        var level0Data:Object =
+        {
+            number: 0,
+            grid_width: 20,
+            grid_height: 20,
+
+            houses: [houseData]
+        };
+
+        var level0:LevelInfo = new LevelInfo();
+        level0.deserialize(level0Data);
+
+        _managerLevels.addLevel(level0);
+    }
+
+
 }
 }

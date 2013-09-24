@@ -7,8 +7,8 @@
  */
 package controllers.popups.houseVillage.content
 {
-import core.controls.IControlScene;
-import core.controls.implementations.ControlBase;
+import controls.IControlScene;
+import controls.implementations.ControlBase;
 
 public class ControlPopupHouseContentMilitary  extends ControlBase
 {

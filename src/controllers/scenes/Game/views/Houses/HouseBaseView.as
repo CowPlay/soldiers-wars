@@ -8,7 +8,6 @@
 package controllers.scenes.game.views.Houses
 {
 import core.Debug;
-import core.IDisposable;
 
 import flash.display.MovieClip;
 import flash.display.Sprite;
@@ -21,22 +20,13 @@ import flash.text.TextFormat;
 import flash.utils.setTimeout;
 
 //! Represents view\controller of house base
-public class HouseBaseView extends BaseView implements IDisposable
+public class HouseBaseView
 {
     /*
      * Fields
      */
     private var _textFieldSoldiersCount:TextField;
     private var _textFormat:TextFormat;
-
-    private var _owner:HouseBase;
-    //Cache of owner config
-    private var _ownerType:EHouseOwner;
-    private var _ownerLevel:uint;
-    private var _ownerSoldiersCount:int;
-
-    //! Container which contains all house views except arrow
-    private var _houseEventHandler:Sprite;
 
     //! Represents house view
     private var _houseView:Sprite;
@@ -51,11 +41,6 @@ public class HouseBaseView extends BaseView implements IDisposable
     /*
      * Properties
      */
-    public function get owner():HouseBase
-    {
-        return _owner;
-    }
-
     public function get arrow():ArrowView
     {
         return _arrowView;
@@ -157,22 +142,12 @@ public class HouseBaseView extends BaseView implements IDisposable
     }
 
 
-    public override function update():void
+    public  function update():void
     {
-        if (_ownerType != _owner.ownerType)
-        {
             didOwnerTypeChanged();
-        }
-
-        if (_ownerLevel != _owner.level)
-        {
             didOwnerLevelChanged();
-        }
 
-        if (_ownerSoldiersCount != _owner.soldierCount)
-        {
             didSoldiersCountChanged();
-        }
 
         _houseView.scaleX = _owner.rotateLeftToRight ? 1 : -1;
     }
@@ -294,7 +269,7 @@ public class HouseBaseView extends BaseView implements IDisposable
      */
 
 
-    protected override function showDebugData(e:Event):void
+    protected  function showDebugData(e:Event):void
     {
 
         if (Debug.SHOW_HOUSE_FOUNDATION)
@@ -338,7 +313,7 @@ public class HouseBaseView extends BaseView implements IDisposable
      */
 
 
-    protected override function didMouseOver(e:MouseEvent):void
+    protected  function didMouseOver(e:MouseEvent):void
     {
         _auraView.visible = true;
 
@@ -352,7 +327,7 @@ public class HouseBaseView extends BaseView implements IDisposable
         super.didMouseOver(e);
     }
 
-    protected override function didMouseOut(e:MouseEvent):void
+    protected  function didMouseOut(e:MouseEvent):void
     {
         if (_owner.ownerType == EHouseOwner.EHO_PLAYER && HouseBase.selectedHouses.length > 0)
         {
@@ -367,7 +342,7 @@ public class HouseBaseView extends BaseView implements IDisposable
     }
 
 
-    protected override function didMouseDown(e:MouseEvent):void
+    protected  function didMouseDown(e:MouseEvent):void
     {
         if (_ownerType == EHouseOwner.EHO_PLAYER)
         {
@@ -379,7 +354,7 @@ public class HouseBaseView extends BaseView implements IDisposable
 
 
     //! Override from ButtonBase
-    protected override function didMouseUp(e:MouseEvent):void
+    protected  function didMouseUp(e:MouseEvent):void
     {
         //generate soldiers, update view
         _owner.didMouseUp();
@@ -389,14 +364,14 @@ public class HouseBaseView extends BaseView implements IDisposable
         super.didMouseUp(e);
     }
 
-    protected override function didMouseUpOut(e:MouseEvent):void
+    protected  function didMouseUpOut(e:MouseEvent):void
     {
         HouseBase.clearHouseSelection();
 
         super.didMouseUpOut(e);
     }
 
-    protected override function didMouseMove(e:MouseEvent):void
+    protected  function didMouseMove(e:MouseEvent):void
     {
         var mouseEvent:MouseEvent = e as MouseEvent;
 
@@ -417,7 +392,7 @@ public class HouseBaseView extends BaseView implements IDisposable
         }
     }
 
-    protected override function didMouseMoveOut(e:MouseEvent):void
+    protected  function didMouseMoveOut(e:MouseEvent):void
     {
         var mouseEvent:MouseEvent = e as MouseEvent;
 
@@ -437,7 +412,7 @@ public class HouseBaseView extends BaseView implements IDisposable
         }
     }
 
-    protected override function didMouseDoubleClick(e:MouseEvent):void
+    protected  function didMouseDoubleClick(e:MouseEvent):void
     {
         if (_owner.readyToUpdate && _owner.ownerType == EHouseOwner.EHO_PLAYER)
         {

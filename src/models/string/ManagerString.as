@@ -7,10 +7,10 @@
  */
 package models.string
 {
-import core.models.implementations.string.ManagerStringBase;
-import core.models.interfaces.ELanguageType;
-
 import flash.utils.Dictionary;
+
+import models.implementations.string.ManagerStringBase;
+import models.interfaces.ELanguageType;
 
 public class ManagerString extends ManagerStringBase
 {
@@ -37,7 +37,6 @@ public class ManagerString extends ManagerStringBase
         initLanguageEnglish();
         initLanguageRussian();
     }
-
 
     private function initLanguageEnglish():void
     {

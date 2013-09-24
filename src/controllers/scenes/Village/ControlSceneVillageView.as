@@ -11,8 +11,8 @@
  */
 package controllers.scenes.village
 {
-import core.controls.IControlScene;
-import core.controls.implementations.ControlBase;
+import controls.IControlScene;
+import controls.implementations.ControlBase;
 
 import flash.filters.GlowFilter;
 

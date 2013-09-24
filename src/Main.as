@@ -3,19 +3,17 @@ package
 
 import controllers.ESceneType;
 
-import core.Debug;
-
-import flash.display.DisplayObject;
 import flash.display.MovieClip;
 import flash.display.Shape;
-import flash.display.Stage;
 import flash.display.StageAlign;
 import flash.display.StageScaleMode;
 import flash.events.Event;
-import flash.system.Security;
 import flash.ui.ContextMenu;
 
 import models.GameInfo;
+import models.data.PlayerInfo;
+import models.game.ManagerGameSoldiers;
+import models.interfaces.IManagerGame;
 
 import mx.utils.StringUtil;
 
@@ -24,22 +22,10 @@ public class Main extends MovieClip
     /*
      * Static fields
      */
-    private static var _stage:Stage;
-    private static var _root:DisplayObject;
 
     /*
      * Static properties
      */
-
-    public static function get stageValue():Stage
-    {
-        return _stage;
-    }
-
-    public static function get rootValue():DisplayObject
-    {
-        return _root;
-    }
 
     /*
      * Fields
@@ -48,7 +34,7 @@ public class Main extends MovieClip
     private var _preloaderBackground:Shape;
     private var _preloaderPercent:Shape;
 
-
+    [Frame(factoryClass="models.data.PlayerInfo")]
     public function Main()
     {
         if (stage)
@@ -64,16 +50,10 @@ public class Main extends MovieClip
         }
         else if (SOCIAL::VK)
         {
-            Security.allowInsecureDomain("vk.com");
-            Security.allowDomain('vk.com');
-
             buildConfigurationStr = StringUtil.substitute("build configuration: vk.{0}", CONFIG::DEBUG ? "debug" : "release")
         }
         else if (SOCIAL::OFFLINE)
         {
-            Security.allowInsecureDomain("*");
-            Security.allowDomain('*');
-
             buildConfigurationStr = StringUtil.substitute("build configuration: offline.{0}", CONFIG::DEBUG ? "debug" : "release")
         }
         else
@@ -82,16 +62,11 @@ public class Main extends MovieClip
         }
 
         Debug.log(buildConfigurationStr);
-
     }
 
     private function init(e:Event = null):void
     {
         removeEventListener(Event.ADDED_TO_STAGE, init);
-
-        _stage = stage;
-
-        _root = root;
 
         //edit context menu
         var contextMenuSimple:ContextMenu = new ContextMenu();
@@ -118,7 +93,7 @@ public class Main extends MovieClip
         if (root.loaderInfo.bytesLoaded >= root.loaderInfo.bytesTotal)
         {
             dispose();
-            run();
+            initGameInfo();
         }
         else
         {
@@ -180,23 +155,28 @@ public class Main extends MovieClip
         _preloaderPercent = null;
     }
 
-    private function run():void
+    private function initGameInfo():void
     {
         nextFrame();
 
         //init model
-        GameInfo.initGameInfo(onInitModelComplete, onInitModelError);
+        GameInfo.initGameInfo(stage, this);
+        //add root view of all scenes
+        addChild(GameInfo.Instance.managerViewController.rootView);
+
+        GameInfo.Instance.initSocialManager(onInitModelComplete, onInitModelError);
     }
 
     private function onInitModelComplete():void
     {
-        Debug.log("Init model complete. Start the game.");
+        GameInfo.Instance.run(
+                function ():void
+                {
+                    var managerGame:IManagerGame = new ManagerGameSoldiers(GameInfo.Instance.managerLevels.levels[0]);
+                    GameInfo.Instance.onGameStart(managerGame);
 
-        //add root view of all scenes
-        addChild(GameInfo.Instance.managerViewController.rootView);
-
-        //init view+controller
-        GameInfo.Instance.managerViewController.setScene(ESceneType.EST_VILLAGE);
+                    GameInfo.Instance.managerViewController.setScene(ESceneType.EST_GAME);
+                });
     }
 
     private static function onInitModelError():void

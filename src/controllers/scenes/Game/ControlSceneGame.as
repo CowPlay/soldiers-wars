@@ -9,19 +9,16 @@ package controllers.scenes.game
 {
 import controllers.ESceneType;
 import controllers.scenes.base.ControlSceneGameBase;
+import controllers.scenes.game.views.ControlSceneGameView;
 
-import flash.display.Sprite;
+import controls.IControl;
 
 public class ControlSceneGame extends ControlSceneGameBase
 {
     /*
      * Fields
      */
-//    private var _resourceLoaderGame:ResourceLoader;
-
-    private var _arrowContainer:Sprite;
-
-//    private var _gameGrid:GameGrid;
+    private var _controlSceneView:IControl;
 
     /*
      * Properties
@@ -29,6 +26,24 @@ public class ControlSceneGame extends ControlSceneGameBase
     public override function get type():String
     {
         return ESceneType.EST_GAME;
+    }
+
+    /*
+     * Methods
+     */
+
+    public function ControlSceneGame()
+    {
+    }
+
+    public override function prepareLayerScene():void
+    {
+        super.prepareLayerScene();
+
+//        var currentLevel:LevelInfo = GameInfo.Instance.managerGameCrosswords.currentLevel;
+
+        _controlSceneView = new ControlSceneGameView(this);
+        registerControlScene(_controlSceneView);
     }
 
     /*

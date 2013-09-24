@@ -8,9 +8,6 @@
 package models.village.Houses.base
 {
 
-import core.Debug;
-import core.IDisposable;
-
 import flash.display.MovieClip;
 import flash.events.MouseEvent;
 

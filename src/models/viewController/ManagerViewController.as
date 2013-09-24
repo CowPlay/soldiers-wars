@@ -11,13 +11,21 @@ import controllers.ESceneType;
 import controllers.scenes.game.ControlSceneGame;
 import controllers.scenes.village.ControlSceneVillage;
 
-import core.Debug;
-import core.controls.IControlScene;
-import core.controls.implementations.ControlSceneBase;
-import core.models.implementations.viewController.ManagerViewControllerBase;
+import controls.IControlScene;
+import controls.implementations.ControlSceneBase;
+
+import flash.display.DisplayObjectContainer;
+import flash.display.Stage;
+
+import models.implementations.viewController.ManagerViewControllerBase;
 
 public class ManagerViewController extends ManagerViewControllerBase
 {
+
+    public function ManagerViewController(appStage:Stage, appRootView:DisplayObjectContainer)
+    {
+        super(appStage, appRootView);
+    }
 
     public override function createSceneByType(type:String):IControlScene
     {

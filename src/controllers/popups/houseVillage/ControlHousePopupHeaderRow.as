@@ -7,9 +7,8 @@
  */
 package controllers.popups.houseVillage
 {
-import core.Debug;
-import core.controls.IControlScene;
-import core.controls.implementations.ControlBase;
+import controls.IControlScene;
+import controls.implementations.ControlBase;
 
 public class ControlHousePopupHeaderRow extends ControlBase
 {

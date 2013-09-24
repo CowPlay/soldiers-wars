@@ -7,8 +7,6 @@
  */
 package models.village
 {
-import core.Debug;
-
 import models.village.Houses.HouseVillageAltar;
 import models.village.Houses.base.EHouseVillageState;
 import models.village.Houses.base.EHouseVillageType;

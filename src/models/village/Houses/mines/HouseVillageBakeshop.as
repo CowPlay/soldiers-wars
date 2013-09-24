@@ -7,8 +7,6 @@
  */
 package models.village.Houses.mines
 {
-import core.Debug;
-
 import flash.utils.Timer;
 
 import models.village.Houses.base.EHouseVillageState;

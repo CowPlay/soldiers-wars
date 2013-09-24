@@ -11,14 +11,15 @@ import controllers.scenes.base.views.ControlOptions;
 import controllers.scenes.base.views.ControlPlayerInfo;
 import controllers.scenes.base.views.ControlScalableStrip;
 
-import core.controls.IControl;
-import core.controls.implementations.ControlSceneBase;
-import core.controls.implementations.ControlSpriteBase;
-import core.models.resources.LoaderSWF;
-import core.utils.Utils;
+import controls.IControl;
+
+import controls.implementations.ControlSceneBase;
+import controls.implementations.ControlSpriteBase;
 
 import models.GameInfo;
 import models.village.ManagerVillage;
+
+import utils.Utils;
 
 public class ControlSceneGameBase extends ControlSceneBase
 {
@@ -47,8 +48,6 @@ public class ControlSceneGameBase extends ControlSceneBase
     protected var _controlGameName:IControl;
     protected var _controlStripTop:IControl;
     protected var _controlPlayerInfo:IControl;
-
-    protected var _resourceLoaderBase:LoaderSWF;
 
     /*
      * Properties
@@ -125,9 +124,6 @@ public class ControlSceneGameBase extends ControlSceneBase
 
     public override function cleanup():void
     {
-        _resourceLoaderBase.cleanup();
-        _resourceLoaderBase = null;
-
         _controlGameName = null;
         _controlOptions = null;
         _controlPlayerInfo = null;

@@ -8,15 +8,18 @@
 package controllers.scenes.game.views.Soldiers
 {
 import core.Debug;
+import core.controls.implementations.ControlBase;
 
 import flash.display.MovieClip;
 
-public class SoldierView extends BaseView
+import models.Game.base.gameObjects.Soldier.Soldier;
+
+public class SoldierView extends ControlBase
 {
     /*
      * Fields
      */
-    private var _owner:Soldier;
+    private var _entry:Soldier;
 
     private var _soldierView:MovieClip;
 
@@ -24,15 +27,14 @@ public class SoldierView extends BaseView
 
 //    private var _tweenX:Tween;
 //    private var _tweenY:Tween;
-    private var _tweenEventListener:Function;
 
     /*
      * Properties
      */
 
-    public function get owner():Soldier
+    public function get entry():Soldier
     {
-        return _owner;
+        return _entry;
     }
 
     public function set soldierRotation(value:ESoldierRotation):void
@@ -104,9 +106,9 @@ public class SoldierView extends BaseView
     {
         Debug.assert(owner != null);
 
-        _owner = owner;
+        _entry = owner;
 
-        var soldierClass:Class = ResourceLoader.getClass(ResourceManagerSoldier.getSoldierClassByOwner(_owner));
+        var soldierClass:Class = ResourceLoader.getClass(ResourceManagerSoldier.getSoldierClassByOwner(_entry));
 
         _soldierView = new soldierClass;
 
@@ -122,9 +124,6 @@ public class SoldierView extends BaseView
 
     public override function cleanup():void
     {
-        removeChild(_soldierView);
-
-        super.cleanup();
     }
 }
 }

@@ -13,16 +13,14 @@ import controllers.popups.houseVillage.ControlPopupHouse;
 import controllers.scenes.base.ControlSceneGameBase;
 import controllers.scenes.base.views.ControlScalableStrip;
 
-import core.controls.IControl;
-import core.controls.IControlScroll;
-import core.controls.implementations.ControlScrollBase;
-import core.controls.implementations.ControlSpriteBase;
-import core.utils.Utils;
+import controls.IControl;
+import controls.IControlScroll;
+import controls.implementations.ControlScrollBase;
+import controls.implementations.ControlSpriteBase;
 
 import flash.events.MouseEvent;
-import flash.filters.GlowFilter;
 
-import models.village.Houses.base.EHouseVillageType;
+import utils.Utils;
 
 public class ControlSceneVillage extends ControlSceneGameBase
 {

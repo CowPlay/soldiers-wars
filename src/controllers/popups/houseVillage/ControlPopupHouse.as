@@ -10,8 +10,9 @@ package controllers.popups.houseVillage
 import controllers.EPopupType;
 import controllers.popups.houseVillage.content.ControlPopupHouseContentMilitary;
 
-import core.controls.IControlScene;
-import core.controls.implementations.popups.ControlPopupUpDown;
+import controls.IControlScene;
+
+import controls.implementations.popups.ControlPopupUpDown;
 
 import flash.events.MouseEvent;
 import flash.geom.Point;

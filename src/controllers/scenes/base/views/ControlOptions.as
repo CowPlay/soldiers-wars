@@ -7,8 +7,8 @@
  */
 package controllers.scenes.base.views
 {
-import core.controls.IControlScene;
-import core.controls.implementations.ControlBase;
+import controls.IControlScene;
+import controls.implementations.ControlBase;
 
 import flash.events.MouseEvent;
 

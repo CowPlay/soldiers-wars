@@ -7,8 +7,6 @@
  */
 package models.village.Houses.mines
 {
-import core.Debug;
-
 import models.village.Houses.base.EHouseVillageState;
 import models.village.Houses.base.EHouseVillageType;
 import models.village.Houses.base.HouseVillageBase;

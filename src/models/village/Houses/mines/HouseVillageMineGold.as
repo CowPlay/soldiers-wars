@@ -7,8 +7,6 @@
  */
 package models.village.Houses.mines
 {
-import core.Debug;
-
 import flash.display.MovieClip;
 
 import models.village.Houses.base.EHouseVillageState;

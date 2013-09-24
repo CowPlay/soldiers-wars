@@ -7,13 +7,13 @@
  */
 package controllers.scenes.base.views
 {
-import core.controls.IControlScene;
-import core.controls.implementations.ControlBase;
-import core.models.interfaces.IManagerSocial;
+import controls.IControlScene;
+import controls.implementations.ControlBase;
 
 import flash.display.Bitmap;
 
 import models.GameInfo;
+import models.interfaces.IManagerSocial;
 
 import mx.utils.StringUtil;
 
