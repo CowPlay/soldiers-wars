@@ -7,18 +7,28 @@
  */
 package models
 {
-import flash.display.DisplayObjectContainer;
+import bwf.remote.ManagerRemoteBase;
+
+import controllers.ESceneType;
+import controllers.scenes.game.ControlSceneGame;
+import controllers.scenes.village.ControlSceneVillage;
+
+import data.IPlayerInfo;
+import data.implementations.PlayerInfoBase;
+
 import flash.display.Stage;
 
 import models.data.LevelInfo;
 import models.game.ManagerGameSoldiers;
-import models.game.managerHouses.ManagerHouses;
 import models.implementations.app.ManagerAppBase;
 import models.implementations.levels.ManagerLevelsBase;
 import models.implementations.resources.ManagerResourceBase;
+import models.implementations.viewController.ManagerViewControllerBase;
 import models.interfaces.IManagerGame;
+import models.interfaces.levels.ILevelContainer;
+import models.proxy.ManagerProxySoldiers;
+import models.remote.ManagerRemoteStub;
 import models.string.ManagerString;
-import models.viewController.ManagerViewController;
 import models.village.ManagerVillage;
 
 public class GameInfo extends GameInfoBase
@@ -33,16 +43,16 @@ public class GameInfo extends GameInfoBase
      * Static methods
      */
 
-    public static function initGameInfo(stageValue:Stage, rootValue:DisplayObjectContainer):void
+    public static function run(stageValue:Stage):void
     {
-        Debug.assert(_instance == null, "GameInfoSoldiers already initialized.");
-        Debug.assert(_instanceTyped == null, "GameInfoSoldiers already initialized.");
+        Debug.assert(_instance == null, "GameInfo already initialized.");
+        Debug.assert(_instanceTyped == null, "GameInfo already initialized.");
 
-        _instanceTyped = new GameInfo(stageValue, rootValue);
+        _instanceTyped = new GameInfo(stageValue);
         _instance = _instanceTyped;
     }
 
-    public static function get Instance():GameInfo
+    public static function get instance():GameInfo
     {
         return _instanceTyped;
     }
@@ -53,7 +63,6 @@ public class GameInfo extends GameInfoBase
 
     private var _managerVillage:ManagerVillage;
     private var _managerGameSoldiers:ManagerGameSoldiers;
-    private var _managerHouses:ManagerHouses;
 
     /*
      * Properties
@@ -69,43 +78,55 @@ public class GameInfo extends GameInfoBase
         return _managerGameSoldiers;
     }
 
-    public function get managerHouses():ManagerHouses
-    {
-        return _managerHouses;
-    }
-
     /*
      * Methods
      */
 
     //! Default constructor
-    public function GameInfo(stageValue:Stage, rootValue:DisplayObjectContainer)
+    public function GameInfo(stageValue:Stage)
     {
-        super(stageValue, rootValue);
+        super(stageValue);
 
-        init(stageValue, rootValue);
+        initSocialManager();
     }
 
-    protected function init(stageValue:Stage, rootValue:DisplayObjectContainer):void
+    protected override function onInitSocialComplete():void
     {
-//        _managerRemote = new ManagerRemote();
-//        _managerPurchases = new ManagerPurchases();
+        _managerProxy = new ManagerProxySoldiers(_managerSocial);
+        _managerRemote = new ManagerRemoteStub("", _managerProxy);
+        _managerApp = new ManagerAppBase(_stage);
+        _managerViewController = new ManagerViewControllerBase();
+        _managerString = new ManagerString(_managerSocial);
 
-        _managerApp = new ManagerAppBase(stageValue);
-        _managerViewController = new ManagerViewController(stageValue, rootValue);
-        _managerString = new ManagerString();
-
-        _managerLevels = new ManagerLevelsBase();
+        _managerLevels = new ManagerLevelsBase(LevelInfo);
+        _managerLevels.deserialize(_managerProxy.getLevelsData(null));
 
         _managerResources = new ManagerResourceBase();
-        _managerHouses = new ManagerHouses();
+
+        {//register scenes
+
+            _managerViewController.registerScene(ESceneType.EST_GAME, ControlSceneGame);
+            _managerViewController.registerScene(ESceneType.EST_VILLAGE, ControlSceneVillage);
+        }
+
+        super.onInitSocialComplete();
     }
 
-    public override function run(onComplete:Function):void
+    protected override function onRemoteGameInitComplete(response:Object):void
     {
-        deserializeLevels();
+        var player0:IPlayerInfo = new PlayerInfoBase();
+        var player1:IPlayerInfo = new PlayerInfoBase();
 
-        super.run(onComplete);
+        var container:ILevelContainer = GameInfo.instance.managerLevels.items[0];
+
+        var managerGame:ManagerGameSoldiers = new ManagerGameSoldiers(container.items[0], player0, player1);
+
+        GameInfo.instance.onGameStart(managerGame);
+
+        managerGame.currentLevel.houses[0].owner = player0;
+        managerGame.currentLevel.houses[1].owner = player1;
+
+        GameInfo.instance.managerViewController.setScene(ESceneType.EST_GAME);
     }
 
     public override function onGameStart(value:IManagerGame):void
@@ -113,43 +134,6 @@ public class GameInfo extends GameInfoBase
         _managerGameSoldiers = value as ManagerGameSoldiers;
         super.onGameStart(value);
     }
-
-    /*
-     * Serialization
-     */
-
-    private function deserializeLevels():void
-    {
-
-        var houseData:Object =
-        {
-            owner: "eho_player",
-            type: "eht_barracks",
-            level: 0,
-            level_max: 5,
-            position_x: 4,
-            position_y: 4,
-            position_exit_x: 1,
-            position_exit_y: 1,
-            soldiers: 10,
-            soldiers_max: 20
-        };
-
-        var level0Data:Object =
-        {
-            number: 0,
-            grid_width: 20,
-            grid_height: 20,
-
-            houses: [houseData]
-        };
-
-        var level0:LevelInfo = new LevelInfo();
-        level0.deserialize(level0Data);
-
-        _managerLevels.addLevel(level0);
-    }
-
 
 }
 }

@@ -8,7 +8,8 @@
 package models.village.Houses.base
 {
 
-import flash.display.MovieClip;
+import controls.IControl;
+
 import flash.events.MouseEvent;
 
 import models.GameInfo;
@@ -19,7 +20,7 @@ public class HouseVillageBase implements IDisposable
      * Fields
      */
 
-    private var _view:MovieClip;
+    private var _view:IControl;
 
     private var _level:int;
     private var _state:EHouseVillageState;
@@ -33,23 +34,19 @@ public class HouseVillageBase implements IDisposable
         return null;
     }
 
-    public function get view():MovieClip
+    public function get view():IControl
     {
         return _view;
     }
 
-    public function set view(value:MovieClip):void
+    public function set view(value:IControl):void
     {
-        if (_view)
-        {
-            _view.removeEventListener(MouseEvent.CLICK, onButtonClick);
-        }
+        Debug.assert(_view == null);
 
         _view = value;
 
         if (_view)
         {
-            _view.addEventListener(MouseEvent.CLICK, onButtonClick);
         }
     }
 
@@ -108,7 +105,7 @@ public class HouseVillageBase implements IDisposable
         if (canBuild())
         {
             //TODO: build
-            GameInfo.Instance.managerVillage.didHouseBuild(this);
+            GameInfo.instance.managerVillage.didHouseBuild(this);
         }
     }
 

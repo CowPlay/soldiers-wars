@@ -25,7 +25,7 @@ public class ControlSceneVillageView extends ControlBase
     /*
      * Fields
      */
-    private var _sourceViewTyped:gSceneVillage;
+//    private var _sourceViewTyped:gSceneVillage;
     /*
      * Properties
      */
@@ -44,13 +44,13 @@ public class ControlSceneVillageView extends ControlBase
 
     private function init():void
     {
-        _sourceViewTyped = new gSceneVillage();
-        setSourceView(_sourceViewTyped);
-
-        GameInfo.Instance.managerVillage.getHouseByType(EHouseVillageType.EHVT_ALTAR).view = _sourceViewTyped.buttonHouseAltar;
-        _sourceViewTyped.buttonHouseAltar.filters = [new GlowFilter(0x00CC00)];
-
-        GameInfo.Instance.managerVillage.getHouseByType(EHouseVillageType.EHVT_MINE_GOLD).view = _sourceViewTyped.buttonHouseMineGold;
+//        _sourceViewTyped = new gSceneVillage();
+//        setSourceView(_sourceViewTyped);
+//
+//        GameInfo.Instance.managerVillage.getHouseByType(EHouseVillageType.EHVT_ALTAR).view = _sourceViewTyped.buttonHouseAltar;
+//        _sourceViewTyped.buttonHouseAltar.filters = [new GlowFilter(0x00CC00)];
+//
+//        GameInfo.Instance.managerVillage.getHouseByType(EHouseVillageType.EHVT_MINE_GOLD).view = _sourceViewTyped.buttonHouseMineGold;
 //        GameInfo.Instance.villageManager.getHouseByType(EHouseVillageType.EHVT_CASTLE).view = _sceneView.buttonHouseCastle;
 //        GameInfo.Instance.villageManager.getHouseByType(EHouseVillageType.EHVT_MARKET).view = _sceneView.buttonHouseMarket;
 //        GameInfo.Instance.villageManager.getHouseByType(EHouseVillageType.EHVT_MILITARY_ACADEMY).view = _sceneView.buttonHouseMilitaryAcademy;

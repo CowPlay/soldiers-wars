@@ -1,12 +1,12 @@
 package models.game.managerPath
 {
 import flash.geom.Point;
-
 import flash.utils.Dictionary;
 
 import models.data.LevelInfo;
 import models.data.houses.base.EHouseOwner;
 import models.data.houses.base.HouseInfo;
+import models.interfaces.levels.ILevelInfo;
 
 import utils.Utils;
 
@@ -51,11 +51,12 @@ public class ManagerPath
      */
 
     //! Default constructor
-    public function ManagerPath(currentLevel:LevelInfo)
+    public function ManagerPath(currentLevel:ILevelInfo)
     {
         Debug.assert(currentLevel != null);
+        Debug.assert(currentLevel is LevelInfo);
 
-        _currentLevel = currentLevel;
+        _currentLevel = currentLevel as LevelInfo;
 
         _heuristicFunction = ManagerPath.manhattanHeuristic;
 
@@ -66,14 +67,17 @@ public class ManagerPath
     {
         _pathsCache = new Dictionary();
 
+        var row:int;
+        var column:int = 0;
+
         { // Create grid
             _grid = [];
 
-            for (var row:int = 0; row <  _currentLevel.gridSize.y; row++)
+            for (row = 0; row < _currentLevel.gridSize.y; row++)
             {
                 var newRow:Array = [];
 
-                for (var column:int = 0; column < _currentLevel.gridSize.x; column++)
+                for (column = 0; column < _currentLevel.gridSize.x; column++)
                 {
                     var newNode:GridCell = new GridCell(column, row);
 
@@ -81,6 +85,33 @@ public class ManagerPath
                 }
 
                 _grid.push(newRow);
+            }
+        }
+
+        {
+            for each (var house:HouseInfo in _currentLevel.houses)
+            {
+                var foundationSize:Point = house.foundationSize;
+
+                var rowFrom:int = house.positionCurrent.y;
+                var rowTo:int = rowFrom + foundationSize.y;
+
+                var columnFrom:int = house.positionCurrent.x;
+                var columnTo:int = columnFrom + foundationSize.x;
+
+                //make foundations not walkable
+                for (row = rowFrom; row < rowTo; row++)
+                {
+                    for (column = columnFrom; column < columnTo; column++)
+                    {
+                        var foundationCell:GridCell = getCell(new Point(column, row));
+                        foundationCell.traversable = false;
+                    }
+                }
+
+                //and make house exit traversable
+                var houseExitCell:GridCell = getCell(house.positionExit);
+                houseExitCell.traversable = true;
             }
         }
     }
@@ -97,7 +128,6 @@ public class ManagerPath
                 }
                 var nodeFrom:GridCell = getCell(houseFrom.positionExit);
                 var nodeTo:GridCell = getCell(houseTo.positionExit);
-
 
                 var pathHash:String = getPathHash(nodeFrom, nodeTo);
 
@@ -153,7 +183,7 @@ public class ManagerPath
 
             if (currentNode == nodeTo)
             {
-                BuildPath(nodeFrom, nodeTo);
+                buildPath(nodeFrom, nodeTo);
                 pathFinded = true;
             }
 
@@ -198,7 +228,7 @@ public class ManagerPath
         Debug.assert(pathFinded);
     }
 
-    private function BuildPath(nodeFrom:GridCell, nodeTo:GridCell):void
+    private function buildPath(nodeFrom:GridCell, nodeTo:GridCell):void
     {
         var pathHash:String = getPathHash(nodeFrom, nodeTo);
 
@@ -235,14 +265,14 @@ public class ManagerPath
             reversedPathInfo.addPath(pathReversed);
         }
 
-        if (true)
-        {
-            Debug.assert(false);
-            for each(var node:GridCell in path)
-            {
-                node.drawDebugData(0xFF80C0);
-            }
-        }
+//        if (true)
+//        {
+//            Debug.assert(false);
+//            for each(var node:GridCell in path)
+//            {
+//                node.drawDebugData(0xFF80C0);
+//            }
+//        }
     }
 
 
@@ -311,7 +341,7 @@ public class ManagerPath
     //! Returns node by row and column index
     public function getCell(position:Point):GridCell
     {
-        var result:GridCell = null;
+        var result:GridCell;
 
         Debug.assert(position != null);
         Debug.assert(position.x >= 0 && position.y >= 0);

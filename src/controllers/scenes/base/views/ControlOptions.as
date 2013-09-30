@@ -47,7 +47,7 @@ public class ControlOptions extends ControlBase
 
     private function onButtonFullscreenClicked(e:MouseEvent):void
     {
-        GameInfo.Instance.managerApp.fullScreenEnable = !GameInfo.Instance.managerApp.fullScreenEnable;
+        GameInfo.instance.managerApp.fullScreenEnable = !GameInfo.instance.managerApp.fullScreenEnable;
     }
 
     /*

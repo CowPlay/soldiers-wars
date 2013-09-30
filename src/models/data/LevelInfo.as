@@ -12,11 +12,12 @@
 package models.data
 {
 
+import data.implementations.PlayerInfoBase;
+
 import flash.geom.Point;
-import models.GameInfo;
 
 import models.data.houses.base.HouseInfo;
-import models.game.managerHouses.ManagerHouses;
+import models.data.houses.base.FactoryHouses;
 import models.implementations.levels.LevelInfoBase;
 
 public class LevelInfo extends LevelInfoBase
@@ -24,8 +25,6 @@ public class LevelInfo extends LevelInfoBase
     /*
      * Fields
      */
-    private var _number:uint;
-
     //[ISerializable]
     private var _houses:Array;
 
@@ -54,10 +53,9 @@ public class LevelInfo extends LevelInfoBase
     //! Default constructor
     public function LevelInfo()
     {
-        _houses = [];
     }
 
-    public function onSelectHouse(player:PlayerInfo, house:HouseInfo):void
+    public function onSelectHouse(player:PlayerInfoBase, house:HouseInfo):void
     {
 //         Player
     }
@@ -73,21 +71,20 @@ public class LevelInfo extends LevelInfoBase
 
     public override function deserialize(data:Object):void
     {
-        Debug.assert(data.hasOwnProperty("number"));
+        super.deserialize(data);
         Debug.assert(data.hasOwnProperty("grid_width"));
         Debug.assert(data.hasOwnProperty("grid_height"));
         Debug.assert(data.hasOwnProperty("houses"));
 
-        _number = data["number"];
+        _houses = [];
+
         _gridSize = new Point(data["grid_width"], data["grid_height"]);
 
         var housesData:Array = data["houses"] as Array;
 
-        var managerHouses:ManagerHouses = GameInfo.Instance.managerHouses;
-
         for each(var houseData:Object in housesData)
         {
-            var house:HouseInfo = managerHouses.getHouse(houseData);
+            var house:HouseInfo = FactoryHouses.getHouse(houseData);
 
             _houses.push(house);
         }

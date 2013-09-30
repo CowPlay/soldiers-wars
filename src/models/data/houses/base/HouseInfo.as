@@ -11,9 +11,15 @@
  */
 package models.data.houses.base
 {
-import controls.IControl;
+import controllers.scenes.game.views.houses.base.ControlHouseView;
+
+import controls.EControlUpdateTypeBase;
+
+import data.IPlayerInfo;
 
 import flash.geom.Point;
+
+import models.GameInfo;
 
 import serialization.ISerializable;
 
@@ -22,13 +28,13 @@ public class HouseInfo implements ISerializable
     /*
      * Fields
      */
-    private var _view:IControl;
+    private var _view:ControlHouseView;
 
     //[Serializable]
     private var _type:String;
 
-    //! Represents house owner type
-    private var _ownerType:String;
+    private var _ownerTypeOnStart:String;
+    private var _owner:IPlayerInfo;
 
     //[Serializable]
     private var _level:uint;
@@ -37,7 +43,7 @@ public class HouseInfo implements ISerializable
 
     //! Use Get\SetSoldierCount
     //[Serializable]
-    private var _soldierCount:Number;
+    private var _soldierCount:int;
     //[Serializable]
     private var _soldierCountMax:uint;
     //[Serializable]
@@ -48,21 +54,64 @@ public class HouseInfo implements ISerializable
     //[Serializable base]
     private var _positionExit:Point;
 
-    //[Serializable base]
-    private var _foundation:Array;
+    private var _foundationSize:Point;
+
+    private var _isSelect:Boolean;
 
     /*
      * Properties
      */
 
-    public function get view():IControl
+    public function get view():ControlHouseView
     {
         return _view;
     }
 
-    public function set view(value:IControl):void
+    public function set view(value:ControlHouseView):void
     {
         _view = value;
+    }
+
+    public function get ownerType():String
+    {
+        var result:String;
+
+        if (_owner == null)
+        {
+            result = EHouseOwner.EHO_NEUTRAL;
+        }
+        else if (_owner == GameInfo.instance.managerGameSoldiers.gameOwner)
+        {
+            result = EHouseOwner.EHO_PLAYER;
+        }
+        else if (_owner == GameInfo.instance.managerGameSoldiers.gameOwnerOpponent)
+        {
+            result = EHouseOwner.EHO_ENEMY;
+        }
+        else
+        {
+            Debug.assert(false);
+        }
+
+        return result;
+    }
+
+    public function get ownerTypeOnStart():String
+    {
+        return _ownerTypeOnStart;
+    }
+
+    public function get owner():IPlayerInfo
+    {
+        return _owner;
+    }
+
+    public function set owner(value:IPlayerInfo):void
+    {
+        if (_owner == value)
+            return;
+
+        _owner = value;
     }
 
     public function get type():String
@@ -79,6 +128,51 @@ public class HouseInfo implements ISerializable
     public function get positionCurrent():Point
     {
         return _positionCurrent;
+    }
+
+    public function get foundationSize():Point
+    {
+        return _foundationSize;
+    }
+
+    public function get isSelect():Boolean
+    {
+        return _isSelect;
+    }
+
+    public function set isSelect(value:Boolean):void
+    {
+        if (_isSelect == value)
+            return;
+
+        _isSelect = value;
+
+    }
+
+
+    public function get level():uint
+    {
+        return _level;
+    }
+
+    public function get levelMax():uint
+    {
+        return _levelMax;
+    }
+
+    public function get soldierCount():int
+    {
+        return _soldierCount;
+    }
+
+    public function set soldierCount(value:int):void
+    {
+        if (_soldierCount == value)
+            return;
+
+        _soldierCount = value;
+
+        _view.update(EControlUpdateTypeBase.ECUT_ENTRY_UPDATED);
     }
 
     /*
@@ -99,29 +193,36 @@ public class HouseInfo implements ISerializable
         return null;
     }
 
-    public function deserialize(data:Object):void
+    public function deserialize(data0:Object):void
     {
-        Debug.assert(data.hasOwnProperty("owner"));
-        Debug.assert(data.hasOwnProperty("type"));
-        Debug.assert(data.hasOwnProperty("level"));
-        Debug.assert(data.hasOwnProperty("level_max"));
-        Debug.assert(data.hasOwnProperty("position_x"));
-        Debug.assert(data.hasOwnProperty("position_y"));
-        Debug.assert(data.hasOwnProperty("position_exit_x"));
-        Debug.assert(data.hasOwnProperty("position_exit_y"));
-        Debug.assert(data.hasOwnProperty("soldiers"));
-        Debug.assert(data.hasOwnProperty("soldiers_max"));
+        Debug.assert(data0.hasOwnProperty("type"));
+        Debug.assert(data0.hasOwnProperty("owner"));
+        Debug.assert(data0.hasOwnProperty("level"));
+        Debug.assert(data0.hasOwnProperty("level_max"));
+        Debug.assert(data0.hasOwnProperty("position_x"));
+        Debug.assert(data0.hasOwnProperty("position_y"));
+        Debug.assert(data0.hasOwnProperty("position_exit_offset_x"));
+        Debug.assert(data0.hasOwnProperty("position_exit_offset_y"));
+        Debug.assert(data0.hasOwnProperty("soldiers"));
+        Debug.assert(data0.hasOwnProperty("soldiers_max"));
+        Debug.assert(data0.hasOwnProperty("soldiers_max"));
 
-        _ownerType = data["owner"];
-        _type = data["type"];
-        _level = data["level"];
-        _levelMax =   data["level_max"];
+        Debug.assert(data0.hasOwnProperty("foundation_width"));
+        Debug.assert(data0.hasOwnProperty("foundation_height"));
 
-        _positionCurrent = new Point(data["position_x"], data["position_y"]);
-        _positionExit = new Point(data["position_exit_x"], data["position_exit_y"]);
+        _type = data0["type"].toUpperCase();
+        _ownerTypeOnStart = data0["owner"].toUpperCase();
+        _level = data0["level"];
+        _levelMax = data0["level_max"];
 
-        _soldierCount =  data["soldiers"];
-        _soldierCountMax =  data["soldiers_max"];
+        _positionCurrent = new Point(data0["position_x"], data0["position_y"]);
+        _foundationSize = new Point(data0["foundation_width"], data0["foundation_height"]);
+
+        var positionExitOffset:Point = new Point(data0["position_exit_offset_x"], data0["position_exit_offset_y"]);
+        _positionExit = new Point(_positionCurrent.x + positionExitOffset.x, _positionCurrent.y + positionExitOffset.y);
+
+        _soldierCount = data0["soldiers"];
+        _soldierCountMax = data0["soldiers_max"];
     }
 
     /*

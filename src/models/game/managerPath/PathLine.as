@@ -7,8 +7,6 @@
  */
 package models.game.managerPath
 {
-import core.Debug;
-
 //! Represents line of path which contains nodes
 public class PathLine
 {

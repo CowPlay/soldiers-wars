@@ -8,17 +8,20 @@
 package controllers.scenes.game
 {
 import controllers.ESceneType;
-import controllers.scenes.base.ControlSceneGameBase;
 import controllers.scenes.game.views.ControlSceneGameView;
 
 import controls.IControl;
+import controls.implementations.ControlSceneBase;
 
-public class ControlSceneGame extends ControlSceneGameBase
+import models.GameInfo;
+
+public class ControlSceneGame extends ControlSceneBase
 {
     /*
      * Fields
      */
     private var _controlSceneView:IControl;
+    private var _controlSceneViewUI:IControl;
 
     /*
      * Properties
@@ -40,10 +43,19 @@ public class ControlSceneGame extends ControlSceneGameBase
     {
         super.prepareLayerScene();
 
-//        var currentLevel:LevelInfo = GameInfo.Instance.managerGameCrosswords.currentLevel;
-
         _controlSceneView = new ControlSceneGameView(this);
         registerControlScene(_controlSceneView);
+    }
+
+    public override function update(type:String = ""):void
+    {
+        _controlSceneView.update(type);
+    }
+
+    public override function onLoadingEnd():void
+    {
+       GameInfo.instance.managerGameSoldiers.registerSceneGame(this);
+        super.onLoadingEnd();
     }
 
     /*

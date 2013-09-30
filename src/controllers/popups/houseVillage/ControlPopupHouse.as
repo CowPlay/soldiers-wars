@@ -11,21 +11,14 @@ import controllers.EPopupType;
 import controllers.popups.houseVillage.content.ControlPopupHouseContentMilitary;
 
 import controls.IControlScene;
+import controls.implementations.ControlPopupBase;
 
-import controls.implementations.popups.ControlPopupUpDown;
-
-import flash.events.MouseEvent;
-import flash.geom.Point;
-
-import models.GameInfo;
-
-public class ControlPopupHouse extends ControlPopupUpDown
+public class ControlPopupHouse extends ControlPopupBase
 {
     /*
      * Fields
      */
 
-    private var _sourceViewTyped:gPopupHouse;
     private var _controlHeaderRow0:ControlHousePopupHeaderRow;
     private var _controlHeaderRow1:ControlHousePopupHeaderRow;
 
@@ -40,10 +33,10 @@ public class ControlPopupHouse extends ControlPopupUpDown
         return EPopupType.EPT_VILLAGE_HOUSE;
     }
 
-    public override function get positionShow():Point
-    {
-        return new Point(GameInfo.Instance. managerApp.applicationSize.x / 2 - sourceView.width / 2, -sourceView.height * 0.1);
-    }
+//    public override function get positionShow():Point
+//    {
+//        return new Point(GameInfo.Instance. managerApp.applicationSize.x / 2 - sourceView.width / 2, -sourceView.height * 0.1);
+//    }
 
     /*
      * Methods
@@ -59,10 +52,10 @@ public class ControlPopupHouse extends ControlPopupUpDown
 
     private function init():void
     {
-        _sourceViewTyped = new gPopupHouse();
-        setSourceView(_sourceViewTyped);
+//        _sourceViewTyped = new gPopupHouse();
+//        setSourceView(_sourceViewTyped);
 
-        _sourceViewTyped.buttonClose.addEventListener(MouseEvent.CLICK, onButtonCloseClicked);
+//        _sourceViewTyped.buttonClose.addEventListener(MouseEvent.CLICK, onButtonCloseClicked);
 
 //        _contentMilitary = new ControlPopupHouseContentMilitary(sceneOwner);
 //        _sourceViewTyped.addChild(_contentMilitary);

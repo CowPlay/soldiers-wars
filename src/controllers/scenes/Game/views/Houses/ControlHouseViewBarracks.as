@@ -5,8 +5,10 @@
  * Time: 9:43 PM
  * To change this template use File | Settings | File Templates.
  */
-package controllers.scenes.game.views.Houses
+package controllers.scenes.game.views.houses
 {
+import controllers.scenes.game.views.houses.base.ControlHouseView;
+
 import controls.IControlScene;
 
 import models.data.houses.base.EHouseType;
@@ -17,10 +19,6 @@ public class ControlHouseViewBarracks extends ControlHouseView
     /*
      * Fields
      */
-
-
-    private var houseView:gHouseBarracks;
-
     /*
      * Properties
      */
@@ -41,18 +39,7 @@ public class ControlHouseViewBarracks extends ControlHouseView
 
     private function init():void
     {
-
-        houseView = new gHouseBarracks();
-        sourceView.addChild(houseView);
+        setHouseView(new gHouseBarracks());
     }
-
-    public override function placeViews():void
-    {
-        super.placeViews();
-
-
-    }
-
-
 }
 }

@@ -16,28 +16,10 @@ import controls.IControl;
 import controls.implementations.ControlSceneBase;
 import controls.implementations.ControlSpriteBase;
 
-import models.GameInfo;
-import models.village.ManagerVillage;
-
 import utils.Utils;
 
 public class ControlSceneGameBase extends ControlSceneBase
 {
-    /*
-     * Static fields
-     */
-
-    private static var _gameInfoSoldiers:GameInfo;
-    private static var _villageManager:ManagerVillage;
-
-    /*
-     * Static properties
-     */
-    public static function get villageManager():ManagerVillage
-    {
-        return _villageManager;
-    }
-
     /*
      * Fields
      */
@@ -60,11 +42,6 @@ public class ControlSceneGameBase extends ControlSceneBase
     //! Default constructor
     public function ControlSceneGameBase()
     {
-        if (_gameInfoSoldiers == null)
-        {
-            _gameInfoSoldiers = GameInfo.Instance;
-            _villageManager = _gameInfoSoldiers.managerVillage;
-        }
     }
 
 

@@ -11,32 +11,37 @@
  */
 package controllers.scenes.game.views
 {
-import controllers.scenes.game.views.Houses.ControlHouseView;
-import controllers.scenes.game.views.Houses.ControlHouseViewBarracks;
+import controllers.EControlUpdateType;
+import controllers.scenes.game.views.arrows.ControlArrowContainer;
+import controllers.scenes.game.views.houses.base.ControlHouseViewContainer;
+import controllers.scenes.game.views.soldiers.base.ControlSoldierViewContainer;
 
 import controls.IControl;
-
 import controls.IControlScene;
-
 import controls.implementations.ControlBase;
 
+import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
+import flash.events.Event;
+import flash.events.MouseEvent;
 
 import models.GameInfo;
-import models.data.houses.base.EHouseType;
-import models.data.houses.base.HouseInfo;
-import models.game.managerPath.GridCell;
-import models.game.managerPath.ManagerPath;
+import models.game.ManagerGameSoldiers;
 
 public class ControlSceneGameView extends ControlBase
 {
     /*
      * Fields
      */
+    private var _managerGame:ManagerGameSoldiers;
+
+    private var _sourceViewTyped:DisplayObjectContainer;
 
     private var _controlGrid:ControlGrid;
+    private var _controlArrowContainer:IControl;
+    private var _controlHousesContainer:IControl;
+    private var _controlSoldiersContainer:IControl;
 
-    private var _houses:Array;
 
     /*
      * Properties
@@ -51,48 +56,37 @@ public class ControlSceneGameView extends ControlBase
     {
         super(sceneOwner);
 
-        _houses = [];
-
         init();
     }
 
     private function init():void
     {
-        setSourceView(new Sprite());
+        _managerGame = GameInfo.instance.managerGameSoldiers;
+
+        _sourceViewTyped = new Sprite();
+        setSourceView(_sourceViewTyped);
 
         _controlGrid = new ControlGrid(sceneOwner);
-        sourceView.addChild(_controlGrid.sourceView);
+        _sourceViewTyped.addChild(_controlGrid.sourceView);
 
-        initHouses();
+        _controlArrowContainer = new ControlArrowContainer(sceneOwner);
+        _sourceViewTyped.addChild(_controlArrowContainer.sourceView);
+
+        _controlHousesContainer = new ControlHouseViewContainer(sceneOwner);
+        _sourceViewTyped.addChild(_controlHousesContainer.sourceView);
+
+        _controlSoldiersContainer = new ControlSoldierViewContainer(sceneOwner);
+        _sourceViewTyped.addChild(_controlSoldiersContainer.sourceView);
+
+//        actionDelegate = this;
+        //TODO: review this hack
+        GameInfo.instance.managerApp.applicationStage.addEventListener(Event.MOUSE_LEAVE, clearHousesSelection);
+        GameInfo.instance.managerApp.applicationStage.addEventListener(MouseEvent.MOUSE_UP, clearHousesSelection);
     }
 
-    private function initHouses():void
+    private function clearHousesSelection(e:Event = null):void
     {
-        var housesEntries:Array = GameInfo.Instance.managerGameSoldiers.currentLevel.houses;
-
-        for each(var entry:HouseInfo in housesEntries)
-        {
-            var view:IControl;
-
-            switch (entry.type)
-            {
-                case EHouseType.EHT_BARRACKS:
-                {
-                    view = new ControlHouseViewBarracks(sceneOwner, entry);
-                    break;
-                }
-                default :
-                {
-                    Debug.assert(false);
-                    break;
-                }
-            }
-
-            sourceView.addChild(view.sourceView);
-
-            entry.view = view;
-            _houses.push(view);
-        }
+        _managerGame.clearHousesSelection(_managerGame.gameOwner);
     }
 
     public override function placeViews():void
@@ -103,15 +97,85 @@ public class ControlSceneGameView extends ControlBase
         _controlGrid.sourceView.x = 100;
         _controlGrid.sourceView.y = 350;
 
-        var managerPath:ManagerPath = GameInfo.Instance.managerGameSoldiers.managerPath;
+        _controlHousesContainer.placeViews();
+        _controlHousesContainer.sourceView.x = _controlGrid.sourceView.x;
+        _controlHousesContainer.sourceView.y = _controlGrid.sourceView.y;
 
-        for each(var houseView:ControlHouseView in _houses)
+        _controlArrowContainer.placeViews();
+        _controlArrowContainer.sourceView.x = _controlGrid.sourceView.x;
+        _controlArrowContainer.sourceView.y = _controlGrid.sourceView.y;
+
+        _controlSoldiersContainer.sourceView.x = _controlGrid.sourceView.x;
+        _controlSoldiersContainer.sourceView.y = _controlGrid.sourceView.y;
+
+    }
+
+    /*
+     * IActionDelegate
+     */
+
+//    public override function onControlMouseUp(target:IControl, e:MouseEvent):Boolean
+//    {
+//        var result:Boolean = super.onControlMouseUp(target, e);
+//
+//        //clear selection
+//        clearHousesSelection();
+//        _managerGame.clearHousesSelection(_managerGame.gameOwner);
+//
+//        if (!result)
+//        {
+//
+//        }
+//
+//        return result;
+//    }
+//
+//    public override function onControlMouseDown(target:IControl, e:MouseEvent):Boolean
+//    {
+//        var result:Boolean = super.onControlMouseDown(target, e);
+//
+//        if (!result)
+//        {
+//            switch (target)
+//            {
+//                case this:
+//                {
+//                    //do nothing
+//                    result = true;
+//                    break;
+//                }
+//                default :
+//                {
+//                    Debug.assert(false);
+//                    break;
+//                }
+//            }
+//        }
+//        Debug.assert(result);
+//
+//        return result;
+//    }
+
+    public override function update(type:String = ""):void
+    {
+        switch (type)
         {
-            var cellEntry:GridCell = managerPath.getCell(houseView.entry.positionCurrent);
+            case EControlUpdateType.ECUT_HOUSE_SELECTION_CHANGED:
+            {
+                _controlArrowContainer.update(type);
 
-            houseView.placeViews();
-            houseView.sourceView.x = _controlGrid.sourceView.x + cellEntry.view.sourceView.x;
-            houseView.sourceView.y = _controlGrid.sourceView.y + cellEntry.view.sourceView.y;
+                break;
+            }
+            case EControlUpdateType.ECUT_SOLDIER_GENERATE:
+            {
+                _controlSoldiersContainer.update(type);
+                break;
+            }
+            default :
+            {
+                Debug.assert(false);
+                break;
+            }
         }
     }
 }

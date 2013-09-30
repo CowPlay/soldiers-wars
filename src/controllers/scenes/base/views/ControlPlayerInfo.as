@@ -13,7 +13,7 @@ import controls.implementations.ControlBase;
 import flash.display.Bitmap;
 
 import models.GameInfo;
-import models.interfaces.IManagerSocial;
+import models.interfaces.social.IManagerSocial;
 
 import mx.utils.StringUtil;
 
@@ -47,7 +47,7 @@ public class ControlPlayerInfo extends ControlBase
         _sourceViewTyped = new gControlPlayerInfo();
         setSourceView(_sourceViewTyped);
 
-        var managerSocial:IManagerSocial = GameInfo.Instance.managerSocial;
+        var managerSocial:IManagerSocial = GameInfo.instance.managerSocial;
 
         _sourceViewTyped.labelPlayerName.text = StringUtil.substitute("{0} {1}", managerSocial.userInfo.firstName, managerSocial.userInfo.lastName);
 

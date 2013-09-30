@@ -45,7 +45,7 @@ public class HouseVillageBakeshop extends HouseVillageBase
 
     protected override function canBuild():Boolean
     {
-        Debug.assert(false, "todo:implement")
+        Debug.assert(false, "todo:implement");
         return false;
     }
 }

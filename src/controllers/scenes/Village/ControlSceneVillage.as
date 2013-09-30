@@ -20,6 +20,8 @@ import controls.implementations.ControlSpriteBase;
 
 import flash.events.MouseEvent;
 
+import models.GameInfo;
+
 import utils.Utils;
 
 public class ControlSceneVillage extends ControlSceneGameBase
@@ -60,7 +62,7 @@ public class ControlSceneVillage extends ControlSceneGameBase
         _sceneView = new ControlSceneVillageView(this);
         registerControlScene(_sceneView);
 
-        _rootViewScroll = new ControlScrollBase(this, _sceneView.sourceView, _managerApp.applicationSize);
+        _rootViewScroll = new ControlScrollBase(this, _sceneView.sourceView, GameInfo.instance.managerApp.applicationSize);
         registerControlScene(_rootViewScroll);
 
 
@@ -161,7 +163,7 @@ public class ControlSceneVillage extends ControlSceneGameBase
     {
         super.onDisplayStateChanged(isFullScreenNow);
 
-        _rootViewScroll.controlSize = _managerApp.applicationSize;
+        _rootViewScroll.controlSize = GameInfo.instance.managerApp.applicationSize;
 
         updateViewsPositions();
     }

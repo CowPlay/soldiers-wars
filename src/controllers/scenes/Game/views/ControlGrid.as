@@ -48,7 +48,7 @@ public class ControlGrid extends ControlBase
 
         _cells = [];
 
-        var grid:Array = GameInfo.Instance.managerGameSoldiers.managerPath.grid;
+        var grid:Array = GameInfo.instance.managerGameSoldiers.managerPath.grid;
 
         //add nodes
         for (var currentRow:int = 0; currentRow < grid.length; currentRow++)
@@ -77,12 +77,12 @@ public class ControlGrid extends ControlBase
         var startX:Number = 0;
         var startY:Number = 0;
 
-        var firstNode:GridCell = GameInfo.Instance.managerGameSoldiers.managerPath.getCell(new Point(0, 0));
+        var firstNode:GridCell = GameInfo.instance.managerGameSoldiers.managerPath.getCell(new Point(0, 0));
 
         var nodeWidth:Number = firstNode.view.sourceView.width;
         var nodeHeight:Number = firstNode.view.sourceView.height;
 
-        var grid:Array = GameInfo.Instance.managerGameSoldiers.managerPath.grid;
+        var grid:Array = GameInfo.instance.managerGameSoldiers.managerPath.grid;
 
         for (var currentRow:int = 0; currentRow < grid.length; currentRow++)
         {
