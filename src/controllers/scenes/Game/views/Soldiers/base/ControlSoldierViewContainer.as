@@ -38,6 +38,8 @@ public class ControlSoldierViewContainer extends ControlBase
         super(sceneOwner);
 
         _sourceViewTyped = new Sprite();
+        _sourceViewTyped.mouseChildren = false;
+        _sourceViewTyped.mouseEnabled = false;
         setSourceView(_sourceViewTyped);
     }
 

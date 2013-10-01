@@ -14,6 +14,7 @@ import flash.display.Bitmap;
 
 import models.GameInfo;
 import models.interfaces.social.IManagerSocial;
+import models.interfaces.social.ISocialUser;
 
 import mx.utils.StringUtil;
 
@@ -51,12 +52,15 @@ public class ControlPlayerInfo extends ControlBase
 
         _sourceViewTyped.labelPlayerName.text = StringUtil.substitute("{0} {1}", managerSocial.userInfo.firstName, managerSocial.userInfo.lastName);
 
-        _userPicture = managerSocial.userInfo.pictureClone;
+        managerSocial.userInfo.tryLoadPicture(function (socialUser:ISocialUser):void
+        {
+            _userPicture = socialUser.pictureClone;
 
-        _userPicture.width = _sourceViewTyped.imageAvatar.width;
-        _userPicture.height = _sourceViewTyped.imageAvatar.height;
+            _userPicture.width = _sourceViewTyped.imageAvatar.width;
+            _userPicture.height = _sourceViewTyped.imageAvatar.height;
 
-        _sourceViewTyped.imageAvatar.addChild(_userPicture);
+            _sourceViewTyped.imageAvatar.addChild(_userPicture);
+        });
     }
 
     /*
@@ -65,10 +69,10 @@ public class ControlPlayerInfo extends ControlBase
 
     public override function cleanup():void
     {
-        _sourceViewTyped.removeChild(_userPicture);
+        _userPicture.bitmapData.dispose();
+        _userPicture.parent.removeChild(_userPicture);
         _userPicture = null;
 
-        removeChild(_sourceViewTyped);
         _sourceViewTyped = null;
 
         super.cleanup();

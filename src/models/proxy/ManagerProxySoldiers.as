@@ -9,6 +9,7 @@ package models.proxy
 {
 import bwf.proxy.IManagerProxy;
 
+import models.data.housesV.base.EHouseVType;
 import models.interfaces.social.IManagerSocial;
 
 public class ManagerProxySoldiers implements IManagerProxy
@@ -29,6 +30,26 @@ public class ManagerProxySoldiers implements IManagerProxy
     public function ManagerProxySoldiers(managerSocial:IManagerSocial)
     {
     }
+
+    public function getHousesVillageData(data:Object):Object
+    {
+        var houseAltarData:Object =
+        {
+            level: 1,
+            level_max: 2,
+            type: EHouseVType.EHVT_ALTAR
+        };
+
+        var housesData:Array = [houseAltarData];
+
+        var result:Object =
+        {
+            houses: housesData
+        };
+
+        return result;
+    }
+
 
     /*
      * IManagerProxy
@@ -53,7 +74,7 @@ public class ManagerProxySoldiers implements IManagerProxy
     {
         var houseData0:Object =
         {
-            type: "eht_barracks",
+            type: "ehgt_barracks",
             owner: "eho_enemy",
             level: 1,
             level_max: 1,
@@ -61,8 +82,8 @@ public class ManagerProxySoldiers implements IManagerProxy
             position_y: 4,
             position_exit_offset_x: 3,
             position_exit_offset_y: 3,
-            foundation_width:2,
-            foundation_height:2,
+            foundation_width: 2,
+            foundation_height: 2,
             soldiers: 100,
             soldiers_max: 200
         };
@@ -70,7 +91,7 @@ public class ManagerProxySoldiers implements IManagerProxy
 
         var houseData1:Object =
         {
-            type: "eht_barracks",
+            type: "ehgt_barracks",
             owner: "eho_player",
             level: 1,
             level_max: 1,
@@ -78,8 +99,8 @@ public class ManagerProxySoldiers implements IManagerProxy
             position_y: 14,
             position_exit_offset_x: 3,
             position_exit_offset_y: 3,
-            foundation_width:2,
-            foundation_height:2,
+            foundation_width: 2,
+            foundation_height: 2,
             soldiers: 100,
             soldiers_max: 200
         };
@@ -87,7 +108,7 @@ public class ManagerProxySoldiers implements IManagerProxy
 
         var houseData2:Object =
         {
-            type: "eht_barracks",
+            type: "ehgt_barracks",
             owner: "eho_player",
             level: 1,
             level_max: 1,
@@ -95,8 +116,8 @@ public class ManagerProxySoldiers implements IManagerProxy
             position_y: 4,
             position_exit_offset_x: 3,
             position_exit_offset_y: 3,
-            foundation_width:2,
-            foundation_height:2,
+            foundation_width: 2,
+            foundation_height: 2,
             soldiers: 100,
             soldiers_max: 200
         };

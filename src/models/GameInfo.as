@@ -7,8 +7,6 @@
  */
 package models
 {
-import bwf.remote.ManagerRemoteBase;
-
 import controllers.ESceneType;
 import controllers.scenes.game.ControlSceneGame;
 import controllers.scenes.village.ControlSceneVillage;
@@ -92,7 +90,9 @@ public class GameInfo extends GameInfoBase
 
     protected override function onInitSocialComplete():void
     {
-        _managerProxy = new ManagerProxySoldiers(_managerSocial);
+        var managerProxySoldiers:ManagerProxySoldiers = new ManagerProxySoldiers(_managerSocial);
+
+        _managerProxy = managerProxySoldiers;
         _managerRemote = new ManagerRemoteStub("", _managerProxy);
         _managerApp = new ManagerAppBase(_stage);
         _managerViewController = new ManagerViewControllerBase();
@@ -102,6 +102,9 @@ public class GameInfo extends GameInfoBase
         _managerLevels.deserialize(_managerProxy.getLevelsData(null));
 
         _managerResources = new ManagerResourceBase();
+
+        _managerVillage = new ManagerVillage();
+        _managerVillage.deserialize(managerProxySoldiers.getHousesVillageData(null));
 
         {//register scenes
 
@@ -113,6 +116,11 @@ public class GameInfo extends GameInfoBase
     }
 
     protected override function onRemoteGameInitComplete(response:Object):void
+    {
+        GameInfo.instance.managerViewController.setScene(ESceneType.EST_VILLAGE);
+    }
+
+    public function startStubGame():void
     {
         var player0:IPlayerInfo = new PlayerInfoBase();
         var player1:IPlayerInfo = new PlayerInfoBase();

@@ -8,17 +8,21 @@
 package models.data.soldiers
 {
 import com.greensock.TweenLite;
+import com.greensock.TweenMax;
 
 import controls.IControl;
 
+import data.IPlayerInfo;
+
 import models.GameInfo;
-import models.data.houses.base.HouseInfo;
+import models.data.housesG.base.HouseInfoG;
 import models.game.managerPath.ManagerPath;
 
 public class SoldierInfo implements IDisposable
 {
+    private var _houseOwnerPlayer:IPlayerInfo;
     private var _houseOwnerType:String;
-    private var _houseTarget:HouseInfo;
+    private var _houseTarget:HouseInfoG;
 
     private var _level:uint;
     private var _levelMax:uint;
@@ -32,12 +36,17 @@ public class SoldierInfo implements IDisposable
     /*
      * Properties
      */
+    public function get houseOwnerPlayer():IPlayerInfo
+    {
+        return _houseOwnerPlayer;
+    }
+
     public function get houseOwnerType():String
     {
         return _houseOwnerType;
     }
 
-    public function get houseTarget():HouseInfo
+    public function get houseTarget():HouseInfoG
     {
         return _houseTarget;
     }
@@ -101,7 +110,7 @@ public class SoldierInfo implements IDisposable
      */
 
     //! Default constructor
-    public function SoldierInfo(owner:HouseInfo, target:HouseInfo)
+    public function SoldierInfo(owner:HouseInfoG, target:HouseInfoG)
     {
         Debug.assert(owner != null);
         Debug.assert(target != null);
@@ -111,6 +120,7 @@ public class SoldierInfo implements IDisposable
         _level = owner.level;
         _levelMax = owner.levelMax;
         _houseTarget = target;
+        _houseOwnerPlayer = owner.owner;
 
         var managerPath:ManagerPath = GameInfo.instance.managerGameSoldiers.managerPath;
 
@@ -136,10 +146,10 @@ public class SoldierInfo implements IDisposable
 
     public function cleanup():void
     {
-//        _path = [];
-//
-//        _view.cleanup();
-//        _view = null;
+        TweenMax.killTweensOf(this);
+
+        _path.length = 0;
+        _view = null;
     }
 }
 }

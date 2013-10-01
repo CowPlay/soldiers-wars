@@ -9,9 +9,9 @@
 package models.game.managerSoldiers
 {
 
-import com.greensock.TweenLite;
-
 import controllers.EControlUpdateType;
+
+import controls.EControlUpdateTypeBase;
 
 import flash.events.Event;
 import flash.events.TimerEvent;
@@ -19,7 +19,8 @@ import flash.utils.Timer;
 import flash.utils.getTimer;
 
 import models.GameInfo;
-import models.data.houses.base.HouseInfo;
+import models.data.housesG.base.EHouseOwner;
+import models.data.housesG.base.HouseInfoG;
 import models.data.soldiers.SoldierInfo;
 
 import utils.UtilsArray;
@@ -66,14 +67,14 @@ public class ManagerSoldiers implements IDisposable
         _timerSoldierGenerator.start();
     }
 
-    public function generateSoldiers(owner:HouseInfo, target:HouseInfo):void
+    public function generateSoldiers(owner:HouseInfoG, target:HouseInfoG, soldierCount:int):void
     {
         Debug.assert(owner != null);
         Debug.assert(target != null);
 
         var newWave:SoldierWaveInfo = new SoldierWaveInfo();
 
-        newWave.generatedSoldierRest = 1; //TODO: make configurable
+        newWave.generatedSoldierRest = soldierCount;
         newWave.owner = owner;
         newWave.target = target;
         newWave.timeGeneratedFrequency = 300;
@@ -99,7 +100,7 @@ public class ManagerSoldiers implements IDisposable
             var isFirstProcess:Boolean = waveInfo.timeGeneratedLast == 0;
             var isTimeForGenerate:Boolean = currentTime - waveInfo.timeGeneratedLast > waveInfo.timeGeneratedFrequency;
 
-            if(!isTimeForGenerate)
+            if (!isTimeForGenerate)
             {
                 continue;
             }
@@ -108,6 +109,7 @@ public class ManagerSoldiers implements IDisposable
             {
                 Debug.assert(waveInfo.owner.soldierCount >= waveInfo.generatedSoldierRest);
                 waveInfo.owner.soldierCount -= waveInfo.generatedSoldierRest;
+                waveInfo.owner.view.update(EControlUpdateTypeBase.ECUT_ENTRY_UPDATED);
             }
 
             waveInfo.timeGeneratedLast = currentTime;
@@ -147,11 +149,42 @@ public class ManagerSoldiers implements IDisposable
     {
         Debug.assert(soldier != null);
 
+        if (soldier.houseTarget.ownerType == EHouseOwner.EHO_NEUTRAL)
+        {
+            soldier.houseTarget.soldierCount++;
+            soldier.houseTarget.owner = soldier.houseOwnerPlayer;
+        }
+        else if (soldier.houseOwnerPlayer != soldier.houseTarget.owner)
+        {
+            if (soldier.houseTarget.soldierCount == 0)
+            {
+                soldier.houseTarget.owner = soldier.houseOwnerPlayer;
+                soldier.houseTarget.soldierCount = 1;
+            }
+            else
+            {
+                soldier.houseTarget.soldierCount--;
+
+                if (soldier.houseTarget.soldierCount == 0)
+                {
+                    soldier.houseTarget.owner = soldier.houseOwnerPlayer;
+                    soldier.houseTarget.soldierCount = 1;
+                }
+            }
+        }
+        else
+        {
+            soldier.houseTarget.soldierCount++;
+        }
+
+        soldier.houseTarget.view.update(EControlUpdateTypeBase.ECUT_ENTRY_UPDATED);
+
         UtilsArray.removeValue(_soldiers, soldier);
+
+        soldier.view.sourceView.parent.removeChild(soldier.view.sourceView);
+        soldier.view.cleanup();
+        soldier.cleanup();
     }
-
-
-
 
 
     /*

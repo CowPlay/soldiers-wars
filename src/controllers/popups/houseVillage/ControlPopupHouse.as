@@ -19,10 +19,7 @@ public class ControlPopupHouse extends ControlPopupBase
      * Fields
      */
 
-    private var _controlHeaderRow0:ControlHousePopupHeaderRow;
-    private var _controlHeaderRow1:ControlHousePopupHeaderRow;
-
-    private var _contentMilitary:ControlPopupHouseContentMilitary;
+    private var _sourceViewTyped:gPopupHouse;
 
     /*
      * Properties
@@ -32,11 +29,6 @@ public class ControlPopupHouse extends ControlPopupBase
     {
         return EPopupType.EPT_VILLAGE_HOUSE;
     }
-
-//    public override function get positionShow():Point
-//    {
-//        return new Point(GameInfo.Instance. managerApp.applicationSize.x / 2 - sourceView.width / 2, -sourceView.height * 0.1);
-//    }
 
     /*
      * Methods
@@ -52,8 +44,8 @@ public class ControlPopupHouse extends ControlPopupBase
 
     private function init():void
     {
-//        _sourceViewTyped = new gPopupHouse();
-//        setSourceView(_sourceViewTyped);
+        _sourceViewTyped = new gPopupHouse();
+        setSourceView(_sourceViewTyped);
 
 //        _sourceViewTyped.buttonClose.addEventListener(MouseEvent.CLICK, onButtonCloseClicked);
 

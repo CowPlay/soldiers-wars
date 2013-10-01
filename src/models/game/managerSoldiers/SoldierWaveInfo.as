@@ -7,7 +7,7 @@
  */
 package models.game.managerSoldiers
 {
-import models.data.houses.base.HouseInfo;
+import models.data.housesG.base.HouseInfoG;
 
 public class SoldierWaveInfo
 {
@@ -19,8 +19,8 @@ public class SoldierWaveInfo
     private var _generatedSoldierRest:uint;
     private var _generatedSoldierCount:uint;
 
-    private var _owner:HouseInfo;
-    private var _target:HouseInfo;
+    private var _owner:HouseInfoG;
+    private var _target:HouseInfoG;
 
     private var _timeGeneratedLast:int;
     private var _timeGeneratedFrequency:int;
@@ -48,22 +48,22 @@ public class SoldierWaveInfo
         _generatedSoldierCount = value;
     }
 
-    public function get owner():HouseInfo
+    public function get owner():HouseInfoG
     {
         return _owner;
     }
 
-    public function set owner(value:HouseInfo):void
+    public function set owner(value:HouseInfoG):void
     {
         _owner = value;
     }
 
-    public function get target():HouseInfo
+    public function get target():HouseInfoG
     {
         return _target;
     }
 
-    public function set target(value:HouseInfo):void
+    public function set target(value:HouseInfoG):void
     {
         _target = value;
     }

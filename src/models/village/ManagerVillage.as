@@ -7,15 +7,12 @@
  */
 package models.village
 {
-import models.village.Houses.HouseVillageAltar;
-import models.village.Houses.base.EHouseVillageState;
-import models.village.Houses.base.EHouseVillageType;
-import models.village.Houses.base.HouseVillageBase;
-import models.village.Houses.mines.HouseVillageBakeshop;
-import models.village.Houses.mines.HouseVillageMineGems;
-import models.village.Houses.mines.HouseVillageMineGold;
+import models.data.housesV.base.FactoryHousesV;
+import models.data.housesV.base.HouseInfoV;
 
-public class ManagerVillage
+import serialization.ISerializable;
+
+public class ManagerVillage implements ISerializable
 {
     /*
      * Fields
@@ -45,30 +42,16 @@ public class ManagerVillage
 
     private function init():void
     {
-        //load houses
-        _houses = [];
 
-        var houseAltar:HouseVillageAltar = new HouseVillageAltar(EHouseVillageState.EHVS_CLOSED, 1);
-        _houses.push(houseAltar);
-
-        var houseBakeshop:HouseVillageBakeshop = new HouseVillageBakeshop(EHouseVillageState.EHVS_CLOSED, 1);
-        _houses.push(houseBakeshop);
-
-        var houseMineGems:HouseVillageMineGems = new HouseVillageMineGems(EHouseVillageState.EHVS_CLOSED, 1);
-        _houses.push(houseMineGems);
-
-
-        var houseMineGold0:HouseVillageMineGold = new HouseVillageMineGold(EHouseVillageState.EHVS_CLOSED, 1);
-        _houses.push(houseMineGold0);
     }
 
-    public function getHouseByType(type:EHouseVillageType):HouseVillageBase
+    public function getHouseByType(type:String):HouseInfoV
     {
         Debug.assert(type != null);
 
-        var result:HouseVillageBase;
+        var result:HouseInfoV;
 
-        for each(var house:HouseVillageBase in _houses)
+        for each(var house:HouseInfoV in _houses)
         {
             if (house.type == type)
             {
@@ -77,14 +60,50 @@ public class ManagerVillage
             }
         }
 
+        Debug.assert(result != null);
+
         return result;
     }
 
-    public function didHouseBuild(house:HouseVillageBase):void
+    public function didHouseBuild(house:HouseInfoV):void
     {
 
     }
 
+    /*
+     * ISerializable
+     */
 
+
+    public function serialize():Object
+    {
+        return null;
+    }
+
+    public function deserialize(data:Object):void
+    {
+        Debug.assert(data.hasOwnProperty("houses"));
+        Debug.assert(data["houses"] is Array);
+
+
+        //load houses
+        _houses = [];
+
+        var housesData:Array = data["houses"];
+        for each(var houseData:Object in housesData)
+        {
+            var house:HouseInfoV = FactoryHousesV.getHouse(houseData);
+            _houses.push(house);
+        }
+    }
+
+    /*
+     * IDisposable
+     */
+
+
+    public function cleanup():void
+    {
+    }
 }
 }

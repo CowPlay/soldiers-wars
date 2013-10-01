@@ -14,15 +14,13 @@ package models.game
 
 import controllers.EControlUpdateType;
 
-
 import data.IPlayerInfo;
 
 import flash.utils.Dictionary;
 
-
 import models.data.LevelInfo;
-import models.data.houses.base.EHouseOwner;
-import models.data.houses.base.HouseInfo;
+import models.data.housesG.base.EHouseOwner;
+import models.data.housesG.base.HouseInfoG;
 import models.game.managerPath.ManagerPath;
 import models.game.managerSoldiers.ManagerSoldiers;
 import models.implementations.game.ManagerGameBase;
@@ -102,7 +100,7 @@ public class ManagerGameSoldiers extends ManagerGameBase
         _selectedHouses[_gameOwnerOpponent] = [];
 
         //bind houses to players
-        for each(var house:HouseInfo in _currentLevel.houses)
+        for each(var house:HouseInfoG in _currentLevel.houses)
         {
             switch (house.ownerTypeOnStart)
             {
@@ -126,8 +124,7 @@ public class ManagerGameSoldiers extends ManagerGameBase
     }
 
 
-
-    public function onPlayerGenerateSoldiers(player:IPlayerInfo, target:HouseInfo):void
+    public function onPlayerGenerateSoldiers(player:IPlayerInfo, target:HouseInfoG):void
     {
         Debug.assert(player != null);
         Debug.assert(target != null);
@@ -135,20 +132,20 @@ public class ManagerGameSoldiers extends ManagerGameBase
         var selectedHouses:Array = _selectedHouses[player];
         Debug.assert(selectedHouses.length > 0);
 
-        for each(var house:HouseInfo in selectedHouses)
+        for each(var house:HouseInfoG in selectedHouses)
         {
             if (target == house)
             {
                 continue;
             }
 
-            _managerSoldiers.generateSoldiers(house, target);
+            _managerSoldiers.generateSoldiers(house, target, house.soldierCount / 2);
         }
 
         clearHousesSelection(player);
     }
 
-    public function onPlayerSelectHouse(player:IPlayerInfo, value:HouseInfo):void
+    public function onPlayerSelectHouse(player:IPlayerInfo, value:HouseInfoG):void
     {
         var selectedHouses:Array = _selectedHouses[player];
 
@@ -167,7 +164,7 @@ public class ManagerGameSoldiers extends ManagerGameBase
     {
         var selectedHouses:Array = _selectedHouses[player];
 
-        for each(var house:HouseInfo in selectedHouses)
+        for each(var house:HouseInfoG in selectedHouses)
         {
             house.isSelect = false;
         }

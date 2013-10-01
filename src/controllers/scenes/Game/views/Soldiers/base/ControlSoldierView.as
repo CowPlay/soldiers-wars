@@ -202,6 +202,14 @@ public class ControlSoldierView extends ControlBase
 
     public override function cleanup():void
     {
+        TweenMax.killTweensOf(sourceView);
+        TweenMax.killTweensOf(this);
+
+        _sourceViewTyped = null;
+        _soldierView = null;
+        _entry = null;
+
+        super.cleanup();
     }
 }
 }

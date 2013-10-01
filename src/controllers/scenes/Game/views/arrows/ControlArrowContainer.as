@@ -22,7 +22,7 @@ import flash.display.Sprite;
 import flash.events.MouseEvent;
 
 import models.GameInfo;
-import models.data.houses.base.HouseInfo;
+import models.data.housesG.base.HouseInfoG;
 
 import utils.memory.UtilsMemory;
 
@@ -65,7 +65,7 @@ public class ControlArrowContainer extends ControlBase
 
         _houses = GameInfo.instance.managerGameSoldiers.currentLevel.houses;
 
-        for each(var house:HouseInfo in _houses)
+        for each(var house:HouseInfoG in _houses)
         {
             var controlArrow:ControlArrow = new ControlArrow(sceneOwner);
             controlArrow.hide();
@@ -92,7 +92,7 @@ public class ControlArrowContainer extends ControlBase
 
         for (var i:int = 0; i < _houses.length; i++)
         {
-            var house:HouseInfo = _houses[i];
+            var house:HouseInfoG = _houses[i];
             var controlArrow:IControl = _controlsArrows[i];
 
             controlArrow.sourceView.x = house.view.sourceView.x + house.view.auraPosition.x;
@@ -108,7 +108,7 @@ public class ControlArrowContainer extends ControlBase
             {
                 for (var i:int = 0; i < _houses.length; i++)
                 {
-                    var house:HouseInfo = _houses[i];
+                    var house:HouseInfoG = _houses[i];
                     var controlArrow:IControl = _controlsArrows[i];
 
                     house.isSelect ? controlArrow.show() : controlArrow.hide();

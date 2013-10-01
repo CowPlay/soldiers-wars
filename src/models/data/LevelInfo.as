@@ -16,8 +16,8 @@ import data.implementations.PlayerInfoBase;
 
 import flash.geom.Point;
 
-import models.data.houses.base.HouseInfo;
-import models.data.houses.base.FactoryHouses;
+import models.data.housesG.base.HouseInfoG;
+import models.data.housesG.base.FactoryHousesG;
 import models.implementations.levels.LevelInfoBase;
 
 public class LevelInfo extends LevelInfoBase
@@ -55,7 +55,7 @@ public class LevelInfo extends LevelInfoBase
     {
     }
 
-    public function onSelectHouse(player:PlayerInfoBase, house:HouseInfo):void
+    public function onSelectHouse(player:PlayerInfoBase, house:HouseInfoG):void
     {
 //         Player
     }
@@ -84,7 +84,7 @@ public class LevelInfo extends LevelInfoBase
 
         for each(var houseData:Object in housesData)
         {
-            var house:HouseInfo = FactoryHouses.getHouse(houseData);
+            var house:HouseInfoG = FactoryHousesG.getHouse(houseData);
 
             _houses.push(house);
         }
