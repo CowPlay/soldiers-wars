@@ -9,6 +9,7 @@ package controllers.scenes.village
 {
 import controllers.EPopupType;
 import controllers.ESceneType;
+import controllers.popups.bakery.ControlPopupBakery;
 import controllers.popups.houseVillage.ControlPopupHouse;
 import controllers.scenes.base.ControlSceneGameBase;
 import controllers.scenes.village.views.ControlSceneVillageUI;
@@ -68,7 +69,7 @@ public class ControlSceneVillage extends ControlSceneGameBase
     {
         super.prepareLayerPopups();
 
-//        registerControlPopup(new ControlPopupHouse(this));
+        registerControlPopup(new ControlPopupBakery(this));
     }
 
     public function onClick(e:MouseEvent):void

@@ -7,6 +7,7 @@
  */
 package controllers.scenes.village.views
 {
+import controllers.EPopupType;
 import controllers.scenes.base.views.ControlScalableStrip;
 
 import controls.IControl;
@@ -117,7 +118,9 @@ public class ControlSceneVillageUI extends ControlBase
             {
                 case _controlSingleplayer:
                 {
-                    GameInfo.instance.startStubGame();
+                    sceneOwner.showPopup(EPopupType.EPT_VILLAGE_HOUSE_BAKERY);
+
+//                    GameInfo.instance.startStubGame();
 
                     result = true;
                     break;

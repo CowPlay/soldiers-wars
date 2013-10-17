@@ -10,5 +10,7 @@ package controllers
 public class EPopupType
 {
     public static const EPT_VILLAGE_HOUSE:String = "EPT_VILLAGE_HOUSE";
+    public static const EPT_VILLAGE_HOUSE_BAKERY:String = "EPT_VILLAGE_HOUSE_BAKERY";
+
 }
 }
