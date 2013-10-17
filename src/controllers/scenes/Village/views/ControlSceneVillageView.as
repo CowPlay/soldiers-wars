@@ -15,11 +15,13 @@ import controllers.scenes.village.views.housesV.ControlHouseViewAltar;
 import controllers.scenes.village.views.housesV.ControlVHouseView;
 
 import controls.IControl;
+import controls.IControlButton;
 
 import controls.IControlScene;
 import controls.IControlScroll;
 import controls.implementations.ControlBase;
 import controls.implementations.ControlScrollBase;
+import controls.implementations.buttons.ControlButtonBase;
 
 import flash.display.DisplayObjectContainer;
 
@@ -35,6 +37,7 @@ public class ControlSceneVillageView extends ControlBase
     private var _controlScroll:IControlScroll;
     private var _sourceViewTyped:gSceneVillage;
     private var _housesViews:Array;
+
 
     /*
      * Properties

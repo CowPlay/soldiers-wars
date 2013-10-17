@@ -13,8 +13,8 @@ import controllers.scenes.base.views.ControlScalableStrip;
 
 import controls.IControl;
 
-import controls.implementations.ControlSceneBase;
 import controls.implementations.ControlSpriteBase;
+import controls.implementations.scenes.base.ControlSceneBase;
 
 import utils.Utils;
 
@@ -49,20 +49,20 @@ public class ControlSceneGameBase extends ControlSceneBase
     {
         super.prepareLayerUI();
 
-        {//ui
-            _controlGameName = new ControlSpriteBase(this, new gControlGameName());
-            registerControlUI(_controlGameName);
+//        {//ui
+//            _controlGameName = new ControlSpriteBase(this, new gControlGameName());
+//            registerControlUI(_controlGameName);
 
             //control strip
-            _controlStripTop = new ControlScalableStrip(this);
-            registerControlUI(_controlStripTop);
+//            _controlStripTop = new ControlScalableStrip(this);
+//            registerControlUI(_controlStripTop);
 
-            _controlOptions = new ControlOptions(this);
-            registerControlUI(_controlOptions);
+//            _controlOptions = new ControlOptions(this);
+//            registerControlUI(_controlOptions);
 
-            _controlPlayerInfo = new ControlPlayerInfo(this);
-            registerControlUI(_controlPlayerInfo);
-        }
+//            _controlPlayerInfo = new ControlPlayerInfo(this);
+//            registerControlUI(_controlPlayerInfo);
+//        }
     }
 
     /*
@@ -78,19 +78,19 @@ public class ControlSceneGameBase extends ControlSceneBase
 
     private function updateViewsPositions():void
     {
-        Utils.alignHorizontalAbsolute(_controlPlayerInfo.sourceView, 0.1);
-        Utils.alignHorizontalAbsolute(_controlOptions.sourceView, 0.9, 0.5);
+//        Utils.alignHorizontalAbsolute(_controlPlayerInfo.sourceView, 0.1);
+//        Utils.alignHorizontalAbsolute(_controlOptions.sourceView, 0.9, 0.5);
     }
 
     public override function placeViews():void
     {
         super.placeViews();
 
-        _controlStripTop.sourceView.y = _controlGameName.sourceView.height;
-
-        _controlPlayerInfo.sourceView.y = _controlStripTop.sourceView.y + _controlStripTop.sourceView.height - _controlPlayerInfo.sourceView.height / 2;
-
-        _controlOptions.sourceView.y = _controlStripTop.sourceView.y + (_controlStripTop.sourceView.height / 2) - _controlOptions.sourceView.height / 2;
+//        _controlStripTop.sourceView.y = _controlGameName.sourceView.height;
+//
+//        _controlPlayerInfo.sourceView.y = _controlStripTop.sourceView.y + _controlStripTop.sourceView.height - _controlPlayerInfo.sourceView.height / 2;
+//
+//        _controlOptions.sourceView.y = _controlStripTop.sourceView.y + (_controlStripTop.sourceView.height / 2) - _controlOptions.sourceView.height / 2;
 
         updateViewsPositions();
     }

@@ -12,11 +12,10 @@ import com.greensock.TweenMax;
 
 import controls.IControl;
 
-import data.IPlayerInfo;
-
 import models.GameInfo;
 import models.data.housesG.base.HouseInfoG;
 import models.game.managerPath.ManagerPath;
+import models.interfaces.players.IPlayerInfo;
 
 public class SoldierInfo implements IDisposable
 {

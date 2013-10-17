@@ -7,8 +7,10 @@
  */
 package models.remote
 {
-import bwf.proxy.IManagerProxy;
-import bwf.remote.ManagerRemoteBase;
+
+import bwf.models.proxy.IManagerProxy;
+
+import models.implementations.remote.ManagerRemoteBase;
 
 public class ManagerRemoteStub extends ManagerRemoteBase
 {

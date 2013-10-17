@@ -12,13 +12,12 @@
 package models.data
 {
 
-import data.implementations.PlayerInfoBase;
-
 import flash.geom.Point;
 
 import models.data.housesG.base.HouseInfoG;
 import models.data.housesG.base.FactoryHousesG;
 import models.implementations.levels.LevelInfoBase;
+import models.implementations.players.PlayerInfoBase;
 
 public class LevelInfo extends LevelInfoBase
 {

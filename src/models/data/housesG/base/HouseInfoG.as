@@ -13,13 +13,10 @@ package models.data.housesG.base
 {
 import controllers.scenes.game.views.housesG.base.ControlGHouseView;
 
-import controls.EControlUpdateTypeBase;
-
-import data.IPlayerInfo;
-
 import flash.geom.Point;
 
 import models.GameInfo;
+import models.interfaces.players.IPlayerInfo;
 
 import serialization.ISerializable;
 

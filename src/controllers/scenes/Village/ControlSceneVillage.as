@@ -68,7 +68,7 @@ public class ControlSceneVillage extends ControlSceneGameBase
     {
         super.prepareLayerPopups();
 
-        registerControlPopup(new ControlPopupHouse(this));
+//        registerControlPopup(new ControlPopupHouse(this));
     }
 
     public function onClick(e:MouseEvent):void

@@ -7,7 +7,7 @@
  */
 package models.proxy
 {
-import bwf.proxy.IManagerProxy;
+import bwf.models.proxy.IManagerProxy;
 
 import models.data.housesV.base.EHouseVType;
 import models.interfaces.social.IManagerSocial;
@@ -29,6 +29,17 @@ public class ManagerProxySoldiers implements IManagerProxy
     //! Default constructor
     public function ManagerProxySoldiers(managerSocial:IManagerSocial)
     {
+    }
+
+
+    public function getAdData(data:Object):Object
+    {
+        return null;
+    }
+
+    public function getTutorialData(data:Object):Object
+    {
+        return null;
     }
 
     public function getHousesVillageData(data:Object):Object

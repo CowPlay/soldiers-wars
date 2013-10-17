@@ -11,8 +11,6 @@ import controllers.ESceneType;
 import controllers.scenes.game.ControlSceneGame;
 import controllers.scenes.village.ControlSceneVillage;
 
-import data.IPlayerInfo;
-import data.implementations.PlayerInfoBase;
 
 import flash.display.Stage;
 
@@ -20,10 +18,12 @@ import models.data.LevelInfo;
 import models.game.ManagerGameSoldiers;
 import models.implementations.app.ManagerAppBase;
 import models.implementations.levels.ManagerLevelsBase;
+import models.implementations.players.PlayerInfoBase;
 import models.implementations.resources.ManagerResourceBase;
 import models.implementations.viewController.ManagerViewControllerBase;
 import models.interfaces.IManagerGame;
 import models.interfaces.levels.ILevelContainer;
+import models.interfaces.players.IPlayerInfo;
 import models.proxy.ManagerProxySoldiers;
 import models.remote.ManagerRemoteStub;
 import models.string.ManagerString;

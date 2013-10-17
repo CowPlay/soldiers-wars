@@ -19,7 +19,7 @@ public class ControlPopupHouse extends ControlPopupBase
      * Fields
      */
 
-    private var _sourceViewTyped:gPopupHouse;
+//    private var _sourceViewTyped:gPopupHouse;
 
     /*
      * Properties
@@ -44,8 +44,8 @@ public class ControlPopupHouse extends ControlPopupBase
 
     private function init():void
     {
-        _sourceViewTyped = new gPopupHouse();
-        setSourceView(_sourceViewTyped);
+//        _sourceViewTyped = new gPopupHouse();
+//        setSourceView(_sourceViewTyped);
 
 //        _sourceViewTyped.buttonClose.addEventListener(MouseEvent.CLICK, onButtonCloseClicked);
 

@@ -14,8 +14,6 @@ package models.game
 
 import controllers.EControlUpdateType;
 
-import data.IPlayerInfo;
-
 import flash.utils.Dictionary;
 
 import models.data.LevelInfo;
@@ -24,6 +22,7 @@ import models.data.housesG.base.HouseInfoG;
 import models.game.managerPath.ManagerPath;
 import models.game.managerSoldiers.ManagerSoldiers;
 import models.implementations.game.ManagerGameBase;
+import models.interfaces.players.IPlayerInfo;
 
 public class ManagerGameSoldiers extends ManagerGameBase
 {
@@ -77,9 +76,11 @@ public class ManagerGameSoldiers extends ManagerGameBase
     //! Default constructor
     public function ManagerGameSoldiers(currentLevelValue:LevelInfo, gameOwnerValue:IPlayerInfo, gameOwnerOpponentValue:IPlayerInfo)
     {
-        Debug.assert(currentLevelValue != null);
+        super(currentLevelValue);
+
         Debug.assert(gameOwnerValue != null);
         Debug.assert(gameOwnerOpponentValue != null);
+
         _currentLevel = currentLevelValue;
 
         _gameOwner = gameOwnerValue;

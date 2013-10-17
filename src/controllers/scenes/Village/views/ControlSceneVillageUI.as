@@ -13,6 +13,7 @@ import controls.IControl;
 import controls.IControlScene;
 import controls.implementations.ControlBase;
 import controls.implementations.ControlSpriteBase;
+import controls.implementations.buttons.ControlButtonBase;
 
 import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
@@ -36,6 +37,7 @@ public class ControlSceneVillageUI extends ControlBase
     protected var _controlMultiplayer:IControl;
     protected var _controlSingleplayer:IControl;
     protected var _controlAddFriend:IControl;
+
     /*
      * Properties
      */
@@ -54,7 +56,6 @@ public class ControlSceneVillageUI extends ControlBase
 
     private function init():void
     {
-
         _sourceViewTyped = new Sprite();
         setSourceView(_sourceViewTyped);
 
@@ -64,7 +65,7 @@ public class ControlSceneVillageUI extends ControlBase
         _controlBottom = new ControlSpriteBase(sceneOwner, new gControlBottom());
         _sourceViewTyped.addChild(_controlBottom.sourceView);
 
-        _controlMultiplayer = new ControlSpriteBase(sceneOwner, new gControlMultiPlayer());
+        _controlMultiplayer = new ControlMultiplayer(sceneOwner);
         _sourceViewTyped.addChild(_controlMultiplayer.sourceView);
 
         _controlSingleplayer = new ControlSpriteBase(sceneOwner, new gControlSinglePlayer());

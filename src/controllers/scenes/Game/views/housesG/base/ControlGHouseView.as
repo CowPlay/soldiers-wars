@@ -39,8 +39,9 @@ public class ControlGHouseView extends ControlBase
 
     private var _entry:HouseInfoG;
 
-    private var _auraEnemy:gAuraEnemy;
-    private var _auraPlayer:gAuraPlayer;
+    //TODO:implement
+//    private var _auraEnemy:gAuraEnemy;
+//    private var _auraPlayer:gAuraPlayer;
 
     private var _auraPosition:Point;
     /*
@@ -79,13 +80,13 @@ public class ControlGHouseView extends ControlBase
         _sourseViewTyped = new Sprite();
         setSourceView(_sourseViewTyped);
 
-        _auraEnemy = new gAuraEnemy();
-        _auraEnemy.visible = false;
-        _sourseViewTyped.addChild(_auraEnemy);
-
-        _auraPlayer = new gAuraPlayer();
-        _auraPlayer.visible = false;
-        _sourseViewTyped.addChild(_auraPlayer);
+//        _auraEnemy = new gAuraEnemy();
+//        _auraEnemy.visible = false;
+//        _sourseViewTyped.addChild(_auraEnemy);
+//
+//        _auraPlayer = new gAuraPlayer();
+//        _auraPlayer.visible = false;
+//        _sourseViewTyped.addChild(_auraPlayer);
 
         _auraPosition = new Point(65, 0);
     }
@@ -116,8 +117,8 @@ public class ControlGHouseView extends ControlBase
     {
         super.placeViews();
 
-        _auraEnemy.x = _auraPlayer.x = _auraPosition.x;
-        _auraEnemy.y = _auraPlayer.y = _auraPosition.y;
+//        _auraEnemy.x = _auraPlayer.x = _auraPosition.x;
+//        _auraEnemy.y = _auraPlayer.y = _auraPosition.y;
     }
 
     public override function update(type:String = ""):void
@@ -163,16 +164,16 @@ public class ControlGHouseView extends ControlBase
 
     public override function onMouseOver(e:MouseEvent):void
     {
-        _auraPlayer.visible = _entry.isSelect || _entry.ownerType == EHouseOwner.EHO_PLAYER;
-        _auraEnemy.visible = !_auraPlayer.visible;
+//        _auraPlayer.visible = _entry.isSelect || _entry.ownerType == EHouseOwner.EHO_PLAYER;
+//        _auraEnemy.visible = !_auraPlayer.visible;
 
         super.onMouseOver(e);
     }
 
     public override function onMouseOut(e:MouseEvent):void
     {
-        _auraPlayer.visible = false;
-        _auraEnemy.visible = false;
+//        _auraPlayer.visible = false;
+//        _auraEnemy.visible = false;
 
         super.onMouseOut(e);
     }
