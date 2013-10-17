@@ -11,9 +11,6 @@
             <entry library-name="greensock" library-level="application">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="graphAPI_Web_1.8.1" library-level="application">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="game-sdk-assets" library-level="application">
               <dependency linkage="Merged" />
             </entry>
@@ -35,12 +32,6 @@
             </entry>
             <entry library-name="greensock" library-level="application">
               <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="graphAPI_Web_1.8.1" library-level="application">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="game-sdk" library-level="application">
-              <dependency linkage="Include" />
             </entry>
             <entry library-name="game-sdk-assets" library-level="application">
               <dependency linkage="Merged" />
@@ -64,9 +55,6 @@
             <entry library-name="greensock" library-level="application">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="graphAPI_Web_1.8.1" library-level="application">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="game-sdk-assets" library-level="application">
               <dependency linkage="Merged" />
             </entry>
@@ -85,12 +73,15 @@
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../com.cowplay.flash-sdks/game-sdk">
-      <sourceFolder url="file://$MODULE_DIR$/../com.cowplay.flash-sdks/game-sdk/src" isTestSource="false" />
-    </content>
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
+<<<<<<< HEAD
+=======
+    <content url="file://$MODULE_DIR$/../../../../sdks-flash/game-sdk">
+      <sourceFolder url="file://$MODULE_DIR$/../../../../sdks-flash/game-sdk/src" isTestSource="false" />
+    </content>
+>>>>>>> 22a0ee94f04e70e72600c8061035bb6067c18aea
     <orderEntry type="jdk" jdkName="4.6" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="libs" level="project" />

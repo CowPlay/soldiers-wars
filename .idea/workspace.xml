@@ -6,6 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0c58ea7-91d2-429f-8aac-01418852bc28" name="Default" comment="">
+<<<<<<< HEAD
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controllers/popups/bakery/ControlPopupBakery.as" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controllers/popups/bakery/PopupBuildHouse.as" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controllers/popups/bakery/PopupTavern.as" />
@@ -20,6 +21,14 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382001115167" ignored="false" />
     <file path="/fragment.js2" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382014820217" ignored="false" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/back/soldiersWars(native)" afterPath="$PROJECT_DIR$/back/soldiersWars(native)" />
+    </list>
+    <ignored path="com.cowplay.soldiers.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <file path="/Dummy.txt" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382014918645" ignored="false" />
+    <file path="/fragment.js2" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382015194062" ignored="false" />
+>>>>>>> 22a0ee94f04e70e72600c8061035bb6067c18aea
     <file path="/index.html" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380029376387" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/html/out/gremlins.swf" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377780274267" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/html/index.html" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377712949321" ignored="false" />
@@ -959,17 +968,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ControlSceneVillageUI.as" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ControlSceneVillageUI.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/scenes/village/views/ControlSceneVillageUI.as">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="120" column="78" selection-start="3563" selection-end="3563" vertical-scroll-proportion="0.47737908">
               <folding>
                 <element signature="e#203#233#0" expanded="true" />
               </folding>
+=======
+            <state line="111" column="22" selection-start="3274" selection-end="3274" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Main.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="61" selection-start="397" selection-end="397" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Preloader.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/Preloader.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="10" selection-start="781" selection-end="781" vertical-scroll-proportion="0.0">
+              <folding />
+>>>>>>> 22a0ee94f04e70e72600c8061035bb6067c18aea
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
       <file leaf-file-name="ControlPopupBakery.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/popups/bakery/ControlPopupBakery.as">
           <provider selected="true" editor-type-id="text-editor">
@@ -977,10 +1010,18 @@
               <folding>
                 <element signature="e#187#218#0" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="offline_debug.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/offline_debug.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="13" selection-start="711" selection-end="711" vertical-scroll-proportion="-18.125">
+              <folding />
+>>>>>>> 22a0ee94f04e70e72600c8061035bb6067c18aea
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="ControlSceneVillage.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/scenes/village/ControlSceneVillage.as">
           <provider selected="true" editor-type-id="text-editor">
@@ -989,10 +1030,18 @@
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#197#227#0" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="27" selection-start="27" selection-end="27" vertical-scroll-proportion="0.0">
+              <folding />
+>>>>>>> 22a0ee94f04e70e72600c8061035bb6067c18aea
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="ControlHousePopupHeaderRow.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/popups/houseVillage/ControlHousePopupHeaderRow.as">
           <provider selected="true" editor-type-id="text-editor">
@@ -1000,10 +1049,18 @@
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="swfobject.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/script/swfobject.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+>>>>>>> 22a0ee94f04e70e72600c8061035bb6067c18aea
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="ControlPopupHouse.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/popups/houseVillage/ControlPopupHouse.as">
           <provider selected="true" editor-type-id="text-editor">
@@ -1011,10 +1068,18 @@
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="ControlMultiplayer.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/scenes/village/views/ControlMultiplayer.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="50" column="0" selection-start="1151" selection-end="1151" vertical-scroll-proportion="0.0">
+              <folding />
+>>>>>>> 22a0ee94f04e70e72600c8061035bb6067c18aea
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="PopupBuildHouse.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/popups/bakery/PopupBuildHouse.as">
           <provider selected="true" editor-type-id="text-editor">
@@ -1022,10 +1087,18 @@
               <folding>
                 <element signature="e#187#217#0" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="ControlSceneVillageView.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/scenes/village/views/ControlSceneVillageView.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="63" column="0" selection-start="1553" selection-end="1553" vertical-scroll-proportion="0.0">
+              <folding />
+>>>>>>> 22a0ee94f04e70e72600c8061035bb6067c18aea
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="PopupTavern.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/popups/bakery/PopupTavern.as">
           <provider selected="true" editor-type-id="text-editor">
@@ -1034,6 +1107,13 @@
                 <element signature="e#45#195#0" expanded="false" />
                 <element signature="e#232#262#0" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="GameInfo.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/GameInfo.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="108" column="26" selection-start="2935" selection-end="2935" vertical-scroll-proportion="0.0">
+              <folding />
+>>>>>>> 22a0ee94f04e70e72600c8061035bb6067c18aea
             </state>
           </provider>
         </entry>
@@ -1041,11 +1121,16 @@
       <file leaf-file-name="PopupUniversityMM.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/popups/bakery/PopupUniversityMM.as">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="36" column="30" selection-start="588" selection-end="588" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#45#195#0" expanded="false" />
                 <element signature="e#232#262#0" expanded="true" />
               </folding>
+=======
+            <state line="69" column="20" selection-start="1584" selection-end="1584" vertical-scroll-proportion="0.0">
+              <folding />
+>>>>>>> 22a0ee94f04e70e72600c8061035bb6067c18aea
             </state>
           </provider>
         </entry>
@@ -1068,6 +1153,12 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/src/controllers/scenes/village/views/ControlMultiplayer.as" />
+        <option value="$PROJECT_DIR$/src/controllers/popups/mineGold/ControlPopupMineGold.as" />
+        <option value="$PROJECT_DIR$/bin/offline_debug.html" />
+>>>>>>> 22a0ee94f04e70e72600c8061035bb6067c18aea
         <option value="$PROJECT_DIR$/src/models/remote/ManagerRemoteStub.as" />
         <option value="$PROJECT_DIR$/src/models/proxy/ManagerProxySoldiers.as" />
         <option value="$PROJECT_DIR$/src/models/game/ManagerGameSoldiers.as" />
@@ -1084,6 +1175,9 @@
         <option value="$PROJECT_DIR$/src/controllers/scenes/village/ControlSceneVillage.as" />
         <option value="$PROJECT_DIR$/src/controllers/EPopupType.as" />
         <option value="$PROJECT_DIR$/src/controllers/scenes/village/views/ControlSceneVillageUI.as" />
+        <option value="$PROJECT_DIR$/src/Main.as" />
+        <option value="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/Preloader.as" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -1444,7 +1538,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="game-sdk" />
+              <option name="myItemId" value="soldiers-wars" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1458,21 +1552,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers-wars" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers-wars" />
+              <option name="myItemId" value="soldiers-wars" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -1490,15 +1570,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers-wars" />
+              <option name="myItemId" value="soldiers-wars" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="bin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1512,6 +1588,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< HEAD
               <option name="myItemId" value="com.cowplay.soldiers-wars" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1745,6 +1822,9 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
+=======
+              <option name="myItemId" value="game-sdk" />
+>>>>>>> 22a0ee94f04e70e72600c8061035bb6067c18aea
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -1766,11 +1846,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers-wars" />
+              <option name="myItemId" value="game-sdk" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="bin" />
+              <option name="myItemId" value="html" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1800,15 +1880,15 @@
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="236" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="238" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="238" />
     <property name="options.splitter.main.proportions" value="0.30166668" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="238" />
+    <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../sdks-flash/game-sdk" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="247" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1037" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1036" />
@@ -1822,30 +1902,36 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+<<<<<<< HEAD
     <property name="options.lastSelected" value="preferences.sourceCode.ActionScript" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
+=======
+    <property name="options.lastSelected" value="JavaScript.Libraries" />
+>>>>>>> 22a0ee94f04e70e72600c8061035bb6067c18aea
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/bin" />
+      <recent name="$PROJECT_DIR$/html" />
+      <recent name="$PROJECT_DIR$/html/offline/script" />
+      <recent name="$PROJECT_DIR$/html/vk/debug/script" />
+    </key>
     <key name="CreateActionScriptClassDialog.DESTINATION_PACKAGE_RECENT_KEY">
       <recent name="controllers.popups.bakery" />
       <recent name="controllers.scenes.village.views" />
       <recent name="controllers.popups.mineGold" />
       <recent name="models.data.housesV.base" />
       <recent name="models.data.housesV" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/html" />
-      <recent name="$PROJECT_DIR$/html/offline/script" />
-      <recent name="$PROJECT_DIR$/html/vk/debug/script" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/controllers/scenes/village/views" />
@@ -1883,6 +1969,19 @@
       <option name="trusted" value="true" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -1911,19 +2010,6 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -1937,13 +2023,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -1965,6 +2044,13 @@
       </option>
       <envs />
       <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
@@ -2252,32 +2338,59 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/controllers/scenes/village/views/ControlSceneVillageView.as">
       <provider selected="true" editor-type-id="text-editor">
         <state line="63" column="0" selection-start="1553" selection-end="1553" vertical-scroll-proportion="0.019744484">
+=======
+    <entry file="file://$PROJECT_DIR$/src/models/GameInfo.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="108" column="92" selection-start="2935" selection-end="2935" vertical-scroll-proportion="0.0">
+>>>>>>> 22a0ee94f04e70e72600c8061035bb6067c18aea
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="jar://$PROJECT_DIR$/../com.cowplay.flash-sdks/flex/4.6/frameworks/libs/player/11.1/playerglobal.swc!/library.swf">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2210" column="60" selection-start="98333" selection-end="98333" vertical-scroll-proportion="0.33333334">
+=======
+    <entry file="file://$PROJECT_DIR$/src/models/data/housesG/HouseInfoGBarracks.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="27" selection-start="1584" selection-end="1584" vertical-scroll-proportion="0.0">
+>>>>>>> 22a0ee94f04e70e72600c8061035bb6067c18aea
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="jar://$PROJECT_DIR$/../com.cowplay.flash-sdks/flex/4.6/frameworks/libs/air/airglobal.swc!/library.swf">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13530" column="70" selection-start="598100" selection-end="598100" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
+=======
+    <entry file="file://$PROJECT_DIR$/src/models/game/ManagerGameSoldiers.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="269" selection-end="269" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/data/LevelInfo.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="228" selection-end="228" vertical-scroll-proportion="0.0" />
+>>>>>>> 22a0ee94f04e70e72600c8061035bb6067c18aea
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/assets/graphics.swc!/library.swf">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="7938" column="60" selection-start="443575" selection-end="443575" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
+=======
+        <state line="15" column="0" selection-start="310" selection-end="310" vertical-scroll-proportion="0.0" />
+>>>>>>> 22a0ee94f04e70e72600c8061035bb6067c18aea
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../com.cowplay.flash-sdks/game-sdk/src/controls/IControl.as">
@@ -2287,20 +2400,33 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/../com.cowplay.flash-sdks/game-sdk/src/controls/IControlButton.as">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="44" selection-start="310" selection-end="310" vertical-scroll-proportion="0.11670481">
+=======
+    <entry file="file://$PROJECT_DIR$/src/controllers/scenes/village/views/ControlMultiplayer.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="0" selection-start="1151" selection-end="1151" vertical-scroll-proportion="0.0">
+>>>>>>> 22a0ee94f04e70e72600c8061035bb6067c18aea
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/../com.cowplay.flash-sdks/game-sdk/src/controls/IControlScene.as">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="17" selection-start="229" selection-end="229" vertical-scroll-proportion="0.13535032">
+=======
+    <entry file="file://$PROJECT_DIR$/src/controllers/scenes/village/views/ControlSceneVillageView.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="0" selection-start="1553" selection-end="1553" vertical-scroll-proportion="0.0">
+>>>>>>> 22a0ee94f04e70e72600c8061035bb6067c18aea
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/controllers/popups/houseVillage/ControlHousePopupHeaderRow.as">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="5" selection-start="498" selection-end="498" vertical-scroll-proportion="0.0">
@@ -2361,10 +2487,58 @@
     <entry file="file://$PROJECT_DIR$/src/controllers/EPopupType.as">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="48" selection-start="303" selection-end="327" vertical-scroll-proportion="0.16451614">
+=======
+    <entry file="file://$PROJECT_DIR$/src/models/data/housesG/HouseInfoGBarracks.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="20" selection-start="1584" selection-end="1584" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/GameInfo.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="108" column="26" selection-start="2935" selection-end="2935" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/scenes/village/views/ControlSceneVillageUI.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="111" column="22" selection-start="3274" selection-end="3274" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="61" selection-start="397" selection-end="397" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/Preloader.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="10" selection-start="781" selection-end="781" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/script/swfobject.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/offline_debug.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="13" selection-start="711" selection-end="711" vertical-scroll-proportion="-18.125">
+>>>>>>> 22a0ee94f04e70e72600c8061035bb6067c18aea
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/controllers/popups/houseVillage/ControlPopupHouse.as">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="48" selection-start="670" selection-end="670" vertical-scroll-proportion="0.0">
@@ -2380,6 +2554,12 @@
           <folding>
             <element signature="e#203#233#0" expanded="true" />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="27" selection-start="27" selection-end="27" vertical-scroll-proportion="0.0">
+          <folding />
+>>>>>>> 22a0ee94f04e70e72600c8061035bb6067c18aea
         </state>
       </provider>
     </entry>
@@ -2424,7 +2604,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
-          <last-edited>game-sdk-assets</last-edited>
+          <last-edited>graphAPI-web-1.8.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -2436,7 +2616,11 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
+<<<<<<< HEAD
           <last-edited>4.6</last-edited>
+=======
+          <last-edited>1.6</last-edited>
+>>>>>>> 22a0ee94f04e70e72600c8061035bb6067c18aea
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -2448,11 +2632,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>vk.debug|soldiers</last-edited>
+          <last-edited>soldiers</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
