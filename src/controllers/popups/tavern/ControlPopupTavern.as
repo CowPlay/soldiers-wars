@@ -1,14 +1,19 @@
+/*
+ * Copyright gregory.tkach (c) 2013.
+ */
+
 /**
  * Created with IntelliJ IDEA.
  * User: user
  * Date: 17.10.13
- * Time: 12:02
+ * Time: 15:42
  * To change this template use File | Settings | File Templates.
  */
-package controllers.popups.bakery
+package controllers.popups.tavern
 {
 import com.greensock.TweenLite;
-import com.greensock.easing.Back;
+import com.greensock.easing.Bounce;
+import com.greensock.easing.Circ;
 
 import controllers.EPopupType;
 
@@ -17,21 +22,22 @@ import controls.IControl;
 import controls.IControlButton;
 import controls.IControlScene;
 import controls.implementations.ControlPopupBase;
-import controls.implementations.ControlSpriteBase;
 import controls.implementations.buttons.ControlButtonBase;
 
-import flash.display.DisplayObjectContainer;
 import flash.events.MouseEvent;
+
 import flash.geom.Point;
 
-public class ControlPopupBakery extends ControlPopupBase
+public class ControlPopupTavern extends ControlPopupBase
 {
-
     /*
      * Fields
      */
+    private var _sourceViewTyped:gPopupTavern;
 
-    private var _sourceViewTyped:gPopupBakery;
+    private var _buttonTabMilitaryAcademy:IControlButton
+    private var _buttonTabMerlin:IControlButton
+    private var _buttonTabUniversityMM:IControlButton
 
     private var _buttonImprove:IControlButton;
     private var _buttonLeft:IControlButton;
@@ -47,14 +53,14 @@ public class ControlPopupBakery extends ControlPopupBase
      */
     public override function get type():String
     {
-        return EPopupType.EPT_VILLAGE_HOUSE_BAKERY;
+        return EPopupType.EPT_VILLAGE_HOUSE_TAVERN;
     }
 
 
     /*
      * Methods
      */
-    public function ControlPopupBakery(sceneOwner:IControlScene)
+    public function ControlPopupTavern(sceneOwner:IControlScene)
     {
         super(sceneOwner);
         init();
@@ -62,11 +68,22 @@ public class ControlPopupBakery extends ControlPopupBase
 
     private function init():void
     {
-        _sourceViewTyped = new gPopupBakery();
+        _sourceViewTyped = new gPopupTavern();
         setSourceView(_sourceViewTyped);
 
         var buttonClose:IControl = new ControlButtonBase(sceneOwner, _sourceViewTyped.buttonClose);
         setButtonClose(buttonClose);
+
+
+        _buttonTabMilitaryAcademy = new ControlButtonBase(sceneOwner, _sourceViewTyped.buttonTabMilitaryAcademy);
+        _buttonTabMilitaryAcademy.actionDelegate = this;
+
+        _buttonTabMerlin = new ControlButtonBase(sceneOwner, _sourceViewTyped.buttonTabMerlin);
+        _buttonTabMerlin.actionDelegate = this;
+
+        _buttonTabUniversityMM = new ControlButtonBase(sceneOwner, _sourceViewTyped.buttonTabUniversityMM);
+        _buttonTabUniversityMM.actionDelegate = this;
+
 
         _buttonLeft = new ControlButtonBase(sceneOwner, _sourceViewTyped.buttonLeft);
         _buttonLeft.actionDelegate = this;
@@ -77,21 +94,22 @@ public class ControlPopupBakery extends ControlPopupBase
         _buttonImprove = new ControlButtonBase(sceneOwner, _sourceViewTyped.buttonImprove);
         _buttonImprove.actionDelegate = this;
 
+
         _items = [];
 
-        var item0:ControlPopupBakeryItem = new ControlPopupBakeryItem(sceneOwner);
+        var item0:ControlPopupTavernItem = new ControlPopupTavernItem(sceneOwner);
         _sourceViewTyped.itemsView.placeholder.addChild(item0.sourceView);
         _items.push(item0);
 
-        var item1:ControlPopupBakeryItem = new ControlPopupBakeryItem(sceneOwner);
+        var item1:ControlPopupTavernItem = new ControlPopupTavernItem(sceneOwner);
         _sourceViewTyped.itemsView.placeholder.addChild(item1.sourceView);
         _items.push(item1);
 
-        var item3:ControlPopupBakeryItem = new ControlPopupBakeryItem(sceneOwner);
+        var item3:ControlPopupTavernItem = new ControlPopupTavernItem(sceneOwner);
+
         _sourceViewTyped.itemsView.placeholder.addChild(item3.sourceView);
         _items.push(item3);
     }
-
 
     public override function placeViews():void
     {
@@ -113,6 +131,7 @@ public class ControlPopupBakery extends ControlPopupBase
         }
     }
 
+
     /*
      * IActionDelegate
      */
@@ -126,6 +145,22 @@ public class ControlPopupBakery extends ControlPopupBase
             switch (target)
             {
                 case _buttonImprove:
+                {
+                    result = true;
+                    break;
+                }
+                case _buttonTabMilitaryAcademy:
+                {
+                    result = true;
+                    break;
+                }
+                case _buttonTabMerlin:
+                {
+                    result = true;
+                    break;
+                }
+
+                case _buttonTabUniversityMM:
                 {
                     result = true;
                     break;
@@ -213,5 +248,7 @@ public class ControlPopupBakery extends ControlPopupBase
 
         _tweenInProgress = false;
     }
+
 }
+
 }

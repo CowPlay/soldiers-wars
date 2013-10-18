@@ -10,7 +10,10 @@ package controllers.scenes.village
 import controllers.EPopupType;
 import controllers.ESceneType;
 import controllers.popups.bakery.ControlPopupBakery;
+import controllers.popups.build.ControlPopupBuildHouse;
 import controllers.popups.houseVillage.ControlPopupHouse;
+import controllers.popups.tavern.ControlPopupTavern;
+import controllers.popups.universityMM.ControlPopupUniversityMM;
 import controllers.scenes.base.ControlSceneGameBase;
 import controllers.scenes.village.views.ControlSceneVillageUI;
 import controllers.scenes.village.views.ControlSceneVillageView;
@@ -69,7 +72,10 @@ public class ControlSceneVillage extends ControlSceneGameBase
     {
         super.prepareLayerPopups();
 
+        registerControlPopup(new ControlPopupBuildHouse(this));
         registerControlPopup(new ControlPopupBakery(this));
+        registerControlPopup(new ControlPopupTavern(this));
+        registerControlPopup(new ControlPopupUniversityMM(this));
     }
 
     public function onClick(e:MouseEvent):void
@@ -86,7 +92,9 @@ public class ControlSceneVillage extends ControlSceneGameBase
 
     public override function onLoadingEnd():void
     {
-        showPopup(EPopupType.EPT_VILLAGE_HOUSE_BAKERY);
+        super.onLoadingEnd();
+
+        showPopup(EPopupType.EPT_VILLAGE_HOUSE_UNIVERSITETMM);
     }
 
     /*

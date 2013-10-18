@@ -1,29 +1,28 @@
 /**
  * Created with IntelliJ IDEA.
  * User: user
- * Date: 17.10.13
- * Time: 15:33
+ * Date: 18.10.13
+ * Time: 15:08
  * To change this template use File | Settings | File Templates.
  */
-package controllers.popups.bakery
+package controllers.popups.tavern
 {
 import controls.IControl;
 import controls.IControlButton;
 import controls.IControlScene;
-import controls.implementations.ControlPopupBase;
+import controls.implementations.ControlBase;
 import controls.implementations.buttons.ControlButtonBase;
 
 import flash.events.MouseEvent;
 
-public class PopupBuildHouse extends ControlPopupBase
+public class ControlPopupTavernItem  extends ControlBase
 {
     /*
      * Fields
      */
-    private var _sourceViewTyped:gPopupBuildHouse
+    private var _sourceViewTyped:gPopupTavernItem;
 
-    private var _buttonBuild:IControlButton
-
+    private var _buttonAccelerate:IControlButton;
     /*
      * Properties
      */
@@ -32,22 +31,23 @@ public class PopupBuildHouse extends ControlPopupBase
     /*
      * Methods
      */
-    public function PopupBuildHouse(sceneOwner:IControlScene)
+
+    public function ControlPopupTavernItem(sceneOwner:IControlScene)
     {
         super(sceneOwner);
+
         init();
     }
 
     private function init():void
     {
-        _sourceViewTyped = new  gPopupBuildHouse();
+        _sourceViewTyped = new gPopupTavernItem();
         setSourceView(_sourceViewTyped);
 
-        var buttonClose:IControl = new ControlButtonBase(sceneOwner, _sourceViewTyped.buttonClose);
-        setButtonClose(buttonClose);
+        _buttonAccelerate = new ControlButtonBase(sceneOwner, _sourceViewTyped.buttonAccelerate);
+        _buttonAccelerate.actionDelegate = this;
 
-        _buttonBuild = new ControlButtonBase(sceneOwner, _sourceViewTyped.buttonBuild);
-        _buttonBuild.actionDelegate = this;
+
     }
 
     public override function onControlMouseClick(target:IControl, e:MouseEvent):Boolean
@@ -58,7 +58,7 @@ public class PopupBuildHouse extends ControlPopupBase
         {
             switch (target)
             {
-                case _buttonBuild:
+                case _buttonAccelerate:
                 {
                     result = true;
                     break;
@@ -72,6 +72,12 @@ public class PopupBuildHouse extends ControlPopupBase
         }
 
         return result;
+    }
+
+    public override function placeViews():void
+    {
+        super.placeViews();
+
 
     }
 }
