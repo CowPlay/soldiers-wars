@@ -80,9 +80,9 @@ public class ControlPopupUniversityMM  extends ControlPopupBase
 
         _items = [];
 
-        var item0:ControlPopupUniversityMMItem = new ControlPopupUniversityMMItem(sceneOwner);
-        _sourceViewTyped.itemsView.placeholder.addChild(item0.sourceView);
-        _items.push(item0);
+//        var item0:ControlPopupUniversityMMItem = new ControlPopupUniversityMMItem(sceneOwner);
+//        _sourceViewTyped.itemsView.placeholder.addChild(item0.sourceView);
+//        _items.push(item0);
 
 //        var item1:ControlPopupUniversityMMItem = new ControlPopupUniversityMMItem(sceneOwner);
 //        _sourceViewTyped.itemsView.placeholder.addChild(item1.sourceView);
