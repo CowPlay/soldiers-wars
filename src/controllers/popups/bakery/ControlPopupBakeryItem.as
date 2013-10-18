@@ -1,8 +1,12 @@
+/*
+ * Copyright gregory.tkach (c) 2013.
+ */
+
 /**
  * Created with IntelliJ IDEA.
  * User: user
- * Date: 17.10.13
- * Time: 15:33
+ * Date: 18.10.13
+ * Time: 11:28
  * To change this template use File | Settings | File Templates.
  */
 package controllers.popups.bakery
@@ -10,20 +14,19 @@ package controllers.popups.bakery
 import controls.IControl;
 import controls.IControlButton;
 import controls.IControlScene;
-import controls.implementations.ControlPopupBase;
+import controls.implementations.ControlBase;
 import controls.implementations.buttons.ControlButtonBase;
 
 import flash.events.MouseEvent;
 
-public class PopupBuildHouse extends ControlPopupBase
+public class ControlPopupBakeryItem extends ControlBase
 {
     /*
      * Fields
      */
-    private var _sourceViewTyped:gPopupBuildHouse
+    private var _sourceViewTyped:gPopupBakeryItem;
 
-    private var _buttonBuild:IControlButton
-
+    private var _buttonBuild:IControlButton;
     /*
      * Properties
      */
@@ -32,22 +35,24 @@ public class PopupBuildHouse extends ControlPopupBase
     /*
      * Methods
      */
-    public function PopupBuildHouse(sceneOwner:IControlScene)
+
+    public function ControlPopupBakeryItem(sceneOwner:IControlScene)
     {
         super(sceneOwner);
+
         init();
     }
 
     private function init():void
     {
-        _sourceViewTyped = new  gPopupBuildHouse();
+        _sourceViewTyped = new gPopupBakeryItem();
         setSourceView(_sourceViewTyped);
-
-        var buttonClose:IControl = new ControlButtonBase(sceneOwner, _sourceViewTyped.buttonClose);
-        setButtonClose(buttonClose);
 
         _buttonBuild = new ControlButtonBase(sceneOwner, _sourceViewTyped.buttonBuild);
         _buttonBuild.actionDelegate = this;
+
+        _sourceViewTyped.labelCount.text = "2222";
+        _sourceViewTyped.labelTimer.text = "555"
     }
 
     public override function onControlMouseClick(target:IControl, e:MouseEvent):Boolean
@@ -72,6 +77,12 @@ public class PopupBuildHouse extends ControlPopupBase
         }
 
         return result;
+    }
+
+    public override function placeViews():void
+    {
+        super.placeViews();
+
 
     }
 }

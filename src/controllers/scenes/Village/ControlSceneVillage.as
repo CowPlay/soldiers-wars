@@ -84,6 +84,11 @@ public class ControlSceneVillage extends ControlSceneGameBase
         }
     }
 
+    public override function onLoadingEnd():void
+    {
+        showPopup(EPopupType.EPT_VILLAGE_HOUSE_BAKERY);
+    }
+
     /*
      * Methods
      */
