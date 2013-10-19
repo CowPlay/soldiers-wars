@@ -5,9 +5,9 @@
  * Time: 10:20 AM
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.models.game.housesG
+package soldiers.models.game.housesG.tower
 {
-public class HouseInfoGTower extends HouseInfoG
+public class HouseGTower extends HouseInfoG
 {
     /*
      * Fields
@@ -33,7 +33,7 @@ public class HouseInfoGTower extends HouseInfoG
      */
 
     //! If owner type == null -> type = neutral
-    public function HouseInfoGTower()
+    public function HouseGTower()
     {
         super()
     }

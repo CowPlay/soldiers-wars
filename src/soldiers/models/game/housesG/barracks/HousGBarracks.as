@@ -5,7 +5,7 @@
  * Time: 4:17 PM
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.models.game.housesG
+package soldiers.models.game.housesG.barracks
 {
 import controls.EControlUpdateTypeBase;
 
@@ -19,7 +19,7 @@ import soldiers.models.game.housesG.base.HouseG;
 import utils.memory.UtilsMemory;
 
 //! Represents model of Barracks
-public class HouseInfoGBarracks extends HouseG
+public class HousGBarracks extends HouseG
 {
 
     private var _timerSoldierGenerator:Timer;
@@ -40,7 +40,7 @@ public class HouseInfoGBarracks extends HouseG
 
     //! Default constructor for barracks
     //! If owner type == null -> type = neutral
-    public function HouseInfoGBarracks()
+    public function HousGBarracks()
     {
         super();
 

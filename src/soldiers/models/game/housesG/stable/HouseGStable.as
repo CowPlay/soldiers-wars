@@ -5,9 +5,9 @@
  * Time: 5:42 PM
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.models.game.housesG
+package soldiers.models.game.housesG.stable
 {
-public class HouseInfoGStable extends HouseInfoG
+public class HouseGStable extends HouseInfoG
 {
     /*
      * Properties
@@ -22,7 +22,7 @@ public class HouseInfoGStable extends HouseInfoG
      * Methods
      */
 
-    public function HouseInfoGStable()
+    public function HouseGStable()
     {
     }
 }

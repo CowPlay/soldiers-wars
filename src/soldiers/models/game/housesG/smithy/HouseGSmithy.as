@@ -5,9 +5,9 @@
  * Time: 4:16 PM
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.models.game.housesG
+package soldiers.models.game.housesG.smithy
 {
-public class HouseInfoGSmithy extends HouseInfoG
+public class HouseGSmithy extends HouseInfoG
 {
     /*
      * Properties
@@ -22,7 +22,7 @@ public class HouseInfoGSmithy extends HouseInfoG
      * Methods
      */
 
-    public function HouseInfoGSmithy()
+    public function HouseGSmithy()
     {
     }
 }

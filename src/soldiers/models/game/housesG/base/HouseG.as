@@ -27,16 +27,11 @@ public class HouseG implements ISerializable
      */
     private var _view:ControlGHouseView;
 
-    //[Serializable]
-    private var _type:String;
-
     private var _ownerTypeOnStart:String;
     private var _owner:IPlayerInfo;
 
     //[Serializable]
     private var _level:uint;
-
-    private var _levelMax:uint;
 
     //! Use Get\SetSoldierCount
     //[Serializable]
@@ -146,15 +141,9 @@ public class HouseG implements ISerializable
 
     }
 
-
     public function get level():uint
     {
         return _level;
-    }
-
-    public function get levelMax():uint
-    {
-        return _levelMax;
     }
 
     public function get soldierCount():int
@@ -198,7 +187,6 @@ public class HouseG implements ISerializable
         Debug.assert(data0.hasOwnProperty("type"));
         Debug.assert(data0.hasOwnProperty("owner"));
         Debug.assert(data0.hasOwnProperty("level"));
-        Debug.assert(data0.hasOwnProperty("level_max"));
         Debug.assert(data0.hasOwnProperty("position_x"));
         Debug.assert(data0.hasOwnProperty("position_y"));
         Debug.assert(data0.hasOwnProperty("position_exit_offset_x"));
@@ -210,10 +198,8 @@ public class HouseG implements ISerializable
         Debug.assert(data0.hasOwnProperty("foundation_width"));
         Debug.assert(data0.hasOwnProperty("foundation_height"));
 
-        _type = data0["type"].toUpperCase();
         _ownerTypeOnStart = data0["owner"].toUpperCase();
         _level = data0["level"];
-        _levelMax = data0["level_max"];
 
         _positionCurrent = new Point(data0["position_x"], data0["position_y"]);
         _foundationSize = new Point(data0["foundation_width"], data0["foundation_height"]);
