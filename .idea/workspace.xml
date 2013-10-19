@@ -7,20 +7,21 @@
   <component name="ChangeListManager">
     <list default="true" id="b0c58ea7-91d2-429f-8aac-01418852bc28" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/back/soldiersWars(native)" afterPath="$PROJECT_DIR$/back/soldiersWars(native)" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="com.cowplay.soldiers.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382014918645" ignored="false" />
-    <file path="/fragment.js2" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382015194062" ignored="false" />
+    <file path="/Dummy.txt" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382189109397" ignored="false" />
+    <file path="/fragment.js2" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382113955228" ignored="false" />
     <file path="/index.html" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380029376387" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/html/out/gremlins.swf" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377780274267" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/html/index.html" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377712949321" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/src/Main.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377716934256" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/src/Api/APIConnector.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377771419868" ignored="false" />
-    <file path="/Main.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1381994937936" ignored="false" />
+    <file path="/Main.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382132118713" ignored="false" />
     <file path="/Preloader.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380585370127" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/src/Preloader.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377763770036" ignored="false" />
-    <file path="/a.dummy" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380584420095" ignored="false" />
+    <file path="/a.dummy" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382116221937" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/swc/music.swf" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377720058980" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.gremlins/swc/graphics.swf" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377720058980" ignored="false" />
     <file path="/Soldiers.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377786425326" ignored="false" />
@@ -60,7 +61,7 @@
     <file path="/DeviceHelper.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377947070596" ignored="false" />
     <file path="/ESocialNetworkType.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378211962381" ignored="false" />
     <file path="/AppHelper.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378390244659" ignored="false" />
-    <file path="/GameInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1381228851838" ignored="false" />
+    <file path="/GameInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382115887031" ignored="false" />
     <file path="/ResourceManagerVillage.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377955606841" ignored="false" />
     <file path="/HouseVillageBaseView.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1377947610530" ignored="false" />
     <file path="/VillageManager.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378136680839" ignored="false" />
@@ -118,7 +119,7 @@
     <file path="$PROJECT_DIR$/../com.bwf/com.bwf.gremlins/src/Windows/CWindowNotification.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378297966599" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf/com.bwf.gremlins/src/Api/IMediator.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378300351774" ignored="false" />
     <file path="/ControlSceneBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380532684064" ignored="false" />
-    <file path="/ControlSceneGame.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380579109277" ignored="false" />
+    <file path="/ControlSceneGame.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382020411770" ignored="false" />
     <file path="/ControlSceneVillage.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380584690724" ignored="false" />
     <file path="/PictureLoader.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378304179793" ignored="false" />
     <file path="/LoaderPicture.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378399756262" ignored="false" />
@@ -150,7 +151,7 @@
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/html/offline/release/index.html" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1379500604958" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/html/offline/debug/index.html" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378465918137" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/core/Constants.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378465946627" ignored="false" />
-    <file path="/Constants.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380106617178" ignored="false" />
+    <file path="/Constants.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382018443345" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/core/models/managerApp/ManagerAppBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378465981648" ignored="false" />
     <file path="/ManagerAppBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380186914900" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/core/models/managerApp/swfSelfResize.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378465738037" ignored="false" />
@@ -294,10 +295,10 @@
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/core/models/implementations/social/mailru/MailruCall.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1379513211806" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/models/viewController/ManagerViewController.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380199717194" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/models/game/ManagerGame.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380528676550" ignored="false" />
-    <file path="/ManagerGame.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380109888572" ignored="false" />
-    <file path="/ManagerGameBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380546804740" ignored="false" />
+    <file path="/ManagerGame.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382018755795" ignored="false" />
+    <file path="/ManagerGameBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382113123199" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/models/game/WordInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378468289995" ignored="false" />
-    <file path="/WordInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1379430899591" ignored="false" />
+    <file path="/WordInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382116806313" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/models/words/ManagerWords.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380028495097" ignored="false" />
     <file path="/ManagerWords.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1379517114290" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/models/words/WordInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378474994435" ignored="false" />
@@ -461,7 +462,7 @@
     <file path="$PROJECT_DIR$/src/core/models/implementations/social/mailru/MailruCall.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378972038370" ignored="false" />
     <file path="/ControlSceneVillageView.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1381995945821" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/controllers/scenes/game/views/ControlSceneGameView.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380187406773" ignored="false" />
-    <file path="/ControlSceneGameView.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380579443944" ignored="false" />
+    <file path="/ControlSceneGameView.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382023137326" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/controllers/popups/gameover/ControlPopupGameOver.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380187406772" ignored="false" />
     <file path="/ControlPopupGameOver.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380098155063" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/core/URLService/ManagerServerConnector.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378984194122" ignored="false" />
@@ -482,7 +483,7 @@
     <file path="/ERemoteResponseType.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1379509034640" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/core/models/implementations/remote/ManagerRemote.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378985089495" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/core/models/implementations/remote/RemoteConnector.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1379682024736" ignored="false" />
-    <file path="/ManagerRemoteBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1379517044972" ignored="false" />
+    <file path="/ManagerRemoteBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382112832120" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/models/remote/ManagerRemote.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380028495097" ignored="false" />
     <file path="/ManagerRemote.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1379689944033" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/models/remote/ERemoteResponseType.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1379664892308" ignored="false" />
@@ -507,8 +508,8 @@
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/models/purchases/ManagerPurchasesBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378991130236" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/core/models/implementations/purchases/PurchaseItem.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378993029233" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/core/models/implementations/purchases/ManagerPurchasesBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1379935134326" ignored="false" />
-    <file path="/ManagerPurchasesBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1379517039585" ignored="false" />
-    <file path="/PurchaseItem.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378994376139" ignored="false" />
+    <file path="/ManagerPurchasesBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382114321534" ignored="false" />
+    <file path="/PurchaseItem.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382114670048" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/core/models/implementations/purchases/PurchaseItemBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1378993215189" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/models/purchases/PurchaseItemSoft.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380187406772" ignored="false" />
     <file path="/PurchaseItemSoft.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1379946860733" ignored="false" />
@@ -715,7 +716,7 @@
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/core/models/implementations/social/mm/MailruCallEvent.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1379711006227" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/core/models/implementations/social/managers/OKMediator.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1379711118269" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/core/models/implementations/social/managers/SocialManagerOK.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1379949324190" ignored="false" />
-    <file path="/SocialManagerOK.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380119369008" ignored="false" />
+    <file path="/SocialManagerOK.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382114258336" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/html/ok/debug/script/FAPI.js" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1379749192825" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/html/ok/debug/out/ok_debug.swf" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380016373133" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/core/models/implementations/social/ok/utils/crypto/MD5.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1379751053387" ignored="false" />
@@ -735,7 +736,7 @@
     <file path="/PathLine.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1379861293492" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/models/branches/ManagerBranches.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380028495097" ignored="false" />
     <file path="/IManagerLevels.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1379878417576" ignored="false" />
-    <file path="/ManagerLevelsBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1379862922539" ignored="false" />
+    <file path="/ManagerLevelsBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382116090976" ignored="false" />
     <file path="/LevelInfoBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1379878607141" ignored="false" />
     <file path="/ILevelInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1379863099136" ignored="false" />
     <file path="/IPlayerInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380033933092" ignored="false" />
@@ -821,7 +822,7 @@
     <file path="$PROJECT_DIR$/../com.cowplay.flash-sdks/game-sdk/src/models/implementations/social/managers/MMMediator.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380119747269" ignored="false" />
     <file path="$USER_HOME$/Desktop/preloader/src/core/Preloader.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380122248111" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/controllers/scenes/loader/ControlSceneLoaderView.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380123938384" ignored="false" />
-    <file path="/fragment.java" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380123952780" ignored="false" />
+    <file path="/fragment.java" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382132648602" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/ControlSceneLoaderView.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380181780622" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.crosswords/src/ControlSceneLoader.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380124485641" ignored="false" />
     <file path="/ESoldierRotation.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380554851600" ignored="false" />
@@ -850,7 +851,7 @@
     <file path="$PROJECT_DIR$/../com.bwf.watson/src/controllers/scenes/base/ControlSceneGameBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380199575442" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.watson/src/controllers/scenes/ESceneType.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380199666510" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.watson/src/controllers/scenes/main/ControlSceneMain.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380199645137" ignored="false" />
-    <file path="/ControlSceneMain.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380199642849" ignored="false" />
+    <file path="/ControlSceneMain.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382018513884" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.watson/src/models/viewController/ManagerViewController.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380199703146" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.watson/src/models/string/EStringType.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380199766212" ignored="false" />
     <file path="$PROJECT_DIR$/../com.bwf.watson/src/models/string/ManagerString.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1380199796640" ignored="false" />
@@ -884,6 +885,78 @@
     <file path="/ControlPopupMineGold.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1381230874407" ignored="false" />
     <file path="/ControlMultiplayer.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1381231463690" ignored="false" />
     <file path="/offline_debug.html" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1381232225334" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/Main.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382016850184" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/models/GameInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382016960249" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/controllers/scenes/game/views/ControlSceneGameView.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382016978137" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/controllers/scenes/main/ControlSceneMain.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382017046223" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/Constants.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382018450218" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/controllers/scenes/game/views/ControlPurchases.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382018614953" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/models/purchases/EPurchaseType.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382018464369" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/controllers/scenes/game/views/ControlWordView.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382019171570" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/controllers/scenes/game/views/ControlBottomPanel.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382019171570" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/controllers/scenes/game/ControlSceneGame.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382020477968" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/controllers/popups/EPopupType.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382018464369" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/controllers/scenes/ESceneType.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382020465251" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/models/string/EStringType.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382018464369" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/Constants.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382080179146" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/controllers/popups/bonus/ControlPopupBonus.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382018545757" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/controllers/popups/help/ControlPopupHelp.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382018551954" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/controllers/popups/bank/ControlPopupBank.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382018541395" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/controllers/popups/win/ControlPopupWin.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382018561358" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/controllers/scenes/game/views/ControlSceneGameView.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382023144005" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/controllers/popups/top/ControlPopupTop.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382018555625" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/models/GameInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382115887511" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/Main.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382132126331" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/models/game/ManagerGame.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382019171570" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/models/proxy/ManagerProxy.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382116960297" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/models/data/CharInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382018464369" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/controllers/scenes/main/views/ControlSceneMainView.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382019504730" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/models/string/ManagerString.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382018464369" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/models/game/LevelInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382018686946" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/controllers/scenes/main/ControlSceneMain.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382020474053" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/controllers/EControlUpdateType.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382018464369" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/models/data/WordInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382018675824" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/models/levels/LevelInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382116560169" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/models/game/CharInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382019171570" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/models/game/WordInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382116992457" ignored="false" />
+    <file path="/ControlSceneMainView.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382019264910" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/assets/graphics.swc!/library.swf" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382023108948" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/bwf/controllers/top/ControlPopupBWFTop0.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382079271958" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/bwf/models/proxy/RemoteParamsBWF.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382085719808" ignored="false" />
+    <file path="/RemoteParamsBWF.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382085716859" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/implementations/remote/RemoteResponse.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382086611370" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/GameInfoBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382112889113" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/implementations/remote/ManagerRemoteBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382112911088" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/interfaces/remote/IManagerRemote.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382112899294" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/interfaces/remote/IResponse.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382086939366" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/interfaces/remote/EResponseType.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382086644821" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/interfaces/remote/EResponseStatus.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382086861792" ignored="false" />
+    <file path="/IResponse.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382086939045" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/implementations/remote/ResponseBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382086973078" ignored="false" />
+    <file path="/ResponseBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382086933980" ignored="false" />
+    <file path="/EResponseStatus.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382086850040" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/bwf/models/proxy/ManagerProxyBWF.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382113710523" ignored="false" />
+    <file path="/ManagerProxyBWF.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382107210506" ignored="false" />
+    <file path="/ManagerProxy.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382115861602" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/implementations/players/ManagerPlayersBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382113145601" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/implementations/purchases/ManagerPurchasesBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382114325200" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/implementations/game/ManagerGameBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382113123199" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/interfaces/IManagerGame.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382113047739" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/controls/implementations/popups/win/ControlPopupWinBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382113055402" ignored="false" />
+    <file path="/ManagerPlayersBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382113144161" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/implementations/bonus/ManagerBonusBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382113493576" ignored="false" />
+    <file path="/ManagerBonusBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382113475375" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../bwf/flash/watson/src/watson/models/purchases/PurchaseItem.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382115619073" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/implementations/purchases/PurchaseItemBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382114538376" ignored="false" />
+    <file path="/PurchaseItemBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382114004223" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/interfaces/purchases/IPurchaseItem.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382114039837" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/implementations/social/managers/SocialManagerOK.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382114258336" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/implementations/levels/ManagerLevelsBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382116103178" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/implementations/levels/LevelContainerBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382116351364" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/interfaces/levels/ILevelContainer.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382116228823" ignored="false" />
+    <file path="/LevelContainerBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382116258659" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../mrpin/android/taxi/AndroidManifest.xml" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382133595100" ignored="false" />
+    <file path="/AndroidManifest.xml" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1382133583606" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -901,7 +974,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -938,6 +1010,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -959,7 +1032,7 @@
       <file leaf-file-name="Main.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="61" selection-start="397" selection-end="397" vertical-scroll-proportion="0.0">
+            <state line="23" column="13" selection-start="397" selection-end="397" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -968,7 +1041,7 @@
       <file leaf-file-name="Preloader.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/Preloader.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="10" selection-start="781" selection-end="781" vertical-scroll-proportion="0.0">
+            <state line="30" column="0" selection-start="781" selection-end="781" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -977,7 +1050,7 @@
       <file leaf-file-name="offline_debug.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bin/offline_debug.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="13" selection-start="711" selection-end="711" vertical-scroll-proportion="-18.125">
+            <state line="29" column="13" selection-start="711" selection-end="711" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -986,7 +1059,7 @@
       <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="27" selection-start="27" selection-end="27" vertical-scroll-proportion="0.0">
+            <state line="11" column="32" selection-start="311" selection-end="311" vertical-scroll-proportion="0.16649848">
               <folding />
             </state>
           </provider>
@@ -1409,6 +1482,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1432,42 +1506,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="soldiers-wars" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers-wars" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers-wars" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1505,19 +1543,18 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="236" />
-    <property name="project.structure.proportion" value="0.15" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="238" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.30166668" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="238" />
-    <property name="recentsLimit" value="5" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="238" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../sdks-flash/game-sdk" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="247" />
@@ -1533,14 +1570,14 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
     <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="options.lastSelected" value="JavaScript.Libraries" />
-    <property name="project.structure.side.proportion" value="0.2" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="options.searchVisible" value="true" />
@@ -1595,19 +1632,6 @@
       <option name="trusted" value="true" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -1636,6 +1660,19 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -1649,6 +1686,13 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -1670,13 +1714,6 @@
       </option>
       <envs />
       <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
@@ -1865,20 +1902,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="16" y="22" width="1833" height="1160" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298077" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37307692" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37307692" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24958031" sideWeight="0.16057692" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298077" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3278846" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1886,7 +1922,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24958031" sideWeight="0.6269231" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24958031" sideWeight="0.6269231" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1894,6 +1930,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28942308" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Profile" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298077" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3278846" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1995,9 +2032,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/data/soldiers/SoldierInfo.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="13" column="0" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/scenes/village/views/ControlMultiplayer.as">
@@ -2037,14 +2072,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="61" selection-start="397" selection-end="397" vertical-scroll-proportion="0.0">
+        <state line="23" column="13" selection-start="397" selection-end="397" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/Preloader.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="10" selection-start="781" selection-end="781" vertical-scroll-proportion="0.0">
+        <state line="30" column="0" selection-start="781" selection-end="781" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -2058,14 +2093,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/offline_debug.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="13" selection-start="711" selection-end="711" vertical-scroll-proportion="-18.125">
+        <state line="29" column="13" selection-start="711" selection-end="711" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="27" selection-start="27" selection-end="27" vertical-scroll-proportion="0.0">
+        <state line="11" column="32" selection-start="311" selection-end="311" vertical-scroll-proportion="0.16649848">
           <folding />
         </state>
       </provider>
