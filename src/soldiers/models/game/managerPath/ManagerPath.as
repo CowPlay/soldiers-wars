@@ -5,9 +5,9 @@ import flash.utils.Dictionary;
 
 import models.interfaces.levels.ILevelInfo;
 
-import soldiers.models.data.LevelInfo;
-import soldiers.models.data.housesG.base.EHouseOwner;
-import soldiers.models.data.housesG.base.HouseInfoG;
+import soldiers.models.levels.LevelInfo;
+import soldiers.models.game.housesG.base.EHouseOwner;
+import soldiers.models.game.housesG.base.HouseG;
 
 import utils.Utils;
 
@@ -90,7 +90,7 @@ public class ManagerPath
         }
 
         {
-            for each (var house:HouseInfoG in _currentLevel.houses)
+            for each (var house:HouseG in _currentLevel.houses)
             {
                 var foundationSize:Point = house.foundationSize;
 
@@ -119,9 +119,9 @@ public class ManagerPath
 
     public function generateLevelPaths():void
     {
-        for each(var houseFrom:HouseInfoG in _currentLevel.houses)
+        for each(var houseFrom:HouseG in _currentLevel.houses)
         {
-            for each(var houseTo:HouseInfoG in _currentLevel.houses)
+            for each(var houseTo:HouseG in _currentLevel.houses)
             {
                 if (houseFrom == houseTo)
                 {
@@ -357,10 +357,10 @@ public class ManagerPath
 
 
     //! Returns nearest house with specify type. If type = null, returns house with any type
-    public function getNearestHouse(target:HouseInfoG, type:EHouseOwner = null):HouseInfoG
+    public function getNearestHouse(target:HouseG, type:EHouseOwner = null):HouseG
     {
         Debug.assert(false);
-        var result:HouseInfoG = null;
+        var result:HouseG = null;
 //
 //        var minPath:Array = null;
 //

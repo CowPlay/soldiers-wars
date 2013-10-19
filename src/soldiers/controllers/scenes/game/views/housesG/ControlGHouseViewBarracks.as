@@ -10,8 +10,8 @@ package soldiers.controllers.scenes.game.views.housesG
 import controls.IControlScene;
 
 import soldiers.controllers.scenes.game.views.housesG.base.ControlGHouseView;
-import soldiers.models.data.housesG.base.EHouseGType;
-import soldiers.models.data.housesG.base.HouseInfoG;
+import soldiers.models.game.housesG.base.EHouseGType;
+import soldiers.models.game.housesG.base.HouseG;
 
 public class ControlGHouseViewBarracks extends ControlGHouseView
 {
@@ -27,7 +27,7 @@ public class ControlGHouseViewBarracks extends ControlGHouseView
      */
 
     //! Default constructor
-    public function ControlGHouseViewBarracks(sceneOwner:IControlScene, entry:HouseInfoG)
+    public function ControlGHouseViewBarracks(sceneOwner:IControlScene, entry:HouseG)
     {
         super(sceneOwner, entry);
 

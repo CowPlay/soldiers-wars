@@ -11,7 +11,7 @@ import bwf.models.proxy.IManagerProxy;
 
 import models.interfaces.social.IManagerSocial;
 
-import soldiers.models.data.housesV.base.EHouseVType;
+import soldiers.models.village.housesV.base.EHouseTypeV;
 
 public class ManagerProxy implements IManagerProxy
 {
@@ -41,25 +41,6 @@ public class ManagerProxy implements IManagerProxy
     public function getTutorialData(data:Object):Object
     {
         return null;
-    }
-
-    public function getHousesVillageData(data:Object):Object
-    {
-        var houseAltarData:Object =
-        {
-            level: 1,
-            level_max: 2,
-            type: EHouseVType.EHVT_ALTAR
-        };
-
-        var housesData:Array = [houseAltarData];
-
-        var result:Object =
-        {
-            houses: housesData
-        };
-
-        return result;
     }
 
 
@@ -163,6 +144,56 @@ public class ManagerProxy implements IManagerProxy
             level_containers: [levelContainer],
             level_progress: null,
             level_complete_ids: []
+        };
+
+        return result;
+    }
+
+    public function getVillageData(dataObj:Object):Object
+    {
+        var bakeryData:Object = getBakeryData();
+
+        var housesData:Object =
+        {
+            bakery: bakeryData
+        };
+
+        var result:Object =
+        {
+            houses: housesData
+        };
+
+        return result;
+    }
+
+    private static function getBakeryData():Object
+    {
+        var bakeryConfigLevel1:Object =
+        {
+            level: 1,
+            time: 5,
+            count: 5
+        };
+
+        var bakeryConfigLevel2:Object =
+        {
+            level: 2,
+            time: 100,
+            count: 20
+        };
+
+        var bakeryConfigLevel3:Object =
+        {
+            level: 3,
+            time: 300,
+            count: 50
+        };
+
+        var result:Object =
+        {
+            level: 2,
+
+            config: [bakeryConfigLevel1, bakeryConfigLevel2, bakeryConfigLevel3]
         };
 
         return result;

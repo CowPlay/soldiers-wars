@@ -19,12 +19,14 @@ import controls.implementations.ControlBase;
 import controls.implementations.ControlScrollBase;
 
 import flash.display.DisplayObjectContainer;
+import flash.events.MouseEvent;
 
+import soldiers.controllers.EPopupType;
 import soldiers.controllers.scenes.village.views.housesV.ControlHouseViewAltar;
-import soldiers.controllers.scenes.village.views.housesV.ControlVHouseView;
+import soldiers.controllers.scenes.village.views.housesV.ControlHouseViewBakery;
 import soldiers.models.GameInfo;
-import soldiers.models.data.housesV.base.EHouseVType;
-import soldiers.models.data.housesV.base.HouseInfoV;
+import soldiers.models.village.housesV.base.EHouseTypeV;
+import soldiers.models.village.housesV.base.HouseV;
 
 public class ControlSceneVillageView extends ControlBase
 {
@@ -33,7 +35,9 @@ public class ControlSceneVillageView extends ControlBase
      */
     private var _controlScroll:IControlScroll;
     private var _sourceViewTyped:gSceneVillage;
-    private var _housesViews:Array;
+
+    private var _houseAltar:IControl;
+    private var _houseBakery:IControl;
 
 
     /*
@@ -70,18 +74,23 @@ public class ControlSceneVillageView extends ControlBase
 
     private function initHouses():void
     {
-        _housesViews = [];
-
         var houses:Array = GameInfo.instance.managerVillage.houses;
-        for each(var house:HouseInfoV in houses)
+        for each(var house:HouseV in houses)
         {
-            var houseView:ControlVHouseView;
-
             switch (house.type)
             {
-                case EHouseVType.EHVT_ALTAR:
+                case EHouseTypeV.EHTV_ALTAR:
                 {
-                    houseView = new ControlHouseViewAltar(sceneOwner, house, _sourceViewTyped.buttonHouseAltar);
+                    _houseAltar = new ControlHouseViewAltar(sceneOwner, house, _sourceViewTyped.houseAltar);
+                    _houseAltar.actionDelegate = this;
+
+                    break;
+                }
+                case EHouseTypeV.EHTV_BAKERY:
+                {
+                    _houseBakery = new ControlHouseViewBakery(sceneOwner, house, _sourceViewTyped.houseBakery);
+                    _houseBakery.actionDelegate = this;
+
                     break;
                 }
                 default :
@@ -90,8 +99,6 @@ public class ControlSceneVillageView extends ControlBase
                     break;
                 }
             }
-
-            _housesViews.push(houseView);
         }
     }
 
@@ -104,11 +111,11 @@ public class ControlSceneVillageView extends ControlBase
 
     public override function cleanup():void
     {
-        for each(var houseView:IControl in _housesViews)
-        {
-            houseView.cleanup();
-        }
-        _housesViews.length = 0;
+        _houseAltar.cleanup();
+        _houseAltar = null;
+
+        _houseBakery.cleanup();
+        _houseBakery = null;
 
         _controlScroll.cleanup();
         _controlScroll = null;
@@ -116,6 +123,34 @@ public class ControlSceneVillageView extends ControlBase
         _sourceViewTyped = null;
 
         super.cleanup();
+    }
+
+    /*
+     * IActionDelegate
+     */
+    public override function onControlMouseClick(target:IControl, e:MouseEvent):Boolean
+    {
+        var result:Boolean = super.onControlMouseClick(target, e);
+
+        if (!result)
+        {
+            switch (target)
+            {
+                case _houseBakery:
+                {
+                    sceneOwner.showPopup(EPopupType.EPT_VILLAGE_HOUSE_BAKERY);
+                    result = true;
+                    break;
+                }
+                default :
+                {
+                    Debug.assert(false);
+                    break;
+                }
+            }
+        }
+
+        return result;
     }
 }
 }

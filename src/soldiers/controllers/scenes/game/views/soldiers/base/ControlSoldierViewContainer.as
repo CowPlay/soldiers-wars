@@ -15,7 +15,7 @@ import flash.display.Sprite;
 
 import soldiers.controllers.EControlUpdateType;
 import soldiers.models.GameInfo;
-import soldiers.models.data.soldiers.SoldierInfo;
+import soldiers.models.game.soldiers.SoldierInfo;
 
 public class ControlSoldierViewContainer extends ControlBase
 {

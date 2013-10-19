@@ -21,9 +21,9 @@ import flash.events.MouseEvent;
 import flash.geom.Point;
 import flash.text.TextField;
 
-import soldiers.models.data.housesG.base.EHouseOwner;
+import soldiers.models.game.housesG.base.EHouseOwner;
 
-import soldiers.models.data.housesG.base.HouseInfoG;
+import soldiers.models.game.housesG.base.HouseG;
 
 public class ControlGHouseView extends ControlBase
 {
@@ -36,7 +36,7 @@ public class ControlGHouseView extends ControlBase
     protected var _houseViewPlayer:DisplayObjectContainer;
     protected var _labelSoldiers:TextField;
 
-    private var _entry:HouseInfoG;
+    private var _entry:HouseG;
 
     //TODO:implement
 //    private var _auraEnemy:gAuraEnemy;
@@ -47,7 +47,7 @@ public class ControlGHouseView extends ControlBase
      * Properties
      */
 
-    public function get entry():HouseInfoG
+    public function get entry():HouseG
     {
         return _entry;
     }
@@ -63,7 +63,7 @@ public class ControlGHouseView extends ControlBase
      */
 
     //! Default constructor
-    public function ControlGHouseView(sceneOwner:IControlScene, entry:HouseInfoG)
+    public function ControlGHouseView(sceneOwner:IControlScene, entry:HouseG)
     {
         super(sceneOwner);
 

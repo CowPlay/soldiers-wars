@@ -18,9 +18,9 @@ import flash.events.MouseEvent;
 import soldiers.controllers.scenes.game.views.housesG.ControlGHouseViewBarracks;
 
 import soldiers.models.GameInfo;
-import soldiers.models.data.housesG.base.EHouseGType;
-import soldiers.models.data.housesG.base.EHouseOwner;
-import soldiers.models.data.housesG.base.HouseInfoG;
+import soldiers.models.game.housesG.base.EHouseGType;
+import soldiers.models.game.housesG.base.EHouseOwner;
+import soldiers.models.game.housesG.base.HouseG;
 
 import soldiers.models.game.ManagerGameSoldiers;
 import soldiers.models.game.managerPath.GridCell;
@@ -65,7 +65,7 @@ public class ControlGHouseViewContainer extends ControlBase
 
         var housesEntries:Array = _managerGame.currentLevel.houses;
 
-        for each(var entry:HouseInfoG in housesEntries)
+        for each(var entry:HouseG in housesEntries)
         {
             var view:ControlGHouseView;
 

@@ -9,8 +9,8 @@ package soldiers.models.village
 {
 import serialization.ISerializable;
 
-import soldiers.models.data.housesV.base.FactoryHousesV;
-import soldiers.models.data.housesV.base.HouseInfoV;
+import soldiers.models.village.housesV.bakery.HouseVBakery;
+import soldiers.models.village.housesV.base.HouseV;
 
 public class ManagerVillage implements ISerializable
 {
@@ -45,13 +45,13 @@ public class ManagerVillage implements ISerializable
 
     }
 
-    public function getHouseByType(type:String):HouseInfoV
+    public function getHouseByType(type:String):HouseV
     {
         Debug.assert(type != null);
 
-        var result:HouseInfoV;
+        var result:HouseV;
 
-        for each(var house:HouseInfoV in _houses)
+        for each(var house:HouseV in _houses)
         {
             if (house.type == type)
             {
@@ -65,7 +65,12 @@ public class ManagerVillage implements ISerializable
         return result;
     }
 
-    public function didHouseBuild(house:HouseInfoV):void
+    public function didHouseImprove(house:HouseV):void
+    {
+
+    }
+
+    public function didHouseBuild(house:HouseV):void
     {
 
     }
@@ -83,24 +88,22 @@ public class ManagerVillage implements ISerializable
     public function deserialize(data:Object):void
     {
         Debug.assert(data.hasOwnProperty("houses"));
-        Debug.assert(data["houses"] is Array);
 
+        var housesData:Object = data["houses"];
+
+        Debug.assert(housesData.hasOwnProperty("bakery"));
 
         //load houses
         _houses = [];
 
-        var housesData:Array = data["houses"];
-        for each(var houseData:Object in housesData)
-        {
-            var house:HouseInfoV = FactoryHousesV.getHouse(houseData);
-            _houses.push(house);
-        }
+        var house:HouseV = new HouseVBakery();
+        house.deserialize(housesData["bakery"]);
+        _houses.push(house);
     }
 
     /*
      * IDisposable
      */
-
 
     public function cleanup():void
     {

@@ -23,7 +23,7 @@ import models.interfaces.remote.IResponse;
 import soldiers.controllers.ESceneType;
 import soldiers.controllers.scenes.game.ControlSceneGame;
 import soldiers.controllers.scenes.village.ControlSceneVillage;
-import soldiers.models.data.LevelInfo;
+import soldiers.models.levels.LevelInfo;
 import soldiers.models.game.ManagerGameSoldiers;
 import soldiers.models.proxy.ManagerProxy;
 import soldiers.models.remote.ManagerRemoteStub;
@@ -105,7 +105,7 @@ public class GameInfo extends GameInfoBase
         _managerResources = new ManagerResourceBase();
 
         _managerVillage = new ManagerVillage();
-        _managerVillage.deserialize(managerProxySoldiers.getHousesVillageData(null));
+        _managerVillage.deserialize(managerProxySoldiers.getVillageData(null));
 
         {//register scenes
 

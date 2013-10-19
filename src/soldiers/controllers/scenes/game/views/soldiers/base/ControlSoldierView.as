@@ -15,8 +15,8 @@ import controls.implementations.ControlBase;
 
 import flash.display.MovieClip;
 
-import soldiers.models.data.soldiers.ESoldierRotation;
-import soldiers.models.data.soldiers.SoldierInfo;
+import soldiers.models.game.soldiers.ESoldierRotation;
+import soldiers.models.game.soldiers.SoldierInfo;
 import soldiers.models.game.managerPath.GridCell;
 
 public class ControlSoldierView extends ControlBase

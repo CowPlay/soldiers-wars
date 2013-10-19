@@ -18,9 +18,9 @@ import flash.utils.getTimer;
 
 import soldiers.controllers.EControlUpdateType;
 import soldiers.models.GameInfo;
-import soldiers.models.data.housesG.base.EHouseOwner;
-import soldiers.models.data.housesG.base.HouseInfoG;
-import soldiers.models.data.soldiers.SoldierInfo;
+import soldiers.models.game.housesG.base.EHouseOwner;
+import soldiers.models.game.housesG.base.HouseG;
+import soldiers.models.game.soldiers.SoldierInfo;
 
 import utils.UtilsArray;
 
@@ -66,7 +66,7 @@ public class ManagerSoldiers implements IDisposable
         _timerSoldierGenerator.start();
     }
 
-    public function generateSoldiers(owner:HouseInfoG, target:HouseInfoG, soldierCount:int):void
+    public function generateSoldiers(owner:HouseG, target:HouseG, soldierCount:int):void
     {
         Debug.assert(owner != null);
         Debug.assert(target != null);
