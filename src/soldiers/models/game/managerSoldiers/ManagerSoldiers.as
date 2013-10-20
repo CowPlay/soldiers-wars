@@ -18,8 +18,8 @@ import flash.utils.getTimer;
 
 import soldiers.controllers.EControlUpdateType;
 import soldiers.models.GameInfo;
-import soldiers.models.game.housesG.base.EHouseOwner;
-import soldiers.models.game.housesG.base.HouseG;
+import soldiers.models.housesGame.base.EHouseOwner;
+import soldiers.models.housesGame.base.HouseG;
 import soldiers.models.game.soldiers.SoldierInfo;
 
 import utils.UtilsArray;

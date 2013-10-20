@@ -22,7 +22,7 @@ import flash.events.MouseEvent;
 import soldiers.controllers.EControlUpdateType;
 
 import soldiers.models.GameInfo;
-import soldiers.models.game.housesG.base.HouseG;
+import soldiers.models.housesGame.base.HouseG;
 
 import utils.memory.UtilsMemory;
 

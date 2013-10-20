@@ -9,9 +9,10 @@
  * Time: 4:21 PM
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.models.game.housesG.base
+package soldiers.models.housesGame.base
 {
 import flash.geom.Point;
+import flash.utils.Dictionary;
 
 import models.interfaces.players.IPlayerInfo;
 
@@ -32,12 +33,11 @@ public class HouseG implements ISerializable
 
     //[Serializable]
     private var _level:uint;
+    private var _levelMax:uint;
 
     //! Use Get\SetSoldierCount
     //[Serializable]
     private var _soldierCount:int;
-    //[Serializable]
-    private var _soldierCountMax:uint;
     //[Serializable]
     private var _rotateLeftToRight:Boolean;
     //[Serializable]
@@ -50,6 +50,7 @@ public class HouseG implements ISerializable
 
     private var _isSelect:Boolean;
 
+    private var _configs:Dictionary;
     /*
      * Properties
      */
@@ -146,6 +147,11 @@ public class HouseG implements ISerializable
         return _level;
     }
 
+    public function get levelMax():uint
+    {
+        return _levelMax;
+    }
+
     public function get soldierCount():int
     {
         return _soldierCount;
@@ -159,10 +165,11 @@ public class HouseG implements ISerializable
         _soldierCount = value;
     }
 
-    public function get soldierCountMax():uint
+    public function get currentConfig():HouseConfigG
     {
-        return _soldierCountMax;
+        return _configs[_level];
     }
+
 
     /*
      * Methods
@@ -171,6 +178,20 @@ public class HouseG implements ISerializable
     //! Default constructor
     public function HouseG()
     {
+    }
+
+    public function onGameStart():void
+    {
+        var configs:Array = GameInfo.instance.managerHousesGame.getConfigsForHouse(type);
+
+        _configs = new Dictionary(true);
+
+        for each(var config:HouseConfigG in configs)
+        {
+            _configs[config.level] = config;
+
+            _levelMax = Math.max(config.level, _levelMax);
+        }
     }
 
     /*
@@ -184,7 +205,6 @@ public class HouseG implements ISerializable
 
     public function deserialize(data0:Object):void
     {
-        Debug.assert(data0.hasOwnProperty("type"));
         Debug.assert(data0.hasOwnProperty("owner"));
         Debug.assert(data0.hasOwnProperty("level"));
         Debug.assert(data0.hasOwnProperty("position_x"));
@@ -199,7 +219,6 @@ public class HouseG implements ISerializable
         Debug.assert(data0.hasOwnProperty("foundation_height"));
 
         _ownerTypeOnStart = data0["owner"].toUpperCase();
-        _level = data0["level"];
 
         _positionCurrent = new Point(data0["position_x"], data0["position_y"]);
         _foundationSize = new Point(data0["foundation_width"], data0["foundation_height"]);
@@ -208,7 +227,8 @@ public class HouseG implements ISerializable
         _positionExit = new Point(_positionCurrent.x + positionExitOffset.x, _positionCurrent.y + positionExitOffset.y);
 
         _soldierCount = data0["soldiers"];
-        _soldierCountMax = data0["soldiers_max"];
+
+        _level = data0["level"];
     }
 
     /*

@@ -5,7 +5,7 @@
  * Time: 4:17 PM
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.models.game.housesG.barracks
+package soldiers.models.housesGame.barracks
 {
 import controls.EControlUpdateTypeBase;
 
@@ -13,13 +13,13 @@ import flash.events.Event;
 import flash.events.TimerEvent;
 import flash.utils.Timer;
 
-import soldiers.models.game.housesG.base.EHouseGType;
-import soldiers.models.game.housesG.base.HouseG;
+import soldiers.models.housesGame.base.EHouseTypeG;
+import soldiers.models.housesGame.base.HouseG;
 
 import utils.memory.UtilsMemory;
 
 //! Represents model of Barracks
-public class HousGBarracks extends HouseG
+public class HouseGBarracks extends HouseG
 {
 
     private var _timerSoldierGenerator:Timer;
@@ -31,7 +31,7 @@ public class HousGBarracks extends HouseG
 
     public override function get type():String
     {
-        return EHouseGType.EHGT_BARRACKS;
+        return EHouseTypeG.EHGT_BARRACKS;
     }
 
     /*
@@ -40,7 +40,7 @@ public class HousGBarracks extends HouseG
 
     //! Default constructor for barracks
     //! If owner type == null -> type = neutral
-    public function HousGBarracks()
+    public function HouseGBarracks()
     {
         super();
 
@@ -54,13 +54,13 @@ public class HousGBarracks extends HouseG
     {
         if (owner != null)
         {
-            if (soldierCount == soldierCountMax)
+            if (soldierCount == this.currentConfig.soldiersMax)
             {
                 //do nothing
             }
             else
             {
-                soldierCount < soldierCountMax ? soldierCount++ : soldierCount--;
+                soldierCount < this.currentConfig.soldiersMax ? soldierCount++ : soldierCount--;
                 view.update(EControlUpdateTypeBase.ECUT_ENTRY_UPDATED);
             }
         }

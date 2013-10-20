@@ -21,9 +21,9 @@ import controls.implementations.buttons.ControlButtonWithLabelsBase;
 import flash.events.MouseEvent;
 
 import soldiers.models.GameInfo;
-import soldiers.models.village.housesV.bakery.HouseConfigVBakery;
-import soldiers.models.village.housesV.bakery.HouseVBakery;
-import soldiers.models.village.housesV.base.EHouseTypeV;
+import soldiers.models.housesVillage.bakery.HouseConfigVBakery;
+import soldiers.models.housesVillage.bakery.HouseVBakery;
+import soldiers.models.housesVillage.base.EHouseTypeV;
 
 public class ControlPopupBakeryItem extends ControlBase
 {
@@ -85,7 +85,7 @@ public class ControlPopupBakeryItem extends ControlBase
             {
                 case _buttonBuild:
                 {
-                    var houseBakery:HouseVBakery = GameInfo.instance.managerVillage.getHouseByType(EHouseTypeV.EHTV_BAKERY) as HouseVBakery;
+                    var houseBakery:HouseVBakery = GameInfo.instance.managerHousesVillage.getHouseByType(EHouseTypeV.EHTV_BAKERY) as HouseVBakery;
 
                     houseBakery.onBuildConfig(_entry);
 

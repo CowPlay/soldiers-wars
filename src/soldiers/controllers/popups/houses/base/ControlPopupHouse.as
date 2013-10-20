@@ -10,7 +10,7 @@ package soldiers.controllers.popups.houses.base
 import controls.IControlScene;
 import controls.implementations.ControlPopupBase;
 
-import soldiers.models.village.housesV.base.HouseV;
+import soldiers.models.housesVillage.base.HouseV;
 
 //TODO: mb need remove
 public class ControlPopupHouse extends ControlPopupBase

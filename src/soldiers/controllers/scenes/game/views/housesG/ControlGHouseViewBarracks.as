@@ -10,8 +10,8 @@ package soldiers.controllers.scenes.game.views.housesG
 import controls.IControlScene;
 
 import soldiers.controllers.scenes.game.views.housesG.base.ControlGHouseView;
-import soldiers.models.game.housesG.base.EHouseGType;
-import soldiers.models.game.housesG.base.HouseG;
+import soldiers.models.housesGame.base.EHouseTypeG;
+import soldiers.models.housesGame.base.HouseG;
 
 public class ControlGHouseViewBarracks extends ControlGHouseView
 {
@@ -31,7 +31,7 @@ public class ControlGHouseViewBarracks extends ControlGHouseView
     {
         super(sceneOwner, entry);
 
-        Debug.assert(entry.type == EHouseGType.EHGT_BARRACKS);
+        Debug.assert(entry.type == EHouseTypeG.EHGT_BARRACKS);
 
         init();
     }

@@ -25,8 +25,8 @@ import soldiers.controllers.EPopupType;
 import soldiers.controllers.scenes.village.views.housesV.ControlHouseViewAltar;
 import soldiers.controllers.scenes.village.views.housesV.ControlHouseViewBakery;
 import soldiers.models.GameInfo;
-import soldiers.models.village.housesV.base.EHouseTypeV;
-import soldiers.models.village.housesV.base.HouseV;
+import soldiers.models.housesVillage.base.EHouseTypeV;
+import soldiers.models.housesVillage.base.HouseV;
 
 public class ControlSceneVillageView extends ControlBase
 {
@@ -74,7 +74,7 @@ public class ControlSceneVillageView extends ControlBase
 
     private function initHouses():void
     {
-        var houses:Array = GameInfo.instance.managerVillage.houses;
+        var houses:Array = GameInfo.instance.managerHousesVillage.houses;
         for each(var house:HouseV in houses)
         {
             switch (house.type)

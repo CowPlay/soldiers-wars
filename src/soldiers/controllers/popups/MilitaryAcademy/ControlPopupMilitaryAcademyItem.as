@@ -14,11 +14,12 @@ package soldiers.controllers.popups.MilitaryAcademy
 import controls.IControl;
 import controls.IControlButton;
 import controls.IControlScene;
+import controls.implementations.ControlBase;
 import controls.implementations.buttons.ControlButtonWithLabelsBase;
 
 import flash.events.MouseEvent;
 
-public class ControlPopupMilitaryAcademyItem extends ControlPopupMilitaryAcademy
+public class ControlPopupMilitaryAcademyItem extends ControlBase
 {
     /*
      * Fields

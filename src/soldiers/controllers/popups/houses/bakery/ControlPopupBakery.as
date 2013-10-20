@@ -21,9 +21,9 @@ import flash.geom.Point;
 import soldiers.controllers.EPopupType;
 import soldiers.controllers.popups.houses.base.ControlPopupHouse;
 import soldiers.models.GameInfo;
-import soldiers.models.village.housesV.bakery.HouseConfigVBakery;
-import soldiers.models.village.housesV.bakery.HouseVBakery;
-import soldiers.models.village.housesV.base.EHouseTypeV;
+import soldiers.models.housesVillage.bakery.HouseConfigVBakery;
+import soldiers.models.housesVillage.bakery.HouseVBakery;
+import soldiers.models.housesVillage.base.EHouseTypeV;
 
 public class ControlPopupBakery extends ControlPopupHouse
 {
@@ -65,7 +65,7 @@ public class ControlPopupBakery extends ControlPopupHouse
 
     private function init():void
     {
-        _entry = GameInfo.instance.managerVillage.getHouseByType(EHouseTypeV.EHTV_BAKERY) as HouseVBakery;
+        _entry = GameInfo.instance.managerHousesVillage.getHouseByType(EHouseTypeV.EHTV_BAKERY) as HouseVBakery;
 
         _sourceViewTyped = new gPopupBakery();
         setSourceView(_sourceViewTyped);
@@ -84,7 +84,7 @@ public class ControlPopupBakery extends ControlPopupHouse
 
         _items = [];
 
-        for each(var houseConfig:HouseConfigVBakery in _entry.config)
+        for each(var houseConfig:HouseConfigVBakery in _entry.configs)
         {
             var itemView:ControlPopupBakeryItem = new ControlPopupBakeryItem(sceneOwner, houseConfig);
             _sourceViewTyped.itemsView.placeholder.addChild(itemView.sourceView);

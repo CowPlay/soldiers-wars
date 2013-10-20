@@ -7,7 +7,7 @@
  */
 package soldiers.models.game.managerSoldiers
 {
-import soldiers.models.game.housesG.base.HouseG;
+import soldiers.models.housesGame.base.HouseG;
 
 public class SoldierWaveInfo
 {

@@ -21,9 +21,9 @@ import flash.events.MouseEvent;
 import flash.geom.Point;
 import flash.text.TextField;
 
-import soldiers.models.game.housesG.base.EHouseOwner;
+import soldiers.models.housesGame.base.EHouseOwner;
 
-import soldiers.models.game.housesG.base.HouseG;
+import soldiers.models.housesGame.base.HouseG;
 
 public class ControlGHouseView extends ControlBase
 {

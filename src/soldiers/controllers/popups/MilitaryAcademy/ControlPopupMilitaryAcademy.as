@@ -14,6 +14,7 @@ import controls.implementations.buttons.ControlButtonBase;
 import controls.implementations.buttons.ControlButtonWithLabelsBase;
 
 import flash.events.MouseEvent;
+import flash.geom.Point;
 
 import soldiers.controllers.EPopupType;
 
@@ -76,21 +77,41 @@ public class ControlPopupMilitaryAcademy extends ControlPopupHouse
         _items = [];
 
         var item0:ControlPopupMilitaryAcademyItem = new ControlPopupMilitaryAcademyItem(sceneOwner);
-        _sourceViewTyped.itemsView.placeholder.addChild(item0.sourceView);
+        _sourceViewTyped.addChild(item0.sourceView);
         _items.push(item0);
 
         var item1:ControlPopupMilitaryAcademyItem = new ControlPopupMilitaryAcademyItem(sceneOwner);
-        _sourceViewTyped.itemsView.placeholder.addChild(item1.sourceView);
+        _sourceViewTyped.addChild(item1.sourceView);
         _items.push(item1);
 
         var item2:ControlPopupMilitaryAcademyItem = new ControlPopupMilitaryAcademyItem(sceneOwner);
-        _sourceViewTyped.itemsView.placeholder.addChild(item2.sourceView);
+        _sourceViewTyped.addChild(item2.sourceView);
         _items.push(item2);
 
         var item3:ControlPopupMilitaryAcademyItem = new ControlPopupMilitaryAcademyItem(sceneOwner);
-        _sourceViewTyped.itemsView.placeholder.addChild(item3.sourceView);
+        _sourceViewTyped.addChild(item3.sourceView);
         _items.push(item3);
 
+    }
+
+    public override function placeViews():void
+    {
+        super.placeViews();
+
+        var itemStandard:IControl = _items[0];
+
+        var startPosition:Point = new Point(_sourceViewTyped.width / 2 - itemStandard.sourceView.width / 2,
+                _sourceViewTyped.height / 2 - itemStandard.sourceView.height / 2);
+
+        for each(var item:IControl in _items)
+        {
+            item.placeViews();
+
+            item.sourceView.x = startPosition.x;
+            item.sourceView.y = startPosition.y;
+
+            startPosition.x += item.sourceView.width + 20;
+        }
     }
 
 
@@ -135,8 +156,5 @@ public class ControlPopupMilitaryAcademy extends ControlPopupHouse
 
         return result;
     }
-
-
 }
-
 }

@@ -27,14 +27,14 @@ import soldiers.controllers.scenes.game.views.housesG.base.ControlGHouseViewCont
 import soldiers.controllers.scenes.game.views.soldiers.base.ControlSoldierViewContainer;
 
 import soldiers.models.GameInfo;
-import soldiers.models.game.ManagerGameSoldiers;
+import soldiers.models.game.ManagerGame;
 
 public class ControlSceneGameView extends ControlBase
 {
     /*
      * Fields
      */
-    private var _managerGame:ManagerGameSoldiers;
+    private var _managerGame:ManagerGame;
 
     private var _sourceViewTyped:DisplayObjectContainer;
 

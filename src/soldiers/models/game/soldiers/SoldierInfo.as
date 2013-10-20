@@ -15,9 +15,8 @@ import controls.IControl;
 import models.interfaces.players.IPlayerInfo;
 
 import soldiers.models.GameInfo;
-
-import soldiers.models.game.housesG.base.HouseG;
 import soldiers.models.game.managerPath.ManagerPath;
+import soldiers.models.housesGame.base.HouseG;
 
 public class SoldierInfo implements IDisposable
 {
@@ -55,11 +54,6 @@ public class SoldierInfo implements IDisposable
     public function get level():uint
     {
         return _level;
-    }
-
-    public function get levelMax():uint
-    {
-        return _levelMax;
     }
 
     public function get soldierRotation():ESoldierRotation
@@ -104,6 +98,12 @@ public class SoldierInfo implements IDisposable
     public function get path():Array
     {
         return _path;
+    }
+
+
+    public function get levelMax():uint
+    {
+        return _levelMax;
     }
 
     /*
