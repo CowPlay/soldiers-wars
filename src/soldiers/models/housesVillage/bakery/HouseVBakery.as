@@ -5,10 +5,10 @@
  * Time: 5:07 PM
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.models.village.housesV.bakery
+package soldiers.models.housesVillage.bakery
 {
-import soldiers.models.village.housesV.base.EHouseTypeV;
-import soldiers.models.village.housesV.base.HouseV;
+import soldiers.models.housesVillage.base.EHouseTypeV;
+import soldiers.models.housesVillage.base.HouseV;
 
 public class HouseVBakery extends HouseV
 {
@@ -27,7 +27,7 @@ public class HouseVBakery extends HouseV
 
     public function get currentConfig():HouseConfigVBakery
     {
-        return config[level];
+        return configs[level];
     }
 
     protected override function get configClass():Class

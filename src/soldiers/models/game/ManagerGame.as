@@ -19,12 +19,12 @@ import models.interfaces.players.IPlayerInfo;
 
 import soldiers.controllers.EControlUpdateType;
 import soldiers.models.levels.LevelInfo;
-import soldiers.models.game.housesG.base.EHouseOwner;
-import soldiers.models.game.housesG.base.HouseG;
+import soldiers.models.housesGame.base.EHouseOwner;
+import soldiers.models.housesGame.base.HouseG;
 import soldiers.models.game.managerPath.ManagerPath;
 import soldiers.models.game.managerSoldiers.ManagerSoldiers;
 
-public class ManagerGameSoldiers extends ManagerGameBase
+public class ManagerGame extends ManagerGameBase
 {
     /*
      * Fields
@@ -74,7 +74,7 @@ public class ManagerGameSoldiers extends ManagerGameBase
      */
 
     //! Default constructor
-    public function ManagerGameSoldiers(currentLevelValue:LevelInfo, gameOwnerValue:IPlayerInfo, gameOwnerOpponentValue:IPlayerInfo)
+    public function ManagerGame(currentLevelValue:LevelInfo, gameOwnerValue:IPlayerInfo, gameOwnerOpponentValue:IPlayerInfo)
     {
         super(currentLevelValue);
 

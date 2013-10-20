@@ -6,8 +6,8 @@ import flash.utils.Dictionary;
 import models.interfaces.levels.ILevelInfo;
 
 import soldiers.models.levels.LevelInfo;
-import soldiers.models.game.housesG.base.EHouseOwner;
-import soldiers.models.game.housesG.base.HouseG;
+import soldiers.models.housesGame.base.EHouseOwner;
+import soldiers.models.housesGame.base.HouseG;
 
 import utils.Utils;
 

@@ -14,8 +14,8 @@ import flash.display.DisplayObjectContainer;
 
 import mx.utils.StringUtil;
 
-import soldiers.models.village.housesV.base.HouseConfigV;
-import soldiers.models.village.housesV.base.HouseV;
+import soldiers.models.housesVillage.base.HouseConfigV;
+import soldiers.models.housesVillage.base.HouseV;
 
 public class ControlHouseViewV extends ControlBase
 {
@@ -48,7 +48,7 @@ public class ControlHouseViewV extends ControlBase
         _entryBase = entry;
         _entryBase.view = this;
 
-        for each(var levelConfig:HouseConfigV in _entryBase.config)
+        for each(var levelConfig:HouseConfigV in _entryBase.configs)
         {
             var levelViewName:String = StringUtil.substitute("level_{0}", levelConfig.level);
             Debug.assert(sourceViewValue.hasOwnProperty(levelViewName));

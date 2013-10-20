@@ -11,7 +11,7 @@ import bwf.models.proxy.IManagerProxy;
 
 import models.interfaces.social.IManagerSocial;
 
-import soldiers.models.village.housesV.base.EHouseTypeV;
+import soldiers.models.housesGame.base.EHouseTypeG;
 
 public class ManagerProxy implements IManagerProxy
 {
@@ -67,7 +67,7 @@ public class ManagerProxy implements IManagerProxy
     {
         var houseData0:Object =
         {
-            type: "ehgt_barracks",
+            type: EHouseTypeG.EHGT_BARRACKS,
             owner: "eho_enemy",
             level: 1,
             level_max: 1,
@@ -84,7 +84,7 @@ public class ManagerProxy implements IManagerProxy
 
         var houseData1:Object =
         {
-            type: "ehgt_barracks",
+            type: EHouseTypeG.EHGT_BARRACKS,
             owner: "eho_player",
             level: 1,
             level_max: 1,
@@ -101,7 +101,7 @@ public class ManagerProxy implements IManagerProxy
 
         var houseData2:Object =
         {
-            type: "ehgt_barracks",
+            type: EHouseTypeG.EHGT_BARRACKS,
             owner: "eho_player",
             level: 1,
             level_max: 1,
@@ -149,7 +149,42 @@ public class ManagerProxy implements IManagerProxy
         return result;
     }
 
-    public function getVillageData(dataObj:Object):Object
+    public function getHousesGame(dataObj:Object):Object
+    {
+        var result:Object =
+        {
+            barracks: getBarracksData()
+        };
+
+        return result;
+    }
+
+    private static function getBarracksData():Array
+    {
+        var result:Array = [];
+
+        var barracksLevel1:Object =
+        {
+            level: 1,
+            soldiers_max: 20,
+            soldiers_generation: 1
+        };
+
+        result.push(barracksLevel1);
+
+        var barracksLevel2:Object =
+        {
+            level: 2,
+            soldiers_max: 20,
+            soldiers_generation: 2
+        };
+
+        result.push(barracksLevel2);
+
+        return result;
+    }
+
+    public function getHousesVillage(dataObj:Object):Object
     {
         var bakeryData:Object = getBakeryData();
 

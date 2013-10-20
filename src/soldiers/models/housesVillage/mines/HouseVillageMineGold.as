@@ -5,7 +5,7 @@
  * Time: 2:12 PM
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.models.village.housesV.mines
+package soldiers.models.housesVillage.mines
 {
 public class HouseVillageMineGold extends HouseInfoV
 {

@@ -17,8 +17,9 @@ import flash.geom.Point;
 import models.implementations.levels.LevelInfoBase;
 import models.implementations.players.PlayerInfoBase;
 
-import soldiers.models.game.housesG.base.FactoryHousesG;
-import soldiers.models.game.housesG.base.HouseG;
+import soldiers.models.housesGame.barracks.HouseGBarracks;
+import soldiers.models.housesGame.base.EHouseTypeG;
+import soldiers.models.housesGame.base.HouseG;
 
 public class LevelInfo extends LevelInfoBase
 {
@@ -60,6 +61,17 @@ public class LevelInfo extends LevelInfoBase
 //         Player
     }
 
+    public override function onGameStart():void
+    {
+        super.onGameStart();
+
+        for each(var house:HouseG in _houses)
+        {
+            house.onGameStart();
+        }
+
+                }
+
     /*
      * ISerializable
      */
@@ -84,7 +96,26 @@ public class LevelInfo extends LevelInfoBase
 
         for each(var houseData:Object in housesData)
         {
-            var house:HouseG = FactoryHousesG.getHouse(houseData);
+            houseData.hasOwnProperty("type");
+
+            var house:HouseG;
+
+            switch (houseData["type"])
+            {
+                case EHouseTypeG.EHGT_BARRACKS:
+                {
+
+                    house = new HouseGBarracks();
+                    house.deserialize(houseData);
+
+                    break;
+                }
+                default :
+                {
+                    Debug.assert(false);
+                    break;
+                }
+            }
 
             _houses.push(house);
         }

@@ -18,11 +18,11 @@ import flash.events.MouseEvent;
 import soldiers.controllers.scenes.game.views.housesG.ControlGHouseViewBarracks;
 
 import soldiers.models.GameInfo;
-import soldiers.models.game.housesG.base.EHouseGType;
-import soldiers.models.game.housesG.base.EHouseOwner;
-import soldiers.models.game.housesG.base.HouseG;
+import soldiers.models.housesGame.base.EHouseTypeG;
+import soldiers.models.housesGame.base.EHouseOwner;
+import soldiers.models.housesGame.base.HouseG;
 
-import soldiers.models.game.ManagerGameSoldiers;
+import soldiers.models.game.ManagerGame;
 import soldiers.models.game.managerPath.GridCell;
 
 public class ControlGHouseViewContainer extends ControlBase
@@ -30,7 +30,7 @@ public class ControlGHouseViewContainer extends ControlBase
     /*
      * Fields
      */
-    private var _managerGame:ManagerGameSoldiers;
+    private var _managerGame:ManagerGame;
     private var _sourceViewTyped:DisplayObjectContainer;
     private var _controlsHouses:Array;
 
@@ -71,7 +71,7 @@ public class ControlGHouseViewContainer extends ControlBase
 
             switch (entry.type)
             {
-                case EHouseGType.EHGT_BARRACKS:
+                case EHouseTypeG.EHGT_BARRACKS:
                 {
                     view = new ControlGHouseViewBarracks(sceneOwner, entry);
                     break;

@@ -5,9 +5,9 @@
  * Time: 1:03 PM
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.models.game.housesG.base
+package soldiers.models.housesGame.base
 {
-public class EHouseGType
+public class EHouseTypeG
 {
     public static const EHGT_BARRACKS:String = "EHGT_BARRACKS";
     public static const EHGT_SMITHY:String = "EHGT_SMITHY";

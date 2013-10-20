@@ -5,7 +5,7 @@
  * Time: 1:58 PM
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.models.village.housesV.base
+package soldiers.models.housesVillage.base
 {
 
 import controls.IControl;
@@ -28,7 +28,7 @@ public class HouseV implements ISerializable
 
     //Container, which contains config for all levels.
     //key - level number, value - config object
-    private var _config:Dictionary;
+    private var _configs:Dictionary;
 
 
     private var _state:String;
@@ -84,9 +84,9 @@ public class HouseV implements ISerializable
 
     }
 
-    public function get config():Dictionary
+    public function get configs():Dictionary
     {
-        return _config;
+        return _configs;
     }
 
 
@@ -113,7 +113,7 @@ public class HouseV implements ISerializable
         if (canBuild())
         {
             //TODO: build
-            GameInfo.instance.managerVillage.didHouseBuild(this);
+            GameInfo.instance.managerHousesVillage.didHouseBuild(this);
         }
     }
 
@@ -173,7 +173,7 @@ public class HouseV implements ISerializable
         Debug.assert(data.hasOwnProperty("config"));
         Debug.assert(data["config"] is Array);
 
-        _config = new Dictionary(true);
+        _configs = new Dictionary(true);
 
         _level = data["level"];
 
@@ -185,7 +185,7 @@ public class HouseV implements ISerializable
         {
             var levelConfig:HouseConfigV = new configType();
             levelConfig.deserialize(levelConfigData);
-            _config[levelConfig.level] = levelConfig;
+            _configs[levelConfig.level] = levelConfig;
 
             levelConfig.isAvailable = levelConfig.level <= _level;
         }

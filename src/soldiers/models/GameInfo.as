@@ -23,12 +23,13 @@ import models.interfaces.remote.IResponse;
 import soldiers.controllers.ESceneType;
 import soldiers.controllers.scenes.game.ControlSceneGame;
 import soldiers.controllers.scenes.village.ControlSceneVillage;
+import soldiers.models.game.ManagerGame;
+import soldiers.models.housesGame.ManagerHousesGame;
+import soldiers.models.housesVillage.ManagerHousesVillage;
 import soldiers.models.levels.LevelInfo;
-import soldiers.models.game.ManagerGameSoldiers;
 import soldiers.models.proxy.ManagerProxy;
 import soldiers.models.remote.ManagerRemoteStub;
 import soldiers.models.string.ManagerString;
-import soldiers.models.village.ManagerVillage;
 
 public class GameInfo extends GameInfoBase
 {
@@ -60,19 +61,25 @@ public class GameInfo extends GameInfoBase
      * Fields
      */
 
-    private var _managerVillage:ManagerVillage;
-    private var _managerGameSoldiers:ManagerGameSoldiers;
+    private var _managerHousesVillage:ManagerHousesVillage;
+    private var _managerHousesGame:ManagerHousesGame;
+    private var _managerGameSoldiers:ManagerGame;
 
     /*
      * Properties
      */
 
-    public function get managerVillage():ManagerVillage
+    public function get managerHousesVillage():ManagerHousesVillage
     {
-        return _managerVillage;
+        return _managerHousesVillage;
     }
 
-    public function get managerGameSoldiers():ManagerGameSoldiers
+    public function get managerHousesGame():ManagerHousesGame
+    {
+        return _managerHousesGame;
+    }
+
+    public function get managerGameSoldiers():ManagerGame
     {
         return _managerGameSoldiers;
     }
@@ -104,8 +111,11 @@ public class GameInfo extends GameInfoBase
 
         _managerResources = new ManagerResourceBase();
 
-        _managerVillage = new ManagerVillage();
-        _managerVillage.deserialize(managerProxySoldiers.getVillageData(null));
+        _managerHousesVillage = new ManagerHousesVillage();
+        _managerHousesVillage.deserialize(managerProxySoldiers.getHousesVillage(null));
+
+        _managerHousesGame = new ManagerHousesGame();
+        _managerHousesGame.deserialize(managerProxySoldiers.getHousesGame(null));
 
         {//register scenes
 
@@ -128,7 +138,7 @@ public class GameInfo extends GameInfoBase
 
         var container:ILevelContainer = GameInfo.instance.managerLevels.items[0];
 
-        var managerGame:ManagerGameSoldiers = new ManagerGameSoldiers(container.items[0], player0, player1);
+        var managerGame:ManagerGame = new ManagerGame(container.items[0], player0, player1);
 
         GameInfo.instance.onGameStart(managerGame);
 
@@ -140,7 +150,7 @@ public class GameInfo extends GameInfoBase
 
     public override function onGameStart(value:IManagerGame):void
     {
-        _managerGameSoldiers = value as ManagerGameSoldiers;
+        _managerGameSoldiers = value as ManagerGame;
         super.onGameStart(value);
     }
 

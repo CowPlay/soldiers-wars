@@ -11,8 +11,8 @@ import controls.IControlScene;
 
 import flash.display.DisplayObjectContainer;
 
-import soldiers.models.village.housesV.bakery.HouseVBakery;
-import soldiers.models.village.housesV.base.HouseV;
+import soldiers.models.housesVillage.bakery.HouseVBakery;
+import soldiers.models.housesVillage.base.HouseV;
 
 public class ControlHouseViewBakery extends ControlHouseViewV
 {

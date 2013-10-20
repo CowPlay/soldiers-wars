@@ -5,7 +5,7 @@
  * Time: 6:18 PM
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.models.game.housesG.base
+package soldiers.models.housesGame.base
 {
 public final class EHouseOwner
 {

@@ -5,7 +5,7 @@
  * Time: 2:57 PM
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.models.village.housesV.base
+package soldiers.models.housesVillage.base
 {
 public class EHouseVState
 {

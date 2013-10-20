@@ -5,14 +5,14 @@
  * Time: 5:26 PM
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.models.village.housesV.bakery
+package soldiers.models.housesVillage.bakery
 {
 import controls.EControlUpdateTypeBase;
 
 import flash.events.TimerEvent;
 import flash.utils.Timer;
 
-import soldiers.models.village.housesV.base.HouseConfigV;
+import soldiers.models.housesVillage.base.HouseConfigV;
 
 import utils.memory.UtilsMemory;
 

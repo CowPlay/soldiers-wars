@@ -5,14 +5,14 @@
  * Time: 2:53 PM
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.models.village
+package soldiers.models.housesVillage
 {
 import serialization.ISerializable;
 
-import soldiers.models.village.housesV.bakery.HouseVBakery;
-import soldiers.models.village.housesV.base.HouseV;
+import soldiers.models.housesVillage.bakery.HouseVBakery;
+import soldiers.models.housesVillage.base.HouseV;
 
-public class ManagerVillage implements ISerializable
+public class ManagerHousesVillage implements ISerializable
 {
     /*
      * Fields
@@ -35,7 +35,7 @@ public class ManagerVillage implements ISerializable
      */
 
     //! Default constructor
-    public function ManagerVillage()
+    public function ManagerHousesVillage()
     {
         init();
     }

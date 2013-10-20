@@ -2,12 +2,12 @@
  * Created with IntelliJ IDEA.
  * User: gregorytkach
  * Date: 7/4/13
- * Time: 1:48 PM
+ * Time: 1:51 PM
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.models.village.housesV.mines
+package soldiers.models.housesVillage.mines
 {
-public class HouseVillageMineGems extends HouseInfoV
+public class HouseVillageBakeshop extends HouseInfoV
 {
     /*
      * Fields
@@ -17,9 +17,9 @@ public class HouseVillageMineGems extends HouseInfoV
      * Properties
      */
 
-    public override function get type():EHouseVillageType
+    public override function get type():String
     {
-        return EHouseVillageType.EHVT_MINE_GEMS;
+        return EHouseVillageType.EHVT_BAKESHOP;
     }
 
 
@@ -28,16 +28,16 @@ public class HouseVillageMineGems extends HouseInfoV
      */
 
     //! Default constructor
-    public function HouseVillageMineGems(state:EHouseVillageState, level:int)
+    public function HouseVillageBakeshop(state:EHouseVillageState, level:int)
     {
         super(state, level);
+
     }
 
     protected override function canBuild():Boolean
     {
-        Debug.assert(false, "todo: implement");
+        Debug.assert(false, "todo:implement");
         return false;
     }
-
 }
 }

@@ -5,10 +5,10 @@
  * Time: 1:59 PM
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.models.village.housesV
+package soldiers.models.housesVillage.altar
 {
-import soldiers.models.village.housesV.base.EHouseTypeV;
-import soldiers.models.village.housesV.base.HouseV;
+import soldiers.models.housesVillage.base.EHouseTypeV;
+import soldiers.models.housesVillage.base.HouseV;
 
 public class HouseInfoVAltar extends HouseV
 {
