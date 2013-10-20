@@ -13,6 +13,7 @@ public class EPopupType
     public static const EPT_VILLAGE_HOUSE_BUILD:String = "EPT_VILLAGE_HOUSE_BUILD";
     public static const EPT_VILLAGE_HOUSE_TAVERN:String = "EPT_VILLAGE_HOUSE_TAVERN";
     public static const EPT_VILLAGE_HOUSE_UNIVERSITETMM:String = "EPT_VILLAGE_HOUSE_UNIVERSITETMM";
+    public static const EPT_VILLAGE_HOUSE_MILITARYACADEMY:String = "EPT_VILLAGE_HOUSE_MILITARYACADEMY";
 
 }
 }

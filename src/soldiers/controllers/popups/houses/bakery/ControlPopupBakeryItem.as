@@ -72,6 +72,9 @@ public class ControlPopupBakeryItem extends ControlBase
         _sourceViewTyped.iconLock.visible = !_entry.isAvailable;
     }
 
+    /*
+     * IActionDelegate
+     */
     public override function onControlMouseClick(target:IControl, e:MouseEvent):Boolean
     {
         var result:Boolean = super.onControlMouseClick(target, e);

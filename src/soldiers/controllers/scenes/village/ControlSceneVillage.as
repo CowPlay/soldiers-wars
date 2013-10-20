@@ -13,6 +13,7 @@ import flash.events.MouseEvent;
 
 import soldiers.controllers.EPopupType;
 import soldiers.controllers.ESceneType;
+import soldiers.controllers.popups.MilitaryAcademy.ControlPopupMilitaryAcademy;
 import soldiers.controllers.popups.houses.bakery.ControlPopupBakery;
 import soldiers.controllers.popups.houses.build.ControlPopupBuildHouse;
 import soldiers.controllers.popups.tavern.ControlPopupTavern;
@@ -68,13 +69,14 @@ public class ControlSceneVillage extends ControlSceneGameBase
         registerControlPopup(new ControlPopupBakery(this));
         registerControlPopup(new ControlPopupTavern(this));
         registerControlPopup(new ControlPopupUniversityMM(this));
+        registerControlPopup(new ControlPopupMilitaryAcademy(this));
     }
 
     public override function onLoadingEnd():void
     {
         super.onLoadingEnd();
 
-        showPopup(EPopupType.EPT_VILLAGE_HOUSE_BAKERY);
+        showPopup(EPopupType.EPT_VILLAGE_HOUSE_MILITARYACADEMY);
     }
 
     /*
