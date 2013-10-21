@@ -13,7 +13,8 @@ import flash.events.MouseEvent;
 
 import soldiers.controllers.EPopupType;
 import soldiers.controllers.ESceneType;
-import soldiers.controllers.popups.MilitaryAcademy.ControlPopupMilitaryAcademy;
+import soldiers.controllers.popups.merlinTower.ControlPopupMerlinTower;
+import soldiers.controllers.popups.militaryAcademy.ControlPopupMilitaryAcademy;
 import soldiers.controllers.popups.houses.bakery.ControlPopupBakery;
 import soldiers.controllers.popups.houses.build.ControlPopupBuildHouse;
 import soldiers.controllers.popups.tavern.ControlPopupTavern;
@@ -70,13 +71,17 @@ public class ControlSceneVillage extends ControlSceneGameBase
         registerControlPopup(new ControlPopupTavern(this));
         registerControlPopup(new ControlPopupUniversityMM(this));
         registerControlPopup(new ControlPopupMilitaryAcademy(this));
+        registerControlPopup(new ControlPopupMerlinTower(this));
+
     }
 
     public override function onLoadingEnd():void
     {
         super.onLoadingEnd();
 
-        showPopup(EPopupType.EPT_VILLAGE_HOUSE_MILITARYACADEMY);
+        showPopup(EPopupType.EPT_VILLAGE_HOUSE_MERLIN_TOWER);
+//        showPopup(EPopupType.EPT_VILLAGE_HOUSE_UNIVERSITY_MM);
+//        showPopup(EPopupType.EPT_VILLAGE_HOUSE_TAVERN);
     }
 
     /*

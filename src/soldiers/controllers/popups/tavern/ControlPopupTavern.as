@@ -31,9 +31,9 @@ public class ControlPopupTavern extends ControlPopupBase
      */
     private var _sourceViewTyped:gPopupTavern;
 
-    private var _buttonTabMilitaryAcademy:IControlButton
-    private var _buttonTabMerlin:IControlButton
-    private var _buttonTabUniversityMM:IControlButton
+    private var _buttonTabMilitaryAcademy:IControlButton;
+    private var _buttonTabMerlin:IControlButton;
+    private var _buttonTabUniversityMM:IControlButton;
 
     private var _buttonImprove:IControlButton;
     private var _buttonLeft:IControlButton;
@@ -93,16 +93,15 @@ public class ControlPopupTavern extends ControlPopupBase
 
         _items = [];
 
-        var item0:ControlPopupTavernItem = new ControlPopupTavernItem(sceneOwner);
+        var item0:IControl = new ControlPopupTavernItem(sceneOwner);
         _sourceViewTyped.itemsView.placeholder.addChild(item0.sourceView);
         _items.push(item0);
 
-        var item1:ControlPopupTavernItem = new ControlPopupTavernItem(sceneOwner);
+        var item1:IControl = new ControlPopupTavernItem(sceneOwner);
         _sourceViewTyped.itemsView.placeholder.addChild(item1.sourceView);
         _items.push(item1);
 
-        var item3:ControlPopupTavernItem = new ControlPopupTavernItem(sceneOwner);
-
+        var item3:IControl = new ControlPopupTavernItem(sceneOwner);
         _sourceViewTyped.itemsView.placeholder.addChild(item3.sourceView);
         _items.push(item3);
     }
@@ -188,7 +187,7 @@ public class ControlPopupTavern extends ControlPopupBase
     /*
      * Callbacks
      */
-    private function onButtonLeftClicked():void
+    private function onButtonRightClicked():void
     {
         if (_tweenInProgress)
             return;
@@ -217,7 +216,7 @@ public class ControlPopupTavern extends ControlPopupBase
     }
 
 
-    private function onButtonRightClicked():void
+    private function onButtonLeftClicked():void
     {
         if (_tweenInProgress)
             return;

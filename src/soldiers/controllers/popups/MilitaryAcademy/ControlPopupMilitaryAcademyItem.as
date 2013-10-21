@@ -9,7 +9,7 @@
  * Time: 18:44
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.controllers.popups.MilitaryAcademy
+package soldiers.controllers.popups.militaryAcademy
 {
 import controls.IControl;
 import controls.IControlButton;

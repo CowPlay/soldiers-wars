@@ -86,7 +86,7 @@ public class ControlPopupBakery extends ControlPopupHouse
 
         for each(var houseConfig:HouseConfigVBakery in _entry.configs)
         {
-            var itemView:ControlPopupBakeryItem = new ControlPopupBakeryItem(sceneOwner, houseConfig);
+            var itemView:IControl = new ControlPopupBakeryItem(sceneOwner, houseConfig);
             _sourceViewTyped.itemsView.placeholder.addChild(itemView.sourceView);
             _items.push(itemView);
         }
