@@ -15,7 +15,7 @@ import controls.EControlUpdateTypeBase;
 import controls.IControl;
 import controls.IControlButton;
 import controls.IControlScene;
-import controls.implementations.ControlBase;
+import controls.implementations.ControlPopupBase;
 import controls.implementations.buttons.ControlButtonWithLabelsBase;
 
 import flash.events.MouseEvent;
@@ -25,7 +25,7 @@ import soldiers.models.housesVillage.bakery.HouseConfigVBakery;
 import soldiers.models.housesVillage.bakery.HouseVBakery;
 import soldiers.models.housesVillage.base.EHouseTypeV;
 
-public class ControlPopupBakeryItem extends ControlBase
+public class ControlPopupBakeryItem extends ControlPopupBase
 {
     /*
      * Fields

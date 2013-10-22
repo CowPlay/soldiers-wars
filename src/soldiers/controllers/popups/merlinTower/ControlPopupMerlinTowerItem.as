@@ -43,45 +43,24 @@ public class ControlPopupMerlinTowerItem extends ControlBase
 
         _skillViews = [];
 
-        var skillView0:IControl = new SkillView(sceneOwner);
-        skillView0.sourceView.x = 35;
-        skillView0.sourceView.y = -115;
-        _sourceViewTyped.addChild(skillView0.sourceView);
-        _skillViews.push(skillView0);
-
-        var skillView1:IControl = new SkillView(sceneOwner);
-        skillView1.sourceView.x = -35;
-        skillView1.sourceView.y = -115;
-        _sourceViewTyped.addChild(skillView1.sourceView);
-        _skillViews.push(skillView1);
-
-        var skillView2:IControl = new SkillView(sceneOwner);
-        _sourceViewTyped.addChild(skillView2.sourceView);
-        _skillViews.push(skillView2);
-
-        var skillView3:IControl = new SkillView(sceneOwner);
-        _sourceViewTyped.addChild(skillView3.sourceView);
-        _skillViews.push(skillView3);
-
-        var skillView4:IControl = new SkillView(sceneOwner);
-        _sourceViewTyped.addChild(skillView4.sourceView);
-        _skillViews.push(skillView4);
-
-        var skillView5:IControl = new SkillView(sceneOwner);
-        _sourceViewTyped.addChild(skillView5.sourceView);
-        _skillViews.push(skillView5);
-
-        var skillView6:IControl = new SkillView(sceneOwner);
-        _sourceViewTyped.addChild(skillView6.sourceView);
-        _skillViews.push(skillView6);
+        for (var i:int = 0; i < 7; i++)
+        {
+            var skillView:IControl = new SkillView(sceneOwner);
+            _sourceViewTyped.addChild(skillView.sourceView);
+            _skillViews.push(skillView);
+        }
 
     }
-    //TODO:finish method
+
+
     public override function placeViews():void
     {
+        Debug.assert(_skillViews.length == 7);
+
         super.placeViews();
 
-        var skillStandard:IControl = _skillViews [0];
+        var skillStandard:IControl;
+        skillStandard = _skillViews [0];
 
         var startPosition:Point = new Point(-35, -115);
 
@@ -93,28 +72,32 @@ public class ControlPopupMerlinTowerItem extends ControlBase
             objectToIndex.sourceView.x = startPosition.x;
             objectToIndex.sourceView.y = startPosition.y;
 
-            if (i > 0 && i < 3)
+            if (i < 3)
             {
-                startPosition.y = -40 ;
+                startPosition.y += objectToIndex.sourceView.height + 16;
+
+                if (i == 2)
+                {
+                    startPosition.x = 35;
+                    startPosition.y = -115;
+                }
             }
             else
             {
-                if (i > 2 && i < 6)
+                if (i > 1 && i < 5)
                 {
-                    startPosition.x = 0;
-                    startPosition.y = 0;
+                    startPosition.y += objectToIndex.sourceView.height + 16;
                 }
                 else
                 {
-                    if(i == 6)
+                    if (i == 5)
                     {
                         startPosition.x = 0;
-                        startPosition.y = 70;
+                        startPosition.y = 120;
                     }
 
                 }
             }
-
         }
     }
 

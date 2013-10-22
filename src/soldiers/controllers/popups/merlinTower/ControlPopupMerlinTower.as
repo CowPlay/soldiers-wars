@@ -97,7 +97,7 @@ public class ControlPopupMerlinTower extends ControlPopupBase
         var itemStandard:IControl = _items[0];
 
         var startPosition:Point = new Point(_sourceViewTyped.width / 4 - itemStandard.sourceView.width / 2,
-                _sourceViewTyped.height - itemStandard.sourceView.height - 55);
+                _sourceViewTyped.height - itemStandard.sourceView.height - 110);
 
         for each(var item:IControl in _items)
         {
