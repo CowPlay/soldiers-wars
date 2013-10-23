@@ -10,7 +10,7 @@ package soldiers.models.housesVillage.mineGold
 import soldiers.models.housesVillage.base.EHouseTypeV;
 import soldiers.models.housesVillage.base.HouseV;
 
-public class HouseVMiniGold extends HouseV
+public class HouseVMineGold extends HouseV
 {
     /*
      * Fields
@@ -21,7 +21,7 @@ public class HouseVMiniGold extends HouseV
      */
     public override function get type():String
     {
-        return EHouseTypeV.EHVT_MINE_GOLD;
+        return EHouseTypeV.EHTV_MINE_GOLD;
     }
 
     public function get currentConfig():HouseConfigVMineGold
@@ -40,9 +40,23 @@ public class HouseVMiniGold extends HouseV
      */
 
     //! Default constructor
-    public function HouseVMiniGold()
+    public function HouseVMineGold()
     {
     }
 
+    public function onBuildConfig(config:HouseConfigVMineGold):void
+    {
+        Debug.assert(config != null);
+        Debug.assert(config.isAvailable);
+
+        config.timerStart(onConfigTimerComplete)
+    }
+
+    private function onConfigTimerComplete(config:HouseConfigVMineGold):void
+    {
+        Debug.assert(config != null);
+
+        Debug.log("add bread");
+    }
 }
 }

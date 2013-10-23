@@ -51,7 +51,7 @@ public class ControlHouseViewV extends ControlBase
         for each(var levelConfig:HouseConfigV in _entryBase.configs)
         {
             var levelViewName:String = StringUtil.substitute("level_{0}", levelConfig.level);
-            Debug.assert(sourceViewValue.hasOwnProperty(levelViewName));
+            Debug.assert(sourceViewValue.hasOwnProperty(levelViewName), StringUtil.substitute("Not found view with name: {0}",levelViewName));
 
             sourceViewValue[levelViewName].visible = levelConfig.level == entry.level;
         }

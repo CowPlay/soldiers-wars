@@ -11,6 +11,7 @@ import serialization.ISerializable;
 
 import soldiers.models.housesVillage.bakery.HouseVBakery;
 import soldiers.models.housesVillage.base.HouseV;
+import soldiers.models.housesVillage.mineGold.HouseVMineGold;
 
 public class ManagerHousesVillage implements ISerializable
 {
@@ -96,9 +97,13 @@ public class ManagerHousesVillage implements ISerializable
         //load houses
         _houses = [];
 
-        var house:HouseV = new HouseVBakery();
-        house.deserialize(housesData["bakery"]);
-        _houses.push(house);
+        var houseVBakery:HouseV = new HouseVBakery();
+        houseVBakery.deserialize(housesData["bakery"]);
+        _houses.push(houseVBakery);
+
+        var houseVMimeGold:HouseV = new HouseVMineGold();
+        houseVMimeGold.deserialize(housesData["mineGold"]);
+        _houses.push(houseVMimeGold);
     }
 
     /*

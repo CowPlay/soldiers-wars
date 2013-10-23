@@ -7,9 +7,14 @@
  */
 package soldiers.models.housesVillage.mineGold
 {
+import controls.EControlUpdateTypeBase;
+
+import flash.events.TimerEvent;
 import flash.utils.Timer;
 
 import soldiers.models.housesVillage.base.HouseConfigV;
+
+import utils.memory.UtilsMemory;
 
 public class HouseConfigVMineGold extends HouseConfigV
 {
@@ -55,8 +60,57 @@ public class HouseConfigVMineGold extends HouseConfigV
 
     public function timerStart(onComplete:Function):void
     {
+        Debug.assert(onComplete != null);
+        Debug.assert(_timer == null);
 
+        _timerCallback = onComplete;
+
+
+        _timer = new Timer(1000, _time);
+        UtilsMemory.registerEventListener(_timer, TimerEvent.TIMER, this, onTimerTick);
+        UtilsMemory.registerEventListener(_timer, TimerEvent.TIMER_COMPLETE, this, onTimerComplete);
+        _timer.start();
     }
 
+    public function onTimerTick(e:TimerEvent):void
+    {
+        _timeLeft--;
+
+        if (view != null)
+        {
+            view.update(EControlUpdateTypeBase.ECUT_ENTRY_UPDATED);
+        }
+    }
+
+    public function onTimerComplete(e:TimerEvent):void
+    {
+        UtilsMemory.unregisterEventListener(_timer, TimerEvent.TIMER, this, onTimerTick);
+        UtilsMemory.unregisterEventListener(_timer, TimerEvent.TIMER_COMPLETE, this, onTimerComplete);
+        _timer = null;
+
+        _timeLeft = _time;
+
+        if (view != null)
+        {
+            view.update(EControlUpdateTypeBase.ECUT_ENTRY_UPDATED);
+        }
+
+        _timerCallback(this);
+    }
+
+    /*
+     *ISerialize
+     */
+    public override function deserialize(data:Object):void
+    {
+        super.deserialize(data);
+
+        Debug.assert(data.hasOwnProperty("time"));
+        Debug.assert(data.hasOwnProperty("count"));
+
+        _time = data["time"];
+        _timeLeft = _time;
+        _count = data["count"];
+    }
 }
 }

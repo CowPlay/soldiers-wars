@@ -26,13 +26,19 @@ import flash.events.MouseEvent;
 import flash.geom.Point;
 
 import soldiers.controllers.EPopupType;
+import soldiers.models.GameInfo;
+import soldiers.models.housesVillage.base.EHouseTypeV;
+import soldiers.models.housesVillage.mineGold.HouseConfigVMineGold;
+import soldiers.models.housesVillage.mineGold.HouseVMineGold;
 
 public class ControlPopupMineGold extends ControlPopupBase
 {
     /*
      * Fields
      */
-        private var _sourceViewTyped:gPopupMineGold;
+
+    private var _entry:HouseVMineGold;
+    private var _sourceViewTyped:gPopupMineGold;
 
     private var _buttonImprove:IControlButton;
     private var _buttonLeft:IControlButton;
@@ -49,6 +55,7 @@ public class ControlPopupMineGold extends ControlPopupBase
     {
         return EPopupType.EPT_VILLAGE_HOUSE_MINE_GOLD;
     }
+
     /*
      * Methods
      */
@@ -63,6 +70,8 @@ public class ControlPopupMineGold extends ControlPopupBase
 
     private function init():void
     {
+        _entry = GameInfo.instance.managerHousesVillage.getHouseByType(EHouseTypeV.EHTV_MINE_GOLD) as HouseVMineGold;
+
         _sourceViewTyped = new gPopupMineGold();
         setSourceView(_sourceViewTyped);
 
@@ -82,17 +91,12 @@ public class ControlPopupMineGold extends ControlPopupBase
 
         _items = [];
 
-        var itemView0:IControl = new ControlPopupMineGoldItem(sceneOwner);
-        _sourceViewTyped.itemsView.placeholder.addChild(itemView0.sourceView);
-        _items.push(itemView0);
-
-        var itemView1:IControl = new ControlPopupMineGoldItem(sceneOwner);
-        _sourceViewTyped.itemsView.placeholder.addChild(itemView1.sourceView);
-        _items.push(itemView1);
-
-        var itemView2:IControl = new ControlPopupMineGoldItem(sceneOwner);
-        _sourceViewTyped.itemsView.placeholder.addChild(itemView2.sourceView);
-        _items.push(itemView2);
+        for each(var houseConfig:HouseConfigVMineGold in _entry.configs)
+        {
+            var itemView:IControl = new ControlPopupMineGoldItem(sceneOwner, houseConfig);
+            _sourceViewTyped.itemsView.placeholder.addChild(itemView.sourceView);
+            _items.push(itemView);
+        }
     }
 
     public override function placeViews():void
@@ -128,6 +132,8 @@ public class ControlPopupMineGold extends ControlPopupBase
             {
                 case _buttonImprove:
                 {
+
+
                     result = true;
                     break;
                 }
