@@ -262,7 +262,7 @@ public class ManagerProxy implements IManagerProxy
 
         var result:Object =
         {
-            level: 2,
+            level: 1,
 
             config: [mineGoldConfigLevel1, mineGoldConfigLevel2, mineGoldConfigLevel3]
         };

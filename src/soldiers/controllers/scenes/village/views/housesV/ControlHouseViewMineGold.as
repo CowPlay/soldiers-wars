@@ -22,7 +22,7 @@ public class ControlHouseViewMineGold extends ControlHouseViewV
 {
     /*
      * Fields
-    */
+     */
 
     /*
      * Properties

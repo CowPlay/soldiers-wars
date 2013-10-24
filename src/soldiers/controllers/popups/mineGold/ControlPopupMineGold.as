@@ -12,7 +12,6 @@
 package soldiers.controllers.popups.mineGold
 {
 import com.greensock.TweenLite;
-import com.greensock.loading.display.ContentDisplay;
 
 import controls.IControl;
 import controls.IControlButton;
@@ -25,11 +24,14 @@ import flash.events.MouseEvent;
 
 import flash.geom.Point;
 
+import models.interfaces.social.IManagerSocial;
+
 import soldiers.controllers.EPopupType;
 import soldiers.models.GameInfo;
 import soldiers.models.housesVillage.base.EHouseTypeV;
 import soldiers.models.housesVillage.mineGold.HouseConfigVMineGold;
 import soldiers.models.housesVillage.mineGold.HouseVMineGold;
+import soldiers.models.proxy.ManagerProxy;
 
 public class ControlPopupMineGold extends ControlPopupBase
 {
@@ -132,7 +134,7 @@ public class ControlPopupMineGold extends ControlPopupBase
             {
                 case _buttonImprove:
                 {
-
+                    onButtonImproveClicked();
 
                     result = true;
                     break;
@@ -166,6 +168,15 @@ public class ControlPopupMineGold extends ControlPopupBase
     /*
      * Callbacks
      */
+      private function onButtonImproveClicked():void
+      {
+         _entry.level = 3;
+          var itemView:ControlPopupMineGoldItem = _items[2];
+          _sourceViewTyped.itemsView.placeholder.removeChild(itemView.sourceView);
+
+          _sourceViewTyped.itemsView.placeholder.addChild(itemView.sourceView);
+      }
+
     private function onButtonRightClicked():void
     {
         if (_tweenInProgress)
