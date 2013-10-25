@@ -50,7 +50,7 @@ public class HouseG implements ISerializable
 
     private var _isSelect:Boolean;
 
-    private var _configs:Dictionary;
+    private var _levelsInfo:Dictionary;
     /*
      * Properties
      */
@@ -165,9 +165,9 @@ public class HouseG implements ISerializable
         _soldierCount = value;
     }
 
-    public function get currentConfig():HouseConfigG
+    public function get currentLevelInfo():HouseGLevelInfo
     {
-        return _configs[_level];
+        return _levelsInfo[_level];
     }
 
 
@@ -182,15 +182,15 @@ public class HouseG implements ISerializable
 
     public function onGameStart():void
     {
-        var configs:Array = GameInfo.instance.managerHousesGame.getConfigsForHouse(type);
+        var levelsInfo:Array = GameInfo.instance.managerHousesGame.getLevelsInfoForHouse(type);
 
-        _configs = new Dictionary(true);
+        _levelsInfo = new Dictionary(true);
 
-        for each(var config:HouseConfigG in configs)
+        for each(var levelInfo:HouseGLevelInfo in levelsInfo)
         {
-            _configs[config.level] = config;
+            _levelsInfo[levelInfo.level] = levelInfo;
 
-            _levelMax = Math.max(config.level, _levelMax);
+            _levelMax = Math.max(levelInfo.level, _levelMax);
         }
     }
 

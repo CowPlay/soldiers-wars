@@ -25,14 +25,14 @@ public class HouseVBakery extends HouseV
         return EHouseTypeV.EHTV_BAKERY;
     }
 
-    public function get currentConfig():HouseConfigVBakery
+    public function get currentLevelInfo():HouseLevelInfoVBakery
     {
-        return configs[level];
+        return levelsInfo[level];
     }
 
-    protected override function get configClass():Class
+    protected override function get levelInfoClass():Class
     {
-        return HouseConfigVBakery;
+        return HouseLevelInfoVBakery;
     }
 
 
@@ -47,17 +47,17 @@ public class HouseVBakery extends HouseV
     {
     }
 
-    public function onBuildConfig(config:HouseConfigVBakery):void
+    public function onBuild(levelInfo:HouseLevelInfoVBakery):void
     {
-        Debug.assert(config != null);
-        Debug.assert(config.isAvailable);
+        Debug.assert(levelInfo != null);
+        Debug.assert(levelInfo.isAvailable);
 
-        config.timerStart(onConfigTimerComplete)
+        levelInfo.timerStart(onBuildComplete)
     }
 
-    private function onConfigTimerComplete(config:HouseConfigVBakery):void
+    private function onBuildComplete(levelInfo:HouseLevelInfoVBakery):void
     {
-        Debug.assert(config != null);
+        Debug.assert(levelInfo != null);
 
         Debug.log("add bread");
     }

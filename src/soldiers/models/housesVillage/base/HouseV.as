@@ -26,10 +26,8 @@ public class HouseV implements ISerializable
 
     private var _level:uint;
 
-    //Container, which contains config for all levels.
     //key - level number, value - config object
-    private var _configs:Dictionary;
-
+    private var _levelsInfo:Dictionary;
 
     private var _state:String;
 
@@ -84,13 +82,13 @@ public class HouseV implements ISerializable
 
     }
 
-    public function get configs():Dictionary
+    public function get levelsInfo():Dictionary
     {
-        return _configs;
+        return _levelsInfo;
     }
 
 
-    protected function get configClass():Class
+    protected function get levelInfoClass():Class
     {
         Debug.assert(false, "Please implement in derived classes");
         return null;
@@ -170,24 +168,24 @@ public class HouseV implements ISerializable
     {
         Debug.assert(data.hasOwnProperty("level"));
 
-        Debug.assert(data.hasOwnProperty("config"));
-        Debug.assert(data["config"] is Array);
+        Debug.assert(data.hasOwnProperty("levels_info"));
+        Debug.assert(data["levels_info"] is Array);
 
-        _configs = new Dictionary(true);
+        _levelsInfo = new Dictionary(true);
 
         _level = data["level"];
 
-        var config:Array = data["config"];
+        var levelsInfo:Array = data["levels_info"];
 
-        var configType:Class = this.configClass;
+        var levelInfoType:Class = this.levelInfoClass;
 
-        for each(var levelConfigData:Object in config)
+        for each(var levelInfoData:Object in levelsInfo)
         {
-            var levelConfig:HouseConfigV = new configType();
-            levelConfig.deserialize(levelConfigData);
-            _configs[levelConfig.level] = levelConfig;
+            var levelInfo:HouseLevelInfoV = new levelInfoType();
+            levelInfo.deserialize(levelInfoData);
+            _levelsInfo[levelInfo.level] = levelInfo;
 
-            levelConfig.isAvailable = levelConfig.level <= _level;
+            levelInfo.isAvailable = levelInfo.level <= _level;
         }
     }
 

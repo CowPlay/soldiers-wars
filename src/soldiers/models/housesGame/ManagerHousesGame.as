@@ -11,16 +11,22 @@ import flash.utils.Dictionary;
 
 import serialization.ISerializable;
 
-import soldiers.models.housesGame.barracks.HouseConfigGBarracks;
+import soldiers.models.housesGame.barracks.HouseGConfigBarracks;
+
+import soldiers.models.housesGame.barracks.HouseGLevelInfoBarracks;
 import soldiers.models.housesGame.base.EHouseTypeG;
+import soldiers.models.housesGame.base.HouseGConfig;
 
 public class ManagerHousesGame implements ISerializable
 {
     /*
      * Fields
      */
-    //Contains all default configs for game houses
-    private var _configs:Dictionary;
+    //Contains levels info for game houses
+    //key - house type, value - array of levels info
+    private var _housesLevelsInfo:Dictionary;
+
+    private var _housesConfigBarracks:HouseGConfigBarracks;
     /*
      * Properties
      */
@@ -34,10 +40,19 @@ public class ManagerHousesGame implements ISerializable
     {
     }
 
-    //! Returns array of configs for specify house
-    public function getConfigsForHouse(type:String):Array
+    public function getHouseConfig(type:String):HouseGConfig
     {
-        var result:Array = _configs[type];
+        var result:HouseGConfig;
+
+
+
+        return
+    }
+
+    //! Returns array of levels info for specify house
+    public function getLevelsInfoForHouse(type:String):Array
+    {
+        var result:Array = _housesLevelsInfo[type];
 
         Debug.assert(result != null);
 
@@ -58,23 +73,23 @@ public class ManagerHousesGame implements ISerializable
     {
         Debug.assert(data != null);
 
-        _configs = new Dictionary(true);
+        _housesLevelsInfo = new Dictionary(true);
 
         Debug.assert(data.hasOwnProperty("barracks"));
         Debug.assert(data["barracks"] is Array);
 
-        var barracksConfigsData:Array = data["barracks"];
+        var barracksLevelsData:Array = data["barracks"];
 
-        var barracksConfigs:Array = [];
+        var barracksLevels:Array = [];
 
-        for each(var barrackLevelConfig:Object in barracksConfigsData)
+        for each(var barrackLevelData:Object in barracksLevelsData)
         {
-            var barracksConfig:HouseConfigGBarracks = new HouseConfigGBarracks();
-            barracksConfig.deserialize(barrackLevelConfig);
-            barracksConfigs.push(barracksConfig);
+            var barracksLevel:HouseGLevelInfoBarracks = new HouseGLevelInfoBarracks();
+            barracksLevel.deserialize(barrackLevelData);
+            barracksLevels.push(barracksLevel);
         }
 
-        _configs[EHouseTypeG.EHGT_BARRACKS] = barracksConfigs;
+        _housesLevelsInfo[EHouseTypeG.EHGT_BARRACKS] = barracksLevels;
     }
 
     /*

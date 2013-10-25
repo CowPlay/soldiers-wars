@@ -9,7 +9,7 @@ package soldiers.models.housesGame.base
 {
 import serialization.ISerializable;
 
-public class HouseConfigG implements ISerializable
+public class HouseGLevelInfo implements ISerializable
 {
     /*
      * Fields
@@ -37,7 +37,7 @@ public class HouseConfigG implements ISerializable
      */
 
     //! Default constructor
-    public function HouseConfigG()
+    public function HouseGLevelInfo()
     {
         init();
     }

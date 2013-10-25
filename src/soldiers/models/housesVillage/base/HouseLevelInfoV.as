@@ -11,7 +11,7 @@ import controls.IControl;
 
 import serialization.ISerializable;
 
-public class HouseConfigV implements ISerializable
+public class HouseLevelInfoV implements ISerializable
 {
     /*
      * Fields
@@ -57,7 +57,7 @@ public class HouseConfigV implements ISerializable
      */
 
     //! Default constructor
-    public function HouseConfigV()
+    public function HouseLevelInfoV()
     {
     }
 

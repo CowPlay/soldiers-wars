@@ -7,9 +7,9 @@
  */
 package soldiers.models.housesGame.barracks
 {
-import soldiers.models.housesGame.base.HouseConfigG;
+import soldiers.models.housesGame.base.HouseGLevelInfo;
 
-public class HouseConfigGBarracks extends HouseConfigG
+public class HouseGLevelInfoBarracks extends HouseGLevelInfo
 {
     /*
      * Fields
@@ -24,7 +24,7 @@ public class HouseConfigGBarracks extends HouseConfigG
      */
 
     //! Default constructor
-    public function HouseConfigGBarracks()
+    public function HouseGLevelInfoBarracks()
     {
         init();
     }
