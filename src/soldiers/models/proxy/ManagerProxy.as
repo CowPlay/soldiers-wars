@@ -118,6 +118,7 @@ public class ManagerProxy implements IManagerProxy
         var level0Data:Object =
         {
             id: "",
+            name: "",
             description: "",
             number: 0,
             complete: false,
@@ -187,10 +188,13 @@ public class ManagerProxy implements IManagerProxy
     public function getHousesVillage(dataObj:Object):Object
     {
         var bakeryData:Object = getBakeryData();
+        var mineGoldData:Object = getMineGoldData();
+
 
         var housesData:Object =
         {
-            bakery: bakeryData
+            bakery: bakeryData,
+            mineGold:mineGoldData
         };
 
         var result:Object =
@@ -233,6 +237,40 @@ public class ManagerProxy implements IManagerProxy
 
         return result;
     }
+
+    private static function getMineGoldData():Object
+    {
+        var mineGoldConfigLevel1:Object =
+        {
+            level: 1,
+            time: 5,
+            count: 5
+        };
+
+        var mineGoldConfigLevel2:Object =
+        {
+            level: 2,
+            time: 100,
+            count: 20
+        };
+
+        var mineGoldConfigLevel3:Object =
+        {
+            level: 3,
+            time: 300,
+            count: 50
+        };
+
+        var result:Object =
+        {
+            level: 2,
+
+            levels_info: [mineGoldConfigLevel1, mineGoldConfigLevel2, mineGoldConfigLevel3]
+        };
+
+        return result;
+    }
+
 
     public function getPlayersData(dataObj:Object):Object
     {

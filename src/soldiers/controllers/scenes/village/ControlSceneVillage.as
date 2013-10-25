@@ -13,8 +13,11 @@ import flash.events.MouseEvent;
 
 import soldiers.controllers.EPopupType;
 import soldiers.controllers.ESceneType;
+import soldiers.controllers.popups.merlinTower.ControlPopupMerlinTower;
+import soldiers.controllers.popups.militaryAcademy.ControlPopupMilitaryAcademy;
 import soldiers.controllers.popups.houses.bakery.ControlPopupBakery;
 import soldiers.controllers.popups.houses.build.ControlPopupBuildHouse;
+import soldiers.controllers.popups.mineGold.ControlPopupMineGold;
 import soldiers.controllers.popups.tavern.ControlPopupTavern;
 import soldiers.controllers.popups.universityMM.ControlPopupUniversityMM;
 import soldiers.controllers.scenes.base.ControlSceneGameBase;
@@ -68,13 +71,21 @@ public class ControlSceneVillage extends ControlSceneGameBase
         registerControlPopup(new ControlPopupBakery(this));
         registerControlPopup(new ControlPopupTavern(this));
         registerControlPopup(new ControlPopupUniversityMM(this));
+        registerControlPopup(new ControlPopupMilitaryAcademy(this));
+        registerControlPopup(new ControlPopupMerlinTower(this));
+        registerControlPopup(new ControlPopupMineGold(this));
+
     }
 
     public override function onLoadingEnd():void
     {
         super.onLoadingEnd();
 
-        showPopup(EPopupType.EPT_VILLAGE_HOUSE_BAKERY);
+//        showPopup(EPopupType.EPT_VILLAGE_HOUSE_MERLIN_TOWER);
+//        showPopup(EPopupType.EPT_VILLAGE_HOUSE_UNIVERSITY_MM);
+//        showPopup(EPopupType.EPT_VILLAGE_HOUSE_TAVERN);
+        showPopup(EPopupType.EPT_VILLAGE_HOUSE_MINE_GOLD);
+
     }
 
     /*

@@ -1,15 +1,11 @@
-/*
- * Copyright gregory.tkach (c) 2013.
- */
-
 /**
  * Created with IntelliJ IDEA.
  * User: user
- * Date: 18.10.13
- * Time: 11:28
+ * Date: 22.10.13
+ * Time: 14:08
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.controllers.popups.houses.bakery
+package soldiers.controllers.popups.mineGold
 {
 import controls.EControlUpdateTypeBase;
 import controls.IControl;
@@ -21,31 +17,30 @@ import controls.implementations.buttons.ControlButtonWithLabelsBase;
 import flash.events.MouseEvent;
 
 import soldiers.models.GameInfo;
-import soldiers.models.housesVillage.bakery.HouseLevelInfoVBakery;
-import soldiers.models.housesVillage.bakery.HouseVBakery;
 import soldiers.models.housesVillage.base.EHouseTypeV;
 
-public class ControlPopupBakeryItem extends ControlPopupBase
+import soldiers.models.housesVillage.mineGold.HouseLevelInfoVMineGold;
+import soldiers.models.housesVillage.mineGold.HouseVMineGold;
+
+public class ControlPopupMineGoldItem extends ControlPopupBase
 {
     /*
-     * Fields
+     *Fields
      */
-    private var _entry:HouseLevelInfoVBakery;
+    private var _entry:HouseLevelInfoVMineGold;
 
-    private var _sourceViewTyped:gPopupBakeryItem;
+    private var _sourceViewTyped:gPopupMineGoldItem;
 
     private var _buttonBuild:IControlButton;
 
     /*
-     * Properties
+     *Properties
      */
-
 
     /*
-     * Methods
+     *Methods
      */
-
-    public function ControlPopupBakeryItem(sceneOwner:IControlScene, entry:HouseLevelInfoVBakery)
+    public function ControlPopupMineGoldItem(sceneOwner:IControlScene, entry:HouseLevelInfoVMineGold)
     {
         super(sceneOwner);
 
@@ -59,7 +54,7 @@ public class ControlPopupBakeryItem extends ControlPopupBase
 
     private function init():void
     {
-        _sourceViewTyped = new gPopupBakeryItem();
+        _sourceViewTyped = new gPopupMineGoldItem();
         setSourceView(_sourceViewTyped);
 
         _buttonBuild = new ControlButtonWithLabelsBase(sceneOwner, _sourceViewTyped.buttonBuild);
@@ -85,9 +80,9 @@ public class ControlPopupBakeryItem extends ControlPopupBase
             {
                 case _buttonBuild:
                 {
-                    var houseBakery:HouseVBakery = GameInfo.instance.managerHousesVillage.getHouseByType(EHouseTypeV.EHTV_BAKERY) as HouseVBakery;
+                    var houseMineGold:HouseVMineGold = GameInfo.instance.managerHousesVillage.getHouseByType(EHouseTypeV.EHTV_MINE_GOLD) as HouseVMineGold;
 
-                    houseBakery.onBuild(_entry);
+                    houseMineGold.onBuildConfig(_entry);
 
                     _buttonBuild.enabled = false;
 
@@ -108,7 +103,6 @@ public class ControlPopupBakeryItem extends ControlPopupBase
     /*
      * IControl
      */
-
     public override function update(type:String = ""):void
     {
         switch (type)
@@ -135,8 +129,7 @@ public class ControlPopupBakeryItem extends ControlPopupBase
     public override function placeViews():void
     {
         super.placeViews();
-
-
     }
+
 }
 }

@@ -40,15 +40,6 @@ public class ManagerHousesGame implements ISerializable
     {
     }
 
-    public function getHouseConfig(type:String):HouseGConfig
-    {
-        var result:HouseGConfig;
-
-
-
-        return
-    }
-
     //! Returns array of levels info for specify house
     public function getLevelsInfoForHouse(type:String):Array
     {

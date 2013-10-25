@@ -26,7 +26,7 @@ public class HouseV implements ISerializable
 
     private var _level:uint;
 
-    //key - level number, value - config object
+    //key - level number, value - level info object
     private var _levelsInfo:Dictionary;
 
     private var _state:String;

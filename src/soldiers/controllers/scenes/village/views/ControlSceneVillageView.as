@@ -24,6 +24,7 @@ import flash.events.MouseEvent;
 import soldiers.controllers.EPopupType;
 import soldiers.controllers.scenes.village.views.housesV.ControlHouseViewAltar;
 import soldiers.controllers.scenes.village.views.housesV.ControlHouseViewBakery;
+import soldiers.controllers.scenes.village.views.housesV.ControlHouseViewMineGold;
 import soldiers.models.GameInfo;
 import soldiers.models.housesVillage.base.EHouseTypeV;
 import soldiers.models.housesVillage.base.HouseV;
@@ -38,6 +39,7 @@ public class ControlSceneVillageView extends ControlBase
 
     private var _houseAltar:IControl;
     private var _houseBakery:IControl;
+    private var _houseMineGold:IControl;
 
 
     /*
@@ -63,11 +65,11 @@ public class ControlSceneVillageView extends ControlBase
 
         setSourceView(_controlScroll.sourceView as DisplayObjectContainer);
 
-//        GameInfo.Instance.managerVillage.getHouseByType(EHouseVillageType.EHVT_MINE_GOLD).view = _sourceViewTyped.buttonHouseMineGold;
-//        GameInfo.Instance.villageManager.getHouseByType(EHouseVillageType.EHVT_CASTLE).view = _sceneView.buttonHouseCastle;
-//        GameInfo.Instance.villageManager.getHouseByType(EHouseVillageType.EHVT_MARKET).view = _sceneView.buttonHouseMarket;
-//        GameInfo.Instance.villageManager.getHouseByType(EHouseVillageType.EHVT_MILITARY_ACADEMY).view = _sceneView.buttonHouseMilitaryAcademy;
-//        GameInfo.Instance.villageManager.getHouseByType(EHouseVillageType.EHVT_TAVERN).view = _sceneView.buttonHouseTavern;
+//        GameInfo.Instance.managerVillage.getHouseByType(EHouseVillageType.EHTV_MINE_GOLD).view = _sourceViewTyped.buttonHouseMineGold;
+//        GameInfo.Instance.villageManager.getHouseByType(EHouseVillageType.EHTV_CASTLE).view = _sceneView.buttonHouseCastle;
+//        GameInfo.Instance.villageManager.getHouseByType(EHouseVillageType.EHTV_MARKET).view = _sceneView.buttonHouseMarket;
+//        GameInfo.Instance.villageManager.getHouseByType(EHouseVillageType.EHTV_MILITARY_ACADEMY).view = _sceneView.buttonHouseMilitaryAcademy;
+//        GameInfo.Instance.villageManager.getHouseByType(EHouseVillageType.EHTV_TAVERN).view = _sceneView.buttonHouseTavern;
 
         initHouses();
     }
@@ -90,6 +92,13 @@ public class ControlSceneVillageView extends ControlBase
                 {
                     _houseBakery = new ControlHouseViewBakery(sceneOwner, house, _sourceViewTyped.houseBakery);
                     _houseBakery.actionDelegate = this;
+
+                    break;
+                }
+                case EHouseTypeV.EHTV_MINE_GOLD:
+                {
+                    _houseMineGold = new ControlHouseViewMineGold(sceneOwner, house, _sourceViewTyped.houseMineGold);
+                    _houseMineGold.actionDelegate = this;
 
                     break;
                 }
@@ -117,6 +126,9 @@ public class ControlSceneVillageView extends ControlBase
         _houseBakery.cleanup();
         _houseBakery = null;
 
+        _houseMineGold.cleanup();
+        _houseMineGold = null;
+
         _controlScroll.cleanup();
         _controlScroll = null;
 
@@ -139,6 +151,12 @@ public class ControlSceneVillageView extends ControlBase
                 case _houseBakery:
                 {
                     sceneOwner.showPopup(EPopupType.EPT_VILLAGE_HOUSE_BAKERY);
+                    result = true;
+                    break;
+                }
+                case _houseMineGold:
+                {
+                    sceneOwner.showPopup(EPopupType.EPT_VILLAGE_HOUSE_MINE_GOLD);
                     result = true;
                     break;
                 }

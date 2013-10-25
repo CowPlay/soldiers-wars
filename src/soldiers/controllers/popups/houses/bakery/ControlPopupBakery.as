@@ -73,20 +73,21 @@ public class ControlPopupBakery extends ControlPopupHouse
         var buttonClose:IControl = new ControlButtonBase(sceneOwner, _sourceViewTyped.buttonClose);
         setButtonClose(buttonClose);
 
+        _buttonImprove = new ControlButtonWithLabelsBase(sceneOwner, _sourceViewTyped.buttonImprove);
+        _buttonImprove.actionDelegate = this;
+
         _buttonLeft = new ControlButtonBase(sceneOwner, _sourceViewTyped.buttonLeft);
         _buttonLeft.actionDelegate = this;
 
         _buttonRight = new ControlButtonBase(sceneOwner, _sourceViewTyped.buttonRight);
         _buttonRight.actionDelegate = this;
 
-        _buttonImprove = new ControlButtonWithLabelsBase(sceneOwner, _sourceViewTyped.buttonImprove);
-        _buttonImprove.actionDelegate = this;
 
         _items = [];
 
         for each(var levelInfo:HouseLevelInfoVBakery in _entry.levelsInfo)
         {
-            var itemView:ControlPopupBakeryItem = new ControlPopupBakeryItem(sceneOwner, levelInfo);
+            var itemView:IControl = new ControlPopupBakeryItem(sceneOwner, levelInfo);
             _sourceViewTyped.itemsView.placeholder.addChild(itemView.sourceView);
             _items.push(itemView);
         }

@@ -12,13 +12,13 @@ public class EHouseTypeV
     public static var EHTV_ALTAR:String = "EHTV_ALTAR";
     public static var EHTV_BAKERY:String = "EHTV_BAKERY";
 
-    public static var EHVT_CASTLE:String = "EHVT_CASTLE";
-    public static var EHVT_HALL_OF_FAMES:String = "EHVT_HALL_OF_FAMES";
-    public static var EHVT_MARKET:String = "EHVT_MARKET";
-    public static var EHVT_MILITARY_ACADEMY:String = "EHVT_MILITARY_ACADEMY";
-    public static var EHVT_MINE_GEMS:String = "EHVT_MINE_GEMS";
-    public static var EHVT_MINE_GOLD:String = "EHVT_MINE_GOLD";
-    public static var EHVT_TAVERN:String = "EHVT_TAVERN";
-    public static var EHVT_TOWE_OF_MAGIC:String = "EHVT_TOWE_OF_MAGIC";
+    public static var EHTV_CASTLE:String = "EHTV_CASTLE";
+    public static var EHTV_HALL_OF_FAMES:String = "EHTV_HALL_OF_FAMES";
+    public static var EHTV_MARKET:String = "EHTV_MARKET";
+    public static var EHTV_MILITARY_ACADEMY:String = "EHTV_MILITARY_ACADEMY";
+    public static var EHTV_MINE_GEMS:String = "EHTV_MINE_GEMS";
+    public static var EHTV_MINE_GOLD:String = "EHTV_MINE_GOLD";
+    public static var EHTV_TAVERN:String = "EHTV_TAVERN";
+    public static var EHTV_TOWE_OF_MAGIC:String = "EHTV_TOWE_OF_MAGIC";
 }
 }
