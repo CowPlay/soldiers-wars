@@ -61,7 +61,7 @@ public class ControlSceneVillageView extends ControlBase
     private function init():void
     {
         _sourceViewTyped = new gSceneVillage();
-        _controlScroll = new ControlScrollBase(sceneOwner, _sourceViewTyped, GameInfo.instance.managerApp.applicationSize)
+        _controlScroll = new ControlScrollBase(sceneOwner, _sourceViewTyped, GameInfo.instance.managerApp.applicationSize);
 
         setSourceView(_controlScroll.sourceView as DisplayObjectContainer);
 
@@ -120,8 +120,8 @@ public class ControlSceneVillageView extends ControlBase
 
     public override function cleanup():void
     {
-        _houseAltar.cleanup();
-        _houseAltar = null;
+//        _houseAltar.cleanup();
+//        _houseAltar = null;
 
         _houseBakery.cleanup();
         _houseBakery = null;
@@ -133,6 +133,7 @@ public class ControlSceneVillageView extends ControlBase
         _controlScroll = null;
 
         _sourceViewTyped = null;
+
 
         super.cleanup();
     }

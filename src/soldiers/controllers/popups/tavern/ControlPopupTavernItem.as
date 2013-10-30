@@ -80,5 +80,15 @@ public class ControlPopupTavernItem  extends ControlBase
 
 
     }
+
+    public override function cleanup():void
+    {
+        _buttonAccelerate.cleanup();
+        _buttonAccelerate = null;
+
+        _sourceViewTyped = null;
+
+        super.cleanup();
+    }
 }
 }

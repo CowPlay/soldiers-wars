@@ -22,6 +22,7 @@ import models.interfaces.remote.IResponse;
 
 import soldiers.controllers.ESceneType;
 import soldiers.controllers.scenes.game.ControlSceneGame;
+import soldiers.controllers.scenes.map.ControlSceneMap;
 import soldiers.controllers.scenes.village.ControlSceneVillage;
 import soldiers.models.game.ManagerGame;
 import soldiers.models.housesGame.ManagerHousesGame;
@@ -121,6 +122,7 @@ public class GameInfo extends GameInfoBase
 
             _managerViewController.registerScene(ESceneType.EST_GAME, ControlSceneGame);
             _managerViewController.registerScene(ESceneType.EST_VILLAGE, ControlSceneVillage);
+            _managerViewController.registerScene(ESceneType.EST_GAME_MAP, ControlSceneMap);
         }
 
         super.onInitSocialComplete();
@@ -128,7 +130,9 @@ public class GameInfo extends GameInfoBase
 
     protected override function onRemoteGameInitComplete(response:IResponse):void
     {
-        GameInfo.instance.managerViewController.setScene(ESceneType.EST_VILLAGE);
+//        GameInfo.instance.managerViewController.setScene(ESceneType.EST_VILLAGE);
+//        startStubGame();
+        GameInfo.instance.managerViewController.setScene(ESceneType.EST_GAME_MAP);
     }
 
     public function startStubGame():void

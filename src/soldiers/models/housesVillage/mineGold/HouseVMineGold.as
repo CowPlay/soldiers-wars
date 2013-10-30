@@ -24,14 +24,14 @@ public class HouseVMineGold extends HouseV
         return EHouseTypeV.EHTV_MINE_GOLD;
     }
 
-    public function get currentConfig():HouseConfigVMineGold
+    public function get currentConfig():HouseLevelInfoVMineGold
     {
-        return configs[level];
+        return levelsInfo[level];
     }
 
-    protected override function get configClass():Class
+    protected override function get levelInfoClass():Class
     {
-        return HouseConfigVMineGold;
+        return HouseLevelInfoVMineGold;
     }
 
 
@@ -44,17 +44,17 @@ public class HouseVMineGold extends HouseV
     {
     }
 
-    public function onBuildConfig(config:HouseConfigVMineGold):void
+    public function onBuildConfig(levelInfo:HouseLevelInfoVMineGold):void
     {
-        Debug.assert(config != null);
-        Debug.assert(config.isAvailable);
+        Debug.assert(levelInfo != null);
+        Debug.assert(levelInfo.isAvailable);
 
-        config.timerStart(onConfigTimerComplete)
+        levelInfo.timerStart(onConfigTimerComplete)
     }
 
-    private function onConfigTimerComplete(config:HouseConfigVMineGold):void
+    private function onConfigTimerComplete(levelInfo:HouseLevelInfoVMineGold):void
     {
-        Debug.assert(config != null);
+        Debug.assert(levelInfo != null);
 
         Debug.log("add bread");
     }

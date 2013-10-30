@@ -1,4 +1,4 @@
-package soldiers
+package
 {
 
 import flash.display.Sprite;

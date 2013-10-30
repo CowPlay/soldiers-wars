@@ -16,9 +16,8 @@ import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
 import flash.events.MouseEvent;
 
-import soldiers.controllers.EPopupType;
-
 import soldiers.controllers.scenes.base.views.ControlScalableStrip;
+import soldiers.models.GameInfo;
 
 import utils.Utils;
 
@@ -65,6 +64,7 @@ public class ControlSceneVillageUI extends ControlBase
         _sourceViewTyped.addChild(_controlBottom.sourceView);
 
         _controlMultiplayer = new ControlMultiplayer(sceneOwner);
+        _controlMultiplayer.actionDelegate = this;
         _sourceViewTyped.addChild(_controlMultiplayer.sourceView);
 
         _controlSingleplayer = new ControlSpriteBase(sceneOwner, new gControlSinglePlayer());
@@ -116,10 +116,15 @@ public class ControlSceneVillageUI extends ControlBase
             {
                 case _controlSingleplayer:
                 {
-                    sceneOwner.showPopup(EPopupType.EPT_VILLAGE_HOUSE_BAKERY);
+//                    sceneOwner.showPopup(EPopupType.EPT_VILLAGE_HOUSE_BAKERY);
 
-//                    GameInfo.instance.startStubGame();
+                    GameInfo.instance.startStubGame();
 
+                    result = true;
+                    break;
+                }
+                case _controlMultiplayer:
+                {
                     result = true;
                     break;
                 }

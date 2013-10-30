@@ -1,6 +1,4 @@
 # Build and Release Folders
-bin-debug/
-bin-release/
 
 # Other files and folders
 .settings/
@@ -12,16 +10,3 @@ bin-release/
 #flash binaries
 *.swf
 *.fla
-
-#out facebook
-html/facebook/debug/out
-html/facebook/release/out
-
-#out vk
-html/vk/debug/out
-html/vk/release/out
-
-#out offline
-html/offline/debug/out
-html/offline/release/out
-

@@ -12,11 +12,11 @@ import controls.EControlUpdateTypeBase;
 import flash.events.TimerEvent;
 import flash.utils.Timer;
 
-import soldiers.models.housesVillage.base.HouseConfigV;
+import soldiers.models.housesVillage.base.HouseLevelInfoV;
 
 import utils.memory.UtilsMemory;
 
-public class HouseConfigVBakery extends HouseConfigV
+public class HouseLevelInfoVBakery extends HouseLevelInfoV
 {
     /*
      * Fields
@@ -57,7 +57,7 @@ public class HouseConfigVBakery extends HouseConfigV
      */
 
     //! Default constructor
-    public function HouseConfigVBakery()
+    public function HouseLevelInfoVBakery()
     {
         super();
     }

@@ -113,6 +113,33 @@ public class ControlPopupMilitaryAcademy extends ControlPopupBase
         }
     }
 
+    public override function cleanup():void
+    {
+        _buttonImprove.cleanup();
+        _buttonImprove = null;
+
+        _buttonTabMerlin.cleanup();
+        _buttonTabMerlin = null;
+
+        _buttonTabTavern.cleanup();
+        _buttonTabTavern = null;
+
+        _buttonTabUniversityMM.cleanup();
+        _buttonTabUniversityMM = null;
+
+        for each(var item:IControl in _items)
+        {
+            item.cleanup();
+            item = null;
+        }
+
+        _items = null;
+
+        _sourceViewTyped = null;
+
+        super.cleanup();
+    }
+
 
     /*
      * IActionDelegate
@@ -155,5 +182,8 @@ public class ControlPopupMilitaryAcademy extends ControlPopupBase
 
         return result;
     }
+
+
+
 }
 }

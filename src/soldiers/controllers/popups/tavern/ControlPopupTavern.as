@@ -244,6 +244,38 @@ public class ControlPopupTavern extends ControlPopupBase
         _tweenInProgress = false;
     }
 
+
+    public override function cleanup():void
+    {
+        _buttonImprove.cleanup();
+        _buttonImprove = null;
+
+        _buttonLeft.cleanup();
+        _buttonLeft = null;
+
+        _buttonRight.cleanup();
+        _buttonRight = null;
+
+        _buttonTabMerlin.cleanup();
+        _buttonTabMerlin = null;
+
+        _buttonTabMilitaryAcademy.cleanup();
+        _buttonTabMilitaryAcademy = null;
+
+        _buttonTabUniversityMM.cleanup();
+        _buttonTabUniversityMM = null;
+
+        for each(var item:IControl in _items)
+        {
+            item.cleanup();
+            item = null;
+        }
+        _items = null;
+
+        _sourceViewTyped = null;
+
+        super.cleanup();
+    }
 }
 
 }

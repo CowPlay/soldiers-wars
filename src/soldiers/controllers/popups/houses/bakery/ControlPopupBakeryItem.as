@@ -21,16 +21,17 @@ import controls.implementations.buttons.ControlButtonWithLabelsBase;
 import flash.events.MouseEvent;
 
 import soldiers.models.GameInfo;
-import soldiers.models.housesVillage.bakery.HouseConfigVBakery;
+import soldiers.models.housesVillage.bakery.HouseLevelInfoVBakery;
 import soldiers.models.housesVillage.bakery.HouseVBakery;
 import soldiers.models.housesVillage.base.EHouseTypeV;
+import soldiers.models.proxy.ManagerProxy;
 
 public class ControlPopupBakeryItem extends ControlPopupBase
 {
     /*
      * Fields
      */
-    private var _entry:HouseConfigVBakery;
+    private var _entry:HouseLevelInfoVBakery;
 
     private var _sourceViewTyped:gPopupBakeryItem;
 
@@ -45,7 +46,7 @@ public class ControlPopupBakeryItem extends ControlPopupBase
      * Methods
      */
 
-    public function ControlPopupBakeryItem(sceneOwner:IControlScene, entry:HouseConfigVBakery)
+    public function ControlPopupBakeryItem(sceneOwner:IControlScene, entry:HouseLevelInfoVBakery)
     {
         super(sceneOwner);
 
@@ -87,7 +88,7 @@ public class ControlPopupBakeryItem extends ControlPopupBase
                 {
                     var houseBakery:HouseVBakery = GameInfo.instance.managerHousesVillage.getHouseByType(EHouseTypeV.EHTV_BAKERY) as HouseVBakery;
 
-                    houseBakery.onBuildConfig(_entry);
+                    houseBakery.onBuild(_entry);
 
                     _buttonBuild.enabled = false;
 
@@ -117,9 +118,15 @@ public class ControlPopupBakeryItem extends ControlPopupBase
             {
                 _sourceViewTyped.labelTimer.text = _entry.timeLeft.toString();
 
-                if (_entry.timeLeft == 0)
+                _sourceViewTyped.iconLock.visible = !_entry.isAvailable;
+
+                if (_entry.timeLeft == _entry.time)
                 {
-                    _buttonBuild.enabled = true;
+                    _buttonBuild.enabled = _entry.isAvailable;
+                }
+                else
+                {
+                    _buttonBuild.enabled = _entry.timeLeft == 0;
                 }
 
                 break;
@@ -135,8 +142,16 @@ public class ControlPopupBakeryItem extends ControlPopupBase
     public override function placeViews():void
     {
         super.placeViews();
+    }
 
+    public override function cleanup():void
+    {
+        _buttonBuild.cleanup();
+        _buttonBuild = null;
 
+        _sourceViewTyped = null;
+
+        super.cleanup();
     }
 }
 }

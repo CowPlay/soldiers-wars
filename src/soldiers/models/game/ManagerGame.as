@@ -12,172 +12,172 @@
 package soldiers.models.game
 {
 
-import flash.utils.Dictionary;
+    import flash.utils.Dictionary;
 
-import models.implementations.game.ManagerGameBase;
-import models.interfaces.players.IPlayerInfo;
+    import models.implementations.game.ManagerGameBase;
+    import models.interfaces.players.IPlayerInfo;
 
-import soldiers.controllers.EControlUpdateType;
-import soldiers.models.levels.LevelInfo;
-import soldiers.models.housesGame.base.EHouseOwner;
-import soldiers.models.housesGame.base.HouseG;
-import soldiers.models.game.managerPath.ManagerPath;
-import soldiers.models.game.managerSoldiers.ManagerSoldiers;
+    import soldiers.controllers.EControlUpdateType;
+    import soldiers.models.levels.LevelInfo;
+    import soldiers.models.housesGame.base.EHouseOwner;
+    import soldiers.models.housesGame.base.HouseG;
+    import soldiers.models.game.managerPath.ManagerPath;
+    import soldiers.models.game.managerSoldiers.ManagerSoldiers;
 
-public class ManagerGame extends ManagerGameBase
-{
-    /*
-     * Fields
-     */
-
-    private var _currentLevel:LevelInfo;
-
-    //key - playerinfo, value - array of selected houses
-    private var _selectedHouses:Dictionary;
-    private var _gameOwner:IPlayerInfo;
-    private var _gameOwnerOpponent:IPlayerInfo;
-
-    private var _managerPath:ManagerPath;
-    private var _managerSoldiers:ManagerSoldiers;
-
-    /*
-     * Properties
-     */
-
-    public function get managerPath():ManagerPath
+    public class ManagerGame extends ManagerGameBase
     {
-        return _managerPath;
-    }
+        /*
+         *  Fields
+         */
 
-    public function get managerSoldiers():ManagerSoldiers
-    {
-        return _managerSoldiers;
-    }
+        private var _currentLevel:LevelInfo;
 
-    public function get gameOwner():IPlayerInfo
-    {
-        return _gameOwner;
-    }
+        //key - playerinfo, value - array of selected houses
+        private var _selectedHouses:Dictionary;
+        private var _gameOwner:IPlayerInfo;
+        private var _gameOwnerOpponent:IPlayerInfo;
 
-    public function get gameOwnerOpponent():IPlayerInfo
-    {
-        return _gameOwnerOpponent;
-    }
+        private var _managerPath:ManagerPath;
+        private var _managerSoldiers:ManagerSoldiers;
 
-    public function get currentLevel():LevelInfo
-    {
-        return _currentLevel;
-    }
+        /*
+         * Properties
+         */
 
-    /*
-     * Methods
-     */
-
-    //! Default constructor
-    public function ManagerGame(currentLevelValue:LevelInfo, gameOwnerValue:IPlayerInfo, gameOwnerOpponentValue:IPlayerInfo)
-    {
-        super(currentLevelValue);
-
-        Debug.assert(gameOwnerValue != null);
-        Debug.assert(gameOwnerOpponentValue != null);
-
-        _currentLevel = currentLevelValue;
-
-        _gameOwner = gameOwnerValue;
-        _gameOwnerOpponent = gameOwnerOpponentValue;
-
-        init();
-    }
-
-    private function init():void
-    {
-        _managerPath = new ManagerPath(currentLevel);
-        _managerPath.generateLevelPaths();
-        _managerSoldiers = new ManagerSoldiers();
-
-        _selectedHouses = new Dictionary(true);
-
-        _selectedHouses[_gameOwner] = [];
-        _selectedHouses[_gameOwnerOpponent] = [];
-
-        //bind houses to players
-        for each(var house:HouseG in _currentLevel.houses)
+        public function get managerPath():ManagerPath
         {
-            switch (house.ownerTypeOnStart)
+            return _managerPath;
+        }
+
+        public function get managerSoldiers():ManagerSoldiers
+        {
+            return _managerSoldiers;
+        }
+
+        public function get gameOwner():IPlayerInfo
+        {
+            return _gameOwner;
+        }
+
+        public function get gameOwnerOpponent():IPlayerInfo
+        {
+            return _gameOwnerOpponent;
+        }
+
+        public function get currentLevel():LevelInfo
+        {
+            return _currentLevel;
+        }
+
+        /*
+         * Methods
+         */
+
+        //! Default constructor
+        public function ManagerGame(currentLevelValue:LevelInfo, gameOwnerValue:IPlayerInfo, gameOwnerOpponentValue:IPlayerInfo)
+        {
+            super(currentLevelValue);
+
+            Debug.assert(gameOwnerValue != null);
+            Debug.assert(gameOwnerOpponentValue != null);
+
+            _currentLevel = currentLevelValue;
+
+            _gameOwner = gameOwnerValue;
+            _gameOwnerOpponent = gameOwnerOpponentValue;
+
+            init();
+        }
+
+        private function init():void
+        {
+            _managerPath = new ManagerPath(currentLevel);
+            _managerPath.generateLevelPaths();
+            _managerSoldiers = new ManagerSoldiers();
+
+            _selectedHouses = new Dictionary(true);
+
+            _selectedHouses[_gameOwner] = [];
+            _selectedHouses[_gameOwnerOpponent] = [];
+
+            //bind houses to players
+            for each(var house:HouseG in _currentLevel.houses)
             {
-                case EHouseOwner.EHO_PLAYER:
+                switch (house.ownerTypeOnStart)
                 {
-                    house.owner = _gameOwner;
-                    break;
-                }
-                case EHouseOwner.EHO_ENEMY:
-                {
-                    house.owner = _gameOwnerOpponent;
-                    break;
-                }
-                default :
-                {
-                    Debug.assert(false);
-                    break;
+                    case EHouseOwner.EHO_PLAYER:
+                    {
+                        house.owner = _gameOwner;
+                        break;
+                    }
+                    case EHouseOwner.EHO_ENEMY:
+                    {
+                        house.owner = _gameOwnerOpponent;
+                        break;
+                    }
+                    default :
+                    {
+                        Debug.assert(false);
+                        break;
+                    }
                 }
             }
         }
-    }
 
 
-    public function onPlayerGenerateSoldiers(player:IPlayerInfo, target:HouseG):void
-    {
-        Debug.assert(player != null);
-        Debug.assert(target != null);
-
-        var selectedHouses:Array = _selectedHouses[player];
-        Debug.assert(selectedHouses.length > 0);
-
-        for each(var house:HouseG in selectedHouses)
+        public function onPlayerGenerateSoldiers(player:IPlayerInfo, target:HouseG):void
         {
-            if (target == house)
+            Debug.assert(player != null);
+            Debug.assert(target != null);
+
+            var selectedHouses:Array = _selectedHouses[player];
+            Debug.assert(selectedHouses.length > 0);
+
+            for each(var house:HouseG in selectedHouses)
             {
-                continue;
+                if (target == house)
+                {
+                    continue;
+                }
+
+                _managerSoldiers.generateSoldiers(house, target, house.soldierCount / 2);
             }
 
-            _managerSoldiers.generateSoldiers(house, target, house.soldierCount / 2);
+            clearHousesSelection(player);
         }
 
-        clearHousesSelection(player);
-    }
-
-    public function onPlayerSelectHouse(player:IPlayerInfo, value:HouseG):void
-    {
-        var selectedHouses:Array = _selectedHouses[player];
-
-        value.isSelect = true;
-
-        Debug.assert(selectedHouses.indexOf(value) == ConstantsBase.INDEX_NONE);
-
-        selectedHouses.push(value);
-
-        _selectedHouses[player] = selectedHouses;
-
-        _sceneGame.update(EControlUpdateType.ECUT_HOUSE_SELECTION_CHANGED);
-    }
-
-    public function clearHousesSelection(player:IPlayerInfo):void
-    {
-        var selectedHouses:Array = _selectedHouses[player];
-
-        for each(var house:HouseG in selectedHouses)
+        public function onPlayerSelectHouse(player:IPlayerInfo, value:HouseG):void
         {
-            house.isSelect = false;
+            var selectedHouses:Array = _selectedHouses[player];
+
+            value.isSelect = true;
+
+            Debug.assert(selectedHouses.indexOf(value) == ConstantsBase.INDEX_NONE);
+
+            selectedHouses.push(value);
+
+            _selectedHouses[player] = selectedHouses;
+
+            _sceneGame.update(EControlUpdateType.ECUT_HOUSE_SELECTION_CHANGED);
         }
 
-        _selectedHouses[player] = [];
+        public function clearHousesSelection(player:IPlayerInfo):void
+        {
+            var selectedHouses:Array = _selectedHouses[player];
 
-        _sceneGame.update(EControlUpdateType.ECUT_HOUSE_SELECTION_CHANGED);
-    }
+            for each(var house:HouseG in selectedHouses)
+            {
+                house.isSelect = false;
+            }
 
-    public function isAnyHouseSelected(player:IPlayerInfo):Boolean
-    {
-        return  _selectedHouses[player].length > 0;
+            _selectedHouses[player] = [];
+
+            _sceneGame.update(EControlUpdateType.ECUT_HOUSE_SELECTION_CHANGED);
+        }
+
+        public function isAnyHouseSelected(player:IPlayerInfo):Boolean
+        {
+            return  _selectedHouses[player].length > 0;
+        }
     }
-}
 }

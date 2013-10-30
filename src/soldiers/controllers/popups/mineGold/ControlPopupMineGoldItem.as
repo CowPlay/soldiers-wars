@@ -19,7 +19,7 @@ import flash.events.MouseEvent;
 import soldiers.models.GameInfo;
 import soldiers.models.housesVillage.base.EHouseTypeV;
 
-import soldiers.models.housesVillage.mineGold.HouseConfigVMineGold;
+import soldiers.models.housesVillage.mineGold.HouseLevelInfoVMineGold;
 import soldiers.models.housesVillage.mineGold.HouseVMineGold;
 
 public class ControlPopupMineGoldItem extends ControlPopupBase
@@ -27,7 +27,7 @@ public class ControlPopupMineGoldItem extends ControlPopupBase
     /*
      *Fields
      */
-    private var _entry:HouseConfigVMineGold;
+    private var _entry:HouseLevelInfoVMineGold;
 
     private var _sourceViewTyped:gPopupMineGoldItem;
 
@@ -40,7 +40,7 @@ public class ControlPopupMineGoldItem extends ControlPopupBase
     /*
      *Methods
      */
-    public function ControlPopupMineGoldItem(sceneOwner:IControlScene, entry:HouseConfigVMineGold)
+    public function ControlPopupMineGoldItem(sceneOwner:IControlScene, entry:HouseLevelInfoVMineGold)
     {
         super(sceneOwner);
 
@@ -111,11 +111,16 @@ public class ControlPopupMineGoldItem extends ControlPopupBase
             {
                 _sourceViewTyped.labelTimer.text = _entry.timeLeft.toString();
 
-                if (_entry.timeLeft == 0)
-                {
-                    _buttonBuild.enabled = true;
-                }
+                _sourceViewTyped.iconLock.visible = !_entry.isAvailable;
 
+                if (_entry.timeLeft == _entry.time)
+                {
+                    _buttonBuild.enabled = _entry.isAvailable;
+                }
+                else
+                {
+                    _buttonBuild.enabled = _entry.timeLeft == 0;
+                }
                 break;
             }
             default :
@@ -131,5 +136,14 @@ public class ControlPopupMineGoldItem extends ControlPopupBase
         super.placeViews();
     }
 
+    public override function cleanup():void
+    {
+        _buttonBuild.cleanup();
+        _buttonBuild = null;
+
+        _sourceViewTyped = null;
+
+        super.cleanup();
+    }
 }
 }

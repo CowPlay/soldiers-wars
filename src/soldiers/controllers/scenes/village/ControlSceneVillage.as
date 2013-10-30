@@ -9,9 +9,6 @@ package soldiers.controllers.scenes.village
 {
 import controls.IControl;
 
-import flash.events.MouseEvent;
-
-import soldiers.controllers.EPopupType;
 import soldiers.controllers.ESceneType;
 import soldiers.controllers.popups.merlinTower.ControlPopupMerlinTower;
 import soldiers.controllers.popups.militaryAcademy.ControlPopupMilitaryAcademy;
@@ -81,11 +78,7 @@ public class ControlSceneVillage extends ControlSceneGameBase
     {
         super.onLoadingEnd();
 
-//        showPopup(EPopupType.EPT_VILLAGE_HOUSE_MERLIN_TOWER);
-//        showPopup(EPopupType.EPT_VILLAGE_HOUSE_UNIVERSITY_MM);
-//        showPopup(EPopupType.EPT_VILLAGE_HOUSE_TAVERN);
-        showPopup(EPopupType.EPT_VILLAGE_HOUSE_MINE_GOLD);
-
+//        showPopup(EPopupType.EPT_VILLAGE_HOUSE_BAKERY);
     }
 
     /*

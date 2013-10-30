@@ -128,7 +128,7 @@ public class ControlSoldierView extends ControlBase
         for (var level:int = 1; level <= _entry.levelMax; level++)
         {
             var propertyName:String = "level_" + level.toString();
-            Debug.assert(_sourceViewTyped.hasOwnProperty(propertyName));
+            Debug.assert(_sourceViewTyped.hasOwnProperty(propertyName), "Not found soldier view: " +  propertyName);
 
             if (level == _entry.level)
             {

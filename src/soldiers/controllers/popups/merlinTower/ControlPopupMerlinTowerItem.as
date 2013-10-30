@@ -104,5 +104,20 @@ public class ControlPopupMerlinTowerItem extends ControlBase
     /*
      * IActionDelegate
      */
+
+
+    public override function cleanup():void
+    {
+        for each(var skill:IControl in _skillViews)
+        {
+            skill.cleanup();
+            skill = null;
+        }
+        _skillViews = null;
+
+        _sourceViewTyped = null;
+
+        super.cleanup();
+    }
 }
 }

@@ -1,10 +1,10 @@
 /**
-* Created with IntelliJ IDEA.
-* User: user
-* Date: 21.10.13
-* Time: 10:54
-* To change this template use File | Settings | File Templates.
-*/
+ * Created with IntelliJ IDEA.
+ * User: user
+ * Date: 21.10.13
+ * Time: 10:54
+ * To change this template use File | Settings | File Templates.
+ */
 package soldiers.controllers.popups.merlinTower
 {
 import controls.IControl;
@@ -150,6 +150,32 @@ public class ControlPopupMerlinTower extends ControlPopupBase
         }
 
         return result;
+    }
+
+    public override function cleanup():void
+    {
+        _buttonImprove.cleanup();
+        _buttonImprove = null;
+
+        _buttonTabMilitaryAcademy.cleanup();
+        _buttonTabMilitaryAcademy = null;
+
+        _buttonTabTavern.cleanup();
+        _buttonTabTavern = null;
+
+        _buttonTabUniversityMM.cleanup();
+        _buttonTabUniversityMM = null;
+
+        for each(var item:IControl in _items)
+        {
+            item.cleanup();
+            item = null;
+        }
+        _items = null;
+
+        _sourceViewTyped = null;
+
+        super.cleanup();
     }
 }
 }

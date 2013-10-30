@@ -9,6 +9,8 @@ package soldiers.models.housesVillage
 {
 import serialization.ISerializable;
 
+import soldiers.models.housesVillage.altar.HouseInfoVAltar;
+
 import soldiers.models.housesVillage.bakery.HouseVBakery;
 import soldiers.models.housesVillage.base.HouseV;
 import soldiers.models.housesVillage.mineGold.HouseVMineGold;
@@ -96,6 +98,10 @@ public class ManagerHousesVillage implements ISerializable
 
         //load houses
         _houses = [];
+
+//        var houseVAltar:HouseV = new HouseInfoVAltar();
+//        houseVAltar.deserialize(housesData["altar"]);
+//        _houses.push(houseVAltar);
 
         var houseVBakery:HouseV = new HouseVBakery();
         houseVBakery.deserialize(housesData["bakery"]);

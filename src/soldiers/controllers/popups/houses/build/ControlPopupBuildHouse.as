@@ -79,5 +79,15 @@ public class ControlPopupBuildHouse extends ControlPopupBase
         return result;
 
     }
+
+    public override function cleanup():void
+    {
+        _buttonBuild.cleanup();
+        _buttonBuild = null;
+
+        _sourceViewTyped = null;
+
+        super.cleanup();
+    }
 }
 }

@@ -87,5 +87,18 @@ public class ControlPopupMilitaryAcademyItem extends ControlBase
 
         return result;
     }
+
+    public override function cleanup():void
+    {
+        _buttonAccelerate.cleanup();
+        _buttonAccelerate = null;
+
+        _buttonStudy.cleanup();
+        _buttonStudy = null;
+
+        _sourceViewTyped = null;
+
+        super.cleanup();
+    }
 }
 }

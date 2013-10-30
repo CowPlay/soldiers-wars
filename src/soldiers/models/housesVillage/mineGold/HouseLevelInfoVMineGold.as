@@ -12,11 +12,11 @@ import controls.EControlUpdateTypeBase;
 import flash.events.TimerEvent;
 import flash.utils.Timer;
 
-import soldiers.models.housesVillage.base.HouseConfigV;
+import soldiers.models.housesVillage.base.HouseLevelInfoV;
 
 import utils.memory.UtilsMemory;
 
-public class HouseConfigVMineGold extends HouseConfigV
+public class HouseLevelInfoVMineGold extends HouseLevelInfoV
 {
     /*
      * Fields
@@ -53,7 +53,7 @@ public class HouseConfigVMineGold extends HouseConfigV
      *Methods
      */
 
-    public function HouseConfigVMineGold()
+    public function HouseLevelInfoVMineGold()
     {
         super();
     }

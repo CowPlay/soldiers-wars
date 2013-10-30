@@ -13,6 +13,8 @@ package soldiers.controllers.popups.mineGold
 {
 import com.greensock.TweenLite;
 
+import controls.EControlUpdateTypeBase;
+
 import controls.IControl;
 import controls.IControlButton;
 import controls.IControlScene;
@@ -29,9 +31,8 @@ import models.interfaces.social.IManagerSocial;
 import soldiers.controllers.EPopupType;
 import soldiers.models.GameInfo;
 import soldiers.models.housesVillage.base.EHouseTypeV;
-import soldiers.models.housesVillage.mineGold.HouseConfigVMineGold;
+import soldiers.models.housesVillage.mineGold.HouseLevelInfoVMineGold;
 import soldiers.models.housesVillage.mineGold.HouseVMineGold;
-import soldiers.models.proxy.ManagerProxy;
 
 public class ControlPopupMineGold extends ControlPopupBase
 {
@@ -49,7 +50,7 @@ public class ControlPopupMineGold extends ControlPopupBase
     private var _items:Array;
 
     private var _currentItemIndex:int;
-    private var _tweenInProgress:Boolean;
+    private var _scrollInProgress:Boolean;
     /*
      * Properties
      */
@@ -93,11 +94,17 @@ public class ControlPopupMineGold extends ControlPopupBase
 
         _items = [];
 
-        for each(var houseConfig:HouseConfigVMineGold in _entry.configs)
+        for each(var levelInfo:HouseLevelInfoVMineGold in _entry.levelsInfo)
         {
-            var itemView:IControl = new ControlPopupMineGoldItem(sceneOwner, houseConfig);
+            var itemView:IControl = new ControlPopupMineGoldItem(sceneOwner, levelInfo);
             _sourceViewTyped.itemsView.placeholder.addChild(itemView.sourceView);
             _items.push(itemView);
+        }
+
+        //TODO: change number to levelMAX
+        if (_entry.level == 3)
+        {
+            _buttonImprove.enabled = false;
         }
     }
 
@@ -168,70 +175,149 @@ public class ControlPopupMineGold extends ControlPopupBase
     /*
      * Callbacks
      */
-      private function onButtonImproveClicked():void
-      {
-         _entry.level = 3;
-          var itemView:ControlPopupMineGoldItem = _items[2];
-          _sourceViewTyped.itemsView.placeholder.removeChild(itemView.sourceView);
-
-          _sourceViewTyped.itemsView.placeholder.addChild(itemView.sourceView);
-      }
 
     private function onButtonRightClicked():void
     {
-        if (_tweenInProgress)
-            return;
-
         if (_currentItemIndex == _items.length - 1)
             return;
 
-        _tweenInProgress = true;
-
-        var itemStandard:IControl = _items[0];
-
-        var params:Object =
-        {
-            x: _sourceViewTyped.itemsView.placeholder.x - itemStandard.sourceView.width - 20,
-            onComplete: onItemsMoveLeftComplete
-        };
-
-        TweenLite.to(_sourceViewTyped.itemsView.placeholder, 2, params);
+        scrollRight();
     }
-
-    private function onItemsMoveLeftComplete():void
-    {
-        _currentItemIndex++;
-
-        _tweenInProgress = false;
-    }
-
 
     private function onButtonLeftClicked():void
     {
-        if (_tweenInProgress)
+        if (_currentItemIndex == 0)
             return;
 
-        if (_currentItemIndex == _items.length - 3)
-            return;
+        scrollLeft();
+    }
 
-        _tweenInProgress = true;
+    private function onButtonImproveClicked():void
+    {
+        var params:Object;
+
+        _entry.level++;
+
+        //TODO: change number levelMAX
+        if (_entry.level == 3)
+        {
+            _buttonImprove.enabled = false;
+        }
 
         var itemStandard:IControl = _items[0];
+
+        scrollToItem(_entry.level - 1, updateItems);
+    }
+
+    private function scrollToItem(itemIndex:uint, onComplete:Function = null):void
+    {
+        if (itemIndex == _currentItemIndex)
+        {
+            if (onComplete != null)
+                onComplete();
+
+            return;
+        }
+
+        Debug.assert(0 <= itemIndex && itemIndex <= _items.length - 1);
+
+        var onCompleteScroll:Function =
+                function ():void
+                {
+                    scrollToItem(itemIndex, onComplete);
+                };
+
+        itemIndex < _currentItemIndex ? scrollLeft(onCompleteScroll) : scrollRight(onCompleteScroll);
+    }
+
+    private function scrollLeft(onComplete:Function = null):void
+    {
+        if (_scrollInProgress)
+            return;
+
+        _scrollInProgress = true;
+
+        var itemStandard:IControl = _items[0];
+
+        var onCompleteWrapper:Function =
+                function ():void
+                {
+                    _currentItemIndex--;
+
+                    _scrollInProgress = false;
+
+                    if (onComplete != null)
+                        onComplete();
+                };
 
         var params:Object =
         {
             x: _sourceViewTyped.itemsView.placeholder.x + itemStandard.sourceView.width + 20,
-            onComplete: onItemsMoveRightComplete
+            onComplete: onCompleteWrapper
         };
 
         TweenLite.to(_sourceViewTyped.itemsView.placeholder, 2, params);
     }
 
-    private function onItemsMoveRightComplete():void
-    {
-        _currentItemIndex--;
 
-        _tweenInProgress = false;
+    private function scrollRight(onComplete:Function = null):void
+    {
+        if (_scrollInProgress)
+            return;
+
+        _scrollInProgress = true;
+
+        var itemStandard:IControl = _items[0];
+
+        var onCompleteWrapper:Function =
+                function ():void
+                {
+                    _currentItemIndex++;
+
+                    _scrollInProgress = false;
+
+                    if (onComplete != null)
+                        onComplete();
+                };
+
+        var params:Object =
+        {
+            x: _sourceViewTyped.itemsView.placeholder.x - itemStandard.sourceView.width - 20,
+            onComplete: onCompleteWrapper
+        };
+
+        TweenLite.to(_sourceViewTyped.itemsView.placeholder, 2, params);
+    }
+
+    private function updateItems():void
+    {
+        for each(var item:IControl in _items)
+        {
+            item.update(EControlUpdateTypeBase.ECUT_ENTRY_UPDATED);
+        }
+    }
+
+    public override function cleanup():void
+    {
+        _buttonImprove.cleanup();
+        _buttonImprove = null;
+
+        _buttonLeft.cleanup();
+        _buttonLeft = null;
+
+        _buttonRight.cleanup();
+        _buttonRight = null;
+
+        for each(var item:IControl in _items)
+        {
+            item.cleanup();
+            item = null;
+        }
+        _items = null;
+
+        _sourceViewTyped = null;
+
+        super.cleanup();
     }
 }
 }

@@ -54,5 +54,15 @@ public class ControlPopupUniversityMMItem extends ControlBase
         _buttonAccelerate = new ControlButtonWithLabelsBase(sceneOwner, _sourceViewTyped.buttonAccelerate);
         _buttonAccelerate.actionDelegate = this;
     }
+
+    public override function cleanup():void
+    {
+        _buttonAccelerate.cleanup();
+        _buttonAccelerate = null;
+
+        _sourceViewTyped = null;
+
+        super.cleanup();
+    }
 }
 }

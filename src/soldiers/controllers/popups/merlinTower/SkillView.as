@@ -36,5 +36,13 @@ public class SkillView extends ControlBase
        _sourceViewTyped = new gSkillView();
         setSourceView(_sourceViewTyped);
     }
+
+    public override function cleanup():void
+    {
+        _sourceViewTyped = null;
+
+        super.cleanup();
+    }
+
 }
 }
