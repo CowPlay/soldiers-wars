@@ -17,7 +17,7 @@ package soldiers.models.game
     import models.implementations.game.ManagerGameBase;
     import models.interfaces.players.IPlayerInfo;
 
-    import soldiers.controllers.EControlUpdateType;
+    import soldiers.controllers.EControllerUpdate;
     import soldiers.models.levels.LevelInfo;
     import soldiers.models.housesGame.base.EHouseOwner;
     import soldiers.models.housesGame.base.HouseG;
@@ -158,7 +158,7 @@ package soldiers.models.game
 
             _selectedHouses[player] = selectedHouses;
 
-            _sceneGame.update(EControlUpdateType.ECUT_HOUSE_SELECTION_CHANGED);
+            _sceneGame.update(EControllerUpdate.ECU_HOUSE_SELECTION_CHANGED);
         }
 
         public function clearHousesSelection(player:IPlayerInfo):void
@@ -172,7 +172,7 @@ package soldiers.models.game
 
             _selectedHouses[player] = [];
 
-            _sceneGame.update(EControlUpdateType.ECUT_HOUSE_SELECTION_CHANGED);
+            _sceneGame.update(EControllerUpdate.ECU_HOUSE_SELECTION_CHANGED);
         }
 
         public function isAnyHouseSelected(player:IPlayerInfo):Boolean

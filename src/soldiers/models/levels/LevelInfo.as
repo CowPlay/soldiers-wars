@@ -70,7 +70,7 @@ public class LevelInfo extends LevelInfoBase
             house.onGameStart();
         }
 
-                }
+    }
 
     /*
      * ISerializable

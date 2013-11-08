@@ -7,17 +7,17 @@
  */
 package soldiers.models.housesGame
 {
+import core.DisposableObject;
+
 import flash.utils.Dictionary;
 
 import serialization.ISerializable;
 
 import soldiers.models.housesGame.barracks.HouseGConfigBarracks;
-
 import soldiers.models.housesGame.barracks.HouseGLevelInfoBarracks;
 import soldiers.models.housesGame.base.EHouseTypeG;
-import soldiers.models.housesGame.base.HouseGConfig;
 
-public class ManagerHousesGame implements ISerializable
+public class ManagerHousesGame extends DisposableObject implements ISerializable
 {
     /*
      * Fields
@@ -81,15 +81,6 @@ public class ManagerHousesGame implements ISerializable
         }
 
         _housesLevelsInfo[EHouseTypeG.EHGT_BARRACKS] = barracksLevels;
-    }
-
-    /*
-     * IDisposable
-     */
-
-
-    public function cleanup():void
-    {
     }
 }
 }

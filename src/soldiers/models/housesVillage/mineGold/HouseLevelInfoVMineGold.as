@@ -7,7 +7,7 @@
  */
 package soldiers.models.housesVillage.mineGold
 {
-import controls.EControlUpdateTypeBase;
+import controls.EControllerUpdateBase;
 
 import flash.events.TimerEvent;
 import flash.utils.Timer;
@@ -76,9 +76,9 @@ public class HouseLevelInfoVMineGold extends HouseLevelInfoV
     {
         _timeLeft--;
 
-        if (view != null)
+        if (controller != null)
         {
-            view.update(EControlUpdateTypeBase.ECUT_ENTRY_UPDATED);
+            controller.update(EControllerUpdateBase.ECUT_ENTRY_UPDATED);
         }
     }
 
@@ -90,9 +90,9 @@ public class HouseLevelInfoVMineGold extends HouseLevelInfoV
 
         _timeLeft = _time;
 
-        if (view != null)
+        if (controller != null)
         {
-            view.update(EControlUpdateTypeBase.ECUT_ENTRY_UPDATED);
+            controller.update(EControllerUpdateBase.ECUT_ENTRY_UPDATED);
         }
 
         _timerCallback(this);

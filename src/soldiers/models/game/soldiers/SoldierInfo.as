@@ -10,7 +10,9 @@ package soldiers.models.game.soldiers
 import com.greensock.TweenLite;
 import com.greensock.TweenMax;
 
-import controls.IControl;
+import controls.IView;
+
+import core.DisposableObject;
 
 import models.interfaces.players.IPlayerInfo;
 
@@ -18,7 +20,7 @@ import soldiers.models.GameInfo;
 import soldiers.models.game.managerPath.ManagerPath;
 import soldiers.models.housesGame.base.HouseG;
 
-public class SoldierInfo implements IDisposable
+public class SoldierInfo extends DisposableObject implements IDisposable
 {
     private var _houseOwnerPlayer:IPlayerInfo;
     private var _houseOwnerType:String;
@@ -30,7 +32,7 @@ public class SoldierInfo implements IDisposable
     private var _soldierRotation:ESoldierRotation;
     private var _path:Array;
 
-    private var _view:IControl;
+    private var _view:IView;
 
 
     /*
@@ -70,12 +72,12 @@ public class SoldierInfo implements IDisposable
         _soldierRotation = value;
     }
 
-    public function get view():IControl
+    public function get view():IView
     {
         return _view;
     }
 
-    public function set view(value:IControl):void
+    public function set view(value:IView):void
     {
         if (_view == value)
             return;
@@ -145,12 +147,14 @@ public class SoldierInfo implements IDisposable
      *  IDisposable
      */
 
-    public function cleanup():void
+    public override function cleanup():void
     {
         TweenMax.killTweensOf(this);
 
         _path.length = 0;
         _view = null;
+
+        super.cleanup();
     }
 }
 }

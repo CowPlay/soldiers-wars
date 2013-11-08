@@ -1,0 +1,16 @@
+/**
+ * Created with IntelliJ IDEA.
+ * User: gregorytkach
+ * Date: 9/30/13
+ * Time: 12:31 PM
+ * To change this template use File | Settings | File Templates.
+ */
+package soldiers.controllers
+{
+public class EControllerUpdate
+{
+    public static const ECU_SOLDIER_GENERATE:String = "ECU_SOLDIER_GENERATE";
+
+    public static const ECU_HOUSE_SELECTION_CHANGED:String = "ECU_HOUSE_SELECTION_CHANGED";
+}
+}

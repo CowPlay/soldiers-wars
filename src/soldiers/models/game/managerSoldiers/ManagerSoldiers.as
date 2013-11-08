@@ -9,14 +9,16 @@
 package soldiers.models.game.managerSoldiers
 {
 
-import controls.EControlUpdateTypeBase;
+import controls.EControllerUpdateBase;
+
+import core.DisposableObject;
 
 import flash.events.Event;
 import flash.events.TimerEvent;
 import flash.utils.Timer;
 import flash.utils.getTimer;
 
-import soldiers.controllers.EControlUpdateType;
+import soldiers.controllers.EControllerUpdate;
 import soldiers.models.GameInfo;
 import soldiers.models.housesGame.base.EHouseOwner;
 import soldiers.models.housesGame.base.HouseG;
@@ -24,7 +26,7 @@ import soldiers.models.game.soldiers.SoldierInfo;
 
 import utils.UtilsArray;
 
-public class ManagerSoldiers implements IDisposable
+public class ManagerSoldiers extends DisposableObject implements IDisposable
 {
     /*
      * Fields
@@ -108,7 +110,7 @@ public class ManagerSoldiers implements IDisposable
             {
                 Debug.assert(waveInfo.owner.soldierCount >= waveInfo.generatedSoldierRest);
                 waveInfo.owner.soldierCount -= waveInfo.generatedSoldierRest;
-                waveInfo.owner.view.update(EControlUpdateTypeBase.ECUT_ENTRY_UPDATED);
+                waveInfo.owner.view.update(EControllerUpdateBase.ECUT_ENTRY_UPDATED);
             }
 
             waveInfo.timeGeneratedLast = currentTime;
@@ -139,7 +141,7 @@ public class ManagerSoldiers implements IDisposable
 
         _soldiers.push(newSoldier);
 
-        GameInfo.instance.managerViewController.currentScene.update(EControlUpdateType.ECUT_SOLDIER_GENERATE);
+        GameInfo.instance.managerStates.currentState.update(EControllerUpdate.ECU_SOLDIER_GENERATE);
 
         newSoldier.moveToTarget(onSoldierMoveComplete);
     }
@@ -176,7 +178,7 @@ public class ManagerSoldiers implements IDisposable
             soldier.houseTarget.soldierCount++;
         }
 
-        soldier.houseTarget.view.update(EControlUpdateTypeBase.ECUT_ENTRY_UPDATED);
+        soldier.houseTarget.view.update(EControllerUpdateBase.ECUT_ENTRY_UPDATED);
 
         UtilsArray.removeValue(_soldiers, soldier);
 
@@ -190,10 +192,12 @@ public class ManagerSoldiers implements IDisposable
      * IDisposable
      */
 
-    public function cleanup():void
+    public override function cleanup():void
     {
         _timerSoldierGenerator.stop();
         _timerSoldierGenerator = null;
+
+        super.cleanup();
     }
 }
 }

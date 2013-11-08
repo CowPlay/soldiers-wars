@@ -14,22 +14,21 @@ import models.implementations.app.ManagerAppBase;
 import models.implementations.levels.ManagerLevelsBase;
 import models.implementations.players.PlayerInfoBase;
 import models.implementations.resources.ManagerResourceBase;
-import models.implementations.viewController.ManagerViewControllerBase;
+import models.implementations.states.ManagerStatesBase;
 import models.interfaces.IManagerGame;
 import models.interfaces.levels.ILevelContainer;
 import models.interfaces.players.IPlayerInfo;
 import models.interfaces.remote.IResponse;
 
-import soldiers.controllers.ESceneType;
-import soldiers.controllers.scenes.game.ControlSceneGame;
-import soldiers.controllers.scenes.map.ControlSceneMap;
-import soldiers.controllers.scenes.village.ControlSceneVillage;
 import soldiers.models.game.ManagerGame;
 import soldiers.models.housesGame.ManagerHousesGame;
 import soldiers.models.housesVillage.ManagerHousesVillage;
 import soldiers.models.levels.LevelInfo;
 import soldiers.models.proxy.ManagerProxy;
 import soldiers.models.remote.ManagerRemoteStub;
+import soldiers.models.states.EStateType;
+import soldiers.models.states.map.StateMap;
+import soldiers.models.states.village.StateVillage;
 import soldiers.models.string.ManagerString;
 
 public class GameInfo extends GameInfoBase
@@ -104,7 +103,7 @@ public class GameInfo extends GameInfoBase
         _managerProxy = managerProxySoldiers;
         _managerRemote = new ManagerRemoteStub("", _managerProxy);
         _managerApp = new ManagerAppBase(_stage);
-        _managerViewController = new ManagerViewControllerBase();
+        _managerStates = new ManagerStatesBase();
         _managerString = new ManagerString(_managerSocial);
 
         _managerLevels = new ManagerLevelsBase(LevelInfo);
@@ -118,11 +117,11 @@ public class GameInfo extends GameInfoBase
         _managerHousesGame = new ManagerHousesGame();
         _managerHousesGame.deserialize(managerProxySoldiers.getHousesGame(null));
 
-        {//register scenes
+        {//register states
 
-            _managerViewController.registerScene(ESceneType.EST_GAME, ControlSceneGame);
-            _managerViewController.registerScene(ESceneType.EST_VILLAGE, ControlSceneVillage);
-            _managerViewController.registerScene(ESceneType.EST_GAME_MAP, ControlSceneMap);
+//            _managerStates.registerState(EStateType.EST_GAME, StateGame);
+            _managerStates.registerState(EStateType.EST_VILLAGE, StateVillage);
+//            _managerStates.registerState(EStateType.EST_GAME_MAP, StateMap);
         }
 
         super.onInitSocialComplete();
@@ -130,9 +129,9 @@ public class GameInfo extends GameInfoBase
 
     protected override function onRemoteGameInitComplete(response:IResponse):void
     {
-//        GameInfo.instance.managerViewController.setScene(ESceneType.EST_VILLAGE);
+        GameInfo.instance.managerStates.setState(EStateType.EST_VILLAGE);
 //        startStubGame();
-        GameInfo.instance.managerViewController.setScene(ESceneType.EST_GAME_MAP);
+//        GameInfo.instance.managerStates.setState(EStateType.EST_GAME_MAP);
     }
 
     public function startStubGame():void
@@ -149,7 +148,7 @@ public class GameInfo extends GameInfoBase
         managerGame.currentLevel.houses[0].owner = player0;
         managerGame.currentLevel.houses[1].owner = player1;
 
-        GameInfo.instance.managerViewController.setScene(ESceneType.EST_GAME);
+        GameInfo.instance.managerStates.setState(EStateType.EST_GAME);
     }
 
     public override function onGameStart(value:IManagerGame):void

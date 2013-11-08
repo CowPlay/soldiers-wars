@@ -7,9 +7,11 @@
  */
 package soldiers.models.housesGame.base
 {
+import core.DisposableObject;
+
 import serialization.ISerializable;
 
-public class HouseGLevelInfo implements ISerializable
+public class HouseGLevelInfo extends DisposableObject implements ISerializable
 {
     /*
      * Fields
@@ -67,13 +69,5 @@ public class HouseGLevelInfo implements ISerializable
         _soldiersMax = data["soldiers_max"];
     }
 
-    /*
-     * IDisposable
-     */
-
-
-    public function cleanup():void
-    {
-    }
 }
 }

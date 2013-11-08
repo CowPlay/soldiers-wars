@@ -7,7 +7,7 @@
  */
 package soldiers.models.housesGame.barracks
 {
-import controls.EControlUpdateTypeBase;
+import controls.EControllerUpdateBase;
 
 import flash.events.Event;
 import flash.events.TimerEvent;
@@ -61,7 +61,7 @@ public class HouseGBarracks extends HouseG
             else
             {
                 soldierCount < this.currentLevelInfo.soldiersMax ? soldierCount++ : soldierCount--;
-                view.update(EControlUpdateTypeBase.ECUT_ENTRY_UPDATED);
+                view.update(EControllerUpdateBase.ECUT_ENTRY_UPDATED);
             }
         }
     }

@@ -7,15 +7,15 @@
  */
 package soldiers.models.housesVillage
 {
-import serialization.ISerializable;
+import core.DisposableObject;
 
-import soldiers.models.housesVillage.altar.HouseInfoVAltar;
+import serialization.ISerializable;
 
 import soldiers.models.housesVillage.bakery.HouseVBakery;
 import soldiers.models.housesVillage.base.HouseV;
 import soldiers.models.housesVillage.mineGold.HouseVMineGold;
 
-public class ManagerHousesVillage implements ISerializable
+public class ManagerHousesVillage extends DisposableObject implements ISerializable
 {
     /*
      * Fields
@@ -110,14 +110,6 @@ public class ManagerHousesVillage implements ISerializable
         var houseVMimeGold:HouseV = new HouseVMineGold();
         houseVMimeGold.deserialize(housesData["mineGold"]);
         _houses.push(houseVMimeGold);
-    }
-
-    /*
-     * IDisposable
-     */
-
-    public function cleanup():void
-    {
     }
 }
 }

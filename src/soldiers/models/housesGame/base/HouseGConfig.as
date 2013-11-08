@@ -11,9 +11,11 @@
  */
 package soldiers.models.housesGame.base
 {
+import core.DisposableObject;
+
 import serialization.ISerializable;
 
-public class HouseGConfig implements ISerializable
+public class HouseGConfig extends DisposableObject implements ISerializable
 {
     /*
      * Fields
@@ -55,15 +57,6 @@ public class HouseGConfig implements ISerializable
         Debug.assert(data.hasOwnProperty("level_max"));
 
 
-    }
-
-    /*
-     * IDisposable
-     */
-
-
-    public function cleanup():void
-    {
     }
 }
 }

@@ -13,11 +13,9 @@ public class Main extends Sprite
     /*
      * Static fields
      */
-
     /*
      * Static properties
      */
-
     /*
      * Fields
      */

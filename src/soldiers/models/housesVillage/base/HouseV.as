@@ -8,7 +8,9 @@
 package soldiers.models.housesVillage.base
 {
 
-import controls.IControl;
+import controls.IView;
+
+import core.DisposableObject;
 
 import flash.events.MouseEvent;
 import flash.utils.Dictionary;
@@ -17,12 +19,12 @@ import serialization.ISerializable;
 
 import soldiers.models.GameInfo;
 
-public class HouseV implements ISerializable
+public class HouseV extends DisposableObject implements ISerializable
 {
     /*
      * Fields
      */
-    private var _view:IControl;
+    private var _view:IView;
 
     private var _level:uint;
 
@@ -42,12 +44,12 @@ public class HouseV implements ISerializable
         return null;
     }
 
-    public function get view():IControl
+    public function get view():IView
     {
         return _view;
     }
 
-    public function set view(value:IControl):void
+    public function set view(value:IView):void
     {
         if (_view == value)
             return;
@@ -205,12 +207,14 @@ public class HouseV implements ISerializable
      * IDisposable
      */
 
-    public function cleanup():void
+    public override function cleanup():void
     {
         if (_view != null)
         {
             _view = null;
         }
+
+        super.cleanup();
     }
 
 }

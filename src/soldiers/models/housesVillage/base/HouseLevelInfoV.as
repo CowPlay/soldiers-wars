@@ -7,11 +7,15 @@
  */
 package soldiers.models.housesVillage.base
 {
-import controls.IControl;
+import controllers.IController;
+
+import controls.IView;
+
+import core.DisposableObject;
 
 import serialization.ISerializable;
 
-public class HouseLevelInfoV implements ISerializable
+public class HouseLevelInfoV extends DisposableObject implements ISerializable
 {
     /*
      * Fields
@@ -20,7 +24,7 @@ public class HouseLevelInfoV implements ISerializable
     private var _level:int;
     private var _isAvailable:Boolean;
 
-    private var _view:IControl;
+    private var _controller:IController;
 
 
     /*
@@ -42,14 +46,14 @@ public class HouseLevelInfoV implements ISerializable
         _isAvailable = value;
     }
 
-    public function get view():IControl
+    public function get controller():IController
     {
-        return _view;
+        return _controller;
     }
 
-    public function set view(value:IControl):void
+    public function set controller(value:IController):void
     {
-        _view = value;
+        _controller = value;
     }
 
     /*
@@ -77,15 +81,6 @@ public class HouseLevelInfoV implements ISerializable
         Debug.assert(data.hasOwnProperty("level"));
 
         _level = data["level"];
-    }
-
-    /*
-     * IDisposable
-     */
-
-
-    public function cleanup():void
-    {
     }
 }
 }

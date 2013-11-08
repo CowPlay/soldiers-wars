@@ -11,20 +11,19 @@
  */
 package soldiers.models.housesGame.base
 {
+import core.DisposableObject;
+
 import flash.geom.Point;
 import flash.utils.Dictionary;
-
-import models.interfaces.levels.IManagerLevels;
 
 import models.interfaces.players.IPlayerInfo;
 
 import serialization.ISerializable;
 
-import soldiers.controllers.scenes.game.views.housesG.base.ControlGHouseView;
 import soldiers.models.GameInfo;
-import soldiers.models.proxy.ManagerProxy;
+import soldiers.views.game.housesG.base.ControlGHouseView;
 
-public class HouseG implements ISerializable
+public class HouseG extends DisposableObject implements ISerializable
 {
     /*
      * Fields
@@ -76,20 +75,18 @@ public class HouseG implements ISerializable
         {
             result = EHouseOwner.EHO_NEUTRAL;
         }
+        else if (_owner == GameInfo.instance.managerGameSoldiers.gameOwner)
+        {
+            result = EHouseOwner.EHO_PLAYER;
+        }
+        else if (_owner == GameInfo.instance.managerGameSoldiers.gameOwnerOpponent)
+        {
+            result = EHouseOwner.EHO_ENEMY;
+        }
         else
-            if (_owner == GameInfo.instance.managerGameSoldiers.gameOwner)
-            {
-                result = EHouseOwner.EHO_PLAYER;
-            }
-            else
-                if (_owner == GameInfo.instance.managerGameSoldiers.gameOwnerOpponent)
-                {
-                    result = EHouseOwner.EHO_ENEMY;
-                }
-                else
-                {
-                    Debug.assert(false);
-                }
+        {
+            Debug.assert(false);
+        }
 
         return result;
     }
@@ -242,15 +239,5 @@ public class HouseG implements ISerializable
 
         _level = data0["level"];
     }
-
-    /*
-     * IDisposable
-     */
-
-    public function cleanup():void
-    {
-    }
-
-
 }
 }
