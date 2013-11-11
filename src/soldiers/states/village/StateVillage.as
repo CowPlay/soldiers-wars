@@ -11,6 +11,8 @@ import controllers.IController;
 
 import controls.IView;
 
+import flashx.textLayout.factory.StringTextLineFactory;
+
 import soldiers.controllers.popups.houses.build.ControllerPopupBuildHouse;
 import soldiers.controllers.popups.houses.bakery.ControllerPopupBakery;
 import soldiers.controllers.popups.houses.tavern.ControllerPopupTavern;
@@ -33,10 +35,6 @@ public class StateVillage extends StateGameBase
     /*
      * Fields
      */
-    //scene
-    private var _contollerView:IController;
-    private var _controllerUI:IController;
-
 
     /*
      * Properties

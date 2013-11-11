@@ -121,7 +121,7 @@ public class GameInfo extends GameInfoBase
 
 //            _managerStates.registerState(EStateType.EST_GAME, StateGame);
             _managerStates.registerState(EStateType.EST_VILLAGE, StateVillage);
-//            _managerStates.registerState(EStateType.EST_GAME_MAP, StateMap);
+            _managerStates.registerState(EStateType.EST_GAME_MAP, StateMap);
         }
 
         super.onInitSocialComplete();
@@ -129,9 +129,9 @@ public class GameInfo extends GameInfoBase
 
     protected override function onRemoteGameInitComplete(response:IResponse):void
     {
-        GameInfo.instance.managerStates.setState(EStateType.EST_VILLAGE);
+//        GameInfo.instance.managerStates.setState(EStateType.EST_VILLAGE);
 //        startStubGame();
-//        GameInfo.instance.managerStates.setState(EStateType.EST_GAME_MAP);
+        GameInfo.instance.managerStates.setState(EStateType.EST_GAME_MAP);
     }
 
     public function startStubGame():void

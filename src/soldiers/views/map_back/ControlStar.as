@@ -9,7 +9,7 @@
  * Time: 12:47
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.views.map
+package soldiers.views.map_back
 {
 import controls.IView;
 import controls.implementations.ControlBase;

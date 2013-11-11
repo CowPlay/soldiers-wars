@@ -117,7 +117,7 @@ public class ManagerProxy implements IManagerProxy
 
         var level0Data:Object =
         {
-            id: "",
+            id: "0",
             name: "",
             description: "",
             number: 0,

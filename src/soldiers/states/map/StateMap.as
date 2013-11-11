@@ -1,29 +1,32 @@
 /*
- * Copyright gregory.tkach (c) 2013.
- */
+* Copyright gregory.tkach (c) 2013.
+*/
 
 /**
- * Created with IntelliJ IDEA.
- * User: user
- * Date: 30.10.13
- * Time: 10:16
- * To change this template use File | Settings | File Templates.
- */
+* Created with IntelliJ IDEA.
+* User: user
+* Date: 30.10.13
+* Time: 10:16
+* To change this template use File | Settings | File Templates.
+*/
 package soldiers.states.map
 {
 import controls.IView;
 
 import models.implementations.states.base.StateBase;
 
-import soldiers.states.EStateType;
-import soldiers.views.map.ControlSceneMapView;
+import soldiers.controllers.map.ControllerMapScene;
 
-public class StateMap extends StateBase
+import soldiers.states.EStateType;
+import soldiers.states.base.StateGameBase;
+import soldiers.views.map.ViewMapScene;
+import soldiers.views.map_back.ControlSceneMapView;
+
+public class StateMap extends StateGameBase
 {
     /*
      * Fields
      */
-    private var _controlSceneView:IView;
 
     /*
      * Properties
@@ -44,13 +47,12 @@ public class StateMap extends StateBase
     {
         super.prepareLayerScene();
 
-        _controlSceneView = new ControlSceneMapView();
-        setControllerScene(_controlSceneView);
+        this.controllerScene = new ControllerMapScene();
     }
 
-    public override function onLoadingEnd():void
-    {
-        super.onLoadingEnd();
-    }
+//    public override function onLoadingEnd():void
+//    {
+//        super.onLoadingEnd();
+//    }
 }
 }
