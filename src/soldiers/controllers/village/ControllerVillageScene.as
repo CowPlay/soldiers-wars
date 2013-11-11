@@ -102,14 +102,6 @@ public class ControllerVillageScene extends Controller
 //        }
 //    }
 
-    //TODO: implement when fullscreen
-//    public override function onDisplayStateChanged(isFullScreenNow:Boolean):void
-//    {
-//        super.onDisplayStateChanged(isFullScreenNow);
-//
-//        _controlScroll.controlSize = GameInfo.instance.managerApp.applicationSize;
-//    }
-
     public override function cleanup():void
     {
 //        _houseAltar.cleanup();

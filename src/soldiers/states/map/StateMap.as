@@ -9,13 +9,13 @@
  * Time: 10:16
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.models.states.map
+package soldiers.states.map
 {
 import controls.IView;
 
 import models.implementations.states.base.StateBase;
 
-import soldiers.models.states.EStateType;
+import soldiers.states.EStateType;
 import soldiers.views.map.ControlSceneMapView;
 
 public class StateMap extends StateBase

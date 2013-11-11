@@ -5,13 +5,13 @@
  * Time: 1:48 PM
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.models.states.game
+package soldiers.states.game
 {
 import controls.IView;
 
 import soldiers.models.GameInfo;
-import soldiers.models.states.EStateType;
-import soldiers.models.states.base.StateGameBase;
+import soldiers.states.EStateType;
+import soldiers.states.base.StateGameBase;
 import soldiers.views.game.ControlSceneGameView;
 
 public class StateGame extends StateGameBase

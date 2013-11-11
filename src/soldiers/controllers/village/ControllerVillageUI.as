@@ -29,9 +29,6 @@ public class ControllerVillageUI extends Controller
 
     private var _controllerAddFriend:IController;
 
-    //ui
-    protected var _controlBottomStrip:IView;
-
 
     /*
      * Properties
@@ -52,6 +49,7 @@ public class ControllerVillageUI extends Controller
 
     private function init():void
     {
+
         _controllerAddFriend = new ControllerAddFriend();
     }
 
@@ -96,15 +94,6 @@ public class ControllerVillageUI extends Controller
 
         return result;
     }
-
-//TODO: implement
-//    public  function onControlMouseClick(target:IView, e:MouseEvent):Boolean
-//    {
-//
-//
-
-//        return result;
-//    }
 
     /*
      * IDisposable

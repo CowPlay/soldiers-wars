@@ -5,7 +5,7 @@
  * Time: 3:36 PM
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.models.states.base
+package soldiers.states.base
 {
 import controls.IView;
 import models.implementations.states.base.StateBase;

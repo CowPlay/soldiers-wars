@@ -5,20 +5,25 @@
  * Time: 1:48 PM
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.models.states.village
+package soldiers.states.village
 {
 import controllers.IController;
 
 import controls.IView;
 
-import soldiers.models.states.EStateType;
-import soldiers.models.states.base.StateGameBase;
-import soldiers.popups.houses.bakery.ControlPopupBakery;
-import soldiers.popups.houses.build.ControlPopupBuildHouse;
+import soldiers.controllers.popups.houses.build.ControllerPopupBuildHouse;
+import soldiers.controllers.popups.houses.bakery.ControllerPopupBakery;
+import soldiers.controllers.popups.houses.tavern.ControllerPopupTavern;
+import soldiers.popups.EPopupType;
+
+import soldiers.states.EStateType;
+import soldiers.states.base.StateGameBase;
+import soldiers.views.popups.houses.bakery.ViewPopupBakery;
+import soldiers.views.popups.houses.build.ViewPopupBuildHouse;
 import soldiers.popups.merlinTower.ControlPopupMerlinTower;
 import soldiers.popups.militaryAcademy.ControlPopupMilitaryAcademy;
 import soldiers.popups.mineGold.ControlPopupMineGold;
-import soldiers.popups.tavern.ControlPopupTavern;
+import soldiers.views.popups.houses.tavern.ViewPopupTavern;
 import soldiers.popups.universityMM.ControlPopupUniversityMM;
 import soldiers.controllers.village.ControllerVillageUI;
 import soldiers.controllers.village.ControllerVillageScene;
@@ -65,9 +70,9 @@ public class StateVillage extends StateGameBase
         super.prepareLayerPopups();
 
         //TODO: implement
-//        registerPopup(new ControlPopupBuildHouse());
-//        registerPopup(new ControlPopupBakery());
-//        registerPopup(new ControlPopupTavern());
+        registerPopup(new ControllerPopupBuildHouse());
+        registerPopup(new ControllerPopupBakery());
+        registerPopup(new ControllerPopupTavern());
 //        registerPopup(new ControlPopupUniversityMM());
 //        registerPopup(new ControlPopupMilitaryAcademy());
 //        registerPopup(new ControlPopupMerlinTower());
@@ -78,7 +83,7 @@ public class StateVillage extends StateGameBase
     {
         super.onLoadingEnd();
 
-//        showPopup(EPopupType.EPT_VILLAGE_HOUSE_BAKERY);
+        showPopup(EPopupType.EPT_VILLAGE_HOUSE_TAVERN);
     }
 
     /*

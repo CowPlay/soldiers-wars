@@ -26,9 +26,9 @@ import soldiers.models.housesVillage.ManagerHousesVillage;
 import soldiers.models.levels.LevelInfo;
 import soldiers.models.proxy.ManagerProxy;
 import soldiers.models.remote.ManagerRemoteStub;
-import soldiers.models.states.EStateType;
-import soldiers.models.states.map.StateMap;
-import soldiers.models.states.village.StateVillage;
+import soldiers.states.EStateType;
+import soldiers.states.map.StateMap;
+import soldiers.states.village.StateVillage;
 import soldiers.models.string.ManagerString;
 
 public class GameInfo extends GameInfoBase

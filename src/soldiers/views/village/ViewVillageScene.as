@@ -10,9 +10,10 @@ package soldiers.views.village
 import controllers.IController;
 
 import controls.IViewScroll;
-
 import controls.implementations.ControlBase;
 import controls.implementations.ViewScroll;
+
+import flash.display.DisplayObject;
 
 import soldiers.models.GameInfo;
 
@@ -28,6 +29,12 @@ public class ViewVillageScene extends ControlBase
     /*
      * Properties
      */
+
+
+    override public function get sourceView():DisplayObject
+    {
+        return _controlScroll.sourceView;
+    }
 
     /*
      * Methods
@@ -47,8 +54,14 @@ public class ViewVillageScene extends ControlBase
         _controlScroll = new ViewScroll(controller, _sourceView, GameInfo.instance.managerApp.applicationSize);
     }
 
+    public override function placeViews(isFullscreen:Boolean):void
+    {
+        super.placeViews(isFullscreen);
 
-    override public function cleanup():void
+        _controlScroll.controlSize = GameInfo.instance.managerApp.applicationSize;
+    }
+
+    public override function cleanup():void
     {
         _controlScroll.cleanup();
         _controlScroll = null;

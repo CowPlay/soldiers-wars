@@ -30,6 +30,7 @@ public class ViewVillageUI extends ControlBase
 
     private var _viewBottom:IView;
     private var _viewMultiplayer:IView;
+    private var _controlBottomStrip:IView;
 
     private var _buttonSingleplayer:IViewButton;
     private var _viewSingleplayer:IView;
@@ -45,11 +46,6 @@ public class ViewVillageUI extends ControlBase
     public function get buttonSingleplayer():IViewButton
     {
         return _buttonSingleplayer;
-    }
-
-    public function get viewSingleplayer():IView
-    {
-        return _viewSingleplayer;
     }
 
     /*
@@ -71,6 +67,7 @@ public class ViewVillageUI extends ControlBase
         _buttonSingleplayer = new ViewButton(controller, sourceSingleplayer.buttonSinglePlayer);
 
         _viewSingleplayer = new ControlBase(controller, sourceSingleplayer);
+
         _sourceView.addChild(_viewSingleplayer.sourceView);
 
         //TODO: implement
