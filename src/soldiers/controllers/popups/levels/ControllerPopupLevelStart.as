@@ -5,13 +5,14 @@
 /**
  * Created with IntelliJ IDEA.
  * User: user
- * Date: 11.11.13
- * Time: 16:48
+ * Date: 12.11.13
+ * Time: 11:43
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.controllers.map
+package soldiers.controllers.popups.levels
 {
 import controllers.implementations.Controller;
+import controllers.implementations.ControllerPopup;
 
 import controls.IView;
 
@@ -20,34 +21,34 @@ import flash.events.MouseEvent;
 import models.interfaces.levels.ILevelInfo;
 
 import soldiers.models.GameInfo;
+
 import soldiers.popups.EPopupType;
 import soldiers.states.EStateType;
 
-import soldiers.views.map.ViewFlagItem;
+import soldiers.views.popups.ViewPopupLevel;
 
-public class ControllerFlagItem extends Controller
+public class ControllerPopupLevelStart extends ControllerPopup
 {
     /*
      * Fields
      */
-    private var _view:ViewFlagItem;
-
-    private var _entry:ILevelInfo;
+    private var _view:ViewPopupLevel;
 
     /*
      * Properties
      */
-
+    public override function get type():String
+    {
+        return EPopupType.EPT_LEVEL_START;
+    }
     /*
      * Methods
      */
 
     //! Default constructor
-    public function ControllerFlagItem(entry:ILevelInfo)
+    public function ControllerPopupLevelStart()
     {
-        _view = new ViewFlagItem(this);
-
-        _entry = entry;
+        _view = new ViewPopupLevel(this);
 
         super(_view);
 
@@ -59,30 +60,20 @@ public class ControllerFlagItem extends Controller
 
     }
 
-    public override function cleanup():void
-    {
-        _view.cleanup();
-        _view = null;
-
-        _entry = null;
-
-        super.cleanup();
-    }
-
     /*
-     *ActionDelegate
+     * ActionDelegate
      */
-    public override function onViewClicked(target:IView, e:MouseEvent):Boolean
+    public override function onViewClicked(view:IView, e:MouseEvent):Boolean
     {
-        var result:Boolean = super.onViewClicked(target, e);
+        var result:Boolean = super.onViewClicked(view, e);
 
         if (!result)
         {
-            switch (target.sourceView)
+            switch (view)
             {
-                case _view.sourceView:
+                case _view.buttonStartEnd:
                 {
-                    GameInfo.instance.managerStates.currentState.showPopup(EPopupType.EPT_LEVEL_START);
+                    GameInfo.instance.managerStates.setState(EStateType.EST_VILLAGE);
 
                     result = true;
                     break;
@@ -94,6 +85,7 @@ public class ControllerFlagItem extends Controller
                 }
             }
         }
+
 
         return result;
 

@@ -32,6 +32,7 @@ public class ViewFlagItem extends ControlBase
     public function ViewFlagItem(controller:IController)
     {
         _sourceView = new gFlag();
+
         super(controller, _sourceView);
 
         init();
@@ -39,7 +40,7 @@ public class ViewFlagItem extends ControlBase
 
     private function init():void
     {
-
+         handleEvents(true);
     }
 
     public override function placeViews(isFullscreen:Boolean):void
@@ -49,6 +50,15 @@ public class ViewFlagItem extends ControlBase
 
     public override function cleanup():void
     {
+//        if(isCleanuped)
+//        {
+//            trace("");
+//        }
+//        else
+//        {
+//            trace("");
+//        }
+
         _sourceView = null;
 
         super.cleanup();

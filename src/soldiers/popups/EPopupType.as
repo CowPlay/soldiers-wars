@@ -17,6 +17,8 @@ public class EPopupType
     public static const EPT_VILLAGE_HOUSE_MERLIN_TOWER:String = "EPT_VILLAGE_HOUSE_MERLIN_TOWER";
     public static const EPT_VILLAGE_HOUSE_MINE_GOLD:String = "EPT_VILLAGE_HOUSE_MINE_GOLD";
 
+    public static  const EPT_LEVEL_START:String = "EPT_LEVEL_START";
+    public static  const EPT_LEVEL_END:String = "EPT_LEVEL_END";
 
 }
 }

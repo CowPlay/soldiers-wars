@@ -15,8 +15,6 @@ import controllers.implementations.Controller;
 
 import models.interfaces.levels.ILevelInfo;
 
-import soldiers.controllers.village.ui.ControllerAddFriend;
-
 import soldiers.models.GameInfo;
 
 import soldiers.views.map.ViewMapScene;
@@ -68,6 +66,12 @@ public class ControllerMapScene extends Controller
     {
         _view.cleanup();
         _view = null;
+
+        for each(var item:ControllerFlagItem in _items)
+        {
+            item.cleanup();
+            item = null;
+        }
 
         super.cleanup();
     }

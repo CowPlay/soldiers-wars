@@ -17,6 +17,8 @@ import controls.IView;
 
 import controls.implementations.ControlBase;
 
+import soldiers.views.popups.ViewPopupLevel;
+
 public class ViewMapScene extends ControlBase
 {
     /*
@@ -59,7 +61,6 @@ public class ViewMapScene extends ControlBase
         var itemView:ViewFlagItem = _items[0];
         itemView.sourceView.x = 80;
         itemView.sourceView.y = 172;
-
     }
 
     public override function cleanup():void

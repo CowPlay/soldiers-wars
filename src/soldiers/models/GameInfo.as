@@ -1,4 +1,4 @@
-/**
+ /**
  * Created with IntelliJ IDEA.
  * User: gregorytkach
  * Date: 9/5/13
@@ -26,6 +26,7 @@ import soldiers.models.housesVillage.ManagerHousesVillage;
 import soldiers.models.levels.LevelInfo;
 import soldiers.models.proxy.ManagerProxy;
 import soldiers.models.remote.ManagerRemoteStub;
+import soldiers.popups.EPopupType;
 import soldiers.states.EStateType;
 import soldiers.states.map.StateMap;
 import soldiers.states.village.StateVillage;

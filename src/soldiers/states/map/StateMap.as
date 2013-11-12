@@ -16,6 +16,9 @@ import controls.IView;
 import models.implementations.states.base.StateBase;
 
 import soldiers.controllers.map.ControllerMapScene;
+import soldiers.controllers.popups.houses.bakery.ControllerPopupBakery;
+import soldiers.controllers.popups.levels.ControllerPopupLevelEnd;
+import soldiers.controllers.popups.levels.ControllerPopupLevelStart;
 
 import soldiers.states.EStateType;
 import soldiers.states.base.StateGameBase;
@@ -48,6 +51,22 @@ public class StateMap extends StateGameBase
         super.prepareLayerScene();
 
         this.controllerScene = new ControllerMapScene();
+    }
+
+    public override function prepareLayerPopups():void
+    {
+        super.prepareLayerPopups();
+
+        //TODO: implement
+//        registerPopup(new ControllerPopupBuildHouse());
+        registerPopup(new ControllerPopupBakery());
+        registerPopup(new ControllerPopupLevelStart());
+        registerPopup(new ControllerPopupLevelEnd());
+//        registerPopup(new ControllerPopupTavern());
+//        registerPopup(new ControlPopupUniversityMM());
+//        registerPopup(new ControlPopupMilitaryAcademy());
+//        registerPopup(new ControlPopupMerlinTower());
+//        registerPopup(new ControlPopupMineGold());
     }
 
 //    public override function onLoadingEnd():void
