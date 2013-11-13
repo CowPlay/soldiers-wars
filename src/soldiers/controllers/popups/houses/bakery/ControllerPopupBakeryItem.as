@@ -118,6 +118,8 @@ public class ControllerPopupBakeryItem extends Controller
         _entry.controller = null;
         _entry = null;
 
+        _view.cleanup();
+
         super.cleanup();
     }
 }

@@ -67,7 +67,6 @@ public class StateVillage extends StateGameBase
     {
         super.prepareLayerPopups();
 
-        //TODO: implement
         registerPopup(new ControllerPopupBuildHouse());
         registerPopup(new ControllerPopupBakery());
         registerPopup(new ControllerPopupTavern());
@@ -80,8 +79,6 @@ public class StateVillage extends StateGameBase
     public override function onLoadingEnd():void
     {
         super.onLoadingEnd();
-
-        showPopup(EPopupType.EPT_VILLAGE_HOUSE_TAVERN);
     }
 
     /*

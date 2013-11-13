@@ -105,6 +105,7 @@ public class HouseV extends DisposableObject implements ISerializable
     //! Default constructor
     public function HouseV()
     {
+        super(false);
     }
 
 

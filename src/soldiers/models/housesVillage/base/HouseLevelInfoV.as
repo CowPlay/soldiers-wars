@@ -63,6 +63,7 @@ public class HouseLevelInfoV extends DisposableObject implements ISerializable
     //! Default constructor
     public function HouseLevelInfoV()
     {
+        super(false);
     }
 
     /*

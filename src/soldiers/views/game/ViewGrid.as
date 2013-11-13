@@ -7,21 +7,23 @@
  */
 package soldiers.views.game
 {
-import controls.IView;
+import controllers.IController;
+
 import controls.implementations.ControlBase;
 
+import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
 import flash.geom.Point;
 
 import soldiers.models.GameInfo;
 import soldiers.models.game.managerPath.GridCell;
 
-public class ControlGrid extends ControlBase
+public class ViewGrid extends ControlBase
 {
     /*
      * Fields
      */
-    private var _sourceViewTyped:Sprite;
+    private var _sourceView:DisplayObjectContainer;
 
     private var _cells:Array;
 
@@ -34,18 +36,16 @@ public class ControlGrid extends ControlBase
      */
 
     //! Default constructor
-    public function ControlGrid(parent:IView)
+    public function ViewGrid(controller:IController)
     {
-        super(parent);
+        _sourceView = new Sprite();
+        super(controller, _sourceView);
 
         init();
     }
 
     private function init():void
     {
-        _sourceViewTyped = new Sprite();
-        setSourceView(_sourceViewTyped);
-
         _cells = [];
 
         var grid:Array = GameInfo.instance.managerGameSoldiers.managerPath.grid;
@@ -59,11 +59,11 @@ public class ControlGrid extends ControlBase
             for (var currentColumn:int = 0; currentColumn < rowEntry.length; currentColumn++)
             {
                 var cellEntry:GridCell = rowEntry[currentColumn];
-                var cellView:ControlGridCell = new ControlGridCell(this, cellEntry);
+                var cellView:ControlBase = new ControlBase(controller, new gGridCell());
 
                 cellEntry.view = cellView;
 
-                _sourceViewTyped.addChild(cellView.sourceView);
+                _sourceView.addChild(cellView.sourceView);
 
                 rowView.push(cellView);
             }
@@ -72,7 +72,7 @@ public class ControlGrid extends ControlBase
         }
     }
 
-    public override function placeViews():void
+    public override function placeViews(fullscreen:Boolean):void
     {
         var startX:Number = 0;
         var startY:Number = 0;
@@ -114,6 +114,8 @@ public class ControlGrid extends ControlBase
 //                house.view.arrow.rootView.y = house.view.y;
 //            }
 //        }
+
+        super.placeViews(fullscreen);
     }
 }
 }

@@ -80,9 +80,9 @@ public class ControllerPopupBakery extends ControllerPopup
 
         for each(var levelInfo:HouseLevelInfoVBakery in _entry.levelsInfo)
         {
-            var itemView:IController = new ControllerPopupBakeryItem(levelInfo);
-            _view.addSubView(itemView.view);
-            _items.push(itemView);
+            var item:IController = new ControllerPopupBakeryItem(levelInfo);
+            _view.addSubView(item.view);
+            _items.push(item);
         }
 
         currentItemIndex = 0;
@@ -189,6 +189,19 @@ public class ControllerPopupBakery extends ControllerPopup
         {
             item.update(EControllerUpdateBase.ECUT_ENTRY_UPDATED);
         }
+    }
+
+    public override function cleanup():void
+    {
+        for each(var item:IController in _items)
+        {
+            item.cleanup();
+        }
+
+        _view.cleanup();
+        _view = null;
+
+        super.cleanup();
     }
 }
 }

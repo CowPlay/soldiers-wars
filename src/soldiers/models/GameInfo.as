@@ -1,4 +1,4 @@
- /**
+/**
  * Created with IntelliJ IDEA.
  * User: gregorytkach
  * Date: 9/5/13
@@ -26,11 +26,11 @@ import soldiers.models.housesVillage.ManagerHousesVillage;
 import soldiers.models.levels.LevelInfo;
 import soldiers.models.proxy.ManagerProxy;
 import soldiers.models.remote.ManagerRemoteStub;
-import soldiers.popups.EPopupType;
+import soldiers.models.string.ManagerString;
 import soldiers.states.EStateType;
+import soldiers.states.game.StateGame;
 import soldiers.states.map.StateMap;
 import soldiers.states.village.StateVillage;
-import soldiers.models.string.ManagerString;
 
 public class GameInfo extends GameInfoBase
 {
@@ -120,7 +120,7 @@ public class GameInfo extends GameInfoBase
 
         {//register states
 
-//            _managerStates.registerState(EStateType.EST_GAME, StateGame);
+            _managerStates.registerState(EStateType.EST_GAME, StateGame);
             _managerStates.registerState(EStateType.EST_VILLAGE, StateVillage);
             _managerStates.registerState(EStateType.EST_GAME_MAP, StateMap);
         }
@@ -130,9 +130,7 @@ public class GameInfo extends GameInfoBase
 
     protected override function onRemoteGameInitComplete(response:IResponse):void
     {
-//        GameInfo.instance.managerStates.setState(EStateType.EST_VILLAGE);
-//        startStubGame();
-        GameInfo.instance.managerStates.setState(EStateType.EST_GAME_MAP);
+        startStubGame();
     }
 
     public function startStubGame():void

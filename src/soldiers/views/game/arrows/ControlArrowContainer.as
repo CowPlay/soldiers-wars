@@ -31,7 +31,7 @@ public class ControlArrowContainer extends ControlBase
     /*
      * Fields
      */
-    private var _sourceViewTyped:DisplayObjectContainer;
+    private var _sourceView:DisplayObjectContainer;
 
     private var _houses:Array;
     private var _controlsArrows:Array;
@@ -55,11 +55,11 @@ public class ControlArrowContainer extends ControlBase
 
     private function init():void
     {
-        _sourceViewTyped = new Sprite();
-        _sourceViewTyped.mouseEnabled = false;
-        _sourceViewTyped.mouseChildren = false;
+        _sourceView = new Sprite();
+        _sourceView.mouseEnabled = false;
+        _sourceView.mouseChildren = false;
 
-        setSourceView(_sourceViewTyped);
+        setSourceView(_sourceView);
 
         _controlsArrows = [];
 
@@ -70,7 +70,7 @@ public class ControlArrowContainer extends ControlBase
             var controlArrow:ControlArrow = new ControlArrow(this);
             controlArrow.hide();
 
-            _sourceViewTyped.addChild(controlArrow.sourceView);
+            _sourceView.addChild(controlArrow.sourceView);
 
             _controlsArrows.push(controlArrow);
         }
@@ -83,20 +83,6 @@ public class ControlArrowContainer extends ControlBase
         for each(var arrowView:ControlArrow in _controlsArrows)
         {
             arrowView.updateArrowSize(e);
-        }
-    }
-
-    public override function placeViews():void
-    {
-        super.placeViews();
-
-        for (var i:int = 0; i < _houses.length; i++)
-        {
-            var house:HouseG = _houses[i];
-            var controlArrow:IView = _controlsArrows[i];
-
-            controlArrow.sourceView.x = house.view.sourceView.x + house.view.auraPosition.x;
-            controlArrow.sourceView.y = house.view.sourceView.y + house.view.auraPosition.y;
         }
     }
 
@@ -124,6 +110,19 @@ public class ControlArrowContainer extends ControlBase
         }
     }
 
+    public override function placeViews(isFullscreen:Boolean):void
+    {
+        super.placeViews(isFullscreen);
+
+        for (var i:int = 0; i < _houses.length; i++)
+        {
+            var house:HouseG = _houses[i];
+            var controlArrow:IView = _controlsArrows[i];
+
+            controlArrow.sourceView.x = house.view.sourceView.x + house.view.auraPosition.x;
+            controlArrow.sourceView.y = house.view.sourceView.y + house.view.auraPosition.y;
+        }
+    }
 }
 
 }

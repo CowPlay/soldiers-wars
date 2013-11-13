@@ -38,6 +38,7 @@ public class ManagerHousesGame extends DisposableObject implements ISerializable
     //! Default constructor
     public function ManagerHousesGame()
     {
+        super(false);
     }
 
     //! Returns array of levels info for specify house

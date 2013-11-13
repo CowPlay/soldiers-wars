@@ -144,11 +144,6 @@ public class ViewPopupBakery extends ViewPopup
         _buttonRight.cleanup();
         _buttonRight = null;
 
-        for each(var item:IView in _items)
-        {
-            item.cleanup();
-            item = null;
-        }
         _items = null;
 
         _sourceView = null;

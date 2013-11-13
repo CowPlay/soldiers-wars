@@ -9,10 +9,12 @@ package soldiers.states.game
 {
 import controls.IView;
 
+import soldiers.controllers.game.ControllerSceneGame;
+
 import soldiers.models.GameInfo;
 import soldiers.states.EStateType;
 import soldiers.states.base.StateGameBase;
-import soldiers.views.game.ControlSceneGameView;
+import soldiers.views.game.ViewSceneGame;
 
 public class StateGame extends StateGameBase
 {
@@ -41,13 +43,12 @@ public class StateGame extends StateGameBase
     {
         super.prepareLayerScene();
 
-        _controlSceneView = new ControlSceneGameView();
-        setControllerScene(_controlSceneView);
+        this.controllerScene = new ControllerSceneGame();
     }
 
     public override function update(type:String):void
     {
-        _controlSceneView.update(type);
+        this.controllerScene.update(type);
     }
 
     public override function onLoadingEnd():void

@@ -11,20 +11,14 @@
  */
 package soldiers.controllers.popups.levels
 {
-import controllers.implementations.Controller;
 import controllers.implementations.ControllerPopup;
 
 import controls.IView;
 
 import flash.events.MouseEvent;
 
-import models.interfaces.levels.ILevelInfo;
-
 import soldiers.models.GameInfo;
-
 import soldiers.popups.EPopupType;
-import soldiers.states.EStateType;
-
 import soldiers.views.popups.ViewPopupLevel;
 
 public class ControllerPopupLevelStart extends ControllerPopup
@@ -41,6 +35,7 @@ public class ControllerPopupLevelStart extends ControllerPopup
     {
         return EPopupType.EPT_LEVEL_START;
     }
+
     /*
      * Methods
      */
@@ -73,7 +68,7 @@ public class ControllerPopupLevelStart extends ControllerPopup
             {
                 case _view.buttonStartEnd:
                 {
-                    GameInfo.instance.managerStates.setState(EStateType.EST_VILLAGE);
+                    GameInfo.instance.startStubGame();
 
                     result = true;
                     break;
@@ -89,6 +84,12 @@ public class ControllerPopupLevelStart extends ControllerPopup
 
         return result;
 
+    }
+
+    public override function cleanup():void
+    {
+        _view.cleanup();
+        super.cleanup();
     }
 }
 }

@@ -51,8 +51,6 @@ public class ControlArrow extends ControlBase
     {
         _sourceViewTyped = new gSelectArrow();
 
-        setSourceView(_sourceViewTyped);
-
         _rootViewWidth = _sourceViewTyped.width;
 
     }

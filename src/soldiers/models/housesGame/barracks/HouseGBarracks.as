@@ -45,9 +45,10 @@ public class HouseGBarracks extends HouseG
         super();
 
         //TODO: move to config
-        _timerSoldierGenerator = new Timer(1000);
-        UtilsMemory.registerEventListener(_timerSoldierGenerator, TimerEvent.TIMER, this, incrementSoldierCount);
-        _timerSoldierGenerator.start();
+        //TODO:implement
+//        _timerSoldierGenerator = new Timer(1000);
+//        UtilsMemory.registerEventListener(_timerSoldierGenerator, TimerEvent.TIMER, this, incrementSoldierCount);
+//        _timerSoldierGenerator.start();
     }
 
     public function incrementSoldierCount(e:Event):void

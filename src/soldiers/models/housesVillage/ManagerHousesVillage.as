@@ -40,6 +40,8 @@ public class ManagerHousesVillage extends DisposableObject implements ISerializa
     //! Default constructor
     public function ManagerHousesVillage()
     {
+        super(false);
+
         init();
     }
 
