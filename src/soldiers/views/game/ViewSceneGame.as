@@ -13,6 +13,8 @@ package soldiers.views.game
 {
 import controllers.IController;
 
+import controls.EViewAlignment;
+
 import controls.IView;
 import controls.implementations.ControlBase;
 
@@ -20,11 +22,12 @@ import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
 import flash.events.Event;
 import flash.events.MouseEvent;
+import flash.geom.Point;
 
 import soldiers.models.GameInfo;
-import soldiers.views.game.arrows.ControlArrowContainer;
-import soldiers.views.game.housesG.base.ControlGHouseViewContainer;
-import soldiers.views.game.soldiers.base.ControlSoldierViewContainer;
+import soldiers.views.game.arrows.ViewArrowContainer;
+import soldiers.views.game.houses.ViewHousesGContainer;
+import soldiers.views.game.soldiers.ViewSoldiersContainer;
 
 public class ViewSceneGame extends ControlBase
 {
@@ -37,6 +40,8 @@ public class ViewSceneGame extends ControlBase
     private var _controlArrowContainer:IView;
     private var _controlHousesContainer:IView;
     private var _controlSoldiersContainer:IView;
+
+    private var _subViews:Array;
 
 
     /*
@@ -58,8 +63,14 @@ public class ViewSceneGame extends ControlBase
 
     private function init():void
     {
+        _subViews = [];
+
         _viewGrid = new ViewGrid(controller);
+        _viewGrid.alignment = EViewAlignment.EVA_ABSOLUTE;
         _viewGrid.handleEvents(false);
+
+        //TODO: review this hack
+        _viewGrid.anchorPoint = new Point(0.5, 0);
 
         _sourceView.addChild(_viewGrid.sourceView);
 
@@ -84,6 +95,7 @@ public class ViewSceneGame extends ControlBase
     public override function addSubView(view:IView):void
     {
         _sourceView.addChild(view.sourceView);
+        _subViews.push(view);
     }
 
     //TODO: implement when fullscreen
@@ -109,6 +121,13 @@ public class ViewSceneGame extends ControlBase
         super.placeViews(fullscreen);
 
         _viewGrid.placeViews(fullscreen);
+        _viewGrid.translate(0.5, 0.5);
+
+        for each(var subView:IView in _subViews)
+        {
+            subView.placeViews(fullscreen);
+        }
+
 //        _controlHousesContainer.placeViews(fullscreen);
 //        _controlArrowContainer.placeViews(fullscreen);
     }

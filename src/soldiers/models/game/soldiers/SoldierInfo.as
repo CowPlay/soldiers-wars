@@ -121,7 +121,7 @@ public class SoldierInfo extends DisposableObject implements IDisposable
 
         _houseOwnerType = owner.ownerType;
         _level = owner.level;
-        _levelMax = owner.levelMax;
+        _levelMax = owner.houseConfig.levelMax;
         _houseTarget = target;
         _houseOwnerPlayer = owner.owner;
 

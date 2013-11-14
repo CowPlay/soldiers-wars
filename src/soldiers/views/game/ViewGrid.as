@@ -95,8 +95,8 @@ public class ViewGrid extends ControlBase
             {
                 var node:GridCell = row[currentColumn];
 
-                node.view.sourceView.x = offsetX;//startX + currentRow * Node.NodeWidthHalf;
-                node.view.sourceView.y = offsetY;//startY - currentColumn * Node.NodeHeightHalf;
+                node.view.sourceView.x = offsetX;
+                node.view.sourceView.y = offsetY;
 
                 offsetX = offsetX + nodeWidth / 2;
                 offsetY = offsetY - nodeHeight / 2;

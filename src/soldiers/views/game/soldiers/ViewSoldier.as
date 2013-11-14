@@ -5,10 +5,12 @@
  * Time: 11:43 AM
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.views.game.soldiers.base
+package soldiers.views.game.soldiers
 {
 import com.greensock.TimelineMax;
 import com.greensock.TweenMax;
+
+import controllers.IController;
 
 import controls.IView;
 import controls.implementations.ControlBase;
@@ -19,7 +21,7 @@ import soldiers.models.game.managerPath.GridCell;
 import soldiers.models.game.soldiers.ESoldierRotation;
 import soldiers.models.game.soldiers.SoldierInfo;
 
-public class ControlSoldierView extends ControlBase
+public class ViewSoldier extends ControlBase
 {
     /*
      * Static methods
@@ -81,7 +83,7 @@ public class ControlSoldierView extends ControlBase
     /*
      * Fields
      */
-    private var _sourceViewTyped:MovieClip;
+    private var _sourceView:MovieClip;
     private var _soldierView:MovieClip;
     private var _entry:SoldierInfo;
 
@@ -109,11 +111,11 @@ public class ControlSoldierView extends ControlBase
      * Methods
      */
 
-    public function ControlSoldierView(parent:IView, entry:SoldierInfo)
+    public function ViewSoldier(controller:IController, entry:SoldierInfo)
     {
-        super(parent);
-
-        Debug.assert(entry != null);
+        //TODO: detect type
+        _sourceView = new gSoldierPlayer();
+        super(controller, _sourceView);
 
         _entry = entry;
 
@@ -122,23 +124,20 @@ public class ControlSoldierView extends ControlBase
 
     private function init():void
     {
-        _sourceViewTyped = new gSoldierPlayer();
-        setSourceView(_sourceViewTyped);
-
         for (var level:int = 1; level <= _entry.levelMax; level++)
         {
             var propertyName:String = "level_" + level.toString();
-            Debug.assert(_sourceViewTyped.hasOwnProperty(propertyName), "Not found soldier view: " + propertyName);
+            Debug.assert(_sourceView.hasOwnProperty(propertyName), "Not found soldier view: " + propertyName);
 
             if (level == _entry.level)
             {
-                _soldierView = _sourceViewTyped[propertyName];
+                _soldierView = _sourceView[propertyName];
                 _soldierView.visible = true;
                 _soldierView.gotoAndStop(0);
             }
             else
             {
-                _sourceViewTyped[propertyName].visible = false;
+                _sourceView[propertyName].visible = false;
             }
         }
 
@@ -205,7 +204,7 @@ public class ControlSoldierView extends ControlBase
         TweenMax.killTweensOf(sourceView);
         TweenMax.killTweensOf(this);
 
-        _sourceViewTyped = null;
+        _sourceView = null;
         _soldierView = null;
         _entry = null;
 

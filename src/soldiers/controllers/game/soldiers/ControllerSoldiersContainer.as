@@ -1,30 +1,26 @@
 /**
  * Created with IntelliJ IDEA.
  * User: gregorytkach
- * Date: 9/30/13
- * Time: 2:18 PM
+ * Date: 11/13/13
+ * Time: 4:58 PM
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.views.game.soldiers.base
+package soldiers.controllers.game.soldiers
 {
-import controls.IView;
-import controls.implementations.ControlBase;
-
-import flash.display.DisplayObjectContainer;
-import flash.display.Sprite;
-
-import models.interfaces.states.IState;
+import controllers.implementations.Controller;
 
 import soldiers.controllers.EControllerUpdate;
 import soldiers.models.GameInfo;
 import soldiers.models.game.soldiers.SoldierInfo;
+import soldiers.views.game.soldiers.ViewSoldier;
+import soldiers.views.game.soldiers.ViewSoldiersContainer;
 
-public class ControlSoldierViewContainer extends ControlBase
+public class ControllerSoldiersContainer extends Controller
 {
     /*
      * Fields
      */
-    private var _sourceViewTyped:DisplayObjectContainer;
+    private var _view:ViewSoldiersContainer;
     /*
      * Properties
      */
@@ -34,18 +30,20 @@ public class ControlSoldierViewContainer extends ControlBase
      */
 
     //! Default constructor
-    public function ControlSoldierViewContainer(parent:IView)
+    public function ControllerSoldiersContainer()
     {
-        super(parent);
+        _view = new ViewSoldiersContainer(this);
+        super(_view);
 
-        _sourceViewTyped = new Sprite();
-        _sourceViewTyped.mouseChildren = false;
-        _sourceViewTyped.mouseEnabled = false;
-        setSourceView(_sourceViewTyped);
+        init();
+    }
+
+    private function init():void
+    {
     }
 
 
-    public override function update(type:String = ""):void
+    public override function update(type:String):void
     {
         switch (type)
         {
@@ -56,8 +54,8 @@ public class ControlSoldierViewContainer extends ControlBase
                 {
                     if (soldier.view == null)
                     {
-                        soldier.view = new ControlSoldierView(this, soldier);
-                        _sourceViewTyped.addChild(soldier.view.sourceView);
+                        soldier.view = new ViewSoldier(this, soldier);
+                        _view.addSubView(soldier.view);
                     }
                 }
 

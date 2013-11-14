@@ -11,31 +11,30 @@
  */
 package soldiers.models.housesGame.base
 {
+import controllers.IController;
+
 import core.DisposableObject;
 
 import flash.geom.Point;
-import flash.utils.Dictionary;
 
 import models.interfaces.players.IPlayerInfo;
 
 import serialization.ISerializable;
 
 import soldiers.models.GameInfo;
-import soldiers.views.game.housesG.base.ControlGHouseView;
 
 public class HouseG extends DisposableObject implements ISerializable
 {
     /*
      * Fields
      */
-    private var _view:ControlGHouseView;
+    private var _controller:IController;
 
     private var _ownerTypeOnStart:String;
     private var _owner:IPlayerInfo;
 
     //[Serializable]
     private var _level:uint;
-    private var _levelMax:uint;
 
     //! Use Get\SetSoldierCount
     //[Serializable]
@@ -45,26 +44,23 @@ public class HouseG extends DisposableObject implements ISerializable
     //[Serializable]
     private var _positionCurrent:Point;
 
-    //[Serializable base]
-    private var _positionExit:Point;
-
-    private var _foundationSize:Point;
 
     private var _isSelect:Boolean;
 
-    private var _levelsInfo:Dictionary;
+    private var _houseConfig:HouseGConfig;
+
     /*
      * Properties
      */
 
-    public function get view():ControlGHouseView
+    public function get controller():IController
     {
-        return _view;
+        return _controller;
     }
 
-    public function set view(value:ControlGHouseView):void
+    public function set controller(value:IController):void
     {
-        _view = value;
+        _controller = value;
     }
 
     public function get ownerType():String
@@ -115,19 +111,15 @@ public class HouseG extends DisposableObject implements ISerializable
         return null;
     }
 
-    public function get positionExit():Point
-    {
-        return _positionExit;
-    }
-
     public function get positionCurrent():Point
     {
         return _positionCurrent;
     }
 
-    public function get foundationSize():Point
+    public function get positionExit():Point
     {
-        return _foundationSize;
+        var p:Point = _positionCurrent + _positionCurrent;
+        return new Point(_positionCurrent.x + currentLevelInfo.positionExitOffset.x, _positionCurrent.y + currentLevelInfo.positionExitOffset.y);
     }
 
     public function get isSelect():Boolean
@@ -149,9 +141,9 @@ public class HouseG extends DisposableObject implements ISerializable
         return _level;
     }
 
-    public function get levelMax():uint
+    public function get houseConfig():HouseGConfig
     {
-        return _levelMax;
+        return _houseConfig;
     }
 
     public function get soldierCount():int
@@ -169,7 +161,7 @@ public class HouseG extends DisposableObject implements ISerializable
 
     public function get currentLevelInfo():HouseGLevelInfo
     {
-        return _levelsInfo[_level];
+        return _houseConfig.houseLevelsInfo[_level];
     }
 
 
@@ -180,27 +172,7 @@ public class HouseG extends DisposableObject implements ISerializable
     //! Default constructor
     public function HouseG()
     {
-    }
-
-    public function onGameStart():void
-    {
-        var levelsInfo:Array = GameInfo.instance.managerHousesGame.getLevelsInfoForHouse(type);
-
-        _levelsInfo = new Dictionary(true);
-
-        for each(var levelInfo:HouseGLevelInfo in levelsInfo)
-        {
-            _levelsInfo[levelInfo.level] = levelInfo;
-
-            _levelMax = Math.max(levelInfo.level, _levelMax);
-        }
-        updateData();
-
-    }
-
-    private function updateData():void
-    {
-
+        _houseConfig = GameInfo.instance.managerHousesGame.getHouseConfig(type);
     }
 
     /*
@@ -216,28 +188,16 @@ public class HouseG extends DisposableObject implements ISerializable
     {
         Debug.assert(data0.hasOwnProperty("owner"));
         Debug.assert(data0.hasOwnProperty("level"));
+        Debug.assert(data0.hasOwnProperty("soldiers"));
+
         Debug.assert(data0.hasOwnProperty("position_x"));
         Debug.assert(data0.hasOwnProperty("position_y"));
-        Debug.assert(data0.hasOwnProperty("position_exit_offset_x"));
-        Debug.assert(data0.hasOwnProperty("position_exit_offset_y"));
-        Debug.assert(data0.hasOwnProperty("soldiers"));
-        Debug.assert(data0.hasOwnProperty("soldiers_max"));
-        Debug.assert(data0.hasOwnProperty("soldiers_max"));
-
-        Debug.assert(data0.hasOwnProperty("foundation_width"));
-        Debug.assert(data0.hasOwnProperty("foundation_height"));
 
         _ownerTypeOnStart = data0["owner"].toUpperCase();
-
-        _positionCurrent = new Point(data0["position_x"], data0["position_y"]);
-        _foundationSize = new Point(data0["foundation_width"], data0["foundation_height"]);
-
-        var positionExitOffset:Point = new Point(data0["position_exit_offset_x"], data0["position_exit_offset_y"]);
-        _positionExit = new Point(_positionCurrent.x + positionExitOffset.x, _positionCurrent.y + positionExitOffset.y);
-
+        _level = data0["level"];
         _soldierCount = data0["soldiers"];
 
-        _level = data0["level"];
+        _positionCurrent = new Point(data0["position_x"], data0["position_y"]);
     }
 }
 }

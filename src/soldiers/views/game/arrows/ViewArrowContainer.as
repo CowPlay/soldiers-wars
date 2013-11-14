@@ -11,6 +11,8 @@
  */
 package soldiers.views.game.arrows
 {
+import controllers.IController;
+
 import controls.IView;
 import controls.implementations.ControlBase;
 
@@ -18,15 +20,13 @@ import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
 import flash.events.MouseEvent;
 
-import models.interfaces.states.IState;
-
 import soldiers.controllers.EControllerUpdate;
 import soldiers.models.GameInfo;
 import soldiers.models.housesGame.base.HouseG;
 
 import utils.memory.UtilsMemory;
 
-public class ControlArrowContainer extends ControlBase
+public class ViewArrowContainer extends ControlBase
 {
     /*
      * Fields
@@ -45,21 +45,20 @@ public class ControlArrowContainer extends ControlBase
      */
 
     //! Default constructor
-    public function ControlArrowContainer(parent:IView)
+    public function ViewArrowContainer(controller:IController)
     {
-        super(parent);
-
+        _sourceView = new Sprite();
+        super(controller, _sourceView);
 
         init();
     }
 
     private function init():void
     {
-        _sourceView = new Sprite();
+        handleEvents(false);
+
         _sourceView.mouseEnabled = false;
         _sourceView.mouseChildren = false;
-
-        setSourceView(_sourceView);
 
         _controlsArrows = [];
 
@@ -67,7 +66,7 @@ public class ControlArrowContainer extends ControlBase
 
         for each(var house:HouseG in _houses)
         {
-            var controlArrow:ControlArrow = new ControlArrow(this);
+            var controlArrow:ViewArrow = new ViewArrow(controller);
             controlArrow.hide();
 
             _sourceView.addChild(controlArrow.sourceView);
@@ -80,7 +79,7 @@ public class ControlArrowContainer extends ControlBase
 
     public function updateArrowSize(e:MouseEvent):void
     {
-        for each(var arrowView:ControlArrow in _controlsArrows)
+        for each(var arrowView:ViewArrow in _controlsArrows)
         {
             arrowView.updateArrowSize(e);
         }
@@ -119,8 +118,8 @@ public class ControlArrowContainer extends ControlBase
             var house:HouseG = _houses[i];
             var controlArrow:IView = _controlsArrows[i];
 
-            controlArrow.sourceView.x = house.view.sourceView.x + house.view.auraPosition.x;
-            controlArrow.sourceView.y = house.view.sourceView.y + house.view.auraPosition.y;
+            controlArrow.sourceView.x = house.controller.sourceView.x + house.controller.auraPosition.x;
+            controlArrow.sourceView.y = house.controller.sourceView.y + house.controller.auraPosition.y;
         }
     }
 }

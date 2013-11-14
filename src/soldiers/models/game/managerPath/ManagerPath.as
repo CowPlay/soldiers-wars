@@ -5,9 +5,9 @@ import flash.utils.Dictionary;
 
 import models.interfaces.levels.ILevelInfo;
 
-import soldiers.models.levels.LevelInfo;
 import soldiers.models.housesGame.base.EHouseOwner;
 import soldiers.models.housesGame.base.HouseG;
+import soldiers.models.levels.LevelInfo;
 
 import utils.Utils;
 
@@ -92,7 +92,7 @@ public class ManagerPath
         {
             for each (var house:HouseG in _currentLevel.houses)
             {
-                var foundationSize:Point = house.foundationSize;
+                var foundationSize:Point = house.currentLevelInfo.foundationSize;
 
                 var rowFrom:int = house.positionCurrent.y;
                 var rowTo:int = rowFrom + foundationSize.y;

@@ -110,7 +110,7 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
             {
                 Debug.assert(waveInfo.owner.soldierCount >= waveInfo.generatedSoldierRest);
                 waveInfo.owner.soldierCount -= waveInfo.generatedSoldierRest;
-                waveInfo.owner.view.update(EControllerUpdateBase.ECUT_ENTRY_UPDATED);
+                waveInfo.owner.controller.update(EControllerUpdateBase.ECUT_ENTRY_UPDATED);
             }
 
             waveInfo.timeGeneratedLast = currentTime;
@@ -178,7 +178,7 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
             soldier.houseTarget.soldierCount++;
         }
 
-        soldier.houseTarget.view.update(EControllerUpdateBase.ECUT_ENTRY_UPDATED);
+        soldier.houseTarget.controller.update(EControllerUpdateBase.ECUT_ENTRY_UPDATED);
 
         UtilsArray.removeValue(_soldiers, soldier);
 

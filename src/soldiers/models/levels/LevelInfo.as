@@ -28,6 +28,7 @@ public class LevelInfo extends LevelInfoBase
      */
     //[ISerializable]
     private var _houses:Array;
+    private var _housesData:Array;
 
     //[ISerializable]
     private var _gridSize:Point;
@@ -65,11 +66,30 @@ public class LevelInfo extends LevelInfoBase
     {
         super.onGameStart();
 
-        for each(var house:HouseG in _houses)
+        for each(var houseData:Object in _housesData)
         {
-            house.onGameStart();
-        }
+            houseData.hasOwnProperty("type");
 
+            var house:HouseG;
+
+            switch (houseData["type"])
+            {
+                case EHouseTypeG.EHGT_BARRACKS:
+                {
+                    house = new HouseGBarracks();
+                    house.deserialize(houseData);
+
+                    break;
+                }
+                default :
+                {
+                    Debug.assert(false);
+                    break;
+                }
+            }
+
+            _houses.push(house);
+        }
     }
 
     /*
@@ -92,33 +112,7 @@ public class LevelInfo extends LevelInfoBase
 
         _gridSize = new Point(data["grid_width"], data["grid_height"]);
 
-        var housesData:Array = data["houses"] as Array;
-
-        for each(var houseData:Object in housesData)
-        {
-            houseData.hasOwnProperty("type");
-
-            var house:HouseG;
-
-            switch (houseData["type"])
-            {
-                case EHouseTypeG.EHGT_BARRACKS:
-                {
-
-                    house = new HouseGBarracks();
-                    house.deserialize(houseData);
-
-                    break;
-                }
-                default :
-                {
-                    Debug.assert(false);
-                    break;
-                }
-            }
-
-            _houses.push(house);
-        }
+        _housesData = data["houses"] as Array;
     }
 
     /*

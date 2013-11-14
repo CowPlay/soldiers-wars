@@ -62,7 +62,7 @@ public class HouseGBarracks extends HouseG
             else
             {
                 soldierCount < this.currentLevelInfo.soldiersMax ? soldierCount++ : soldierCount--;
-                view.update(EControllerUpdateBase.ECUT_ENTRY_UPDATED);
+                controller.update(EControllerUpdateBase.ECUT_ENTRY_UPDATED);
             }
         }
     }

@@ -7,11 +7,17 @@
  */
 package soldiers.controllers.game
 {
-public class ControllerArrow
+import controllers.implementations.Controller;
+
+import soldiers.views.game.arrows.ViewArrow;
+
+public class ControllerArrow extends Controller
 {
     /*
      * Fields
      */
+    private var _view:ViewArrow;
+
 
     /*
      * Properties
@@ -24,6 +30,9 @@ public class ControllerArrow
     //! Default constructor
     public function ControllerArrow()
     {
+        _view = new ViewArrow(this);
+        super(_view);
+
         init();
     }
 

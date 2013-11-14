@@ -158,7 +158,7 @@ package soldiers.models.game
 
             _selectedHouses[player] = selectedHouses;
 
-            _sceneGame.update(EControllerUpdate.ECU_HOUSE_SELECTION_CHANGED);
+            _stateGame.update(EControllerUpdate.ECU_HOUSE_SELECTION_CHANGED);
         }
 
         public function clearHousesSelection(player:IPlayerInfo):void
@@ -172,7 +172,7 @@ package soldiers.models.game
 
             _selectedHouses[player] = [];
 
-            _sceneGame.update(EControllerUpdate.ECU_HOUSE_SELECTION_CHANGED);
+            _stateGame.update(EControllerUpdate.ECU_HOUSE_SELECTION_CHANGED);
         }
 
         public function isAnyHouseSelected(player:IPlayerInfo):Boolean

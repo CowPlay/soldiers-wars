@@ -11,6 +11,7 @@ import controllers.IController;
 import controllers.implementations.Controller;
 
 import soldiers.controllers.EControllerUpdate;
+import soldiers.controllers.game.houses.ControllerHousesGContainer;
 import soldiers.views.game.ViewSceneGame;
 
 public class ControllerSceneGame extends Controller
@@ -27,6 +28,7 @@ public class ControllerSceneGame extends Controller
 
     private var _controllerArrow:IController;
     private var _controllerSoldiers:IController;
+    private var _controllerHouses:IController;
 
     /*
      * Methods
@@ -42,6 +44,11 @@ public class ControllerSceneGame extends Controller
 
     private function init():void
     {
+        _controllerArrow = new ControllerArrow();
+
+        _controllerHouses = new ControllerHousesGContainer();
+
+        _view.addSubView(_controllerHouses.view);
     }
 
     public override function update(type:String):void

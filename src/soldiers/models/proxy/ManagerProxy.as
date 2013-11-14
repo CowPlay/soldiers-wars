@@ -70,15 +70,11 @@ public class ManagerProxy implements IManagerProxy
             type: EHouseTypeG.EHGT_BARRACKS,
             owner: "eho_enemy",
             level: 1,
-            level_max: 1,
+
             position_x: 4,
             position_y: 4,
-            position_exit_offset_x: 3,
-            position_exit_offset_y: 3,
-            foundation_width: 2,
-            foundation_height: 2,
-            soldiers: 100,
-            soldiers_max: 200
+
+            soldiers: 100
         };
 
 
@@ -87,15 +83,11 @@ public class ManagerProxy implements IManagerProxy
             type: EHouseTypeG.EHGT_BARRACKS,
             owner: "eho_player",
             level: 1,
-            level_max: 1,
+
             position_x: 14,
             position_y: 14,
-            position_exit_offset_x: 3,
-            position_exit_offset_y: 3,
-            foundation_width: 2,
-            foundation_height: 2,
-            soldiers: 100,
-            soldiers_max: 200
+
+            soldiers: 100
         };
 
 
@@ -104,15 +96,11 @@ public class ManagerProxy implements IManagerProxy
             type: EHouseTypeG.EHGT_BARRACKS,
             owner: "eho_player",
             level: 1,
-            level_max: 1,
+
             position_x: 14,
             position_y: 4,
-            position_exit_offset_x: 3,
-            position_exit_offset_y: 3,
-            foundation_width: 2,
-            foundation_height: 2,
-            soldiers: 100,
-            soldiers_max: 200
+
+            soldiers: 100
         };
 
         var level0Data:Object =
@@ -160,27 +148,47 @@ public class ManagerProxy implements IManagerProxy
         return result;
     }
 
-    private static function getBarracksData():Array
+    private static function getBarracksData():Object
     {
-        var result:Array = [];
+        var housesData:Array = [];
 
         var barracksLevel1:Object =
         {
             level: 1,
-            soldiers_max: 20,
-            soldiers_generation: 1
+
+            soldiers_max: 200,
+            soldiers_generation: 1,
+
+            position_exit_offset_x: 3,
+            position_exit_offset_y: 3,
+
+            foundation_width: 2,
+            foundation_height: 2
         };
 
-        result.push(barracksLevel1);
+        housesData.push(barracksLevel1);
 
         var barracksLevel2:Object =
         {
             level: 2,
+
             soldiers_max: 20,
-            soldiers_generation: 2
+            soldiers_generation: 2,
+
+            position_exit_offset_x: 3,
+            position_exit_offset_y: 3,
+
+            foundation_width: 2,
+            foundation_height: 2
         };
 
-        result.push(barracksLevel2);
+        housesData.push(barracksLevel2);
+
+        var result:Object =
+        {
+            levels_info: housesData,
+            level_max: 2
+        };
 
         return result;
     }
