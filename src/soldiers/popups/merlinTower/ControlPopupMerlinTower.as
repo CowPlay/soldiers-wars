@@ -71,19 +71,19 @@ public class ControlPopupMerlinTower extends ViewPopup
         _items = [];
 
         var item0:IView = new ControlPopupMerlinTowerItem(this);
-        _sourceView.addChild(item0.sourceView);
+        _sourceView.addChild(item0.source);
         _items.push(item0);
 
         var item1:IView = new ControlPopupMerlinTowerItem(this);
-        _sourceView.addChild(item1.sourceView);
+        _sourceView.addChild(item1.source);
         _items.push(item1);
 
         var item2:IView = new ControlPopupMerlinTowerItem(this);
-        _sourceView.addChild(item2.sourceView);
+        _sourceView.addChild(item2.source);
         _items.push(item2);
 
         var item3:IView = new ControlPopupMerlinTowerItem(this);
-        _sourceView.addChild(item3.sourceView);
+        _sourceView.addChild(item3.source);
         _items.push(item3);
     }
 
@@ -93,17 +93,17 @@ public class ControlPopupMerlinTower extends ViewPopup
 
         var itemStandard:IView = _items[0];
 
-        var startPosition:Point = new Point(_sourceView.width / 4 - itemStandard.sourceView.width / 2,
-                _sourceView.height - itemStandard.sourceView.height - 110);
+        var startPosition:Point = new Point(_sourceView.width / 4 - itemStandard.source.width / 2,
+                _sourceView.height - itemStandard.source.height - 110);
 
         for each(var item:IView in _items)
         {
             item.placeViews();
 
-            item.sourceView.x = startPosition.x;
-            item.sourceView.y = startPosition.y;
+            item.source.x = startPosition.x;
+            item.source.y = startPosition.y;
 
-            startPosition.x += item.sourceView.width - 45;
+            startPosition.x += item.source.width - 45;
         }
     }
 

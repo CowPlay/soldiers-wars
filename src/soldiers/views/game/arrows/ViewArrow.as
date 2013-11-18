@@ -14,11 +14,17 @@ import controls.implementations.ControlBase;
 import flash.events.MouseEvent;
 import flash.geom.Point;
 
+import soldiers.models.GameInfo;
+import soldiers.models.game.managerPath.GridCell;
+import soldiers.models.housesGame.base.HouseG;
+
 public class ViewArrow extends ControlBase
 {
     /*
      * Fields
      */
+    private var _entry:HouseG;
+
     private var _sourceView:gSelectArrow;
 
     private var _rootViewWidth:Number;
@@ -38,10 +44,13 @@ public class ViewArrow extends ControlBase
      */
 
     //! Default initializer
-    public function ViewArrow(contoller:IController)
+    public function ViewArrow(contoller:IController, entry:HouseG)
     {
         _sourceView = new gSelectArrow();
         super(contoller, _sourceView);
+
+        Debug.assert(entry != null);
+        _entry = entry;
 
         init();
     }
@@ -49,6 +58,8 @@ public class ViewArrow extends ControlBase
     private function init():void
     {
         _rootViewWidth = _sourceView.width;
+
+        handleEvents(false, true);
     }
 
     public function updateArrowSize(e:MouseEvent):void
@@ -61,6 +72,17 @@ public class ViewArrow extends ControlBase
 
         _sourceView.rotation = Math.atan2(rootViewPositionAbsolute.y - point.y, rootViewPositionAbsolute.x - point.x) / Math.PI * 180;
     }
+
+    public override function placeViews(fullscreen:Boolean):void
+    {
+        super.placeViews(fullscreen);
+
+        var cellEntry:GridCell = GameInfo.instance.managerGame.managerPath.getCell(_entry.positionCurrent);
+
+        x = cellEntry.view.x;
+        y = cellEntry.view.y;
+    }
+
 
 //    public function show(isShow:Boolean):void
 //    {

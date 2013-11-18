@@ -12,6 +12,8 @@ import controllers.implementations.Controller;
 
 import controls.IView;
 
+import flash.events.Event;
+
 import flash.events.MouseEvent;
 
 import soldiers.models.GameInfo;
@@ -30,7 +32,6 @@ public class ControllerHousesGContainer extends Controller
 
     private var _view:ViewHousesGContainer;
 
-    private var _managerGame:ManagerGame;
 
     /*
      * Properties
@@ -52,17 +53,14 @@ public class ControllerHousesGContainer extends Controller
 
     private function init():void
     {
-        _managerGame = GameInfo.instance.managerGameSoldiers;
-
         initHouses();
     }
-
 
     private function initHouses():void
     {
         _houses = [];
 
-        var housesEntries:Array = _managerGame.currentLevel.houses;
+        var housesEntries:Array = GameInfo.instance.managerGame.currentLevel.houses;
 
         for each(var entry:HouseG in housesEntries)
         {
@@ -89,80 +87,17 @@ public class ControllerHousesGContainer extends Controller
         }
     }
 
-    private function getHouseControllerByView(view:IView):ControllerHouseG
+    public override function onViewMouseUpOut(view:IView, e:MouseEvent):Boolean
     {
-        var result:ControllerHouseG = null;
+        var result:Boolean = super.onViewMouseUpOut(view, e);
 
-        for each(var controllerHouse:ControllerHouseG in _houses)
+        if(!result)
         {
-            if (controllerHouse.view == view)
-            {
-                result = controllerHouse;
-                break;
-            }
-        }
-
-        Debug.assert(result != null);
-
-        return result;
-    }
-
-    public override function onViewMouseOver(view:IView, e:MouseEvent):Boolean
-    {
-        var result:Boolean = super.onViewMouseOver(view, e);
-
-        if (!result)
-        {
-            var targetController:ControllerHouseG = getHouseControllerByView(view);
-
-            if (targetController.entry.ownerType == EHouseOwner.EHO_PLAYER &&
-                    _managerGame.isAnyHouseSelected(_managerGame.gameOwner) && !targetController.entry.isSelect)
-            {
-                _managerGame.onPlayerSelectHouse(_managerGame.gameOwner, targetController.entry);
-
-                result = true;
-            }
+            GameInfo.instance.managerGame.clearHousesSelection(GameInfo.instance.managerGame.gameOwner);
         }
 
         return result;
     }
 
-    public override function onViewMouseDown(view:IView, e:MouseEvent):Boolean
-    {
-        var result:Boolean = super.onViewMouseDown(view, e);
-
-        if (!result)
-        {
-            var targetController:ControllerHouseG = getHouseControllerByView(view);
-
-            if (targetController.entry.ownerType == EHouseOwner.EHO_PLAYER)
-            {
-                _managerGame.onPlayerSelectHouse(_managerGame.gameOwner, targetController.entry);
-
-                result = true;
-            }
-        }
-
-        return result;
-    }
-
-    public override function onViewMouseUp(target:IView, e:MouseEvent):Boolean
-    {
-        var result:Boolean = super.onViewMouseUp(target, e);
-
-        if (!result)
-        {
-            if (_managerGame.isAnyHouseSelected(_managerGame.gameOwner))
-            {
-                var targetController:ControllerHouseG = getHouseControllerByView(view);
-
-                _managerGame.onPlayerGenerateSoldiers(_managerGame.gameOwner, targetController.entry);
-
-                result = true;
-            }
-        }
-
-        return result;
-    }
 }
 }

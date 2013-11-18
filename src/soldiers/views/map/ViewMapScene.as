@@ -50,7 +50,7 @@ public class ViewMapScene extends ControlBase
 
     override public function addSubView(view:IView):void
     {
-        _sourceView.addChild(view.sourceView);
+        _sourceView.addChild(view.source);
         _items.push(view);
     }
 
@@ -59,8 +59,8 @@ public class ViewMapScene extends ControlBase
         super.placeViews(isFullscreen);
 
         var itemView:ViewFlagItem = _items[0];
-        itemView.sourceView.x = 80;
-        itemView.sourceView.y = 172;
+        itemView.source.x = 80;
+        itemView.source.y = 172;
     }
 
     public override function cleanup():void

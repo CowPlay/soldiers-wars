@@ -80,7 +80,7 @@ public class ViewPopupBakery extends ViewPopup
 
     override public function addSubView(view:IView):void
     {
-        _sourceView.itemsView.placeholder.addChild(view.sourceView);
+        _sourceView.itemsView.placeholder.addChild(view.source);
         _items.push(view);
     }
 
@@ -90,17 +90,17 @@ public class ViewPopupBakery extends ViewPopup
 
         var itemStandard:IView = _items[0];
 
-        var startPosition:Point = new Point(_sourceView.itemsView.width / 2 - itemStandard.sourceView.width / 2,
-                _sourceView.itemsView.height / 2 - itemStandard.sourceView.height / 2);
+        var startPosition:Point = new Point(_sourceView.itemsView.width / 2 - itemStandard.source.width / 2,
+                _sourceView.itemsView.height / 2 - itemStandard.source.height / 2);
 
         for each(var item:IView in _items)
         {
             item.placeViews(isFullscreen);
 
-            item.sourceView.x = startPosition.x;
-            item.sourceView.y = startPosition.y;
+            item.source.x = startPosition.x;
+            item.source.y = startPosition.y;
 
-            startPosition.x += item.sourceView.width + 20;
+            startPosition.x += item.source.width + 20;
         }
     }
 
@@ -111,7 +111,7 @@ public class ViewPopupBakery extends ViewPopup
 
         var params:Object =
         {
-            x: _sourceView.itemsView.placeholder.x + (itemStandard.sourceView.width + 20) * count,
+            x: _sourceView.itemsView.placeholder.x + (itemStandard.source.width + 20) * count,
             onComplete: onComplete
         };
 
@@ -125,7 +125,7 @@ public class ViewPopupBakery extends ViewPopup
 
         var params:Object =
         {
-            x: _sourceView.itemsView.placeholder.x - (itemStandard.sourceView.width + 20) * count,
+            x: _sourceView.itemsView.placeholder.x - (itemStandard.source.width + 20) * count,
             onComplete: onComplete
         };
 

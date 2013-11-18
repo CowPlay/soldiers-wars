@@ -71,11 +71,11 @@ public class HouseG extends DisposableObject implements ISerializable
         {
             result = EHouseOwner.EHO_NEUTRAL;
         }
-        else if (_owner == GameInfo.instance.managerGameSoldiers.gameOwner)
+        else if (_owner == GameInfo.instance.managerGame.gameOwner)
         {
             result = EHouseOwner.EHO_PLAYER;
         }
-        else if (_owner == GameInfo.instance.managerGameSoldiers.gameOwnerOpponent)
+        else if (_owner == GameInfo.instance.managerGame.gameOwnerOpponent)
         {
             result = EHouseOwner.EHO_ENEMY;
         }
@@ -118,8 +118,7 @@ public class HouseG extends DisposableObject implements ISerializable
 
     public function get positionExit():Point
     {
-        var p:Point = _positionCurrent + _positionCurrent;
-        return new Point(_positionCurrent.x + currentLevelInfo.positionExitOffset.x, _positionCurrent.y + currentLevelInfo.positionExitOffset.y);
+        return _positionCurrent.add(currentLevelInfo.positionExitOffset);
     }
 
     public function get isSelect():Boolean

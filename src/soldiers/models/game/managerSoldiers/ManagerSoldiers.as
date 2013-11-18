@@ -182,7 +182,7 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
 
         UtilsArray.removeValue(_soldiers, soldier);
 
-        soldier.view.sourceView.parent.removeChild(soldier.view.sourceView);
+        soldier.view.source.parent.removeChild(soldier.view.source);
         soldier.view.cleanup();
         soldier.cleanup();
     }

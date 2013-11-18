@@ -41,8 +41,11 @@ public class ViewHousesGContainer extends ControlBase
         _sourceView = new Sprite();
         super(controller, _sourceView);
 
+        handleEvents(false, false, false, true);
+
         alignment = EViewAlignment.EVA_ABSOLUTE;
-        anchorPoint = new Point(1, 0);
+
+        anchorPoint = new Point(0.5, 0);
 
         init();
     }
@@ -55,7 +58,7 @@ public class ViewHousesGContainer extends ControlBase
 
     override public function addSubView(view:IView):void
     {
-        _sourceView.addChild(view.sourceView);
+        _sourceView.addChild(view.source);
 
         _houses.push(view);
     }
@@ -63,8 +66,6 @@ public class ViewHousesGContainer extends ControlBase
     public override function placeViews(fullscreen:Boolean):void
     {
         super.placeViews(fullscreen);
-
-        translate(0.5, 0.5);
 
         for each(var houseView:ViewHouseG in  _houses)
         {

@@ -125,7 +125,7 @@ public class SoldierInfo extends DisposableObject implements IDisposable
         _houseTarget = target;
         _houseOwnerPlayer = owner.owner;
 
-        var managerPath:ManagerPath = GameInfo.instance.managerGameSoldiers.managerPath;
+        var managerPath:ManagerPath = GameInfo.instance.managerGame.managerPath;
 
         _path = managerPath.getPath(managerPath.getCell(owner.positionExit), managerPath.getCell(_houseTarget.positionExit));
 

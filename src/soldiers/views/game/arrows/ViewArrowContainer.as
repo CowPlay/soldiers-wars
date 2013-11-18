@@ -13,18 +13,13 @@ package soldiers.views.game.arrows
 {
 import controllers.IController;
 
+import controls.EViewAlignment;
 import controls.IView;
 import controls.implementations.ControlBase;
 
 import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
-import flash.events.MouseEvent;
-
-import soldiers.controllers.EControllerUpdate;
-import soldiers.models.GameInfo;
-import soldiers.models.housesGame.base.HouseG;
-
-import utils.memory.UtilsMemory;
+import flash.geom.Point;
 
 public class ViewArrowContainer extends ControlBase
 {
@@ -33,8 +28,7 @@ public class ViewArrowContainer extends ControlBase
      */
     private var _sourceView:DisplayObjectContainer;
 
-    private var _houses:Array;
-    private var _controlsArrows:Array;
+    private var _viewsArrows:Array;
 
     /*
      * Properties
@@ -51,75 +45,38 @@ public class ViewArrowContainer extends ControlBase
         super(controller, _sourceView);
 
         init();
+
+
     }
 
     private function init():void
     {
+        alignment = EViewAlignment.EVA_ABSOLUTE;
+
+        anchorPoint = new Point(0.5, 0);
+
         handleEvents(false);
 
         _sourceView.mouseEnabled = false;
         _sourceView.mouseChildren = false;
 
-        _controlsArrows = [];
-
-        _houses = GameInfo.instance.managerGameSoldiers.currentLevel.houses;
-
-        for each(var house:HouseG in _houses)
-        {
-            var controlArrow:ViewArrow = new ViewArrow(controller);
-            controlArrow.hide();
-
-            _sourceView.addChild(controlArrow.sourceView);
-
-            _controlsArrows.push(controlArrow);
-        }
-
-        UtilsMemory.registerEventListener(GameInfo.instance.managerApp.applicationStage, MouseEvent.MOUSE_MOVE, this, updateArrowSize);
+        _viewsArrows = [];
     }
 
-    public function updateArrowSize(e:MouseEvent):void
+    public override function addSubView(view:IView):void
     {
-        for each(var arrowView:ViewArrow in _controlsArrows)
-        {
-            arrowView.updateArrowSize(e);
-        }
+        _sourceView.addChild(view.source);
+        _viewsArrows.push(view);
     }
 
-    public override function update(type:String = ""):void
+
+    public override function placeViews(fullscreen:Boolean):void
     {
-        switch (type)
+        super.placeViews(fullscreen);
+
+        for each(var arrowView:IView in _viewsArrows)
         {
-            case EControllerUpdate.ECU_HOUSE_SELECTION_CHANGED:
-            {
-                for (var i:int = 0; i < _houses.length; i++)
-                {
-                    var house:HouseG = _houses[i];
-                    var controlArrow:IView = _controlsArrows[i];
-
-                    house.isSelect ? controlArrow.show() : controlArrow.hide();
-                }
-
-                break;
-            }
-            default :
-            {
-                Debug.assert(false);
-                break;
-            }
-        }
-    }
-
-    public override function placeViews(isFullscreen:Boolean):void
-    {
-        super.placeViews(isFullscreen);
-
-        for (var i:int = 0; i < _houses.length; i++)
-        {
-            var house:HouseG = _houses[i];
-            var controlArrow:IView = _controlsArrows[i];
-
-            controlArrow.sourceView.x = house.controller.sourceView.x + house.controller.auraPosition.x;
-            controlArrow.sourceView.y = house.controller.sourceView.y + house.controller.auraPosition.y;
+            arrowView.placeViews(fullscreen);
         }
     }
 }

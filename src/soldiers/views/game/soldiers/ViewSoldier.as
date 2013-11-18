@@ -143,8 +143,8 @@ public class ViewSoldier extends ControlBase
 
         var firstCell:GridCell = _entry.path[0];
 
-        sourceView.x = firstCell.view.sourceView.x;
-        sourceView.y = firstCell.view.sourceView.y;
+        source.x = firstCell.view.source.x;
+        source.y = firstCell.view.source.y;
 
         //TODO: update rotation
 
@@ -173,22 +173,22 @@ public class ViewSoldier extends ControlBase
 
             var paramsSource:Object =
             {
-                x: nodeTo.view.sourceView.x,
-                y: nodeTo.view.sourceView.y
+                x: nodeTo.view.source.x,
+                y: nodeTo.view.source.y
             };
 
-            var tweenSource:TweenMax = new TweenMax(sourceView, (1 / _entry.speed) - delayRotationChange, paramsSource);
+            var tweenSource:TweenMax = new TweenMax(source, (1 / _entry.speed) - delayRotationChange, paramsSource);
 
             tweenSequence.append(tweenSource);
         }
 
         var paramsLastTween:Object =
         {
-            x: nodeTo.view.sourceView.x,
-            y: nodeTo.view.sourceView.y
+            x: nodeTo.view.source.x,
+            y: nodeTo.view.source.y
         };
 
-        var lastTweenSource:TweenMax = new TweenMax(sourceView, 1 / _entry.speed, paramsLastTween);
+        var lastTweenSource:TweenMax = new TweenMax(source, 1 / _entry.speed, paramsLastTween);
         tweenSequence.append(lastTweenSource);
 
         tweenSequence.play();
@@ -201,7 +201,7 @@ public class ViewSoldier extends ControlBase
 
     public override function cleanup():void
     {
-        TweenMax.killTweensOf(sourceView);
+        TweenMax.killTweensOf(source);
         TweenMax.killTweensOf(this);
 
         _sourceView = null;

@@ -31,9 +31,9 @@ public class ViewVillageScene extends ControlBase
      */
 
 
-    override public function get sourceView():DisplayObject
+    override public function get source():DisplayObject
     {
-        return _controlScroll.sourceView;
+        return _controlScroll.source;
     }
 
     /*

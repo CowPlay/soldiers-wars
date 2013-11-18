@@ -197,14 +197,8 @@ public class ManagerPath
                 if (closedNodes.indexOf(tentativeNode) != ConstantsBase.INDEX_NONE || !tentativeNode.traversable)
                     continue;
 
-                var penalty:Number = 0;
 
-                if (tentativeNode != nodeTo)
-                {
-                    penalty = Utils.randomFromTo(0, 2);
-                }
-
-                var tentative_g_score:Number = currentNode.g + travelCost + penalty;
+                var tentative_g_score:Number = currentNode.g + travelCost;
 
                 if (openNodes.indexOf(tentativeNode) == ConstantsBase.INDEX_NONE)
                 {

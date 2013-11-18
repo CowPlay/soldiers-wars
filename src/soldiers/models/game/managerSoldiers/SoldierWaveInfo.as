@@ -15,7 +15,6 @@ public class SoldierWaveInfo
     /*
      * Fields
      */
-    //TODO: make properties
     private var _generatedSoldierRest:uint;
     private var _generatedSoldierCount:uint;
 

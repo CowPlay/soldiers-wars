@@ -78,9 +78,9 @@ public class ControllerFlagItem extends Controller
 
         if (!result)
         {
-            switch (target.sourceView)
+            switch (target.source)
             {
-                case _view.sourceView:
+                case _view.source:
                 {
                     GameInfo.instance.managerStates.currentState.showPopup(EPopupType.EPT_LEVEL_START);
 

@@ -92,7 +92,6 @@ package soldiers.models.game
         private function init():void
         {
             _managerPath = new ManagerPath(currentLevel);
-            _managerPath.generateLevelPaths();
             _managerSoldiers = new ManagerSoldiers();
 
             _selectedHouses = new Dictionary(true);

@@ -22,6 +22,8 @@ import models.interfaces.remote.IResponse;
 
 import soldiers.models.game.ManagerGame;
 import soldiers.models.housesGame.ManagerHousesGame;
+import soldiers.models.housesGame.base.EHouseOwner;
+import soldiers.models.housesGame.base.HouseG;
 import soldiers.models.housesVillage.ManagerHousesVillage;
 import soldiers.models.levels.LevelInfo;
 import soldiers.models.proxy.ManagerProxy;
@@ -64,7 +66,7 @@ public class GameInfo extends GameInfoBase
 
     private var _managerHousesVillage:ManagerHousesVillage;
     private var _managerHousesGame:ManagerHousesGame;
-    private var _managerGameSoldiers:ManagerGame;
+    private var _managerGame:ManagerGame;
 
     /*
      * Properties
@@ -80,9 +82,9 @@ public class GameInfo extends GameInfoBase
         return _managerHousesGame;
     }
 
-    public function get managerGameSoldiers():ManagerGame
+    public function get managerGame():ManagerGame
     {
-        return _managerGameSoldiers;
+        return _managerGame;
     }
 
     /*
@@ -144,15 +146,25 @@ public class GameInfo extends GameInfoBase
 
         GameInfo.instance.onGameStart(managerGame);
 
-        managerGame.currentLevel.houses[0].owner = player0;
-        managerGame.currentLevel.houses[1].owner = player1;
+        for each(var house:HouseG in managerGame.currentLevel.houses)
+        {
+            if (house.ownerTypeOnStart == EHouseOwner.EHO_ENEMY)
+            {
+                house.owner = player1;
+
+            }
+            else if (house.ownerTypeOnStart == EHouseOwner.EHO_PLAYER)
+            {
+                house.owner = player0;
+            }
+        }
 
         GameInfo.instance.managerStates.setState(EStateType.EST_GAME);
     }
 
     public override function onGameStart(value:IManagerGame):void
     {
-        _managerGameSoldiers = value as ManagerGame;
+        _managerGame = value as ManagerGame;
         super.onGameStart(value);
     }
 

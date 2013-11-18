@@ -96,15 +96,15 @@ public class ControlPopupUniversityMM extends ViewPopup
         _items = [];
 
         var item0:IView = new ControlPopupUniversityMMItem(this);
-        _sourceView.itemsView.placeholder.addChild(item0.sourceView);
+        _sourceView.itemsView.placeholder.addChild(item0.source);
         _items.push(item0);
 
         var item1:IView = new ControlPopupUniversityMMItem(this);
-        _sourceView.itemsView.placeholder.addChild(item1.sourceView);
+        _sourceView.itemsView.placeholder.addChild(item1.source);
         _items.push(item1);
 
         var item3:IView = new ControlPopupUniversityMMItem(this);
-        _sourceView.itemsView.placeholder.addChild(item3.sourceView);
+        _sourceView.itemsView.placeholder.addChild(item3.source);
         _items.push(item3);
 
     }
@@ -115,17 +115,17 @@ public class ControlPopupUniversityMM extends ViewPopup
 
         var itemStandard:IView = _items[0];
 
-        var startPosition:Point = new Point(_sourceView.itemsView.placeholder.width / 2 - itemStandard.sourceView.width / 2,
-                _sourceView.itemsView.placeholder.height / 2 - itemStandard.sourceView.height / 2);
+        var startPosition:Point = new Point(_sourceView.itemsView.placeholder.width / 2 - itemStandard.source.width / 2,
+                _sourceView.itemsView.placeholder.height / 2 - itemStandard.source.height / 2);
 
         for each(var item:IView in _items)
         {
             item.placeViews();
 
-            item.sourceView.x = startPosition.x;
-            item.sourceView.y = startPosition.y;
+            item.source.x = startPosition.x;
+            item.source.y = startPosition.y;
 
-            startPosition.x += item.sourceView.width + 20;
+            startPosition.x += item.source.width + 20;
         }
     }
 
@@ -205,7 +205,7 @@ public class ControlPopupUniversityMM extends ViewPopup
 
         var params:Object =
         {
-            x: _sourceView.itemsView.placeholder.x - itemStandard.sourceView.width - 20,
+            x: _sourceView.itemsView.placeholder.x - itemStandard.source.width - 20,
             onComplete: onItemsMoveLeftComplete
         };
 
@@ -234,7 +234,7 @@ public class ControlPopupUniversityMM extends ViewPopup
 
         var params:Object =
         {
-            x: _sourceView.itemsView.placeholder.x + itemStandard.sourceView.width + 20,
+            x: _sourceView.itemsView.placeholder.x + itemStandard.source.width + 20,
             onComplete: onItemsMoveRightComplete
         };
 

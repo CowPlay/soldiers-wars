@@ -17,6 +17,8 @@ import flash.geom.Point;
 import models.implementations.levels.LevelInfoBase;
 import models.implementations.players.PlayerInfoBase;
 
+import soldiers.models.GameInfo;
+
 import soldiers.models.housesGame.barracks.HouseGBarracks;
 import soldiers.models.housesGame.base.EHouseTypeG;
 import soldiers.models.housesGame.base.HouseG;
@@ -90,6 +92,8 @@ public class LevelInfo extends LevelInfoBase
 
             _houses.push(house);
         }
+
+        GameInfo.instance.managerGame.managerPath.generateLevelPaths();
     }
 
     /*

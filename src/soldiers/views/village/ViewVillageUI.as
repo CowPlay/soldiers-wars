@@ -68,7 +68,7 @@ public class ViewVillageUI extends ControlBase
 
         _viewSingleplayer = new ControlBase(controller, sourceSingleplayer);
 
-        _sourceView.addChild(_viewSingleplayer.sourceView);
+        _sourceView.addChild(_viewSingleplayer.source);
 
         //TODO: implement
 //        _controlBottomStrip = new ControlScalableStrip(this);

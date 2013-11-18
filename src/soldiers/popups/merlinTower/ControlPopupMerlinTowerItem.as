@@ -45,7 +45,7 @@ public class ControlPopupMerlinTowerItem extends ControlBase
         for (var i:int = 0; i < 7; i++)
         {
             var skillView:IView = new SkillView(this);
-            _sourceView.addChild(skillView.sourceView);
+            _sourceView.addChild(skillView.source);
             _skillViews.push(skillView);
         }
 
@@ -68,12 +68,12 @@ public class ControlPopupMerlinTowerItem extends ControlBase
             var objectToIndex:IView = _skillViews[i];
             objectToIndex.placeViews();
 
-            objectToIndex.sourceView.x = startPosition.x;
-            objectToIndex.sourceView.y = startPosition.y;
+            objectToIndex.source.x = startPosition.x;
+            objectToIndex.source.y = startPosition.y;
 
             if (i < 3)
             {
-                startPosition.y += objectToIndex.sourceView.height + 16;
+                startPosition.y += objectToIndex.source.height + 16;
 
                 if (i == 2)
                 {
@@ -85,7 +85,7 @@ public class ControlPopupMerlinTowerItem extends ControlBase
             {
                 if (i > 1 && i < 5)
                 {
-                    startPosition.y += objectToIndex.sourceView.height + 16;
+                    startPosition.y += objectToIndex.source.height + 16;
                 }
                 else
                 {

@@ -69,7 +69,11 @@ public class ViewHouseG extends ControlBase
 
     private function init():void
     {
+        //click move upOver upOut down over  out
+        handleEvents(true, false, true, true, true, true, true);
+
         initHouseView();
+
 //        _auraEnemy = new gAuraEnemy();
 //        _auraEnemy.visible = false;
 //        _sourseViewTyped.addChild(_auraEnemy);
@@ -107,11 +111,11 @@ public class ViewHouseG extends ControlBase
         Debug.assert(_houseView.hasOwnProperty("labelSoldiers"));
 
         _houseView.mouseEnabled = false;
+        _houseView.mouseChildren = false;
 
         _houseViewEnemy = _houseView["viewEnemy"];
         _houseViewPlayer = _houseView["viewPlayer"];
         _labelSoldiers = _houseView["labelSoldiers"];
-
 
         _sourceView.addChild(_houseView);
 
@@ -127,30 +131,9 @@ public class ViewHouseG extends ControlBase
 //        _auraEnemy.x = _auraPlayer.x = _auraPosition.x;
 //        _auraEnemy.y = _auraPlayer.y = _auraPosition.y;
 
-        var cellEntry:GridCell = GameInfo.instance.managerGameSoldiers.managerPath.getCell(_entry.positionCurrent);
-        _sourceView.x = cellEntry.view.sourceView.x;
-        _sourceView.y = cellEntry.view.sourceView.y;
-    }
-
-
-    /*
-     * Callbacks
-     */
-
-    public override function onMouseOver(e:MouseEvent):void
-    {
-//        _auraPlayer.visible = _entry.isSelect || _entry.ownerType == EHouseOwner.EHO_PLAYER;
-//        _auraEnemy.visible = !_auraPlayer.visible;
-
-        super.onMouseOver(e);
-    }
-
-    public override function onMouseOut(e:MouseEvent):void
-    {
-//        _auraPlayer.visible = false;
-//        _auraEnemy.visible = false;
-
-        super.onMouseOut(e);
+        var cellEntry:GridCell = GameInfo.instance.managerGame.managerPath.getCell(_entry.positionCurrent);
+        _sourceView.x = cellEntry.view.source.x;
+        _sourceView.y = cellEntry.view.source.y;
     }
 }
 }

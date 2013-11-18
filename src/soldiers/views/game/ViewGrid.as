@@ -46,9 +46,11 @@ public class ViewGrid extends ControlBase
 
     private function init():void
     {
+        anchorPoint = new Point(0.5, 0);
+
         _cells = [];
 
-        var grid:Array = GameInfo.instance.managerGameSoldiers.managerPath.grid;
+        var grid:Array = GameInfo.instance.managerGame.managerPath.grid;
 
         //add nodes
         for (var currentRow:int = 0; currentRow < grid.length; currentRow++)
@@ -63,7 +65,7 @@ public class ViewGrid extends ControlBase
 
                 cellEntry.view = cellView;
 
-                _sourceView.addChild(cellView.sourceView);
+                _sourceView.addChild(cellView.source);
 
                 rowView.push(cellView);
             }
@@ -77,12 +79,12 @@ public class ViewGrid extends ControlBase
         var startX:Number = 0;
         var startY:Number = 0;
 
-        var firstNode:GridCell = GameInfo.instance.managerGameSoldiers.managerPath.getCell(new Point(0, 0));
+        var firstNode:GridCell = GameInfo.instance.managerGame.managerPath.getCell(new Point(0, 0));
 
-        var nodeWidth:Number = firstNode.view.sourceView.width;
-        var nodeHeight:Number = firstNode.view.sourceView.height;
+        var nodeWidth:Number = firstNode.view.source.width;
+        var nodeHeight:Number = firstNode.view.source.height;
 
-        var grid:Array = GameInfo.instance.managerGameSoldiers.managerPath.grid;
+        var grid:Array = GameInfo.instance.managerGame.managerPath.grid;
 
         for (var currentRow:int = 0; currentRow < grid.length; currentRow++)
         {
@@ -95,25 +97,13 @@ public class ViewGrid extends ControlBase
             {
                 var node:GridCell = row[currentColumn];
 
-                node.view.sourceView.x = offsetX;
-                node.view.sourceView.y = offsetY;
+                node.view.source.x = offsetX;
+                node.view.source.y = offsetY;
 
                 offsetX = offsetX + nodeWidth / 2;
                 offsetY = offsetY - nodeHeight / 2;
             }
         }
-
-//        for each(var house:HouseBase in GameInfo.Instance.houseManager.houses)
-//        {
-//            house.view.x = house.currentPosition.view.x;//* house.view.x + Math.round(house.view.width / 2) - Node.NodeWidthHalf;
-//            house.view.y = house.currentPosition.view.y;//house.view.x + Math.round(house.view.height / 2) - Node.NodeHeightHalf;
-//
-//            if (house.view.arrow != null)
-//            {
-//                house.view.arrow.rootView.x = house.view.x;
-//                house.view.arrow.rootView.y = house.view.y;
-//            }
-//        }
 
         super.placeViews(fullscreen);
     }

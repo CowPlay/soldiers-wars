@@ -62,25 +62,25 @@ public class ControlPointFlagItem extends ControlBase
         if (count > 0)
         {
             var star0:IView = new ControlStar(this);
-            star0.sourceView.x = 0;
-            star0.sourceView.y = 15;
-            _sourceViewTyped.point.addChild(star0.sourceView);
+            star0.source.x = 0;
+            star0.source.y = 15;
+            _sourceViewTyped.point.addChild(star0.source);
             _stars.push(star0);
         }
         if (count > 1)
         {
             var star1:IView = new ControlStar(this);
-            star1.sourceView.x = 15;
-            star1.sourceView.y = 20;
-            _sourceViewTyped.point.addChild(star1.sourceView);
+            star1.source.x = 15;
+            star1.source.y = 20;
+            _sourceViewTyped.point.addChild(star1.source);
             _stars.push(star1);
         }
         if (count > 2)
         {
             var star2:IView = new ControlStar(this);
-            star2.sourceView.x = 30;
-            star2.sourceView.y = 15;
-            _sourceViewTyped.point.addChild(star2.sourceView);
+            star2.source.x = 30;
+            star2.source.y = 15;
+            _sourceViewTyped.point.addChild(star2.source);
             _stars.push(star2);
         }
     }

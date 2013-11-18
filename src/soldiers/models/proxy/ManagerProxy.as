@@ -68,7 +68,7 @@ public class ManagerProxy implements IManagerProxy
         var houseData0:Object =
         {
             type: EHouseTypeG.EHGT_BARRACKS,
-            owner: "eho_enemy",
+            owner: "eho_player",
             level: 1,
 
             position_x: 4,
@@ -112,8 +112,8 @@ public class ManagerProxy implements IManagerProxy
             complete: false,
             reward_currency_soft: 0,
             reward_points: 0,
-            grid_width: 20,
-            grid_height: 20,
+            grid_width: 25,
+            grid_height: 25,
 
             houses: [houseData0, houseData1, houseData2]
         };
@@ -187,7 +187,7 @@ public class ManagerProxy implements IManagerProxy
         var result:Object =
         {
             levels_info: housesData,
-            level_max: 2
+            level_max: 1
         };
 
         return result;

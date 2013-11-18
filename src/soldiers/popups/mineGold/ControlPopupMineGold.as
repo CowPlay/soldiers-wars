@@ -94,7 +94,7 @@ public class ControlPopupMineGold extends ViewPopup
         for each(var levelInfo:HouseLevelInfoVMineGold in _entry.levelsInfo)
         {
             var itemView:IView = new ControlPopupMineGoldItem(this, levelInfo);
-            _sourceView.itemsView.placeholder.addChild(itemView.sourceView);
+            _sourceView.itemsView.placeholder.addChild(itemView.source);
             _items.push(itemView);
         }
 
@@ -111,17 +111,17 @@ public class ControlPopupMineGold extends ViewPopup
 
         var itemStandard:IView = _items[0];
 
-        var startPosition:Point = new Point(_sourceView.itemsView.width / 2 - itemStandard.sourceView.width / 2,
-                _sourceView.itemsView.height / 2 - itemStandard.sourceView.height / 2);
+        var startPosition:Point = new Point(_sourceView.itemsView.width / 2 - itemStandard.source.width / 2,
+                _sourceView.itemsView.height / 2 - itemStandard.source.height / 2);
 
         for each(var item:IView in _items)
         {
             item.placeViews();
 
-            item.sourceView.x = startPosition.x;
-            item.sourceView.y = startPosition.y;
+            item.source.x = startPosition.x;
+            item.source.y = startPosition.y;
 
-            startPosition.x += item.sourceView.width + 20;
+            startPosition.x += item.source.width + 20;
         }
     }
 
@@ -249,7 +249,7 @@ public class ControlPopupMineGold extends ViewPopup
 
         var params:Object =
         {
-            x: _sourceView.itemsView.placeholder.x + itemStandard.sourceView.width + 20,
+            x: _sourceView.itemsView.placeholder.x + itemStandard.source.width + 20,
             onComplete: onCompleteWrapper
         };
 
@@ -279,7 +279,7 @@ public class ControlPopupMineGold extends ViewPopup
 
         var params:Object =
         {
-            x: _sourceView.itemsView.placeholder.x - itemStandard.sourceView.width - 20,
+            x: _sourceView.itemsView.placeholder.x - itemStandard.source.width - 20,
             onComplete: onCompleteWrapper
         };
 

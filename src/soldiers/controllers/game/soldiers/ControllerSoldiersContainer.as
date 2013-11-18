@@ -49,7 +49,8 @@ public class ControllerSoldiersContainer extends Controller
         {
             case EControllerUpdate.ECU_SOLDIER_GENERATE:
             {
-                var soldiers:Array = GameInfo.instance.managerGameSoldiers.managerSoldiers.soldiers;
+                var soldiers:Array = GameInfo.instance.managerGame.managerSoldiers.soldiers;
+
                 for each(var soldier:SoldierInfo in soldiers)
                 {
                     if (soldier.view == null)

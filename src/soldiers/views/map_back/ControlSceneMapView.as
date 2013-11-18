@@ -77,10 +77,10 @@ public class ControlSceneMapView extends ControlBase
             var position:Point = new Point(positionXY[0], positionXY[1]);
 
             var flagView:ControlPointFlagItem = new ControlPointFlagItem(this);
-            flagView.sourceView.x = position.x;
-            flagView.sourceView.y = position.y;
+            flagView.source.x = position.x;
+            flagView.source.y = position.y;
 
-            _sourceViewTyped.addChild(flagView.sourceView);
+            _sourceViewTyped.addChild(flagView.source);
 
             _items.push(flagView);
         }
