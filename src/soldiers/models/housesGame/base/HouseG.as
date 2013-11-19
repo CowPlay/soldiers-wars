@@ -13,8 +13,6 @@ package soldiers.models.housesGame.base
 {
 import controllers.IController;
 
-import controls.EControllerUpdateBase;
-
 import core.DisposableObject;
 
 import flash.geom.Point;
@@ -23,7 +21,10 @@ import models.interfaces.players.IPlayerInfo;
 
 import serialization.ISerializable;
 
+import soldiers.controllers.EControllerUpdate;
 import soldiers.models.GameInfo;
+import soldiers.models.game.managerPath.GridCell;
+import soldiers.models.game.managerPath.ManagerPath;
 
 public class HouseG extends DisposableObject implements ISerializable
 {
@@ -54,11 +55,6 @@ public class HouseG extends DisposableObject implements ISerializable
     /*
      * Properties
      */
-
-    public function get controller():IController
-    {
-        return _controller;
-    }
 
     public function set controller(value:IController):void
     {
@@ -105,6 +101,11 @@ public class HouseG extends DisposableObject implements ISerializable
             return;
 
         _owner = value;
+
+        if (_controller != null)
+        {
+            _controller.update(EControllerUpdate.ECU_HOUSE_OWNER_CHANGED);
+        }
     }
 
     public function get type():String
@@ -159,7 +160,7 @@ public class HouseG extends DisposableObject implements ISerializable
 
         _soldierCount = value;
 
-        _controller.update(EControllerUpdateBase.ECUT_ENTRY_UPDATED);
+        _controller.update(EControllerUpdate.ECU_HOUSE_SOLDIERS_CHANGED);
     }
 
     public function get currentLevelInfo():HouseGLevelInfo
@@ -176,6 +177,33 @@ public class HouseG extends DisposableObject implements ISerializable
     public function HouseG()
     {
         _houseConfig = GameInfo.instance.managerHousesGame.getHouseConfig(type);
+    }
+
+    public function updateFoundation():void
+    {
+        var managerPath:ManagerPath = GameInfo.instance.managerGame.managerPath;
+
+        var foundationSize:Point = currentLevelInfo.foundationSize;
+
+        var rowFrom:int = positionCurrent.y;
+        var rowTo:int = rowFrom + foundationSize.y;
+
+        var columnFrom:int = positionCurrent.x;
+        var columnTo:int = columnFrom + foundationSize.x;
+
+        //make foundations not walkable
+        for (var row:uint = rowFrom; row < rowTo; row++)
+        {
+            for (var column:uint = columnFrom; column < columnTo; column++)
+            {
+                var foundationCell:GridCell = managerPath.getCell(new Point(column, row));
+                foundationCell.traversable = false;
+            }
+        }
+
+        //and make house exit traversable
+        var houseExitCell:GridCell = managerPath.getCell(positionExit);
+        houseExitCell.traversable = true;
     }
 
     /*
@@ -201,6 +229,14 @@ public class HouseG extends DisposableObject implements ISerializable
         _soldierCount = data0["soldiers"];
 
         _positionCurrent = new Point(data0["position_x"], data0["position_y"]);
+    }
+
+    public override function cleanup():void
+    {
+        _controller = null;
+        _owner = null;
+
+        super.cleanup();
     }
 }
 }

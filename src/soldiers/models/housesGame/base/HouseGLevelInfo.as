@@ -56,6 +56,8 @@ public class HouseGLevelInfo extends DisposableObject implements ISerializable
     //! Default constructor
     public function HouseGLevelInfo()
     {
+        super(false);
+
         init();
     }
 

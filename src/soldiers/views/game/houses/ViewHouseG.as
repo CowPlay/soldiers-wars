@@ -63,6 +63,17 @@ public class ViewHouseG extends ControlBase
         return _houseViewPlayer;
     }
 
+
+    public function get viewAuraEnemy():DisplayObject
+    {
+        return _viewAuraEnemy;
+    }
+
+    public function get viewAuraPlayer():DisplayObject
+    {
+        return _viewAuraPlayer;
+    }
+
     /*
      * Methods
      */
@@ -115,7 +126,6 @@ public class ViewHouseG extends ControlBase
 
         _houseView = new resultClass();
 
-        //TODO: add levels
         Debug.assert(_houseView.hasOwnProperty("viewPlayer"));
         Debug.assert(_houseView.hasOwnProperty("viewEnemy"));
         Debug.assert(_houseView.hasOwnProperty("labelSoldiers"));
@@ -152,7 +162,7 @@ public class ViewHouseG extends ControlBase
         _sourceView.x = cellEntry.view.source.x;
         _sourceView.y = cellEntry.view.source.y;
 
-        _viewAuraEnemy.x = _viewAuraPlayer.x = 65;
+        _viewAuraEnemy.x = _viewAuraPlayer.x = 0;
         _viewAuraEnemy.y = _viewAuraPlayer.y = 0;
     }
 

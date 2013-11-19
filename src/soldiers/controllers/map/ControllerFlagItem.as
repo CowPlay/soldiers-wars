@@ -61,9 +61,6 @@ public class ControllerFlagItem extends Controller
 
     public override function cleanup():void
     {
-        _view.cleanup();
-        _view = null;
-
         _entry = null;
 
         super.cleanup();

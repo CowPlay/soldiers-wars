@@ -83,6 +83,14 @@ public class ViewArrow extends ControlBase
         y = cellEntry.view.y;
     }
 
+    override public function cleanup():void
+    {
+        _entry = null;
+        _sourceView = null;
+
+        super.cleanup();
+    }
+
 
 //    public function show(isShow:Boolean):void
 //    {

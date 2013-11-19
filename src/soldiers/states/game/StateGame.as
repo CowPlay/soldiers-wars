@@ -7,21 +7,21 @@
  */
 package soldiers.states.game
 {
-import controls.IView;
+import controllers.IControllerPopup;
+
+import controls.EViewAlignment;
 
 import soldiers.controllers.game.ControllerSceneGame;
-
+import soldiers.controllers.popups.levels.ControllerPopupLevelEnd;
 import soldiers.models.GameInfo;
 import soldiers.states.EStateType;
 import soldiers.states.base.StateGameBase;
-import soldiers.views.game.ViewSceneGame;
 
 public class StateGame extends StateGameBase
 {
     /*
      * Fields
      */
-    private var _controlSceneView:IView;
 
     /*
      * Properties
@@ -46,6 +46,13 @@ public class StateGame extends StateGameBase
         this.controllerScene = new ControllerSceneGame();
     }
 
+    public override function prepareLayerPopups():void
+    {
+        super.prepareLayerPopups();
+
+        registerPopup(new ControllerPopupLevelEnd());
+    }
+
     public override function update(type:String):void
     {
         this.controllerScene.update(type);
@@ -55,6 +62,17 @@ public class StateGame extends StateGameBase
     {
         GameInfo.instance.managerGame.registerSceneGame(this);
         super.onLoadingEnd();
+    }
+
+    public override function placeViews(fullscreen:Boolean):void
+    {
+        for each(var popup:IControllerPopup in popups)
+        {
+            popup.view.alignment = EViewAlignment.EVA_ABSOLUTE;
+            popup.view.translate(0.5, 0.5);
+        }
+
+        super.placeViews(fullscreen);
     }
 
 }

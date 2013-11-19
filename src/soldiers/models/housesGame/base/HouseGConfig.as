@@ -52,6 +52,8 @@ public class HouseGConfig extends DisposableObject implements ISerializable
     //! Default constructor
     public function HouseGConfig(levelInfoClass:Class)
     {
+        super (false);
+
         Debug.assert(levelInfoClass != null);
 
         _levelInfoClass = levelInfoClass;

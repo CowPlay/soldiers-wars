@@ -51,7 +51,7 @@ public class ControllerArrow extends Controller
     {
         UtilsMemory.registerEventListener(GameInfo.instance.managerApp.applicationStage, MouseEvent.MOUSE_MOVE, this, onMouseMove);
 
-//        _view.hide();
+        _view.hide();
     }
 
     public function onMouseMove(e:MouseEvent):void

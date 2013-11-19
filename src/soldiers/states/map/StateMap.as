@@ -11,9 +11,11 @@
  */
 package soldiers.states.map
 {
+import controllers.IControllerPopup;
+
+import controls.EViewAlignment;
+
 import soldiers.controllers.map.ControllerMapScene;
-import soldiers.controllers.popups.houses.bakery.ControllerPopupBakery;
-import soldiers.controllers.popups.levels.ControllerPopupLevelEnd;
 import soldiers.controllers.popups.levels.ControllerPopupLevelStart;
 import soldiers.states.EStateType;
 import soldiers.states.base.StateGameBase;
@@ -50,10 +52,11 @@ public class StateMap extends StateGameBase
     {
         super.prepareLayerPopups();
 
+        registerPopup(new ControllerPopupLevelStart());
+
         //TODO: implement
 //        registerPopup(new ControllerPopupBuildHouse());
-        registerPopup(new ControllerPopupBakery());
-        registerPopup(new ControllerPopupLevelStart());
+//        registerPopup(new ControllerPopupBakery());
 //        registerPopup(new ControllerPopupLevelEnd());
 //        registerPopup(new ControllerPopupTavern());
 //        registerPopup(new ControlPopupUniversityMM());
@@ -66,6 +69,17 @@ public class StateMap extends StateGameBase
 //    {
 //        super.onLoadingEnd();
 //    }
+
+    public override function placeViews(fullscreen:Boolean):void
+    {
+        for each(var popup:IControllerPopup in popups)
+        {
+            popup.view.alignment = EViewAlignment.EVA_ABSOLUTE;
+            popup.view.translate(0.5, 0.5);
+        }
+
+        super.placeViews(fullscreen);
+    }
 
     public override function cleanup():void
     {

@@ -44,10 +44,9 @@ public class HouseGBarracks extends HouseG
     {
         super();
 
-        //TODO: move to config
-        //TODO:implement
-//        _timerSoldierGenerator = new Timer(1000);
-//        UtilsMemory.registerEventListener(_timerSoldierGenerator, TimerEvent.TIMER, this, incrementSoldierCount);
+        //TODO: move time to config
+        _timerSoldierGenerator = new Timer(1000);
+        UtilsMemory.registerEventListener(_timerSoldierGenerator, TimerEvent.TIMER, this, incrementSoldierCount);
 //        _timerSoldierGenerator.start();
     }
 
@@ -62,7 +61,6 @@ public class HouseGBarracks extends HouseG
             else
             {
                 soldierCount < this.currentLevelInfo.soldiersMax ? soldierCount++ : soldierCount--;
-                controller.update(EControllerUpdateBase.ECUT_ENTRY_UPDATED);
             }
         }
     }

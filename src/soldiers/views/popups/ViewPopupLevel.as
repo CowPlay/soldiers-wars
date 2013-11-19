@@ -28,15 +28,15 @@ public class ViewPopupLevel extends ViewPopup
      */
     private var _sourceView:gPopupLevel;
 
-    private var _buttonStartEnd:IViewButton;
+    private var _button:IViewButton;
 
 
     /*
      * Properties
      */
-    public function get buttonStartEnd():IViewButton
+    public function get button():IViewButton
     {
-        return _buttonStartEnd;
+        return _button;
     }
 
     /*
@@ -57,15 +57,15 @@ public class ViewPopupLevel extends ViewPopup
         var buttonClose:IView = new ViewButton(controller, _sourceView.buttonClose);
         setButtonClose(buttonClose);
 
-        _buttonStartEnd = new ViewButtonLabeled(controller, _sourceView.buttonStartEnd);
+        _button = new ViewButtonLabeled(controller, _sourceView.buttonStartEnd);
     }
 
     public override function cleanup():void
     {
         _sourceView = null;
 
-        _buttonStartEnd.cleanup();
-        _buttonStartEnd = null;
+        _button.cleanup();
+        _button = null;
 
         super.cleanup();
     }

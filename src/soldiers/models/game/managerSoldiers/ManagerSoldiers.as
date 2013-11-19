@@ -9,8 +9,6 @@
 package soldiers.models.game.managerSoldiers
 {
 
-import controls.EControllerUpdateBase;
-
 import core.DisposableObject;
 
 import flash.events.Event;
@@ -21,8 +19,8 @@ import flash.utils.getTimer;
 import soldiers.controllers.EControllerUpdate;
 import soldiers.models.GameInfo;
 import soldiers.models.game.managerPath.ManagerPath;
+import soldiers.models.game.soldiers.ESoldierState;
 import soldiers.models.game.soldiers.SoldierInfo;
-import soldiers.models.housesGame.base.EHouseOwner;
 import soldiers.models.housesGame.base.HouseG;
 
 import utils.UtilsArray;
@@ -111,7 +109,6 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
             {
                 Debug.assert(waveInfo.owner.soldierCount >= waveInfo.generatedSoldierRest);
                 waveInfo.owner.soldierCount -= waveInfo.generatedSoldierRest;
-                waveInfo.owner.controller.update(EControllerUpdateBase.ECUT_ENTRY_UPDATED);
             }
 
             waveInfo.timeGeneratedLast = currentTime;
@@ -146,13 +143,14 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
 
         _soldiers.push(newSoldier);
 
-        GameInfo.instance.managerStates.currentState.update(EControllerUpdate.ECU_SOLDIER_GENERATE);
+        GameInfo.instance.managerStates.currentState.update(EControllerUpdate.ECU_SOLDIER_STATE_CHANGED);
 
         waveInfo.generatedSoldierRest--;
     }
 
     public function removeSoldier(value:SoldierInfo):void
     {
+        value.state = ESoldierState.ESS_NEED_REMOVE;
         UtilsArray.removeValue(_soldiers, value);
         value.cleanup();
     }
@@ -165,7 +163,18 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
     public override function cleanup():void
     {
         _timerSoldierGenerator.stop();
+        _timerSoldierGenerator.removeEventListener(TimerEvent.TIMER, processWave);
         _timerSoldierGenerator = null;
+
+        for each(var wave:IDisposable in _soldierWaves)
+        {
+            wave.cleanup();
+        }
+
+        for each(var soldier:IDisposable in _soldiers)
+        {
+            soldier.cleanup();
+        }
 
         super.cleanup();
     }

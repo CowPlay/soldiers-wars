@@ -14,10 +14,7 @@ package soldiers.views.map
 import controllers.IController;
 
 import controls.IView;
-
 import controls.implementations.ControlBase;
-
-import soldiers.views.popups.ViewPopupLevel;
 
 public class ViewMapScene extends ControlBase
 {
@@ -45,7 +42,7 @@ public class ViewMapScene extends ControlBase
 
     private function init():void
     {
-       _items = [];
+        _items = [];
     }
 
     override public function addSubView(view:IView):void
@@ -58,9 +55,38 @@ public class ViewMapScene extends ControlBase
     {
         super.placeViews(isFullscreen);
 
-        var itemView:ViewFlagItem = _items[0];
-        itemView.source.x = 80;
-        itemView.source.y = 172;
+
+        var itemsCoords:Array =
+                [
+                    [80, 172],
+                    [150, 220],
+                    [250, 210],
+                    [325, 180],
+                    [290, 130],
+                    [380, 130],
+                    [460, 170],
+                    [565, 155],
+                    [625, 195],
+                    [585, 245],
+                    [515, 290],
+                    [568, 330],
+                    [594, 388],
+                    [535, 430],
+                    [445, 412],
+                    [420, 350],
+                    [330, 312],
+                    [243, 314],
+                    [174, 355],
+                    [140, 408]
+                ];
+
+        for (var i:int = 0; i < _items.length; i++)
+        {
+            var subView:IView = _items[i];
+
+            subView.source.x = itemsCoords[i][0];
+            subView.source.y = itemsCoords[i][1];
+        }
     }
 
     public override function cleanup():void

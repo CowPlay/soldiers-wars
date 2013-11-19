@@ -28,8 +28,6 @@ public class LevelInfo extends LevelInfoBase
     /*
      * Fields
      */
-    //[ISerializable]
-    private var _houses:Array;
     private var _housesData:Array;
 
     //[ISerializable]
@@ -40,14 +38,15 @@ public class LevelInfo extends LevelInfoBase
      * Properties
      */
 
-    public function get houses():Array
-    {
-        return _houses;
-    }
-
     public function get gridSize():Point
     {
         return _gridSize;
+    }
+
+
+    public function get housesData():Array
+    {
+        return _housesData;
     }
 
     /*
@@ -59,41 +58,16 @@ public class LevelInfo extends LevelInfoBase
     {
     }
 
-    public function onSelectHouse(player:PlayerInfoBase, house:HouseG):void
-    {
-//         Player
-    }
-
     public override function onGameStart():void
     {
-        super.onGameStart();
-
-        for each(var houseData:Object in _housesData)
+        for each(var house:HouseG in GameInfo.instance.managerGame.houses)
         {
-            houseData.hasOwnProperty("type");
-
-            var house:HouseG;
-
-            switch (houseData["type"])
-            {
-                case EHouseTypeG.EHGT_BARRACKS:
-                {
-                    house = new HouseGBarracks();
-                    house.deserialize(houseData);
-
-                    break;
-                }
-                default :
-                {
-                    Debug.assert(false);
-                    break;
-                }
-            }
-
-            _houses.push(house);
+            house.updateFoundation();
         }
 
         GameInfo.instance.managerGame.managerPath.generateLevelPaths();
+
+        super.onGameStart();
     }
 
     /*
@@ -112,8 +86,6 @@ public class LevelInfo extends LevelInfoBase
         Debug.assert(data.hasOwnProperty("grid_height"));
         Debug.assert(data.hasOwnProperty("houses"));
 
-        _houses = [];
-
         _gridSize = new Point(data["grid_width"], data["grid_height"]);
 
         _housesData = data["houses"] as Array;
@@ -125,6 +97,8 @@ public class LevelInfo extends LevelInfoBase
 
     public override function cleanup():void
     {
+
+
         super.cleanup();
     }
 

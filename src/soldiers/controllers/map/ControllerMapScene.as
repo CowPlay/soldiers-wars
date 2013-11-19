@@ -13,10 +13,10 @@ package soldiers.controllers.map
 {
 import controllers.implementations.Controller;
 
+import models.interfaces.levels.ILevelContainer;
 import models.interfaces.levels.ILevelInfo;
 
 import soldiers.models.GameInfo;
-
 import soldiers.views.map.ViewMapScene;
 
 public class ControllerMapScene extends Controller
@@ -51,22 +51,23 @@ public class ControllerMapScene extends Controller
     {
         _items = [];
 
-        var levelInfo:ILevelInfo = GameInfo.instance.managerLevels.getLevel("0");
+        var containers:Array = GameInfo.instance.managerLevels.items;
 
-        var controllerFlagLevel0:ControllerFlagItem = new ControllerFlagItem(levelInfo);
+        for each(var levelContainer:ILevelContainer in containers)
+        {
+            for each(var level:ILevelInfo in levelContainer.items)
+            {
+                var controllerMapItem:ControllerFlagItem = new ControllerFlagItem(level);
 
-        this.view.addSubView(controllerFlagLevel0.view);
-
-        _items.push(controllerFlagLevel0)
+                _view.addSubView(controllerMapItem.view);
+                _items.push(controllerMapItem)
+            }
+        }
     }
-
 
 
     public override function cleanup():void
     {
-        _view.cleanup();
-        _view = null;
-
         for each(var item:ControllerFlagItem in _items)
         {
             item.cleanup();

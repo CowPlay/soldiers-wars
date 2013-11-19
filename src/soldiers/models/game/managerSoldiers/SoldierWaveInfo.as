@@ -7,9 +7,11 @@
  */
 package soldiers.models.game.managerSoldiers
 {
+import core.DisposableObject;
+
 import soldiers.models.housesGame.base.HouseG;
 
-public class SoldierWaveInfo
+public class SoldierWaveInfo extends DisposableObject
 {
 
     /*
@@ -94,6 +96,14 @@ public class SoldierWaveInfo
     //! Default constructor
     public function SoldierWaveInfo()
     {
+    }
+
+    public override function cleanup():void
+    {
+        _owner = null;
+        _target = null;
+
+        super.cleanup();
     }
 }
 }

@@ -10,10 +10,14 @@ package soldiers.controllers.game
 import controllers.IController;
 import controllers.implementations.Controller;
 
+import controls.EControllerUpdateBase;
+
 import soldiers.controllers.EControllerUpdate;
 import soldiers.controllers.game.arrow.ControllerArrowContainer;
 import soldiers.controllers.game.houses.ControllerHousesGContainer;
 import soldiers.controllers.game.soldiers.ControllerSoldiersContainer;
+import soldiers.models.GameInfo;
+import soldiers.popups.EPopupType;
 import soldiers.views.game.ViewSceneGame;
 
 public class ControllerSceneGame extends Controller
@@ -67,9 +71,15 @@ public class ControllerSceneGame extends Controller
 
                 break;
             }
-            case EControllerUpdate.ECU_SOLDIER_GENERATE:
+            case EControllerUpdate.ECU_SOLDIER_STATE_CHANGED:
             {
                 _controllerSoldiers.update(type);
+                break;
+            }
+            case EControllerUpdateBase.ECUT_GAME_FINISHED:
+            {
+                GameInfo.instance.managerStates.currentState.showPopup(EPopupType.EPT_LEVEL_END);
+
                 break;
             }
             default :
@@ -78,6 +88,15 @@ public class ControllerSceneGame extends Controller
                 break;
             }
         }
+    }
+
+    public override function cleanup():void
+    {
+        _controllerArrow.cleanup();
+        _controllerSoldiers.cleanup();
+        _controllerHouses.cleanup();
+
+        super.cleanup();
     }
 }
 }

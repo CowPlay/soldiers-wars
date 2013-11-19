@@ -9,11 +9,11 @@ package soldiers.controllers.game.houses
 {
 import controllers.implementations.Controller;
 
-import controls.EControllerUpdateBase;
 import controls.IView;
 
 import flash.events.MouseEvent;
 
+import soldiers.controllers.EControllerUpdate;
 import soldiers.models.GameInfo;
 import soldiers.models.game.ManagerGame;
 import soldiers.models.housesGame.base.EHouseOwner;
@@ -60,43 +60,39 @@ public class ControllerHouseG extends Controller
     {
         _managerGame = GameInfo.instance.managerGame;
 
-        update(EControllerUpdateBase.ECUT_ENTRY_UPDATED);
+        update(EControllerUpdate.ECU_HOUSE_OWNER_CHANGED);
+        update(EControllerUpdate.ECU_HOUSE_SOLDIERS_CHANGED);
+        update(EControllerUpdate.ECU_HOUSE_LEVEL_CHANGED);
+
+//        update(EControllerUpdateBase.ECUT_ENTRY_UPDATED);
     }
 
     public override function update(type:String):void
     {
-        //TODO: implement
         switch (type)
         {
-            case EControllerUpdateBase.ECUT_ENTRY_UPDATED:
+            case EControllerUpdate.ECU_HOUSE_OWNER_CHANGED:
             {
-                _view.labelSoldiers.text = _entry.soldierCount.toString();
-
-                _view.setLevel(_entry.level);
-
-//
                 _view.houseViewPlayer.visible = _entry.ownerType == EHouseOwner.EHO_PLAYER;
                 _view.houseViewEnemy.visible = !_view.houseViewPlayer.visible;
 
-////                switch (_entry.ownerType)
-////                {
-////                    case EHouseOwner.EHO_PLAYER:
-////                    {
-////                        if (_entry.isSelect)
-////                        {
-////                            _auraPlayer.visible = true;
-////                        }
-////                        break;
-////                    }
-////                    default :
-////                    {
-////                        //do nothing
-////                        break;
-////                    }
-////                }
-//
+                GameInfo.instance.managerGame.onHouseOwnerChanged();
+
                 break;
             }
+            case EControllerUpdate.ECU_HOUSE_SOLDIERS_CHANGED:
+            {
+                _view.labelSoldiers.text = _entry.soldierCount.toString();
+
+                break;
+            }
+            case EControllerUpdate.ECU_HOUSE_LEVEL_CHANGED:
+            {
+                _view.setLevel(_entry.level);
+
+                break;
+            }
+
             default :
             {
                 Debug.assert(false);
@@ -113,9 +109,18 @@ public class ControllerHouseG extends Controller
         {
             case _view:
             {
-                if (entry.ownerType == EHouseOwner.EHO_PLAYER && _managerGame.isAnyHouseSelected(_managerGame.gameOwner) && !entry.isSelect)
+                if (entry.ownerType == EHouseOwner.EHO_PLAYER)
                 {
-                    _managerGame.onPlayerSelectHouse(_managerGame.gameOwner, entry);
+                    _view.viewAuraPlayer.visible = true;
+
+                    if (_managerGame.isAnyHouseSelected(_managerGame.gameOwner) && !entry.isSelect)
+                    {
+                        _managerGame.onPlayerSelectHouse(_managerGame.gameOwner, entry);
+                    }
+                }
+                else
+                {
+                    _view.viewAuraEnemy.visible = true;
                 }
 
                 result = true;
@@ -146,6 +151,7 @@ public class ControllerHouseG extends Controller
                     {
                         _managerGame.onPlayerSelectHouse(_managerGame.gameOwner, entry);
                     }
+
 
                     result = true;
 
@@ -194,9 +200,37 @@ public class ControllerHouseG extends Controller
         return result;
     }
 
-    //onViewMouseOut
-    //        _auraPlayer.visible = false;
-//        _auraEnemy.visible = false;
+    public override function onViewMouseUpOut(v:IView, e:MouseEvent):Boolean
+    {
+        var result:Boolean = super.onViewMouseUp(v, e);
 
+        if (!result)
+        {
+            _view.viewAuraPlayer.visible = false;
+            _view.viewAuraEnemy.visible = false;
+        }
+
+        return result;
+    }
+
+    public override function onViewMouseOut(v:IView, e:MouseEvent):Boolean
+    {
+        var result:Boolean = super.onViewMouseUp(v, e);
+
+        if (!result)
+        {
+            if (entry.ownerType == EHouseOwner.EHO_PLAYER)
+            {
+                _view.viewAuraPlayer.visible = _entry.isSelect;
+
+            }
+            else
+            {
+                _view.viewAuraEnemy.visible = false;
+            }
+        }
+
+        return result;
+    }
 }
 }

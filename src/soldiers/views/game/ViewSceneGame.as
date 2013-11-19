@@ -82,5 +82,14 @@ public class ViewSceneGame extends ControlBase
             subView.y = _viewGrid.y;
         }
     }
+
+    public override function cleanup():void
+    {
+        _viewGrid.cleanup();
+        _subViews = null;
+
+
+        super.cleanup();
+    }
 }
 }

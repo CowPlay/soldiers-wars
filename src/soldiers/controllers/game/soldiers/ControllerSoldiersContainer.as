@@ -12,9 +12,11 @@ import controllers.implementations.Controller;
 
 import soldiers.controllers.EControllerUpdate;
 import soldiers.models.GameInfo;
+import soldiers.models.game.soldiers.ESoldierState;
 import soldiers.models.game.soldiers.SoldierInfo;
-import soldiers.views.game.soldiers.ViewSoldier;
 import soldiers.views.game.soldiers.ViewSoldiersContainer;
+
+import utils.UtilsArray;
 
 public class ControllerSoldiersContainer extends Controller
 {
@@ -22,6 +24,7 @@ public class ControllerSoldiersContainer extends Controller
      * Fields
      */
     private var _view:ViewSoldiersContainer;
+    private var _soldiers:Array;
     /*
      * Properties
      */
@@ -41,6 +44,7 @@ public class ControllerSoldiersContainer extends Controller
 
     private function init():void
     {
+        _soldiers = [];
     }
 
 
@@ -48,22 +52,49 @@ public class ControllerSoldiersContainer extends Controller
     {
         switch (type)
         {
-            case EControllerUpdate.ECU_SOLDIER_GENERATE:
+            case EControllerUpdate.ECU_SOLDIER_STATE_CHANGED:
             {
                 var soldiers:Array = GameInfo.instance.managerGame.managerSoldiers.soldiers;
 
                 for each(var soldier:SoldierInfo in soldiers)
                 {
-                    if (soldier.controller == null)
+                    switch (soldier.state)
                     {
-                        soldier.controller = new ControllerSoldier(soldier);
-                        _view.addSubView(soldier.controller.view);
+                        case ESoldierState.ESS_NEW:
+                        {
+                            var controller:IController = new ControllerSoldier(soldier);
+                            soldier.controller = controller;
+                            _view.addSubView(controller.view);
+
+                            _soldiers.push(controller);
+                            break;
+                        }
+                        case ESoldierState.ESS_IN_MOVE:
+                        {
+                            //do nothing
+                            break;
+                        }
+                        case ESoldierState.ESS_NEED_REMOVE:
+                        {
+                            _view.removeSubView(soldier.controller.view);
+
+                            UtilsArray.removeValue(_soldiers, soldier.controller);
+                            soldier.controller.cleanup();
+                            soldier.controller = null;
+
+                            break;
+                        }
+                        default :
+                        {
+                            Debug.assert(false);
+                            break;
+                        }
                     }
                 }
 
                 break;
             }
-            default :
+            default:
             {
                 Debug.assert(false);
                 break;
@@ -71,6 +102,17 @@ public class ControllerSoldiersContainer extends Controller
         }
     }
 
+    public override function cleanup():void
+    {
+        for each(var controller:IController in _soldiers)
+        {
+            controller.cleanup();
+        }
+
+        _soldiers = null;
+
+        super.cleanup();
+    }
 
 
 }

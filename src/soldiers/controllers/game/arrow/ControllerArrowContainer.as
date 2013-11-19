@@ -43,7 +43,7 @@ public class ControllerArrowContainer extends Controller
 
     private function init():void
     {
-        var houses:Array = GameInfo.instance.managerGame.currentLevel.houses;
+        var houses:Array = GameInfo.instance.managerGame.houses;
 
         _arrows = [];
         for each(var house:HouseG in houses)
@@ -74,6 +74,16 @@ public class ControllerArrowContainer extends Controller
                 break;
             }
         }
+    }
+
+    public override function cleanup():void
+    {
+        for each(var arrow:IDisposable in _arrows)
+        {
+            arrow.cleanup();
+        }
+
+        super.cleanup();
     }
 }
 }

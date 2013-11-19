@@ -7,17 +7,14 @@
  */
 package soldiers.models.game.soldiers
 {
-import com.greensock.TweenLite;
-import com.greensock.TweenMax;
-
 import controllers.IController;
-
-import controls.IView;
 
 import core.DisposableObject;
 
 import models.interfaces.players.IPlayerInfo;
 
+import soldiers.controllers.EControllerUpdate;
+import soldiers.models.GameInfo;
 import soldiers.models.housesGame.base.HouseG;
 
 public class SoldierInfo extends DisposableObject implements IDisposable
@@ -33,6 +30,8 @@ public class SoldierInfo extends DisposableObject implements IDisposable
     private var _path:Array;
 
     private var _controller:IController;
+
+    private var _state:String;
 
 
     /*
@@ -108,6 +107,23 @@ public class SoldierInfo extends DisposableObject implements IDisposable
         return _levelMax;
     }
 
+
+    public function get state():String
+    {
+        return _state;
+    }
+
+
+    public function set state(value:String):void
+    {
+        if (_state == value)
+            return;
+
+        _state = value;
+
+        GameInfo.instance.managerStates.currentState.update(EControllerUpdate.ECU_SOLDIER_STATE_CHANGED)
+    }
+
     /*
      * Methods
      */
@@ -128,7 +144,7 @@ public class SoldierInfo extends DisposableObject implements IDisposable
         _houseTarget = target;
         _houseOwnerPlayer = owner.owner;
 
-
+        state = ESoldierState.ESS_NEW;
     }
 
 
@@ -138,7 +154,12 @@ public class SoldierInfo extends DisposableObject implements IDisposable
 
     public override function cleanup():void
     {
+        _houseOwnerPlayer = null;
+        _houseTarget = null;
+
         _path.length = 0;
+        _path = null;
+
         _controller = null;
 
         super.cleanup();

@@ -20,6 +20,8 @@ import flash.geom.Point;
 import soldiers.models.GameInfo;
 import soldiers.models.game.managerPath.GridCell;
 
+import utils.UtilsArray;
+
 public class ViewSoldiersContainer extends ControlBase
 {
     /*
@@ -79,6 +81,15 @@ public class ViewSoldiersContainer extends ControlBase
         _sourceView.addChild(view.source);
 
         _soldiers.push(view);
+    }
+
+
+    //! Remove subview to this view
+    override public function removeSubView(view:IView):void
+    {
+        _sourceView.removeChild(view.source);
+
+        UtilsArray.removeValue(_soldiers, view);
     }
 
 

@@ -1,16 +1,16 @@
 package soldiers.models.game.managerPath
 {
+import core.DisposableObject;
+
 import flash.geom.Point;
 import flash.utils.Dictionary;
 
-import models.interfaces.levels.ILevelInfo;
-
+import soldiers.models.GameInfo;
 import soldiers.models.housesGame.base.EHouseOwner;
 import soldiers.models.housesGame.base.HouseG;
-import soldiers.models.levels.LevelInfo;
 
 //! Class which contains info about level grid and provide find path functionally
-public class ManagerPath
+public class ManagerPath extends DisposableObject
 {
     /*
      * Static methods
@@ -25,7 +25,7 @@ public class ManagerPath
      * Fields
      */
 
-    private var _currentLevel:LevelInfo;
+    private var _gridSize:Point;
 
     //! Array of (array of nodes)
     private var _grid:Array;
@@ -50,12 +50,11 @@ public class ManagerPath
      */
 
     //! Default constructor
-    public function ManagerPath(currentLevel:ILevelInfo)
+    public function ManagerPath(gridSize:Point)
     {
-        Debug.assert(currentLevel != null);
-        Debug.assert(currentLevel is LevelInfo);
+        Debug.assert(gridSize != null);
 
-        _currentLevel = currentLevel as LevelInfo;
+        _gridSize = gridSize;
 
         _heuristicFunction = ManagerPath.manhattanHeuristic;
 
@@ -72,11 +71,11 @@ public class ManagerPath
         { // Create grid
             _grid = [];
 
-            for (row = 0; row < _currentLevel.gridSize.y; row++)
+            for (row = 0; row < _gridSize.y; row++)
             {
                 var newRow:Array = [];
 
-                for (column = 0; column < _currentLevel.gridSize.x; column++)
+                for (column = 0; column < _gridSize.x; column++)
                 {
                     var newNode:GridCell = new GridCell(column, row);
 
@@ -86,40 +85,15 @@ public class ManagerPath
                 _grid.push(newRow);
             }
         }
-
-        {
-            for each (var house:HouseG in _currentLevel.houses)
-            {
-                var foundationSize:Point = house.currentLevelInfo.foundationSize;
-
-                var rowFrom:int = house.positionCurrent.y;
-                var rowTo:int = rowFrom + foundationSize.y;
-
-                var columnFrom:int = house.positionCurrent.x;
-                var columnTo:int = columnFrom + foundationSize.x;
-
-                //make foundations not walkable
-                for (row = rowFrom; row < rowTo; row++)
-                {
-                    for (column = columnFrom; column < columnTo; column++)
-                    {
-                        var foundationCell:GridCell = getCell(new Point(column, row));
-                        foundationCell.traversable = false;
-                    }
-                }
-
-                //and make house exit traversable
-                var houseExitCell:GridCell = getCell(house.positionExit);
-                houseExitCell.traversable = true;
-            }
-        }
     }
 
     public function generateLevelPaths():void
     {
-        for each(var houseFrom:HouseG in _currentLevel.houses)
+        var houses:Array = GameInfo.instance.managerGame.houses;
+
+        for each(var houseFrom:HouseG in houses)
         {
-            for each(var houseTo:HouseG in _currentLevel.houses)
+            for each(var houseTo:HouseG in houses)
             {
                 if (houseFrom == houseTo)
                 {
@@ -297,10 +271,10 @@ public class ManagerPath
         var result:Array = [];
 
         var rowMin:int = node.row > 0 ? node.row - 1 : 0;
-        var rowMax:int = node.row < _currentLevel.gridSize.y - 1 ? node.row + 1 : _currentLevel.gridSize.y - 1;
+        var rowMax:int = node.row < _gridSize.y - 1 ? node.row + 1 : _gridSize.y - 1;
 
         var columnMin:int = node.column > 0 ? node.column - 1 : node.column;
-        var columnMax:int = node.column < _currentLevel.gridSize.x - 1 ? node.column + 1 : _currentLevel.gridSize.x - 1;
+        var columnMax:int = node.column < _gridSize.x - 1 ? node.column + 1 : _gridSize.x - 1;
 
         for (var currentRow:int = rowMin; currentRow <= rowMax; currentRow++)
         {
@@ -361,7 +335,7 @@ public class ManagerPath
 
         Debug.assert(position != null);
         Debug.assert(position.x >= 0 && position.y >= 0);
-        Debug.assert(position.length < _currentLevel.gridSize.length);
+        Debug.assert(position.length < _gridSize.length);
 
         var rowEntry:Array = _grid[position.y] as Array;
 
@@ -406,6 +380,22 @@ public class ManagerPath
 //        }
 //
         return result;
+    }
+
+    public override function cleanup():void
+    {
+        _gridSize = null;
+        for each(var row:Array in _grid)
+        {
+            for each(var cell:GridCell in row)
+            {
+                cell.cleanup();
+            }
+        }
+
+        _grid = null;
+
+        super.cleanup();
     }
 
 

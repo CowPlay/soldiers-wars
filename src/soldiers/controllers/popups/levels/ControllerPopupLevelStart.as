@@ -66,7 +66,7 @@ public class ControllerPopupLevelStart extends ControllerPopup
         {
             switch (view)
             {
-                case _view.buttonStartEnd:
+                case _view.button:
                 {
                     GameInfo.instance.startStubGame();
 
@@ -88,7 +88,6 @@ public class ControllerPopupLevelStart extends ControllerPopup
 
     public override function cleanup():void
     {
-        _view.cleanup();
         super.cleanup();
     }
 }

@@ -9,6 +9,7 @@ package soldiers.views.game
 {
 import controllers.IController;
 
+import controls.IView;
 import controls.implementations.ControlBase;
 
 import flash.display.DisplayObjectContainer;
@@ -106,6 +107,23 @@ public class ViewGrid extends ControlBase
         }
 
         super.placeViews(fullscreen);
+    }
+
+    public override function cleanup():void
+    {
+        for each(var row:Array in _cells)
+        {
+            for each(var cell:IView in row)
+            {
+                cell.cleanup();
+            }
+        }
+
+
+        _cells = null;
+        _sourceView = null;
+
+        super.cleanup();
     }
 }
 }

@@ -12,13 +12,9 @@ import controllers.implementations.Controller;
 
 import controls.IView;
 
-import flash.events.Event;
-
 import flash.events.MouseEvent;
 
 import soldiers.models.GameInfo;
-import soldiers.models.game.ManagerGame;
-import soldiers.models.housesGame.base.EHouseOwner;
 import soldiers.models.housesGame.base.EHouseTypeG;
 import soldiers.models.housesGame.base.HouseG;
 import soldiers.views.game.houses.ViewHousesGContainer;
@@ -60,7 +56,7 @@ public class ControllerHousesGContainer extends Controller
     {
         _houses = [];
 
-        var housesEntries:Array = GameInfo.instance.managerGame.currentLevel.houses;
+        var housesEntries:Array = GameInfo.instance.managerGame.houses;
 
         for each(var entry:HouseG in housesEntries)
         {
@@ -91,12 +87,24 @@ public class ControllerHousesGContainer extends Controller
     {
         var result:Boolean = super.onViewMouseUpOut(view, e);
 
-        if(!result)
+        if (!result)
         {
             GameInfo.instance.managerGame.clearHousesSelection(GameInfo.instance.managerGame.gameOwner);
         }
 
         return result;
+    }
+
+    public override function cleanup():void
+    {
+        for each(var controller:IController in _houses)
+        {
+            controller.cleanup();
+        }
+
+        _houses = null;
+
+        super.cleanup();
     }
 
 }

@@ -17,8 +17,9 @@ import controls.IView;
 
 import flash.events.MouseEvent;
 
+import soldiers.models.GameInfo;
 import soldiers.popups.EPopupType;
-
+import soldiers.states.EStateType;
 import soldiers.views.popups.ViewPopupLevel;
 
 public class ControllerPopupLevelEnd extends ControllerPopup
@@ -66,8 +67,10 @@ public class ControllerPopupLevelEnd extends ControllerPopup
         {
             switch (view)
             {
-                case _view.buttonStartEnd:
+                case _view.button:
                 {
+                    onButtonCloseClicked();
+
                     result = true;
                     break;
                 }
@@ -82,6 +85,15 @@ public class ControllerPopupLevelEnd extends ControllerPopup
 
         return result;
 
+    }
+
+    override protected function onButtonCloseClicked():void
+    {
+        super.onButtonCloseClicked();
+
+        GameInfo.instance.onGameEnd();
+
+        GameInfo.instance.managerStates.setState(EStateType.EST_GAME_MAP);
     }
 }
 }

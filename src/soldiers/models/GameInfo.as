@@ -132,6 +132,8 @@ public class GameInfo extends GameInfoBase
 
     protected override function onRemoteGameInitComplete(response:IResponse):void
     {
+//        GameInfo.instance.managerStates.setState(EStateType.EST_GAME_MAP);
+
         startStubGame();
     }
 
@@ -145,19 +147,6 @@ public class GameInfo extends GameInfoBase
         var managerGame:ManagerGame = new ManagerGame(container.items[0], player0, player1);
 
         GameInfo.instance.onGameStart(managerGame);
-
-        for each(var house:HouseG in managerGame.currentLevel.houses)
-        {
-            if (house.ownerTypeOnStart == EHouseOwner.EHO_ENEMY)
-            {
-                house.owner = player1;
-
-            }
-            else if (house.ownerTypeOnStart == EHouseOwner.EHO_PLAYER)
-            {
-                house.owner = player0;
-            }
-        }
 
         GameInfo.instance.managerStates.setState(EStateType.EST_GAME);
     }
