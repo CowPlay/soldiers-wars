@@ -9,6 +9,7 @@ package soldiers.controllers.game.houses
 {
 import controllers.implementations.Controller;
 
+import controls.EControllerUpdateBase;
 import controls.IView;
 
 import flash.events.MouseEvent;
@@ -27,12 +28,12 @@ public class ControllerHouseG extends Controller
     private var _entry:HouseG;
     private var _view:ViewHouseG;
 
+
     private var _managerGame:ManagerGame;
 
     /*
      * Properties
      */
-
 
     public function get entry():HouseG
     {
@@ -59,19 +60,24 @@ public class ControllerHouseG extends Controller
     {
         _managerGame = GameInfo.instance.managerGame;
 
+        update(EControllerUpdateBase.ECUT_ENTRY_UPDATED);
     }
 
     public override function update(type:String):void
     {
         //TODO: implement
-//        switch (type)
-//        {
-//            case EControllerUpdateBase.ECUT_ENTRY_UPDATED:
-//            {
-//                _labelSoldiers.text = _entry.soldierCount.toString();
+        switch (type)
+        {
+            case EControllerUpdateBase.ECUT_ENTRY_UPDATED:
+            {
+                _view.labelSoldiers.text = _entry.soldierCount.toString();
+
+                _view.setLevel(_entry.level);
+
 //
-//                _houseViewPlayer.visible = _entry.ownerType == EHouseOwner.EHO_PLAYER;
-//                _houseViewEnemy.visible = !_houseViewPlayer.visible;
+                _view.houseViewPlayer.visible = _entry.ownerType == EHouseOwner.EHO_PLAYER;
+                _view.houseViewEnemy.visible = !_view.houseViewPlayer.visible;
+
 ////                switch (_entry.ownerType)
 ////                {
 ////                    case EHouseOwner.EHO_PLAYER:
@@ -89,14 +95,14 @@ public class ControllerHouseG extends Controller
 ////                    }
 ////                }
 //
-//                break;
-//            }
-//            default :
-//            {
-//                Debug.assert(false);
-//                break;
-//            }
-//        }
+                break;
+            }
+            default :
+            {
+                Debug.assert(false);
+                break;
+            }
+        }
     }
 
     public override function onViewMouseOver(view:IView, e:MouseEvent):Boolean

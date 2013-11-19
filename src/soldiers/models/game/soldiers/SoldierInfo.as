@@ -10,14 +10,14 @@ package soldiers.models.game.soldiers
 import com.greensock.TweenLite;
 import com.greensock.TweenMax;
 
+import controllers.IController;
+
 import controls.IView;
 
 import core.DisposableObject;
 
 import models.interfaces.players.IPlayerInfo;
 
-import soldiers.models.GameInfo;
-import soldiers.models.game.managerPath.ManagerPath;
 import soldiers.models.housesGame.base.HouseG;
 
 public class SoldierInfo extends DisposableObject implements IDisposable
@@ -32,7 +32,7 @@ public class SoldierInfo extends DisposableObject implements IDisposable
     private var _soldierRotation:ESoldierRotation;
     private var _path:Array;
 
-    private var _view:IView;
+    private var _controller:IController;
 
 
     /*
@@ -72,17 +72,17 @@ public class SoldierInfo extends DisposableObject implements IDisposable
         _soldierRotation = value;
     }
 
-    public function get view():IView
+    public function get controller():IController
     {
-        return _view;
+        return _controller;
     }
 
-    public function set view(value:IView):void
+    public function set controller(value:IController):void
     {
-        if (_view == value)
+        if (_controller == value)
             return;
 
-        _view = value;
+        _controller = value;
     }
 
     public function get damage():int
@@ -93,7 +93,7 @@ public class SoldierInfo extends DisposableObject implements IDisposable
 
     public function get speed():Number
     {
-        return 3;
+        return 2;
     }
 
 
@@ -113,35 +113,24 @@ public class SoldierInfo extends DisposableObject implements IDisposable
      */
 
     //! Default constructor
-    public function SoldierInfo(owner:HouseG, target:HouseG)
+    public function SoldierInfo(owner:HouseG, target:HouseG, path:Array)
     {
         Debug.assert(owner != null);
         Debug.assert(target != null);
         Debug.assert(target != owner);
+        Debug.assert(path != null);
+        Debug.assert(path.length > 1);
 
+        _path = path;
         _houseOwnerType = owner.ownerType;
         _level = owner.level;
         _levelMax = owner.houseConfig.levelMax;
         _houseTarget = target;
         _houseOwnerPlayer = owner.owner;
 
-        var managerPath:ManagerPath = GameInfo.instance.managerGame.managerPath;
 
-        _path = managerPath.getPath(managerPath.getCell(owner.positionExit), managerPath.getCell(_houseTarget.positionExit));
-
-        Debug.assert(_path.length > 1);
     }
 
-    public function moveToTarget(onComplete:Function):void
-    {
-        var paramsLastTween:Object =
-        {
-            onComplete: onComplete,
-            onCompleteParams: [this]
-        };
-
-        TweenLite.to(this, _path.length * (1 / speed), paramsLastTween);
-    }
 
     /*
      *  IDisposable
@@ -149,10 +138,8 @@ public class SoldierInfo extends DisposableObject implements IDisposable
 
     public override function cleanup():void
     {
-        TweenMax.killTweensOf(this);
-
         _path.length = 0;
-        _view = null;
+        _controller = null;
 
         super.cleanup();
     }

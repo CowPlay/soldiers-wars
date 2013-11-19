@@ -12,7 +12,6 @@ import com.greensock.TweenMax;
 
 import controllers.IController;
 
-import controls.IView;
 import controls.implementations.ControlBase;
 
 import flash.display.MovieClip;
@@ -124,6 +123,11 @@ public class ViewSoldier extends ControlBase
 
     private function init():void
     {
+
+    }
+
+    public function moveToTarget(callback:Function):void
+    {
         for (var level:int = 1; level <= _entry.levelMax; level++)
         {
             var propertyName:String = "level_" + level.toString();
@@ -146,14 +150,37 @@ public class ViewSoldier extends ControlBase
         source.x = firstCell.view.source.x;
         source.y = firstCell.view.source.y;
 
-        //TODO: update rotation
-
         var tweenSequence:TimelineMax = new TimelineMax();
 
         var nodeFrom:GridCell;
         var nodeTo:GridCell;
 
+        var prevRotationFrame:int = ConstantsBase.INDEX_NONE;
+        var sameRotationCellsCount:int = 0;
+
         var delayRotationChange:Number = 0.1;
+
+        var generateAndAppedTween:Function = function(onComplete:Function = null):void
+        {
+            var paramsRotation:Object = { rotationFrame: prevRotationFrame };
+
+            {//tween rotation
+                var tweenRotation:TweenMax = new TweenMax(this, delayRotationChange, paramsRotation);
+                tweenSequence.append(tweenRotation);
+            }
+
+            {//tween run
+                var paramsRun:Object =
+                {
+                    x: nodeTo.view.source.x,
+                    y: nodeTo.view.source.y,
+                    onComplete:onComplete
+                };
+
+                var tweenRun:TweenMax = new TweenMax(source, (1 / _entry.speed) * sameRotationCellsCount - delayRotationChange, paramsRun);
+                tweenSequence.append(tweenRun);
+            }
+        };
 
         for (var i:int = 0; i < _entry.path.length - 1; i++)
         {
@@ -162,34 +189,25 @@ public class ViewSoldier extends ControlBase
 
             var rotationFrame:int = getRotationFrame(nodeFrom, nodeTo);
 
-            var paramsView:Object =
+            if (prevRotationFrame == ConstantsBase.INDEX_NONE)
             {
-                rotationFrame: rotationFrame
-            };
+                prevRotationFrame = rotationFrame;
+            }
 
-            var tweenView:TweenMax = new TweenMax(this, delayRotationChange, paramsView);
-
-            tweenSequence.append(tweenView);
-
-            var paramsSource:Object =
+            if (prevRotationFrame != rotationFrame)
             {
-                x: nodeTo.view.source.x,
-                y: nodeTo.view.source.y
-            };
+                generateAndAppedTween();
 
-            var tweenSource:TweenMax = new TweenMax(source, (1 / _entry.speed) - delayRotationChange, paramsSource);
-
-            tweenSequence.append(tweenSource);
+                sameRotationCellsCount = 0;
+                prevRotationFrame = rotationFrame;
+            }
+            else
+            {
+                sameRotationCellsCount++;
+            }
         }
 
-        var paramsLastTween:Object =
-        {
-            x: nodeTo.view.source.x,
-            y: nodeTo.view.source.y
-        };
-
-        var lastTweenSource:TweenMax = new TweenMax(source, 1 / _entry.speed, paramsLastTween);
-        tweenSequence.append(lastTweenSource);
+        generateAndAppedTween(callback);
 
         tweenSequence.play();
     }

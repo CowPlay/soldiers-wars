@@ -20,9 +20,10 @@ import flash.utils.getTimer;
 
 import soldiers.controllers.EControllerUpdate;
 import soldiers.models.GameInfo;
+import soldiers.models.game.managerPath.ManagerPath;
+import soldiers.models.game.soldiers.SoldierInfo;
 import soldiers.models.housesGame.base.EHouseOwner;
 import soldiers.models.housesGame.base.HouseG;
-import soldiers.models.game.soldiers.SoldierInfo;
 
 import utils.UtilsArray;
 
@@ -79,7 +80,7 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
         newWave.owner = owner;
         newWave.target = target;
         newWave.timeGeneratedFrequency = 300;
-        newWave.generatedSoldierCount = 1;
+        newWave.generatedSoldierCount = 5;
 
         _soldierWaves.push(newWave);
     }
@@ -115,16 +116,20 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
 
             waveInfo.timeGeneratedLast = currentTime;
 
+
+            var managerPath:ManagerPath = GameInfo.instance.managerGame.managerPath;
+
+            var paths:Array = managerPath.getPaths(managerPath.getCell(waveInfo.owner.positionExit), managerPath.getCell(waveInfo.target.positionExit));
+
             for (var i:int = 0; i < waveInfo.generatedSoldierCount; i++)
             {
-                if (waveInfo.owner.soldierCount == 0)
+                if (waveInfo.generatedSoldierRest == 0 || waveInfo.owner.soldierCount == 0)
                 {
                     wavesForRemove.push(waveInfo);
                     break;
                 }
 
-                generateSoldier(waveInfo);
-                waveInfo.generatedSoldierRest--;
+                generateWaveSoldiers(waveInfo, paths[i]);
             }
         }
 
@@ -135,56 +140,21 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
         }
     }
 
-    private function generateSoldier(waveInfo:SoldierWaveInfo):void
+    private function generateWaveSoldiers(waveInfo:SoldierWaveInfo, path:Array):void
     {
-        var newSoldier:SoldierInfo = new SoldierInfo(waveInfo.owner, waveInfo.target);
+        var newSoldier:SoldierInfo = new SoldierInfo(waveInfo.owner, waveInfo.target, path);
 
         _soldiers.push(newSoldier);
 
         GameInfo.instance.managerStates.currentState.update(EControllerUpdate.ECU_SOLDIER_GENERATE);
 
-        newSoldier.moveToTarget(onSoldierMoveComplete);
+        waveInfo.generatedSoldierRest--;
     }
 
-    private function onSoldierMoveComplete(soldier:SoldierInfo):void
+    public function removeSoldier(value:SoldierInfo):void
     {
-        Debug.assert(soldier != null);
-
-        if (soldier.houseTarget.ownerType == EHouseOwner.EHO_NEUTRAL)
-        {
-            soldier.houseTarget.soldierCount++;
-            soldier.houseTarget.owner = soldier.houseOwnerPlayer;
-        }
-        else if (soldier.houseOwnerPlayer != soldier.houseTarget.owner)
-        {
-            if (soldier.houseTarget.soldierCount == 0)
-            {
-                soldier.houseTarget.owner = soldier.houseOwnerPlayer;
-                soldier.houseTarget.soldierCount = 1;
-            }
-            else
-            {
-                soldier.houseTarget.soldierCount--;
-
-                if (soldier.houseTarget.soldierCount == 0)
-                {
-                    soldier.houseTarget.owner = soldier.houseOwnerPlayer;
-                    soldier.houseTarget.soldierCount = 1;
-                }
-            }
-        }
-        else
-        {
-            soldier.houseTarget.soldierCount++;
-        }
-
-        soldier.houseTarget.controller.update(EControllerUpdateBase.ECUT_ENTRY_UPDATED);
-
-        UtilsArray.removeValue(_soldiers, soldier);
-
-        soldier.view.source.parent.removeChild(soldier.view.source);
-        soldier.view.cleanup();
-        soldier.cleanup();
+        UtilsArray.removeValue(_soldiers, value);
+        value.cleanup();
     }
 
 

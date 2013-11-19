@@ -15,10 +15,9 @@ import controllers.IController;
 
 import controls.implementations.ControlBase;
 
+import flash.display.DisplayObject;
 import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
-import flash.events.MouseEvent;
-import flash.geom.Point;
 import flash.text.TextField;
 
 import soldiers.models.GameInfo;
@@ -34,21 +33,34 @@ public class ViewHouseG extends ControlBase
     protected var _sourceView:DisplayObjectContainer;
 
     protected var _houseView:DisplayObjectContainer;
-    protected var _houseViewEnemy:DisplayObjectContainer;
-    protected var _houseViewPlayer:DisplayObjectContainer;
-    protected var _labelSoldiers:TextField;
+
+    private var _houseViewEnemy:DisplayObject;
+    private var _houseViewPlayer:DisplayObject;
+
+    private var _labelSoldiers:TextField;
 
     private var _entry:HouseG;
 
+    private var _viewAuraEnemy:DisplayObject;
+    private var _viewAuraPlayer:DisplayObject;
 
-    private var _auraPosition:Point;
     /*
      * Properties
      */
 
-    public function get auraPosition():Point
+    public function get labelSoldiers():TextField
     {
-        return _auraPosition;
+        return _labelSoldiers;
+    }
+
+    public function get houseViewEnemy():DisplayObject
+    {
+        return _houseViewEnemy;
+    }
+
+    public function get houseViewPlayer():DisplayObject
+    {
+        return _houseViewPlayer;
     }
 
     /*
@@ -74,15 +86,13 @@ public class ViewHouseG extends ControlBase
 
         initHouseView();
 
-//        _auraEnemy = new gAuraEnemy();
-//        _auraEnemy.visible = false;
-//        _sourseViewTyped.addChild(_auraEnemy);
-//
-//        _auraPlayer = new gAuraPlayer();
-//        _auraPlayer.visible = false;
-//        _sourseViewTyped.addChild(_auraPlayer);
+        _viewAuraEnemy = new gAuraEnemy();
+        _viewAuraEnemy.visible = false;
+        _sourceView.addChild(_viewAuraEnemy);
 
-        _auraPosition = new Point(65, 0);
+        _viewAuraPlayer = new gAuraPlayer();
+        _viewAuraPlayer.visible = false;
+        _sourceView.addChild(_viewAuraPlayer);
     }
 
     private function initHouseView():void
@@ -115,25 +125,36 @@ public class ViewHouseG extends ControlBase
 
         _houseViewEnemy = _houseView["viewEnemy"];
         _houseViewPlayer = _houseView["viewPlayer"];
+
         _labelSoldiers = _houseView["labelSoldiers"];
 
         _sourceView.addChild(_houseView);
-
-        //TODO: review
-//        update(EControllerUpdateBase.ECUT_ENTRY_UPDATED);
     }
 
-
-    public override function placeViews(isFullscreen:Boolean):void
+    public function setLevel(value:uint):void
     {
-        super.placeViews(isFullscreen);
+        for (var level:int = 1; level <= _entry.houseConfig.levelMax; level++)
+        {
+            var propertyName:String = "level_" + level.toString();
+            Debug.assert(_houseViewEnemy.hasOwnProperty(propertyName), "Not found soldier view: " + propertyName);
+            Debug.assert(_houseViewPlayer.hasOwnProperty(propertyName), "Not found soldier view: " + propertyName);
 
-//        _auraEnemy.x = _auraPlayer.x = _auraPosition.x;
-//        _auraEnemy.y = _auraPlayer.y = _auraPosition.y;
+            _houseViewEnemy[propertyName].visible = level == _entry.level;
+            _houseViewPlayer[propertyName].visible = level == _entry.level;
+        }
+    }
+
+    public override function placeViews(fullscreen:Boolean):void
+    {
+        super.placeViews(fullscreen);
 
         var cellEntry:GridCell = GameInfo.instance.managerGame.managerPath.getCell(_entry.positionCurrent);
         _sourceView.x = cellEntry.view.source.x;
         _sourceView.y = cellEntry.view.source.y;
+
+        _viewAuraEnemy.x = _viewAuraPlayer.x = 65;
+        _viewAuraEnemy.y = _viewAuraPlayer.y = 0;
     }
+
 }
 }

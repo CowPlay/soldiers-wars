@@ -7,9 +7,7 @@
  */
 package soldiers.models.game.managerPath
 {
-import utils.Utils;
-
-public class PathInfo
+public class PathsInfo
 {
     /*
      * Fields
@@ -35,15 +33,21 @@ public class PathInfo
         return _to;
     }
 
-    public function  get randomPath():Array
+
+    public function get savedPaths():Array
     {
         var result:Array = [];
 
-        var specifyPath:Array = _savedPaths[Utils.randomFromTo(0, _savedPaths.length - 1)];
-
-        for each(var node:GridCell in specifyPath)
+        for each(var path:Array in _savedPaths)
         {
-            result.push(node);
+            var resultPath:Array = [];
+
+            for each(var cell:GridCell in path)
+            {
+                resultPath.push(cell);
+            }
+
+            result.push(resultPath);
         }
 
         return result;
@@ -53,8 +57,7 @@ public class PathInfo
      * Methods
      */
     //! Default initializer
-    //TODO: change path to paths
-    public function PathInfo(from:GridCell, to:GridCell)
+    public function PathsInfo(from:GridCell, to:GridCell)
     {
         Debug.assert(from != null);
         Debug.assert(to != null);

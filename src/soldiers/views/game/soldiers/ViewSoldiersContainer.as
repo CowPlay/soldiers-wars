@@ -64,7 +64,6 @@ public class ViewSoldiersContainer extends ControlBase
         var width:Number = cell.view.source.width * row.length;
         var height:Number = cell.view.source.height * grid.length;
 
-
         //TODO: remove
         var rect:Sprite = new Sprite();
 //        rect.graphics.beginFill(0xff00ff, 0.2);

@@ -13,6 +13,8 @@ package soldiers.models.housesGame.base
 {
 import controllers.IController;
 
+import controls.EControllerUpdateBase;
+
 import core.DisposableObject;
 
 import flash.geom.Point;
@@ -156,6 +158,8 @@ public class HouseG extends DisposableObject implements ISerializable
             return;
 
         _soldierCount = value;
+
+        _controller.update(EControllerUpdateBase.ECUT_ENTRY_UPDATED);
     }
 
     public function get currentLevelInfo():HouseGLevelInfo

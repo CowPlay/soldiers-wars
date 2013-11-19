@@ -60,11 +60,6 @@ public class ViewPopupLevel extends ViewPopup
         _buttonStartEnd = new ViewButtonLabeled(controller, _sourceView.buttonStartEnd);
     }
 
-    public override function placeViews(isFullscreen:Boolean):void
-    {
-        super.placeViews(isFullscreen);
-    }
-
     public override function cleanup():void
     {
         _sourceView = null;

@@ -9,8 +9,6 @@ import soldiers.models.housesGame.base.EHouseOwner;
 import soldiers.models.housesGame.base.HouseG;
 import soldiers.models.levels.LevelInfo;
 
-import utils.Utils;
-
 //! Class which contains info about level grid and provide find path functionally
 public class ManagerPath
 {
@@ -127,6 +125,7 @@ public class ManagerPath
                 {
                     continue;
                 }
+
                 var nodeFrom:GridCell = getCell(houseFrom.positionExit);
                 var nodeTo:GridCell = getCell(houseTo.positionExit);
 
@@ -134,29 +133,50 @@ public class ManagerPath
 
                 if (_pathsCache[pathHash] == null)
                 {
-                    _pathsCache[pathHash] = new PathInfo(nodeFrom, nodeTo);
+                    var newPathInfo:PathsInfo = new PathsInfo(nodeFrom, nodeTo);
+
+                    _pathsCache[pathHash] = newPathInfo;
 
                     var pathHashReversed:String = getPathHash(nodeTo, nodeFrom);
-                    _pathsCache[pathHashReversed] = new PathInfo(nodeTo, nodeFrom);
+                    _pathsCache[pathHashReversed] = new PathsInfo(nodeTo, nodeFrom);
 
-                    for (var i:int = 0; i < 20; i++)
+                    for (var i:int = 0; i < 5; i++)
                     {
                         generateAndAddPath(nodeFrom, nodeTo);
+
+                        var lastPath:Array = newPathInfo.savedPaths[newPathInfo.savedPaths.length - 1];
+
+                        for each(var cell:GridCell in lastPath)
+                        {
+                            cell.traversable = false;
+                        }
+
+                        nodeFrom.traversable = true;
+                        nodeTo.traversable = true;
+                    }
+
+                    //revert cells states
+                    for each(var path:Array in newPathInfo.savedPaths)
+                    {
+                        for each(var cellPath:GridCell in path)
+                        {
+                            cellPath.traversable = true;
+                        }
                     }
                 }
             }
         }
     }
 
-    public function getPath(nodeFrom:GridCell, nodeTo:GridCell):Array
+    public function getPaths(nodeFrom:GridCell, nodeTo:GridCell):Array
     {
         var pathHash:String = getPathHash(nodeFrom, nodeTo);
 
-        var pathInfo:PathInfo = _pathsCache[pathHash];
+        var pathInfo:PathsInfo = _pathsCache[pathHash];
 
         Debug.assert(pathInfo != null);
 
-        return  pathInfo.randomPath;
+        return  pathInfo.savedPaths;
     }
 
     private function generateAndAddPath(nodeFrom:GridCell, nodeTo:GridCell):void
@@ -186,6 +206,8 @@ public class ManagerPath
             {
                 buildPath(nodeFrom, nodeTo);
                 pathFinded = true;
+
+                break;
             }
 
             closedNodes.push(currentNode);
@@ -196,7 +218,6 @@ public class ManagerPath
             {
                 if (closedNodes.indexOf(tentativeNode) != ConstantsBase.INDEX_NONE || !tentativeNode.traversable)
                     continue;
-
 
                 var tentative_g_score:Number = currentNode.g + travelCost;
 
@@ -240,7 +261,7 @@ public class ManagerPath
         }
 
         {//add to cache
-            var pathInfo:PathInfo = _pathsCache[pathHash];
+            var pathInfo:PathsInfo = _pathsCache[pathHash];
             pathInfo.addPath(path);
         }
 
@@ -256,7 +277,7 @@ public class ManagerPath
             }
 
             //Add reversed path to cache
-            var reversedPathInfo:PathInfo = _pathsCache[pathHashReversed];
+            var reversedPathInfo:PathsInfo = _pathsCache[pathHashReversed];
             reversedPathInfo.addPath(pathReversed);
         }
 

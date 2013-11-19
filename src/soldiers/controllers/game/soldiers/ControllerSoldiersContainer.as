@@ -7,6 +7,7 @@
  */
 package soldiers.controllers.game.soldiers
 {
+import controllers.IController;
 import controllers.implementations.Controller;
 
 import soldiers.controllers.EControllerUpdate;
@@ -53,10 +54,10 @@ public class ControllerSoldiersContainer extends Controller
 
                 for each(var soldier:SoldierInfo in soldiers)
                 {
-                    if (soldier.view == null)
+                    if (soldier.controller == null)
                     {
-                        soldier.view = new ViewSoldier(this, soldier);
-                        _view.addSubView(soldier.view);
+                        soldier.controller = new ControllerSoldier(soldier);
+                        _view.addSubView(soldier.controller.view);
                     }
                 }
 
@@ -69,5 +70,8 @@ public class ControllerSoldiersContainer extends Controller
             }
         }
     }
+
+
+
 }
 }
