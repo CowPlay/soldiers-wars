@@ -210,7 +210,11 @@ public class HouseG extends DisposableObject implements ISerializable
         _level = data0["level"];
         _soldierCount = data0["soldiers"];
 
-        _positionCurrent = new Point(data0["position_x"], data0["position_y"]);
+        //TODO:remove this hack
+        var positionFromServer:Point = new Point(data0["position_x"], data0["position_y"]);
+        var positionOffset:Point = new Point(-_houseConfig.foundationSize.x / 2, -_houseConfig.foundationSize.y / 2);
+
+        _positionCurrent = positionFromServer.add(positionOffset);
 
         initPositionsExit();
     }

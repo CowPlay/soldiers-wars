@@ -122,6 +122,9 @@ public class ViewMapScene extends ControlBase
     {
         _source = null;
 
+        _viewBackground.cleanup();
+        _viewBackground = null;
+
         _viewMap.cleanup();
         _viewMap = null;
 
