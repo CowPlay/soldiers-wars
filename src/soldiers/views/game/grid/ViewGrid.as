@@ -18,6 +18,7 @@ import flash.geom.Point;
 
 import soldiers.models.GameInfo;
 import soldiers.models.game.managerPath.GridCell;
+import soldiers.models.game.managerPath.ManagerPath;
 import soldiers.models.housesGame.base.HouseG;
 
 public class ViewGrid extends ControlBase
@@ -108,7 +109,37 @@ public class ViewGrid extends ControlBase
 
     public function showPaths():void
     {
+        var managerPath:ManagerPath = GameInfo.instance.managerGame.managerPath;
 
+        var houses:Array = GameInfo.instance.managerGame.houses;
+
+        for each(var houseFrom:HouseG in houses)
+        {
+            for each(var houseTo:HouseG in houses)
+            {
+                if (houseFrom == houseTo)
+                {
+                    continue;
+                }
+
+                var paths:Array = managerPath.getPaths(houseFrom, houseTo);
+
+                for each(var path:Array in paths)
+                {
+                    for each(var gridCell:GridCell in path)
+                    {
+                        var row:Array = _cells[gridCell.row];
+                        var cellView:IView = row[gridCell.column];
+
+                        var cellSource:Sprite = gridCell.view.source as Sprite;
+
+                        cellSource.graphics.beginFill(0x00FF00, 1);
+                        cellSource.graphics.drawCircle(0, 0, 2);
+                        cellSource.graphics.endFill();
+                    }
+                }
+            }
+        }
     }
 
     public function showHouseExits():void

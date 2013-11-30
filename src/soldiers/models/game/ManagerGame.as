@@ -15,14 +15,12 @@ package soldiers.models.game
 import controls.EControllerUpdateBase;
 
 import flash.geom.Point;
-
 import flash.utils.Dictionary;
 
 import models.GameInfoBase;
 import models.implementations.game.ManagerGameBase;
 import models.interfaces.levels.ILevelInfo;
 import models.interfaces.players.IPlayerInfo;
-import models.interfaces.states.IState;
 
 import soldiers.controllers.EControllerUpdate;
 import soldiers.models.GameInfo;

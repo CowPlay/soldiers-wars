@@ -77,19 +77,17 @@ public class ManagerProxy implements IManagerProxy
             soldiers: 100
         };
 
-
         var houseData1:Object =
         {
             type : EHouseTypeG.EHGT_BARRACKS,
-            owner: "eho_enemy",
+            owner: "eho_player",
             level: 1,
 
             position_x: 50,
             position_y: 20,
 
-            soldiers: 1
+            soldiers: 2
         };
-
 
         var houseData2:Object =
         {
@@ -97,10 +95,10 @@ public class ManagerProxy implements IManagerProxy
             owner: "eho_enemy",
             level: 1,
 
-            position_x: 80,
-            position_y: 35,
+            position_x: 70,
+            position_y: 50,
 
-            soldiers: 1
+            soldiers: 2
         };
 
         var level0Data:Object =
@@ -115,7 +113,7 @@ public class ManagerProxy implements IManagerProxy
             grid_width          : 100,
             grid_height         : 100,
 
-            houses: [houseData0, houseData1]//, houseData2]
+            houses: [houseData0, houseData1, houseData2]
         };
 
         var levelContainer:Object =

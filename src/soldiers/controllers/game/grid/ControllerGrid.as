@@ -42,9 +42,9 @@ public class ControllerGrid extends Controller
 
     private function init():void
     {
-        _view.showFoundation();
-        _view.showHouseExits();
-
+//        _view.showFoundation();
+//        _view.showPaths();
+//        _view.showHouseExits();
     }
 }
 }

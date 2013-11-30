@@ -16,6 +16,12 @@ import controllers.IController;
 import controls.IView;
 import controls.implementations.ControlBase;
 
+import flash.display.DisplayObjectContainer;
+import flash.display.Sprite;
+import flash.geom.Point;
+
+import soldiers.models.GameInfo;
+
 public class ViewMapScene extends ControlBase
 {
     /*
@@ -23,7 +29,11 @@ public class ViewMapScene extends ControlBase
      */
     private var _items:Array;
 
-    private var _sourceView:gSceneMap;
+    private var _source:DisplayObjectContainer;
+
+    private var _viewBackground:IView;
+
+    private var _viewMap:IView;
 
     /*
      * Properties
@@ -34,8 +44,8 @@ public class ViewMapScene extends ControlBase
      */
     public function ViewMapScene(controller:IController)
     {
-        _sourceView = new gSceneMap();
-        super(controller, _sourceView);
+        _source = new Sprite();
+        super(controller, _source);
 
         init();
     }
@@ -43,11 +53,24 @@ public class ViewMapScene extends ControlBase
     private function init():void
     {
         _items = [];
+
+        var backgroundSource:Sprite = new Sprite();
+
+        backgroundSource.graphics.beginFill(0x2A476B);
+        backgroundSource.graphics.drawRect(0, 0, 100, 100);
+        backgroundSource.graphics.endFill();
+
+        _viewBackground = new ControlBase(controller, backgroundSource);
+        _source.addChild(_viewBackground.source);
+
+
+        _viewMap = new ControlBase(controller, new gSceneMap());
+        _source.addChild(_viewMap.source);
     }
 
     override public function addSubView(view:IView):void
     {
-        _sourceView.addChild(view.source);
+        _source.addChild(view.source);
         _items.push(view);
     }
 
@@ -55,6 +78,12 @@ public class ViewMapScene extends ControlBase
     {
         super.placeViews(isFullscreen);
 
+        var applicationSize:Point = GameInfo.instance.managerApp.applicationSize;
+
+        _viewBackground.source.width = applicationSize.x;
+        _viewBackground.source..height = applicationSize.y;
+
+        _viewMap.translate(0.5, 0.5);
 
         var itemsCoords:Array =
                 [
@@ -84,14 +113,17 @@ public class ViewMapScene extends ControlBase
         {
             var subView:IView = _items[i];
 
-            subView.source.x = itemsCoords[i][0];
-            subView.source.y = itemsCoords[i][1];
+            subView.source.x = _viewMap.source.x + itemsCoords[i][0];
+            subView.source.y = _viewMap.source.y + itemsCoords[i][1];
         }
     }
 
     public override function cleanup():void
     {
-        _sourceView = null;
+        _source = null;
+
+        _viewMap.cleanup();
+        _viewMap = null;
 
         super.cleanup();
     }

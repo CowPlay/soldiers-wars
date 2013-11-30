@@ -130,9 +130,9 @@ public class GameInfo extends GameInfoBase
 
     protected override function onRemoteGameInitComplete(response:IResponse):void
     {
-//        GameInfo.instance.managerStates.setState(EStateType.EST_GAME_MAP);
+        GameInfo.instance.managerStates.setState(EStateType.EST_GAME_MAP);
 
-        startStubGame();
+//        startStubGame();
     }
 
     public function startStubGame():void

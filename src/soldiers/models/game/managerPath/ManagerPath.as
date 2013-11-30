@@ -110,7 +110,14 @@ public class ManagerPath extends DisposableObject
                 {
                     for each (var exitPositionTo:Point in houseTo.positionsExits)
                     {
-                        var distance:int = Math.pow(exitPositionFrom.x - exitPositionTo.x, 2) + Math.pow(exitPositionFrom.y - exitPositionFrom.y, 2);
+                        var distance:int = Math.pow(exitPositionFrom.x - exitPositionTo.x, 2) + Math.pow(exitPositionFrom.y - exitPositionTo.y, 2);
+
+                        trace(Math.sqrt(distance));
+
+                        if(distance == 2)
+                        {
+                            trace("");
+                        }
 
                         if (distance <= distanceBetweenExits)
                         {
@@ -121,7 +128,6 @@ public class ManagerPath extends DisposableObject
                         }
                     }
                 }
-
 
                 var nodeFrom:GridCell = getCell(positionFrom);
                 var nodeTo:GridCell = getCell(positionTo);
