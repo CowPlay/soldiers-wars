@@ -13,16 +13,19 @@ import controls.EViewAlignment;
 import controls.IView;
 import controls.implementations.ControlBase;
 
-import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
 import flash.geom.Point;
+
+import soldiers.models.GameInfo;
+import soldiers.models.game.managerPath.GridCell;
+import soldiers.models.game.managerPath.ManagerPath;
 
 public class ViewHousesGContainer extends ControlBase
 {
     /*
      * Fields
      */
-    private var _sourceView:DisplayObjectContainer;
+    private var _sourceView:Sprite;
 
     private var _houses:Array;
 
@@ -41,18 +44,29 @@ public class ViewHousesGContainer extends ControlBase
         _sourceView = new Sprite();
         super(controller, _sourceView);
 
-        handleEvents(false, false, false, true);
-
-        alignment = EViewAlignment.EVA_ABSOLUTE;
-
-        anchorPoint = new Point(0.5, 0);
-
         init();
     }
 
     private function init():void
     {
         _houses = [];
+
+        handleEvents(false, false, false, true);
+        alignment = EViewAlignment.EVA_ABSOLUTE;
+        anchorPoint = new Point(0.5, 0);
+
+        var managerPath:ManagerPath = GameInfo.instance.managerGame.managerPath;
+
+        var cell:GridCell = managerPath.getCell(new Point(0, 0));
+
+        var gridSize:Point = GameInfo.instance.managerGame.currentLevel.gridSize;
+
+        var width:Number = gridSize.x * cell.view.source.width;
+        var height:Number = gridSize.y * cell.view.source.height;
+
+        _sourceView.graphics.beginFill(0x0000ff, 0.1);
+        _sourceView.graphics.drawRect(0, 0, width, height);
+        _sourceView.graphics.endFill();
     }
 
 
@@ -71,6 +85,8 @@ public class ViewHousesGContainer extends ControlBase
         {
             houseView.placeViews(fullscreen);
         }
+
+
     }
 }
 }

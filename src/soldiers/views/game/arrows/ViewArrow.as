@@ -77,7 +77,12 @@ public class ViewArrow extends ControlBase
     {
         super.placeViews(fullscreen);
 
-        var cellEntry:GridCell = GameInfo.instance.managerGame.managerPath.getCell(_entry.positionCurrent);
+        //get center cell
+        //TODO:remove hack with +1
+        var centerCellPosition:Point = new Point(Math.round(_entry.positionCurrent.x + _entry.houseConfig.foundationSize.x / 2) + 1,
+                Math.round(_entry.positionCurrent.y + _entry.houseConfig.foundationSize.y / 2) + 1);
+
+        var cellEntry:GridCell = GameInfo.instance.managerGame.managerPath.getCell(centerCellPosition);
 
         x = cellEntry.view.x;
         y = cellEntry.view.y;

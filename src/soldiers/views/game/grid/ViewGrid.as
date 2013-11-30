@@ -5,7 +5,7 @@
  * Time: 1:43 PM
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.views.game
+package soldiers.views.game.grid
 {
 import controllers.IController;
 
@@ -18,6 +18,7 @@ import flash.geom.Point;
 
 import soldiers.models.GameInfo;
 import soldiers.models.game.managerPath.GridCell;
+import soldiers.models.housesGame.base.HouseG;
 
 public class ViewGrid extends ControlBase
 {
@@ -75,8 +76,64 @@ public class ViewGrid extends ControlBase
         }
     }
 
+    public function showFoundation():void
+    {
+        var houses:Array = GameInfo.instance.managerGame.houses;
+        for each(var house:HouseG in houses)
+        {
+            var columnStart:uint = house.positionCurrent.x;
+            var columnEnd:uint = columnStart + house.houseConfig.foundationSize.x;
+
+            var rowStart:uint = house.positionCurrent.y;
+            var rowEnd:uint = rowStart + house.houseConfig.foundationSize.y;
+
+            for (var rowIndex:uint = rowStart; rowIndex <= rowEnd; rowIndex++)
+            {
+                var row:Array = _cells[rowIndex];
+
+                for (var columnIndex:uint = columnStart; columnIndex <= columnEnd; columnIndex++)
+                {
+                    var cellView:IView = row[columnIndex];
+
+                    var cellSource:Sprite = cellView.source as Sprite;
+
+                    cellSource.graphics.beginFill(0x000000, 1);
+                    cellSource.graphics.drawCircle(0, 0, 2);
+                    cellSource.graphics.endFill();
+
+                }
+            }
+        }
+    }
+
+    public function showPaths():void
+    {
+
+    }
+
+    public function showHouseExits():void
+    {
+        var houses:Array = GameInfo.instance.managerGame.houses;
+        for each(var house:HouseG in houses)
+        {
+            for each(var exitPosition:Point in house.positionsExits)
+            {
+                var row:Array = _cells[exitPosition.y];
+                var cellView:IView = row[exitPosition.x];
+
+                var cellSource:Sprite = cellView.source as Sprite;
+
+                cellSource.graphics.beginFill(0xFF0000, 1);
+                cellSource.graphics.drawCircle(0, 0, 2);
+                cellSource.graphics.endFill();
+            }
+        }
+    }
+
     public override function placeViews(fullscreen:Boolean):void
     {
+        this.translate(0.5, 0.5);
+
         var startX:Number = 0;
         var startY:Number = 0;
 

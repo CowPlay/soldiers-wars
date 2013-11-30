@@ -21,12 +21,17 @@ import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
 import flash.geom.Point;
 
+import soldiers.models.GameInfo;
+import soldiers.models.game.managerPath.GridCell;
+
+import soldiers.models.game.managerPath.ManagerPath;
+
 public class ViewArrowContainer extends ControlBase
 {
     /*
      * Fields
      */
-    private var _sourceView:DisplayObjectContainer;
+    private var _sourceView:Sprite;
 
     private var _viewsArrows:Array;
 
@@ -45,12 +50,12 @@ public class ViewArrowContainer extends ControlBase
         super(controller, _sourceView);
 
         init();
-
-
     }
 
     private function init():void
     {
+        _viewsArrows = [];
+
         alignment = EViewAlignment.EVA_ABSOLUTE;
 
         anchorPoint = new Point(0.5, 0);
@@ -60,7 +65,19 @@ public class ViewArrowContainer extends ControlBase
         _sourceView.mouseEnabled = false;
         _sourceView.mouseChildren = false;
 
-        _viewsArrows = [];
+
+        var managerPath:ManagerPath = GameInfo.instance.managerGame.managerPath;
+
+        var cell:GridCell = managerPath.getCell(new Point(0, 0));
+
+        var gridSize:Point = GameInfo.instance.managerGame.currentLevel.gridSize;
+
+        var width:Number = gridSize.x * cell.view.source.width;
+        var height:Number = gridSize.y * cell.view.source.height;
+
+        _sourceView.graphics.beginFill(0x0000ff, 0.1);
+        _sourceView.graphics.drawRect(0, 0, width, height);
+        _sourceView.graphics.endFill();
     }
 
     public override function addSubView(view:IView):void

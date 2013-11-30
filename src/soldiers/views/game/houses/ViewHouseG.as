@@ -162,8 +162,12 @@ public class ViewHouseG extends ControlBase
         _sourceView.x = cellEntry.view.source.x;
         _sourceView.y = cellEntry.view.source.y;
 
-        _viewAuraEnemy.x = _viewAuraPlayer.x = 0;
-        _viewAuraEnemy.y = _viewAuraPlayer.y = 0;
+        var offsetX:Number = _houseView.width / 2;
+
+        _viewAuraEnemy.x = _viewAuraPlayer.x = offsetX;
+
+        _houseView.x = offsetX
+
     }
 
 }

@@ -14,6 +14,7 @@ import controls.EControllerUpdateBase;
 
 import soldiers.controllers.EControllerUpdate;
 import soldiers.controllers.game.arrow.ControllerArrowContainer;
+import soldiers.controllers.game.grid.ControllerGrid;
 import soldiers.controllers.game.houses.ControllerHousesGContainer;
 import soldiers.controllers.game.soldiers.ControllerSoldiersContainer;
 import soldiers.models.GameInfo;
@@ -35,6 +36,7 @@ public class ControllerSceneGame extends Controller
     private var _controllerArrow:IController;
     private var _controllerSoldiers:IController;
     private var _controllerHouses:IController;
+    private var _controllerGrid:IController;
 
     /*
      * Methods
@@ -50,6 +52,8 @@ public class ControllerSceneGame extends Controller
 
     private function init():void
     {
+        _controllerGrid = new ControllerGrid(_view.viewGrid);
+
         _controllerArrow = new ControllerArrowContainer();
         _view.addSubView(_controllerArrow.view);
 
@@ -58,7 +62,6 @@ public class ControllerSceneGame extends Controller
 
         _controllerSoldiers = new ControllerSoldiersContainer();
         _view.addSubView(_controllerSoldiers.view);
-
     }
 
     public override function update(type:String):void
@@ -95,6 +98,7 @@ public class ControllerSceneGame extends Controller
         _controllerArrow.cleanup();
         _controllerSoldiers.cleanup();
         _controllerHouses.cleanup();
+        _controllerGrid.cleanup();
 
         super.cleanup();
     }

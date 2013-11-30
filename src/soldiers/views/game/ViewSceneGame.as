@@ -20,6 +20,8 @@ import controls.implementations.ControlBase;
 import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
 
+import soldiers.views.game.grid.ViewGrid;
+
 public class ViewSceneGame extends ControlBase
 {
     /*
@@ -27,7 +29,7 @@ public class ViewSceneGame extends ControlBase
      */
     private var _sourceView:DisplayObjectContainer;
 
-    private var _viewGrid:IView;
+    private var _viewGrid:ViewGrid;
 
     private var _subViews:Array;
 
@@ -35,6 +37,11 @@ public class ViewSceneGame extends ControlBase
     /*
      * Properties
      */
+
+    public function get viewGrid():ViewGrid
+    {
+        return _viewGrid;
+    }
 
     /*
      * Methods

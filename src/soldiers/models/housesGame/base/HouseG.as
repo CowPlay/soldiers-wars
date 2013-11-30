@@ -23,8 +23,6 @@ import serialization.ISerializable;
 
 import soldiers.controllers.EControllerUpdate;
 import soldiers.models.GameInfo;
-import soldiers.models.game.managerPath.GridCell;
-import soldiers.models.game.managerPath.ManagerPath;
 
 public class HouseG extends DisposableObject implements ISerializable
 {
@@ -47,10 +45,12 @@ public class HouseG extends DisposableObject implements ISerializable
     //[Serializable]
     private var _positionCurrent:Point;
 
+    private var _positionsExits:Array;
 
     private var _isSelect:Boolean;
 
     private var _houseConfig:HouseGConfig;
+
 
     /*
      * Properties
@@ -119,9 +119,9 @@ public class HouseG extends DisposableObject implements ISerializable
         return _positionCurrent;
     }
 
-    public function get positionExit():Point
+    public function get positionsExits():Array
     {
-        return _positionCurrent.add(currentLevelInfo.positionExitOffset);
+        return _positionsExits;
     }
 
     public function get isSelect():Boolean
@@ -179,33 +179,6 @@ public class HouseG extends DisposableObject implements ISerializable
         _houseConfig = GameInfo.instance.managerHousesGame.getHouseConfig(type);
     }
 
-    public function updateFoundation():void
-    {
-        var managerPath:ManagerPath = GameInfo.instance.managerGame.managerPath;
-
-        var foundationSize:Point = currentLevelInfo.foundationSize;
-
-        var rowFrom:int = positionCurrent.y;
-        var rowTo:int = rowFrom + foundationSize.y;
-
-        var columnFrom:int = positionCurrent.x;
-        var columnTo:int = columnFrom + foundationSize.x;
-
-        //make foundations not walkable
-        for (var row:uint = rowFrom; row < rowTo; row++)
-        {
-            for (var column:uint = columnFrom; column < columnTo; column++)
-            {
-                var foundationCell:GridCell = managerPath.getCell(new Point(column, row));
-                foundationCell.traversable = false;
-            }
-        }
-
-        //and make house exit traversable
-        var houseExitCell:GridCell = managerPath.getCell(positionExit);
-        houseExitCell.traversable = true;
-    }
-
     /*
      * ISerializable
      */
@@ -229,6 +202,44 @@ public class HouseG extends DisposableObject implements ISerializable
         _soldierCount = data0["soldiers"];
 
         _positionCurrent = new Point(data0["position_x"], data0["position_y"]);
+
+        initPositionsExit();
+    }
+
+    private function initPositionsExit():void
+    {
+        _positionsExits = [];
+
+        var left:uint = _positionCurrent.x;
+        var right:uint = _positionCurrent.x + _houseConfig.foundationSize.x;
+
+        var top:uint = _positionCurrent.y;
+        var bottom:uint = _positionCurrent.y + _houseConfig.foundationSize.y;
+
+        var positionExit0:Point = new Point(left - 1, top - 1);
+        _positionsExits.push(positionExit0);
+
+        var positionExit1:Point = new Point(right + 1, top - 1);
+        _positionsExits.push(positionExit1);
+
+        var positionExit2:Point = new Point(right + 1, bottom + 1);
+        _positionsExits.push(positionExit2);
+
+        var positionExit3:Point = new Point(left - 1, bottom + 1);
+        _positionsExits.push(positionExit3);
+
+
+        var positionExit01:Point = new Point(left + _houseConfig.foundationSize.x / 2, top - 1);
+        _positionsExits.push(positionExit01);
+
+        var positionExit12:Point = new Point(right + 1, top + _houseConfig.foundationSize.y / 2);
+        _positionsExits.push(positionExit12);
+
+        var positionExit23:Point = new Point(left + _houseConfig.foundationSize.x / 2, bottom + 1);
+        _positionsExits.push(positionExit23);
+
+        var positionExit34:Point = new Point(left - 1, top + _houseConfig.foundationSize.y / 2);
+        _positionsExits.push(positionExit34);
     }
 
     public override function cleanup():void

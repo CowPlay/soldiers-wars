@@ -13,6 +13,8 @@ package soldiers.models.housesGame.base
 {
 import core.DisposableObject;
 
+import flash.geom.Point;
+
 import flash.utils.Dictionary;
 
 import serialization.ISerializable;
@@ -26,6 +28,7 @@ public class HouseGConfig extends DisposableObject implements ISerializable
 
     private var _levelMax:uint;
 
+    private var _foundationSize:Point;
 
     //Contains levels info for game houses
     //key - level number, value - level info
@@ -45,6 +48,12 @@ public class HouseGConfig extends DisposableObject implements ISerializable
         return _houseLevelsInfo;
     }
 
+
+    public function get foundationSize():Point
+    {
+        return _foundationSize;
+    }
+
     /*
      * Methods
      */
@@ -52,7 +61,7 @@ public class HouseGConfig extends DisposableObject implements ISerializable
     //! Default constructor
     public function HouseGConfig(levelInfoClass:Class)
     {
-        super (false);
+        super(false);
 
         Debug.assert(levelInfoClass != null);
 
@@ -75,6 +84,11 @@ public class HouseGConfig extends DisposableObject implements ISerializable
 
         Debug.assert(data.hasOwnProperty("levels_info"));
         Debug.assert(data["levels_info"] is Array);
+
+        Debug.assert(data.hasOwnProperty("foundation_width"));
+        Debug.assert(data.hasOwnProperty("foundation_height"));
+
+        _foundationSize = new Point(data["foundation_width"], data["foundation_height"]);
 
         _levelMax = data["level_max"];
 

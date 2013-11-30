@@ -100,19 +100,19 @@ public class ManagerPath extends DisposableObject
                     continue;
                 }
 
-                var nodeFrom:GridCell = getCell(houseFrom.positionExit);
-                var nodeTo:GridCell = getCell(houseTo.positionExit);
+                var nodeFrom:GridCell = getCell(houseFrom.positionsExits[0]);
+                var nodeTo:GridCell = getCell(houseTo.positionsExits[0]);
 
                 var pathHash:String = getPathHash(nodeFrom, nodeTo);
 
                 if (_pathsCache[pathHash] == null)
                 {
                     var newPathInfo:PathsInfo = new PathsInfo(nodeFrom, nodeTo);
-
                     _pathsCache[pathHash] = newPathInfo;
 
+                    var newPathInfoReversed:PathsInfo = new PathsInfo(nodeTo, nodeFrom);
                     var pathHashReversed:String = getPathHash(nodeTo, nodeFrom);
-                    _pathsCache[pathHashReversed] = new PathsInfo(nodeTo, nodeFrom);
+                    _pathsCache[pathHashReversed] = newPathInfoReversed;
 
                     for (var i:int = 0; i < 5; i++)
                     {
@@ -136,6 +136,12 @@ public class ManagerPath extends DisposableObject
                         {
                             cellPath.traversable = true;
                         }
+                    }
+
+                    //TODO:remove this hack
+                    {//remove 2,4 path
+                        newPathInfo.removePath();
+                        newPathInfoReversed.removePath();
                     }
                 }
             }

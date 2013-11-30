@@ -160,9 +160,18 @@ public class ViewSoldier extends ControlBase
 
         var delayRotationChange:Number = 0.1;
 
+        var owner:ViewSoldier = this;
+
         var generateAndAppedTween:Function = function (onComplete:Function = null):void
         {
-            var paramsRotation:Object = { rotationFrame: prevRotationFrame };
+            var paramsRotation:Object =
+            {
+                rotationFrame: prevRotationFrame,
+                onComplete: function ():void
+                {
+                    owner.rotationFrame = prevRotationFrame;
+                }
+            };
 
             {//tween rotation
                 var tweenRotation:TweenMax = new TweenMax(this, delayRotationChange, paramsRotation);
@@ -207,10 +216,7 @@ public class ViewSoldier extends ControlBase
             }
         }
 
-        generateAndAppedTween(function ():void
-        {
-            callback();
-        });
+        generateAndAppedTween(callback);
 
         tweenSequence.play();
     }

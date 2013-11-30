@@ -58,16 +58,16 @@ public class LevelInfo extends LevelInfoBase
     {
     }
 
-    public override function onGameStart():void
+    /*
+     * ILevelInfo
+     */
+
+
+    override public function onGameStart():void
     {
-        for each(var house:HouseG in GameInfo.instance.managerGame.houses)
-        {
-            house.updateFoundation();
-        }
+        super.onGameStart();
 
         GameInfo.instance.managerGame.managerPath.generateLevelPaths();
-
-        super.onGameStart();
     }
 
     /*
@@ -90,18 +90,5 @@ public class LevelInfo extends LevelInfoBase
 
         _housesData = data["houses"] as Array;
     }
-
-    /*
-     * IDisposable
-     */
-
-    public override function cleanup():void
-    {
-
-
-        super.cleanup();
-    }
-
-
 }
 }

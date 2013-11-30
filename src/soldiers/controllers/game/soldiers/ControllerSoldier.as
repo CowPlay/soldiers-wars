@@ -52,13 +52,6 @@ public class ControllerSoldier extends Controller
 
     private function onSoldierMoveComplete():void
     {
-        if (_entry.isCleanuped)
-        {
-//            trace("");
-            //TODO:remove this hack
-            return;
-        }
-
         if (_entry.houseTarget.ownerType == EHouseOwner.EHO_NEUTRAL)
         {
             _entry.houseTarget.soldierCount++;
@@ -83,10 +76,6 @@ public class ControllerSoldier extends Controller
 
     public override function cleanup():void
     {
-        //TODO:remove this hack
-        if (isCleanuped)
-            return;
-
         _entry = null;
 
         super.cleanup();

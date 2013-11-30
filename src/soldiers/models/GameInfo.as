@@ -22,8 +22,6 @@ import models.interfaces.remote.IResponse;
 
 import soldiers.models.game.ManagerGame;
 import soldiers.models.housesGame.ManagerHousesGame;
-import soldiers.models.housesGame.base.EHouseOwner;
-import soldiers.models.housesGame.base.HouseG;
 import soldiers.models.housesVillage.ManagerHousesVillage;
 import soldiers.models.levels.LevelInfo;
 import soldiers.models.proxy.ManagerProxy;

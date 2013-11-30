@@ -13,7 +13,6 @@ import soldiers.models.housesGame.base.HouseG;
 
 public class SoldierWaveInfo extends DisposableObject
 {
-
     /*
      * Fields
      */

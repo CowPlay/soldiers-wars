@@ -67,12 +67,12 @@ public class ManagerProxy implements IManagerProxy
     {
         var houseData0:Object =
         {
-            type: EHouseTypeG.EHGT_BARRACKS,
+            type : EHouseTypeG.EHGT_BARRACKS,
             owner: "eho_player",
             level: 1,
 
-            position_x: 4,
-            position_y: 4,
+            position_x: 20,
+            position_y: 35,
 
             soldiers: 100
         };
@@ -80,12 +80,12 @@ public class ManagerProxy implements IManagerProxy
 
         var houseData1:Object =
         {
-            type: EHouseTypeG.EHGT_BARRACKS,
+            type : EHouseTypeG.EHGT_BARRACKS,
             owner: "eho_enemy",
             level: 1,
 
-            position_x: 7,
-            position_y: 7,
+            position_x: 50,
+            position_y: 20,
 
             soldiers: 1
         };
@@ -93,45 +93,45 @@ public class ManagerProxy implements IManagerProxy
 
         var houseData2:Object =
         {
-            type: EHouseTypeG.EHGT_BARRACKS,
+            type : EHouseTypeG.EHGT_BARRACKS,
             owner: "eho_enemy",
             level: 1,
 
-            position_x: 20,
-            position_y: 20,
+            position_x: 80,
+            position_y: 35,
 
             soldiers: 1
         };
 
         var level0Data:Object =
         {
-            id: "0",
-            name: "",
-            description: "",
-            number: 0,
-            complete: false,
+            id                  : "0",
+            name                : "",
+            description         : "",
+            number              : 0,
+            complete            : false,
             reward_currency_soft: 0,
-            reward_points: 0,
-            grid_width: 25,
-            grid_height: 25,
+            reward_points       : 0,
+            grid_width          : 100,
+            grid_height         : 100,
 
-            houses: [houseData0, houseData1] //houseData2]
+            houses: [houseData0, houseData1]//, houseData2]
         };
 
         var levelContainer:Object =
         {
-            id: "",
-            number: 0,
-            name: "name",
-            description: "",
+            id          : "",
+            number      : 0,
+            name        : "name",
+            description : "",
             requirements: [],
-            levels: [level0Data, level0Data, level0Data, level0Data, level0Data]
+            levels      : [level0Data, level0Data, level0Data, level0Data, level0Data]
         };
 
         var result:Object =
         {
-            level_containers: [levelContainer],
-            level_progress: null,
+            level_containers  : [levelContainer],
+            level_progress    : null,
             level_complete_ids: []
         };
 
@@ -156,14 +156,8 @@ public class ManagerProxy implements IManagerProxy
         {
             level: 1,
 
-            soldiers_max: 200,
-            soldiers_generation: 1,
-
-            position_exit_offset_x: 3,
-            position_exit_offset_y: 3,
-
-            foundation_width: 2,
-            foundation_height: 2
+            soldiers_max       : 200,
+            soldiers_generation: 1
         };
 
         housesData.push(barracksLevel1);
@@ -172,22 +166,18 @@ public class ManagerProxy implements IManagerProxy
         {
             level: 2,
 
-            soldiers_max: 20,
-            soldiers_generation: 2,
-
-            position_exit_offset_x: 3,
-            position_exit_offset_y: 3,
-
-            foundation_width: 2,
-            foundation_height: 2
+            soldiers_max       : 20,
+            soldiers_generation: 2
         };
 
         housesData.push(barracksLevel2);
 
         var result:Object =
         {
-            levels_info: housesData,
-            level_max: 5
+            foundation_width : 20,
+            foundation_height: 20,
+            levels_info      : housesData,
+            level_max        : 5
         };
 
         return result;
@@ -200,7 +190,7 @@ public class ManagerProxy implements IManagerProxy
 
         var housesData:Object =
         {
-            bakery: bakeryData,
+            bakery  : bakeryData,
             mineGold: mineGoldData
         };
 
@@ -217,21 +207,21 @@ public class ManagerProxy implements IManagerProxy
         var bakeryLevel1:Object =
         {
             level: 1,
-            time: 5,
+            time : 5,
             count: 5
         };
 
         var bakeryLevel2:Object =
         {
             level: 2,
-            time: 100,
+            time : 100,
             count: 20
         };
 
         var bakeryLevel3:Object =
         {
             level: 3,
-            time: 300,
+            time : 300,
             count: 50
         };
 
@@ -250,27 +240,27 @@ public class ManagerProxy implements IManagerProxy
         var mineGoldConfigLevel1:Object =
         {
             level: 1,
-            time: 5,
+            time : 5,
             count: 5
         };
 
         var mineGoldConfigLevel2:Object =
         {
             level: 2,
-            time: 100,
+            time : 100,
             count: 20
         };
 
         var mineGoldConfigLevel3:Object =
         {
             level: 3,
-            time: 300,
+            time : 300,
             count: 50
         };
 
         var result:Object =
         {
-            level: 1,
+            level      : 1,
             levels_info: [mineGoldConfigLevel1, mineGoldConfigLevel2, mineGoldConfigLevel3]
         };
 

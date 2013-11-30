@@ -76,6 +76,12 @@ public class PathsInfo
         _savedPaths.push(path);
     }
 
+    public function removePath():void
+    {
+        _savedPaths.splice(3, 1);
+        _savedPaths.splice(1, 1);
+    }
+
 //    private function generateLines():void
 //    {
 //        var lastLineAngle:Number = ConstantsBase.INDEX_NONE;

@@ -19,6 +19,7 @@ import flash.geom.Point;
 
 import soldiers.models.GameInfo;
 import soldiers.models.game.managerPath.GridCell;
+import soldiers.models.game.managerPath.ManagerPath;
 
 import utils.UtilsArray;
 
@@ -27,7 +28,7 @@ public class ViewSoldiersContainer extends ControlBase
     /*
      * Fields
      */
-    private var _sourceView:DisplayObjectContainer;
+    private var _sourceView:Sprite;
 
     private var _soldiers:Array;
     /*
@@ -59,20 +60,18 @@ public class ViewSoldiersContainer extends ControlBase
         _sourceView.mouseEnabled = false;
 
 
-        var grid:Array = GameInfo.instance.managerGame.managerPath.grid;
-        var row:Array = grid[0];
-        var cell:GridCell = row[0];
+        var managerPath:ManagerPath = GameInfo.instance.managerGame.managerPath;
 
-        var width:Number = cell.view.source.width * row.length;
-        var height:Number = cell.view.source.height * grid.length;
+        var cell:GridCell = managerPath.getCell(new Point(0, 0));
 
-        //TODO: remove
-        var rect:Sprite = new Sprite();
-//        rect.graphics.beginFill(0xff00ff, 0.2);
-        rect.graphics.drawRect(0, 0, width, height);
-        rect.graphics.endFill();
+        var gridSize:Point = GameInfo.instance.managerGame.currentLevel.gridSize;
 
-        _sourceView.addChild(rect);
+        var width:Number = gridSize.x * cell.view.source.width;
+        var height:Number = gridSize.y * cell.view.source.height;
+
+        _sourceView.graphics.beginFill(0x0000ff, 0.1);
+        _sourceView.graphics.drawRect(0, 0, width, height);
+        _sourceView.graphics.endFill();
     }
 
 

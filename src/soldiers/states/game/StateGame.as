@@ -60,7 +60,7 @@ public class StateGame extends StateGameBase
 
     public override function onLoadingEnd():void
     {
-        GameInfo.instance.managerGame.registerSceneGame(this);
+        GameInfo.instance.managerGame.registerStateGame(this);
         super.onLoadingEnd();
     }
 

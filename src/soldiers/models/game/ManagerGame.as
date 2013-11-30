@@ -14,15 +14,19 @@ package soldiers.models.game
 
 import controls.EControllerUpdateBase;
 
+import flash.geom.Point;
+
 import flash.utils.Dictionary;
 
 import models.GameInfoBase;
 import models.implementations.game.ManagerGameBase;
 import models.interfaces.levels.ILevelInfo;
 import models.interfaces.players.IPlayerInfo;
+import models.interfaces.states.IState;
 
 import soldiers.controllers.EControllerUpdate;
 import soldiers.models.GameInfo;
+import soldiers.models.game.managerPath.GridCell;
 import soldiers.models.game.managerPath.ManagerPath;
 import soldiers.models.game.managerSoldiers.ManagerSoldiers;
 import soldiers.models.housesGame.barracks.HouseGBarracks;
@@ -115,6 +119,34 @@ public class ManagerGame extends ManagerGameBase
         _selectedHouses[_gameOwnerOpponent] = [];
 
         initHouses();
+        initFoundations();
+    }
+
+    private function initFoundations():void
+    {
+        for each(var house:HouseG in _houses)
+        {
+            var rowFrom:int = house.positionCurrent.y;
+            var rowTo:int = rowFrom + house.houseConfig.foundationSize.y;
+
+            var columnFrom:int = house.positionCurrent.x;
+            var columnTo:int = columnFrom + house.houseConfig.foundationSize.x;
+
+            //make foundations not walkable
+            for (var row:uint = rowFrom; row <= rowTo; row++)
+            {
+                for (var column:uint = columnFrom; column <= columnTo; column++)
+                {
+                    var foundationCell:GridCell = _managerPath.getCell(new Point(column, row));
+                    foundationCell.traversable = false;
+                }
+            }
+
+            //and make house exit traversable
+//            var houseExitCell:GridCell = managerPath.getCell(positionExit);
+//            houseExitCell.traversable = true;
+//            house.updateFoundation();
+        }
     }
 
     private function initHouses():void
@@ -224,21 +256,23 @@ public class ManagerGame extends ManagerGameBase
 
     public function onHouseOwnerChanged():void
     {
-        var needFinished:Boolean = true;
+        //TODO:implement
 
-        for each(var house:HouseG in _houses)
-        {
-            if (house.ownerType != EHouseOwner.EHO_PLAYER)
-            {
-                needFinished = false;
-                break;
-            }
-        }
+//        var needFinished:Boolean = true;
 
-        if (needFinished)
-        {
-            onGameEnd();
-        }
+//        for each(var house:HouseG in _houses)
+//        {
+//            if (house.ownerType != EHouseOwner.EHO_PLAYER)
+//            {
+//                needFinished = false;
+//                break;
+//            }
+//        }
+
+//        if (needFinished)
+//        {
+//            onGameEnd();
+//        }
     }
 
     //TODO: remove and use base version when complete server side
