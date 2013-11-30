@@ -24,6 +24,7 @@ import soldiers.models.game.soldiers.SoldierInfo;
 import soldiers.models.housesGame.base.HouseG;
 
 import utils.UtilsArray;
+import utils.memory.UtilsMemory;
 
 public class ManagerSoldiers extends DisposableObject implements IDisposable
 {
@@ -46,6 +47,15 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
     }
 
     /*
+     * Events
+     */
+
+    public function onEnterFrame(e:Event):void
+    {
+
+    }
+
+    /*
      * Methods
      */
 
@@ -62,6 +72,7 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
 
         _soldiers = [];
 
+        UtilsMemory.registerEventListener(GameInfo.instance.managerApp.applicationStage, Event.ENTER_FRAME, this, onEnterFrame);
         _timerSoldierGenerator = new Timer(250);
         _timerSoldierGenerator.addEventListener(TimerEvent.TIMER, processWave);
         _timerSoldierGenerator.start();

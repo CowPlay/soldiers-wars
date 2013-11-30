@@ -112,13 +112,6 @@ public class ManagerPath extends DisposableObject
                     {
                         var distance:int = Math.pow(exitPositionFrom.x - exitPositionTo.x, 2) + Math.pow(exitPositionFrom.y - exitPositionTo.y, 2);
 
-                        trace(Math.sqrt(distance));
-
-                        if(distance == 2)
-                        {
-                            trace("");
-                        }
-
                         if (distance <= distanceBetweenExits)
                         {
                             distanceBetweenExits = distance;
@@ -143,7 +136,7 @@ public class ManagerPath extends DisposableObject
                     var pathHashReversed:String = getPathHash(houseTo, houseFrom);
                     _pathsCache[pathHashReversed] = newPathInfoReversed;
 
-                    for (var i:int = 0; i < 2; i++)
+                    for (var i:int = 0; i < 1; i++)
                     {
                         var newPath:Array = getPath(nodeFrom, nodeTo);
                         addPathToCache(houseFrom, houseTo, newPath);
