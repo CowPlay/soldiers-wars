@@ -19,6 +19,8 @@ import flash.geom.Point;
 
 import models.interfaces.players.IPlayerInfo;
 
+import mx.utils.UIDUtil;
+
 import serialization.ISerializable;
 
 import soldiers.controllers.EControllerUpdate;
@@ -51,6 +53,7 @@ public class HouseG extends DisposableObject implements ISerializable
 
     private var _houseConfig:HouseGConfig;
 
+    private var _hash:String;
 
     /*
      * Properties
@@ -169,6 +172,11 @@ public class HouseG extends DisposableObject implements ISerializable
     }
 
 
+    public function get hash():String
+    {
+        return _hash;
+    }
+
     /*
      * Methods
      */
@@ -177,6 +185,7 @@ public class HouseG extends DisposableObject implements ISerializable
     public function HouseG()
     {
         _houseConfig = GameInfo.instance.managerHousesGame.getHouseConfig(type);
+        _hash = UIDUtil.createUID();
     }
 
     /*

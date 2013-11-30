@@ -16,9 +16,9 @@ public class ManagerPath extends DisposableObject
      * Static methods
      */
 
-    private static function getPathHash(nodeFrom:GridCell, nodeTo:GridCell):String
+    private static function getPathHash(from:HouseG, to:HouseG):String
     {
-        return  nodeFrom.toString() + "#" + nodeTo.toString();
+        return  from.hash + "#" + to.hash;
     }
 
     /*
@@ -100,10 +100,33 @@ public class ManagerPath extends DisposableObject
                     continue;
                 }
 
-                var nodeFrom:GridCell = getCell(houseFrom.positionsExits[0]);
-                var nodeTo:GridCell = getCell(houseTo.positionsExits[0]);
+                var positionFrom:Point = null;
+                var positionTo:Point = null;
 
-                var pathHash:String = getPathHash(nodeFrom, nodeTo);
+                var distanceBetweenExits:int = int.MAX_VALUE;
+
+                //get node from and node to
+                for each (var exitPositionFrom:Point in houseFrom.positionsExits)
+                {
+                    for each (var exitPositionTo:Point in houseTo.positionsExits)
+                    {
+                        var distance:int = Math.pow(exitPositionFrom.x - exitPositionTo.x, 2) + Math.pow(exitPositionFrom.y - exitPositionFrom.y, 2);
+
+                        if (distance <= distanceBetweenExits)
+                        {
+                            distanceBetweenExits = distance;
+
+                            positionFrom = exitPositionFrom;
+                            positionTo = exitPositionTo;
+                        }
+                    }
+                }
+
+
+                var nodeFrom:GridCell = getCell(positionFrom);
+                var nodeTo:GridCell = getCell(positionTo);
+
+                var pathHash:String = getPathHash(houseFrom, houseTo);
 
                 if (_pathsCache[pathHash] == null)
                 {
@@ -111,12 +134,13 @@ public class ManagerPath extends DisposableObject
                     _pathsCache[pathHash] = newPathInfo;
 
                     var newPathInfoReversed:PathsInfo = new PathsInfo(nodeTo, nodeFrom);
-                    var pathHashReversed:String = getPathHash(nodeTo, nodeFrom);
+                    var pathHashReversed:String = getPathHash(houseTo, houseFrom);
                     _pathsCache[pathHashReversed] = newPathInfoReversed;
 
-                    for (var i:int = 0; i < 5; i++)
+                    for (var i:int = 0; i < 2; i++)
                     {
-                        generateAndAddPath(nodeFrom, nodeTo);
+                        var newPath:Array = getPath(nodeFrom, nodeTo);
+                        addPathToCache(houseFrom, houseTo, newPath);
 
                         var lastPath:Array = newPathInfo.savedPaths[newPathInfo.savedPaths.length - 1];
 
@@ -140,28 +164,55 @@ public class ManagerPath extends DisposableObject
 
                     //TODO:remove this hack
                     {//remove 2,4 path
-                        newPathInfo.removePath();
-                        newPathInfoReversed.removePath();
+//                        newPathInfo.removePath();
+//                        newPathInfoReversed.removePath();
                     }
                 }
             }
         }
     }
 
-    public function getPaths(nodeFrom:GridCell, nodeTo:GridCell):Array
+    private function addPathToCache(from:HouseG, to:HouseG, path:Array):void
     {
-        var pathHash:String = getPathHash(nodeFrom, nodeTo);
+        {//add to cache
+            var pathHash:String = getPathHash(from, to);
+
+            var pathInfo:PathsInfo = _pathsCache[pathHash];
+            pathInfo.addPath(path);
+        }
+
+        {
+            //get info for reversed path
+            var pathHashReversed:String = getPathHash(to, from);
+
+            var pathReversed:Array = [];
+
+            for (var nodeIndex:int = path.length - 1; nodeIndex >= 0; nodeIndex--)
+            {
+                pathReversed.push(path[nodeIndex]);
+            }
+
+            //Add reversed path to cache
+            var reversedPathInfo:PathsInfo = _pathsCache[pathHashReversed];
+            reversedPathInfo.addPath(pathReversed);
+        }
+    }
+
+    public function getPaths(from:HouseG, to:HouseG):Array
+    {
+        var pathHash:String = getPathHash(from, to);
 
         var pathInfo:PathsInfo = _pathsCache[pathHash];
 
         Debug.assert(pathInfo != null);
 
         return  pathInfo.savedPaths;
+
     }
 
-    private function generateAndAddPath(nodeFrom:GridCell, nodeTo:GridCell):void
+    private function getPath(nodeFrom:GridCell, nodeTo:GridCell):Array
     {
-        var pathFinded:Boolean = false;
+        var result:Array = [];
 
         var openNodes:Array = [nodeFrom];
         var closedNodes:Array = [];
@@ -184,8 +235,15 @@ public class ManagerPath extends DisposableObject
 
             if (currentNode == nodeTo)
             {
-                buildPath(nodeFrom, nodeTo);
-                pathFinded = true;
+                var nodeTmp:GridCell = nodeTo;
+
+                result.push(nodeTmp);
+
+                while (nodeTmp != nodeFrom)
+                {
+                    nodeTmp = nodeTmp.parentNode;
+                    result.unshift(nodeTmp);
+                }
 
                 break;
             }
@@ -221,56 +279,10 @@ public class ManagerPath extends DisposableObject
             }
         }
 
-        Debug.assert(pathFinded);
+        Debug.assert(result.length > 0, "Path not found");
+
+        return result;
     }
-
-    private function buildPath(nodeFrom:GridCell, nodeTo:GridCell):void
-    {
-        var pathHash:String = getPathHash(nodeFrom, nodeTo);
-
-        var path:Array = [];
-
-        var nodeTmp:GridCell = nodeTo;
-
-        path.push(nodeTmp);
-
-        while (nodeTmp != nodeFrom)
-        {
-            nodeTmp = nodeTmp.parentNode;
-            path.unshift(nodeTmp);
-        }
-
-        {//add to cache
-            var pathInfo:PathsInfo = _pathsCache[pathHash];
-            pathInfo.addPath(path);
-        }
-
-        {
-            //get info for reversed path
-            var pathHashReversed:String = getPathHash(nodeTo, nodeFrom);
-
-            var pathReversed:Array = [];
-
-            for (var nodeIndex:int = path.length - 1; nodeIndex >= 0; nodeIndex--)
-            {
-                pathReversed.push(path[nodeIndex]);
-            }
-
-            //Add reversed path to cache
-            var reversedPathInfo:PathsInfo = _pathsCache[pathHashReversed];
-            reversedPathInfo.addPath(pathReversed);
-        }
-
-//        if (true)
-//        {
-//            Debug.assert(false);
-//            for each(var node:GridCell in path)
-//            {
-//                node.drawDebugData(0xFF80C0);
-//            }
-//        }
-    }
-
 
     private function findConnectedNodes(node:GridCell):Array
     {

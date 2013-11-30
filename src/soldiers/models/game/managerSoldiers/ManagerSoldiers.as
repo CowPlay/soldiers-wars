@@ -78,7 +78,7 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
         newWave.owner = owner;
         newWave.target = target;
         newWave.timeGeneratedFrequency = 300;
-        newWave.generatedSoldierCount = 3;
+        newWave.generatedSoldierCount = 1;
 
         _soldierWaves.push(newWave);
     }
@@ -116,7 +116,7 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
 
             var managerPath:ManagerPath = GameInfo.instance.managerGame.managerPath;
 
-            var paths:Array = managerPath.getPaths(managerPath.getCell(waveInfo.owner.positionsExits[0]), managerPath.getCell(waveInfo.target.positionsExits[0]));
+            var paths:Array = managerPath.getPaths(waveInfo.owner, waveInfo.target);
 
             for (var i:int = 0; i < waveInfo.generatedSoldierCount; i++)
             {

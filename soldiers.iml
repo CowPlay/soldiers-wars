@@ -14,6 +14,12 @@
             <entry library-name="game-sdk-assets" library-level="application">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="flash-additions" library-level="application">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="flash-framework" library-level="application">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="4.6" />
         </dependencies>
@@ -36,6 +42,12 @@
             <entry library-name="game-sdk-assets" library-level="application">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="flash-additions" library-level="application">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="flash-framework" library-level="application">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="4.6" />
         </dependencies>
@@ -56,6 +68,12 @@
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="game-sdk-assets" library-level="application">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="flash-additions" library-level="application">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="flash-framework" library-level="application">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -88,6 +106,8 @@
     <orderEntry type="library" exported="" name="game-sdk" level="application" />
     <orderEntry type="library" exported="" name="game-sdk-assets" level="application" />
     <orderEntry type="library" exported="" name="greensock" level="application" />
+    <orderEntry type="library" exported="" name="flash-additions" level="application" />
+    <orderEntry type="library" exported="" name="flash-framework" level="application" />
   </component>
 </module>
 
