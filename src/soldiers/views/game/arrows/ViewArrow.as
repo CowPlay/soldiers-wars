@@ -9,16 +9,16 @@ package soldiers.views.game.arrows
 {
 import controllers.IController;
 
-import controls.implementations.ControlBase;
-
 import flash.events.MouseEvent;
 import flash.geom.Point;
 
-import soldiers.models.GameInfo;
+import soldiers.GameInfo;
 import soldiers.models.game.managerPath.GridCell;
 import soldiers.models.housesGame.base.HouseG;
 
-public class ViewArrow extends ControlBase
+import views.implementations.ViewBase;
+
+public class ViewArrow extends ViewBase
 {
     /*
      * Fields
@@ -34,11 +34,6 @@ public class ViewArrow extends ControlBase
      */
 
 
-//    public function get rootViewWidth():Number
-//    {
-//        return _rootViewWidth;
-//    }
-//
     /*
      * Methods
      */
@@ -78,11 +73,12 @@ public class ViewArrow extends ControlBase
         super.placeViews(fullscreen);
 
         //get center cell
-        //TODO:remove hack with +1
-        var centerCellPosition:Point = new Point(Math.round(_entry.positionCurrent.x + _entry.houseConfig.foundationSize.x / 2) + 1,
-                Math.round(_entry.positionCurrent.y + _entry.houseConfig.foundationSize.y / 2) + 1);
+//        var centerCellPosition:Point = new Point(_entry.positionCurrent.x, _entry.positionCurrent.y);
 
-        var cellEntry:GridCell = GameInfo.instance.managerGame.managerPath.getCell(centerCellPosition);
+        //TODO: remove offset foundation
+        var offsetFoundation:Point = new Point(_entry.houseConfig.foundationSize.x / 2, _entry.houseConfig.foundationSize.y / 2);
+
+        var cellEntry:GridCell = GameInfo.instance.managerGame.managerPath.getCell(_entry.positionCurrent.add(offsetFoundation));
 
         x = cellEntry.view.x;
         y = cellEntry.view.y;

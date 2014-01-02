@@ -7,14 +7,14 @@
  */
 package soldiers.popups.merlinTower
 {
-import controls.IView;
-import controls.implementations.ControlBase;
+import views.IView;
+import views.implementations.ViewBase;
 
 import flash.geom.Point;
 
 import models.interfaces.states.IState;
 
-public class ControlPopupMerlinTowerItem extends ControlBase
+public class ControlPopupMerlinTowerItem extends ViewBase
 {
     /*
      *Fields

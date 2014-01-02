@@ -15,13 +15,9 @@ package soldiers.models.levels
 import flash.geom.Point;
 
 import models.implementations.levels.LevelInfoBase;
-import models.implementations.players.PlayerInfoBase;
 
-import soldiers.models.GameInfo;
-
-import soldiers.models.housesGame.barracks.HouseGBarracks;
-import soldiers.models.housesGame.base.EHouseTypeG;
-import soldiers.models.housesGame.base.HouseG;
+import soldiers.models.game.managerProgress.targets.FactoryTargets;
+import soldiers.models.game.managerProgress.targets.base.LTBase;
 
 public class LevelInfo extends LevelInfoBase
 {
@@ -33,10 +29,56 @@ public class LevelInfo extends LevelInfoBase
     //[ISerializable]
     private var _gridSize:Point;
 
+    private var _housesLevelMax:uint;
+
+
+    private var _targetsStar1:Array;
+    private var _targetsStar2:Array;
+    private var _targetsStar3:Array;
+
+    private var _aiActionsData:Array;
 
     /*
      * Properties
      */
+
+
+    public function get aiActionsData():Array
+    {
+        return _aiActionsData;
+    }
+
+    public function get target1Complete():Boolean
+    {
+        return isTargetsComplete(_targetsStar1);
+    }
+
+    public function get target2Complete():Boolean
+    {
+        return isTargetsComplete(_targetsStar2);
+    }
+
+    public function get target3Complete():Boolean
+    {
+        return isTargetsComplete(_targetsStar3);
+    }
+
+    private static function isTargetsComplete(targets:Array):Boolean
+    {
+        var result:Boolean = true;
+
+        for each(var target:LTBase in targets)
+        {
+            if (!target.isComplete())
+            {
+                result = false;
+                break;
+            }
+        }
+
+        return result;
+    }
+
 
     public function get gridSize():Point
     {
@@ -49,6 +91,11 @@ public class LevelInfo extends LevelInfoBase
         return _housesData;
     }
 
+    public function get housesLevelMax():uint
+    {
+        return _housesLevelMax;
+    }
+
     /*
      * Methods
      */
@@ -56,18 +103,6 @@ public class LevelInfo extends LevelInfoBase
     //! Default constructor
     public function LevelInfo()
     {
-    }
-
-    /*
-     * ILevelInfo
-     */
-
-
-    override public function onGameStart():void
-    {
-        super.onGameStart();
-
-        GameInfo.instance.managerGame.managerPath.generateLevelPaths();
     }
 
     /*
@@ -86,9 +121,41 @@ public class LevelInfo extends LevelInfoBase
         Debug.assert(data.hasOwnProperty("grid_height"));
         Debug.assert(data.hasOwnProperty("houses"));
 
+        Debug.assert(data.hasOwnProperty("targets_star_1"));
+        Debug.assert(data["targets_star_1"] is Array);
+        Debug.assert(data.hasOwnProperty("targets_star_2"));
+        Debug.assert(data["targets_star_2"] is Array);
+        Debug.assert(data.hasOwnProperty("targets_star_3"));
+        Debug.assert(data["targets_star_3"] is Array);
+
+        Debug.assert(data.hasOwnProperty("ai_actions"));
+        Debug.assert(data["ai_actions"] is Array);
+
         _gridSize = new Point(data["grid_width"], data["grid_height"]);
 
         _housesData = data["houses"] as Array;
+
+        _housesLevelMax = data.hasOwnProperty("houses_level_max") ? data["houses_level_max"] : uint.MAX_VALUE;
+
+        _targetsStar1 = [];
+        initTargetsStar(_targetsStar1, data["targets_star_1"]);
+
+        _targetsStar2 = [];
+        initTargetsStar(_targetsStar2, data["targets_star_2"]);
+
+        _targetsStar3 = [];
+        initTargetsStar(_targetsStar3, data["targets_star_3"]);
+
+        _aiActionsData = data["ai_actions"];
+    }
+
+    private static function initTargetsStar(container:Array, data:Array):void
+    {
+        for each(var targetData:Object in data)
+        {
+            var target:Object = FactoryTargets.getTarget(targetData);
+            container.push(target);
+        }
     }
 }
 }

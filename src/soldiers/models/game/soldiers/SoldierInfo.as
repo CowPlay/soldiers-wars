@@ -13,8 +13,8 @@ import core.DisposableObject;
 
 import models.interfaces.players.IPlayerInfo;
 
+import soldiers.GameInfo;
 import soldiers.controllers.EControllerUpdate;
-import soldiers.models.GameInfo;
 import soldiers.models.housesGame.base.HouseG;
 
 public class SoldierInfo extends DisposableObject implements IDisposable
@@ -26,25 +26,28 @@ public class SoldierInfo extends DisposableObject implements IDisposable
     private var _level:uint;
     private var _levelMax:uint;
 
-    private var _soldierRotation:ESoldierRotation;
     private var _path:Array;
 
     private var _controller:IController;
 
     private var _state:String;
 
+    private var _isLastOnWave:Boolean;
+
 
     /*
      * Properties
      */
-    public function get houseOwnerPlayer():IPlayerInfo
-    {
-        return _houseOwnerPlayer;
-    }
+
 
     public function get houseOwnerType():String
     {
         return _houseOwnerType;
+    }
+
+    public function get houseOwnerPlayer():IPlayerInfo
+    {
+        return _houseOwnerPlayer;
     }
 
     public function get houseTarget():HouseG
@@ -55,20 +58,6 @@ public class SoldierInfo extends DisposableObject implements IDisposable
     public function get level():uint
     {
         return _level;
-    }
-
-    public function get soldierRotation():ESoldierRotation
-    {
-        return _soldierRotation;
-    }
-
-
-    public function set soldierRotation(value:ESoldierRotation):void
-    {
-        if (_soldierRotation == value)
-            return;
-
-        _soldierRotation = value;
     }
 
     public function get controller():IController
@@ -90,6 +79,7 @@ public class SoldierInfo extends DisposableObject implements IDisposable
     }
 
 
+    //! cells count by second
     public function get speed():Number
     {
         return 2;
@@ -124,25 +114,35 @@ public class SoldierInfo extends DisposableObject implements IDisposable
         GameInfo.instance.managerStates.currentState.update(EControllerUpdate.ECU_SOLDIER_STATE_CHANGED)
     }
 
+    public function get isLastOnWave():Boolean
+    {
+        return _isLastOnWave;
+    }
+
+    public function set isLastOnWave(value:Boolean):void
+    {
+        _isLastOnWave = value;
+    }
+
     /*
      * Methods
      */
 
     //! Default constructor
-    public function SoldierInfo(owner:HouseG, target:HouseG, path:Array)
+    public function SoldierInfo(houseOwnerType:String, level:uint, levelMax:uint, ownerPlayer:IPlayerInfo, target:HouseG, path:Array)
     {
-        Debug.assert(owner != null);
+        Debug.assert(ownerPlayer != null);
         Debug.assert(target != null);
-        Debug.assert(target != owner);
         Debug.assert(path != null);
         Debug.assert(path.length > 1);
 
         _path = path;
-        _houseOwnerType = owner.ownerType;
-        _level = owner.level;
-        _levelMax = owner.houseConfig.levelMax;
+        _level = level;
+        _levelMax = levelMax;
+        _houseOwnerType = houseOwnerType;
+        _houseOwnerPlayer = ownerPlayer;
+
         _houseTarget = target;
-        _houseOwnerPlayer = owner.owner;
 
         state = ESoldierState.ESS_NEW;
     }

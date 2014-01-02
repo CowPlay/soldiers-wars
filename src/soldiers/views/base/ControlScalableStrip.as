@@ -7,14 +7,14 @@
  */
 package soldiers.views.base
 {
-import controls.IView;
-import controls.implementations.ControlBase;
+import views.IView;
+import views.implementations.ViewBase;
 
 import flash.display.Sprite;
 
-import soldiers.models.GameInfo;
+import soldiers.GameInfo;
 
-public class ControlScalableStrip extends ControlBase
+public class ControlScalableStrip extends ViewBase
 {
     /*
      * Fields

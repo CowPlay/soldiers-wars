@@ -7,7 +7,7 @@
  */
 package soldiers.states.base
 {
-import controls.IView;
+import views.IView;
 import models.implementations.states.base.StateBase;
 
 public class StateGameBase extends StateBase

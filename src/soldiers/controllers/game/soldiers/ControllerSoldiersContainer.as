@@ -11,7 +11,7 @@ import controllers.IController;
 import controllers.implementations.Controller;
 
 import soldiers.controllers.EControllerUpdate;
-import soldiers.models.GameInfo;
+import soldiers.GameInfo;
 import soldiers.models.game.soldiers.ESoldierState;
 import soldiers.models.game.soldiers.SoldierInfo;
 import soldiers.views.game.soldiers.ViewSoldiersContainer;
@@ -34,9 +34,9 @@ public class ControllerSoldiersContainer extends Controller
      */
 
     //! Default constructor
-    public function ControllerSoldiersContainer()
+    public function ControllerSoldiersContainer(view:ViewSoldiersContainer)
     {
-        _view = new ViewSoldiersContainer(this);
+        _view = view;
         super(_view);
 
         init();

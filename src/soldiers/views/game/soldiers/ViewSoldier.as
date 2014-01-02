@@ -7,72 +7,45 @@
  */
 package soldiers.views.game.soldiers
 {
-import com.greensock.TimelineMax;
 import com.greensock.TweenMax;
 
 import controllers.IController;
-
-import controls.implementations.ControlBase;
 
 import flash.display.MovieClip;
 
 import soldiers.models.game.managerPath.GridCell;
 import soldiers.models.game.soldiers.ESoldierRotation;
 import soldiers.models.game.soldiers.SoldierInfo;
+import soldiers.models.housesGame.base.EHouseOwner;
 
-public class ViewSoldier extends ControlBase
+import views.implementations.ViewBase;
+
+public class ViewSoldier extends ViewBase
 {
     /*
      * Static methods
      */
-
-    private static function getRotationFrame(from:GridCell, to:GridCell):int
+    private static function getSoldierClass(type:String):Class
     {
-        Debug.assert(from != null);
-        Debug.assert(to != null);
-        Debug.assert(from.row != to.row || from.column != to.column);
+        var result:Class;
 
-        var result:int;
+        switch (type)
+        {
+            case EHouseOwner.EHO_ENEMY:
+            {
+                result = gSoldierEnemy;
 
-        if (from.row > to.row)
-        {
-            if (from.column == to.column)
-            {
-                result = ESoldierRotation.ESR_DOWN;
+                break;
             }
-            else if (from.column < to.column)
+            case EHouseOwner.EHO_PLAYER:
             {
-                result = ESoldierRotation.ESR_DOWN_RIGHT;
+                result = gSoldierPlayer;
+                break;
             }
-            else
+            default :
             {
-                result = ESoldierRotation.ESR_DOWN_LEFT;
-            }
-        }
-        else if (from.row < to.row)
-        {
-            if (from.column == to.column)
-            {
-                result = ESoldierRotation.ESR_UP;
-            }
-            else if (from.column < to.column)
-            {
-                result = ESoldierRotation.ESR_UP_RIGHT;
-            }
-            else
-            {
-                result = ESoldierRotation.ESR_UP_LEFT;
-            }
-        }
-        else
-        {
-            if (from.column > to.column)
-            {
-                result = ESoldierRotation.ESR_LEFT;
-            }
-            else
-            {
-                result = ESoldierRotation.ESR_RIGHT;
+                Debug.assert(false);
+                break;
             }
         }
 
@@ -86,25 +59,14 @@ public class ViewSoldier extends ControlBase
     private var _soldierView:MovieClip;
     private var _entry:SoldierInfo;
 
-    private var _rotationFrame:int;
     /*
      * Properties
      */
-    public function get rotationFrame():int
-    {
-        return _rotationFrame;
-    }
 
-    public function set rotationFrame(value:int):void
-    {
-        if (_rotationFrame == value)
-            return;
 
-        _rotationFrame = value;
-
-        _soldierView.gotoAndStop(value);
-    }
-
+    /*
+     * Events
+     */
 
     /*
      * Methods
@@ -112,8 +74,9 @@ public class ViewSoldier extends ControlBase
 
     public function ViewSoldier(controller:IController, entry:SoldierInfo)
     {
-        //TODO: detect type
-        _sourceView = new gSoldierPlayer();
+        var sourceClass:Class = getSoldierClass(entry.houseOwnerType);
+
+        _sourceView = new sourceClass();
         super(controller, _sourceView);
 
         _entry = entry;
@@ -122,11 +85,6 @@ public class ViewSoldier extends ControlBase
     }
 
     private function init():void
-    {
-
-    }
-
-    public function moveToTarget(callback:Function):void
     {
         for (var level:int = 1; level <= _entry.levelMax; level++)
         {
@@ -137,89 +95,33 @@ public class ViewSoldier extends ControlBase
             {
                 _soldierView = _sourceView[propertyName];
                 _soldierView.visible = true;
-                _soldierView.gotoAndStop(0);
             }
             else
             {
                 _sourceView[propertyName].visible = false;
             }
         }
+    }
 
-        var firstCell:GridCell = _entry.path[0];
+    public function moveToTarget(from:GridCell, to:GridCell, callback:Function):void
+    {
+        _sourceView.x = from.view.source.x;
+        _sourceView.y = from.view.source.y;
 
-        source.x = firstCell.view.source.x;
-        source.y = firstCell.view.source.y;
+        _soldierView.gotoAndStop(ESoldierRotation.getRotation(from, to));
 
-        var tweenSequence:TimelineMax = new TimelineMax();
-
-        var nodeFrom:GridCell;
-        var nodeTo:GridCell;
-
-        var prevRotationFrame:int = ConstantsBase.INDEX_NONE;
-        var sameRotationCellsCount:int = 0;
-
-        var delayRotationChange:Number = 0.1;
-
-        var owner:ViewSoldier = this;
-
-        var generateAndAppedTween:Function = function (onComplete:Function = null):void
+        var paramsRun:Object =
         {
-            var paramsRotation:Object =
-            {
-                rotationFrame: prevRotationFrame,
-                onComplete: function ():void
-                {
-                    owner.rotationFrame = prevRotationFrame;
-                }
-            };
-
-            {//tween rotation
-                var tweenRotation:TweenMax = new TweenMax(this, delayRotationChange, paramsRotation);
-                tweenSequence.append(tweenRotation);
-            }
-
-            {//tween run
-                var paramsRun:Object =
-                {
-                    x: nodeTo.view.source.x,
-                    y: nodeTo.view.source.y,
-                    onComplete: onComplete
-                };
-
-                var tweenRun:TweenMax = new TweenMax(source, (1 / _entry.speed) * sameRotationCellsCount - delayRotationChange, paramsRun);
-                tweenSequence.append(tweenRun);
-            }
+            x         : to.view.source.x,
+            y         : to.view.source.y,
+            onComplete: callback
         };
 
-        for (var i:int = 0; i < _entry.path.length - 1; i++)
-        {
-            nodeFrom = _entry.path[i];
-            nodeTo = _entry.path[i + 1];
+        var distance:Number = from.getDistanceTo(to);
 
-            var rotationFrame:int = getRotationFrame(nodeFrom, nodeTo);
-
-            if (prevRotationFrame == ConstantsBase.INDEX_NONE)
-            {
-                prevRotationFrame = rotationFrame;
-            }
-
-            if (prevRotationFrame != rotationFrame)
-            {
-                generateAndAppedTween();
-
-                sameRotationCellsCount = 0;
-                prevRotationFrame = rotationFrame;
-            }
-            else
-            {
-                sameRotationCellsCount++;
-            }
-        }
-
-        generateAndAppedTween(callback);
-
-        tweenSequence.play();
+        TweenMax.to(source, (distance / _entry.speed), paramsRun);
     }
+
 
     /*
      * IDisposable
@@ -228,7 +130,7 @@ public class ViewSoldier extends ControlBase
 
     public override function cleanup():void
     {
-        TweenMax.killTweensOf(source);
+        TweenMax.killTweensOf(_sourceView);
         TweenMax.killTweensOf(this);
 
         _sourceView = null;

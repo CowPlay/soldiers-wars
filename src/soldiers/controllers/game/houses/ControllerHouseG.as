@@ -9,16 +9,16 @@ package soldiers.controllers.game.houses
 {
 import controllers.implementations.Controller;
 
-import controls.IView;
-
 import flash.events.MouseEvent;
 
+import soldiers.GameInfo;
 import soldiers.controllers.EControllerUpdate;
-import soldiers.models.GameInfo;
 import soldiers.models.game.ManagerGame;
 import soldiers.models.housesGame.base.EHouseOwner;
 import soldiers.models.housesGame.base.HouseG;
 import soldiers.views.game.houses.ViewHouseG;
+
+import views.IView;
 
 public class ControllerHouseG extends Controller
 {
@@ -27,7 +27,6 @@ public class ControllerHouseG extends Controller
      */
     private var _entry:HouseG;
     private var _view:ViewHouseG;
-
 
     private var _managerGame:ManagerGame;
 
@@ -76,6 +75,8 @@ public class ControllerHouseG extends Controller
                 _view.houseViewPlayer.visible = _entry.ownerType == EHouseOwner.EHO_PLAYER;
                 _view.houseViewEnemy.visible = !_view.houseViewPlayer.visible;
 
+                updateIconLevelUp();
+
                 GameInfo.instance.managerGame.onHouseOwnerChanged();
 
                 break;
@@ -84,11 +85,15 @@ public class ControllerHouseG extends Controller
             {
                 _view.labelSoldiers.text = _entry.soldierCount.toString();
 
+                updateIconLevelUp();
+
                 break;
             }
             case EControllerUpdate.ECU_HOUSE_LEVEL_CHANGED:
             {
-                _view.setLevel(_entry.level);
+                _view.setLevel(_entry.level, _entry.houseConfig.levelMax);
+
+                updateIconLevelUp();
 
                 break;
             }
@@ -98,6 +103,25 @@ public class ControllerHouseG extends Controller
                 Debug.assert(false);
                 break;
             }
+        }
+    }
+
+    private function updateIconLevelUp():void
+    {
+        if (_entry.ownerType == EHouseOwner.EHO_PLAYER)
+        {
+            if (_entry.canLevelUpgrade)
+            {
+                _view.viewIconLevelUp.show();
+            }
+            else
+            {
+                _view.viewIconLevelUp.hide();
+            }
+        }
+        else
+        {
+            _view.viewIconLevelUp.hide();
         }
     }
 
@@ -112,11 +136,6 @@ public class ControllerHouseG extends Controller
                 if (entry.ownerType == EHouseOwner.EHO_PLAYER)
                 {
                     _view.viewAuraPlayer.visible = true;
-
-                    if (_managerGame.isAnyHouseSelected(_managerGame.gameOwner) && !entry.isSelect)
-                    {
-                        _managerGame.onPlayerSelectHouse(_managerGame.gameOwner, entry);
-                    }
                 }
                 else
                 {
@@ -136,6 +155,37 @@ public class ControllerHouseG extends Controller
 
         return result;
     }
+
+    public override function onViewClicked(view:IView, e:MouseEvent):Boolean
+    {
+        var result:Boolean = super.onViewClicked(view, e);
+
+        if (!result)
+        {
+            switch (view)
+            {
+                case _view.viewIconLevelUp:
+                {
+                    _entry.levelUpgrade();
+
+                    break;
+                }
+                case _view:
+                {
+                    //do nothing
+                    break;
+                }
+                default :
+                {
+                    Debug.assert(false);
+                    break;
+                }
+            }
+        }
+
+        return result;
+    }
+
 
     public override function onViewMouseDown(view:IView, e:MouseEvent):Boolean
     {
@@ -208,6 +258,9 @@ public class ControllerHouseG extends Controller
         {
             _view.viewAuraPlayer.visible = false;
             _view.viewAuraEnemy.visible = false;
+
+            _managerGame.clearHousesSelection(GameInfo.instance.managerGame.gameOwner);
+
         }
 
         return result;
@@ -221,8 +274,12 @@ public class ControllerHouseG extends Controller
         {
             if (entry.ownerType == EHouseOwner.EHO_PLAYER)
             {
-                _view.viewAuraPlayer.visible = _entry.isSelect;
+                if (_managerGame.isAnyHouseSelected(_managerGame.gameOwner) && !entry.isSelect)
+                {
+                    _managerGame.onPlayerSelectHouse(_managerGame.gameOwner, entry);
+                }
 
+                _view.viewAuraPlayer.visible = _entry.isSelect;
             }
             else
             {

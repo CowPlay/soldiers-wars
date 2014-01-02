@@ -9,40 +9,62 @@ package soldiers.views.game.soldiers
 {
 import controllers.IController;
 
-import controls.EViewAlignment;
-import controls.IView;
-import controls.implementations.ControlBase;
+import views.EViewPosition;
+import views.IView;
+import views.implementations.ViewBase;
 
 import flash.display.DisplayObjectContainer;
-import flash.display.Sprite;
+import flash.events.Event;
 import flash.geom.Point;
 
-import soldiers.models.GameInfo;
-import soldiers.models.game.managerPath.GridCell;
-import soldiers.models.game.managerPath.ManagerPath;
+import soldiers.GameInfo;
 
 import utils.UtilsArray;
 
-public class ViewSoldiersContainer extends ControlBase
+public class ViewSoldiersContainer extends ViewBase
 {
     /*
      * Fields
      */
-    private var _sourceView:Sprite;
+    private var _sourceView:DisplayObjectContainer;
 
     private var _soldiers:Array;
+
     /*
      * Properties
      */
+
+//    private function onEnterFrame(e:Event):void
+//    {
+//        for each(var viewSoldier:ViewSoldier in _soldiers)
+//        {
+//            viewSoldier.update();
+//        }
+
+//        for (var i:int = 1; i < _soldiers.length; i++)
+//        {
+//            var key:int = _soldiers[i];
+//
+//            var j:int = i - 1;
+//
+//            while (_soldiers[j] > key)
+//            {
+//                _soldiers[j + 1] = _soldiers[j];
+//                j = j - 1;
+//            }
+//
+//            _soldiers[j + 1] = key;
+//        }
+//    }
 
     /*
      * Methods
      */
 
     //! Default constructor
-    public function ViewSoldiersContainer(controller:IController)
+    public function ViewSoldiersContainer(controller:IController, sourceView:DisplayObjectContainer)
     {
-        _sourceView = new Sprite();
+        _sourceView = sourceView;
         super(controller, _sourceView);
 
         init();
@@ -50,38 +72,18 @@ public class ViewSoldiersContainer extends ControlBase
 
     private function init():void
     {
-        alignment = EViewAlignment.EVA_ABSOLUTE;
-
-        anchorPoint = new Point(0.5, 0);
-
         _soldiers = [];
-
-        _sourceView.mouseChildren = false;
-        _sourceView.mouseEnabled = false;
-
-
-        var managerPath:ManagerPath = GameInfo.instance.managerGame.managerPath;
-
-        var cell:GridCell = managerPath.getCell(new Point(0, 0));
-
-        var gridSize:Point = GameInfo.instance.managerGame.currentLevel.gridSize;
-
-        var width:Number = gridSize.x * cell.view.source.width;
-        var height:Number = gridSize.y * cell.view.source.height;
-
-        _sourceView.graphics.beginFill(0x0000ff, 0.1);
-        _sourceView.graphics.drawRect(0, 0, width, height);
-        _sourceView.graphics.endFill();
     }
 
 
     override public function addSubView(view:IView):void
     {
+        Debug.assert(view is ViewSoldier);
+
         _sourceView.addChild(view.source);
 
         _soldiers.push(view);
     }
-
 
     //! Remove subview to this view
     override public function removeSubView(view:IView):void

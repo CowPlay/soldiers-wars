@@ -9,11 +9,11 @@ package soldiers.states.game
 {
 import controllers.IControllerPopup;
 
-import controls.EViewAlignment;
+import views.EViewPosition;
 
 import soldiers.controllers.game.ControllerSceneGame;
-import soldiers.controllers.popups.levels.ControllerPopupLevelEnd;
-import soldiers.models.GameInfo;
+import soldiers.controllers.popups.levelEnd.ControllerPopupLevelEnd;
+import soldiers.GameInfo;
 import soldiers.states.EStateType;
 import soldiers.states.base.StateGameBase;
 
@@ -37,6 +37,7 @@ public class StateGame extends StateGameBase
 
     public function StateGame()
     {
+        Debug.assert(GameInfo.instance.managerGame != null);
     }
 
     public override function prepareLayerScene():void
@@ -68,7 +69,7 @@ public class StateGame extends StateGameBase
     {
         for each(var popup:IControllerPopup in popups)
         {
-            popup.view.alignment = EViewAlignment.EVA_ABSOLUTE;
+            popup.view.position = EViewPosition.EVP_ABSOLUTE;
             popup.view.translate(0.5, 0.5);
         }
 

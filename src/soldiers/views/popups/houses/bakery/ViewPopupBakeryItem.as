@@ -13,19 +13,21 @@ package soldiers.views.popups.houses.bakery
 {
 import controllers.IController;
 
-import controls.IViewButton;
-import controls.implementations.ControlBase;
-import controls.implementations.buttons.ViewButtonLabeled;
+import views.IViewButton;
+import views.implementations.ViewBase;
 
 import flash.display.DisplayObject;
+import flash.display.Sprite;
 import flash.text.TextField;
 
-public class ViewPopupBakeryItem extends ControlBase
+public class ViewPopupBakeryItem extends ViewBase
 {
     /*
      * Fields
      */
-    private var _sourceView:gPopupBakeryItem;
+    private var _sourceView:Sprite;
+
+//    private var _sourceView:gPopupBakeryItem;
 
     private var _buttonBuild:IViewButton;
 
@@ -34,12 +36,15 @@ public class ViewPopupBakeryItem extends ControlBase
      */
     public function get labelCount():TextField
     {
-        return _sourceView.labelCount;
+//        return _sourceView.labelCount;
+        return null;
     }
 
     public function get labelTimer():TextField
     {
-        return _sourceView.labelTimer;
+//        return _sourceView.labelTimer;
+        return null;
+
     }
 
 
@@ -51,7 +56,9 @@ public class ViewPopupBakeryItem extends ControlBase
     //TODO: make view animation
     public function get iconLock():DisplayObject
     {
-        return _sourceView.iconLock;
+//        return _sourceView.iconLock;
+        return null;
+
     }
 
     /*
@@ -60,7 +67,7 @@ public class ViewPopupBakeryItem extends ControlBase
 
     public function ViewPopupBakeryItem(controller:IController)
     {
-        _sourceView = new gPopupBakeryItem();
+//        _sourceView = new gPopupBakeryItem();
         super(controller, _sourceView);
 
         init();
@@ -68,7 +75,7 @@ public class ViewPopupBakeryItem extends ControlBase
 
     private function init():void
     {
-        _buttonBuild = new ViewButtonLabeled(controller, _sourceView.buttonBuild);
+//        _buttonBuild = new ViewButtonLabeled(controller, _sourceView.buttonBuild);
     }
 
 

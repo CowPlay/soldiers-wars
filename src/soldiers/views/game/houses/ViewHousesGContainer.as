@@ -9,23 +9,25 @@ package soldiers.views.game.houses
 {
 import controllers.IController;
 
-import controls.EViewAlignment;
-import controls.IView;
-import controls.implementations.ControlBase;
+import views.EViewPosition;
+import views.IView;
+import views.implementations.ViewBase;
+
+import flash.display.DisplayObjectContainer;
 
 import flash.display.Sprite;
 import flash.geom.Point;
 
-import soldiers.models.GameInfo;
+import soldiers.GameInfo;
 import soldiers.models.game.managerPath.GridCell;
 import soldiers.models.game.managerPath.ManagerPath;
 
-public class ViewHousesGContainer extends ControlBase
+public class ViewHousesGContainer extends ViewBase
 {
     /*
      * Fields
      */
-    private var _sourceView:Sprite;
+    private var _sourceView:DisplayObjectContainer;
 
     private var _houses:Array;
 
@@ -39,9 +41,9 @@ public class ViewHousesGContainer extends ControlBase
      */
 
     //! Default constructor
-    public function ViewHousesGContainer(controller:IController)
+    public function ViewHousesGContainer(controller:IController, sourceView:DisplayObjectContainer)
     {
-        _sourceView = new Sprite();
+        _sourceView = sourceView;
         super(controller, _sourceView);
 
         init();
@@ -50,23 +52,6 @@ public class ViewHousesGContainer extends ControlBase
     private function init():void
     {
         _houses = [];
-
-        handleEvents(false, false, false, true);
-        alignment = EViewAlignment.EVA_ABSOLUTE;
-        anchorPoint = new Point(0.5, 0);
-
-        var managerPath:ManagerPath = GameInfo.instance.managerGame.managerPath;
-
-        var cell:GridCell = managerPath.getCell(new Point(0, 0));
-
-        var gridSize:Point = GameInfo.instance.managerGame.currentLevel.gridSize;
-
-        var width:Number = gridSize.x * cell.view.source.width;
-        var height:Number = gridSize.y * cell.view.source.height;
-
-        _sourceView.graphics.beginFill(0x0000ff, 0.1);
-        _sourceView.graphics.drawRect(0, 0, width, height);
-        _sourceView.graphics.endFill();
     }
 
 
@@ -85,8 +70,6 @@ public class ViewHousesGContainer extends ControlBase
         {
             houseView.placeViews(fullscreen);
         }
-
-
     }
 }
 }

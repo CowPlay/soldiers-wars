@@ -19,22 +19,41 @@ public class HouseGConfigBarracks extends HouseGConfig
      * Fields
      */
 
+    private var _soldiersGenerationSpeed:Number;
+
     /*
      * Properties
      */
+
+
+    public function get soldiersGenerationSpeed():Number
+    {
+        return _soldiersGenerationSpeed;
+    }
 
     /*
      * Methods
      */
 
     //! Default constructor
-    public function HouseGConfigBarracks()
+    public function HouseGConfigBarracks(levelInfoClass:Class)
     {
-        init();
+        super(levelInfoClass);
     }
 
     private function init():void
     {
+
+    }
+
+
+    override public function deserialize(data:Object):void
+    {
+        super.deserialize(data);
+
+        Debug.assert(data.hasOwnProperty("soldiers_generation_speed"));
+
+        _soldiersGenerationSpeed = data["soldiers_generation_speed"];
 
     }
 }

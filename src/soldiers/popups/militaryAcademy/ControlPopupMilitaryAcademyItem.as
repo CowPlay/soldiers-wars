@@ -11,16 +11,16 @@
  */
 package soldiers.popups.militaryAcademy
 {
-import controls.IView;
-import controls.IViewButton;
-import controls.implementations.ControlBase;
+import views.IView;
+import views.IViewButton;
+import views.implementations.ViewBase;
 import controls.implementations.buttons.ViewButtonLabeled;
 
 import flash.events.MouseEvent;
 
 import models.interfaces.states.IState;
 
-public class ControlPopupMilitaryAcademyItem extends ControlBase
+public class ControlPopupMilitaryAcademyItem extends ViewBase
 {
     /*
      * Fields

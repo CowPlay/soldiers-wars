@@ -12,7 +12,7 @@ import controllers.implementations.Controller;
 import flash.events.MouseEvent;
 
 import soldiers.controllers.EControllerUpdate;
-import soldiers.models.GameInfo;
+import soldiers.GameInfo;
 import soldiers.models.housesGame.base.HouseG;
 import soldiers.views.game.arrows.ViewArrow;
 
@@ -54,7 +54,7 @@ public class ControllerArrow extends Controller
         _view.hide();
     }
 
-    public function onMouseMove(e:MouseEvent):void
+    private function onMouseMove(e:MouseEvent):void
     {
         _view.updateArrowSize(e);
     }

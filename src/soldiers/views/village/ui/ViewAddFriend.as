@@ -9,12 +9,12 @@ package soldiers.views.village.ui
 {
 import controllers.IController;
 
-import controls.implementations.ControlBase;
+import views.implementations.ViewBase;
 
 import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
 
-public class ViewAddFriend extends ControlBase
+public class ViewAddFriend extends ViewBase
 {
     /*
      * Fields

@@ -11,7 +11,7 @@ import controllers.IController;
 import controllers.implementations.Controller;
 
 import soldiers.controllers.EControllerUpdate;
-import soldiers.models.GameInfo;
+import soldiers.GameInfo;
 import soldiers.models.housesGame.base.HouseG;
 import soldiers.views.game.arrows.ViewArrowContainer;
 
@@ -33,9 +33,9 @@ public class ControllerArrowContainer extends Controller
      */
 
     //! Default constructor
-    public function ControllerArrowContainer()
+    public function ControllerArrowContainer(view:ViewArrowContainer)
     {
-        _view = new ViewArrowContainer(this);
+        _view = view;
         super(_view);
 
         init();

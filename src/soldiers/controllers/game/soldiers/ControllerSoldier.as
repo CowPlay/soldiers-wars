@@ -9,11 +9,13 @@ package soldiers.controllers.game.soldiers
 {
 import controllers.implementations.Controller;
 
-import soldiers.models.GameInfo;
+import soldiers.GameInfo;
+import soldiers.models.game.managerPath.GridCell;
 import soldiers.models.game.soldiers.ESoldierState;
 import soldiers.models.game.soldiers.SoldierInfo;
-import soldiers.models.housesGame.base.EHouseOwner;
 import soldiers.views.game.soldiers.ViewSoldier;
+
+import utils.UtilsArray;
 
 public class ControllerSoldier extends Controller
 {
@@ -23,6 +25,9 @@ public class ControllerSoldier extends Controller
     private var _view:ViewSoldier;
 
     private var _entry:SoldierInfo;
+
+
+    private var _path:Array;
 
     /*
      * Properties
@@ -46,32 +51,30 @@ public class ControllerSoldier extends Controller
 
     private function init():void
     {
+        _path = [];
+        for each(var cell:GridCell in _entry.path)
+        {
+            _path.push(cell);
+        }
+
+        var callback:Function =
+                function ():void
+                {
+                    UtilsArray.removeValue(_path, _path[0]);
+
+                    if (_path.length == 1)
+                    {
+                        GameInfo.instance.managerGame.onSoldierMoveComplete(_entry);
+                    }
+                    else
+                    {
+                        _view.moveToTarget(_path[0], _path[1], callback)
+                    }
+                };
+
         _entry.state = ESoldierState.ESS_IN_MOVE;
-        _view.moveToTarget(onSoldierMoveComplete);
-    }
 
-    private function onSoldierMoveComplete():void
-    {
-        if (_entry.houseTarget.ownerType == EHouseOwner.EHO_NEUTRAL)
-        {
-            _entry.houseTarget.soldierCount++;
-            _entry.houseTarget.owner = _entry.houseOwnerPlayer;
-        }
-        else if (_entry.houseOwnerPlayer != _entry.houseTarget.owner)
-        {
-            _entry.houseTarget.soldierCount--;
-
-            if (_entry.houseTarget.soldierCount == 0)
-            {
-                _entry.houseTarget.owner = _entry.houseOwnerPlayer;
-            }
-        }
-        else
-        {
-            _entry.houseTarget.soldierCount++;
-        }
-
-        GameInfo.instance.managerGame.managerSoldiers.removeSoldier(_entry);
+        _view.moveToTarget(_path[0], _path[1], callback);
     }
 
     public override function cleanup():void

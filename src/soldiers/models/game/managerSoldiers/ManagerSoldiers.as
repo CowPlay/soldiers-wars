@@ -11,26 +11,27 @@ package soldiers.models.game.managerSoldiers
 
 import core.DisposableObject;
 
-import flash.events.Event;
 import flash.events.TimerEvent;
 import flash.utils.Timer;
 import flash.utils.getTimer;
 
+import soldiers.GameInfo;
 import soldiers.controllers.EControllerUpdate;
-import soldiers.models.GameInfo;
+import soldiers.models.game.ManagerGame;
 import soldiers.models.game.managerPath.ManagerPath;
 import soldiers.models.game.soldiers.ESoldierState;
 import soldiers.models.game.soldiers.SoldierInfo;
 import soldiers.models.housesGame.base.HouseG;
 
 import utils.UtilsArray;
-import utils.memory.UtilsMemory;
 
 public class ManagerSoldiers extends DisposableObject implements IDisposable
 {
     /*
      * Fields
      */
+
+    private var _managerGame:ManagerGame;
 
     private var _timerSoldierGenerator:Timer;
 
@@ -50,10 +51,6 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
      * Events
      */
 
-    public function onEnterFrame(e:Event):void
-    {
-
-    }
 
     /*
      * Methods
@@ -61,8 +58,9 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
 
 
     //! Default constructor
-    public function ManagerSoldiers()
+    public function ManagerSoldiers(managerGame:ManagerGame)
     {
+        _managerGame = managerGame;
         init();
     }
 
@@ -72,29 +70,12 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
 
         _soldiers = [];
 
-        UtilsMemory.registerEventListener(GameInfo.instance.managerApp.applicationStage, Event.ENTER_FRAME, this, onEnterFrame);
-        _timerSoldierGenerator = new Timer(250);
+        _timerSoldierGenerator = new Timer(ConstantsBase.ANIMATION_DURATION * 1000 * 4);
         _timerSoldierGenerator.addEventListener(TimerEvent.TIMER, processWave);
         _timerSoldierGenerator.start();
     }
 
-    public function generateSoldiers(owner:HouseG, target:HouseG, soldierCount:int):void
-    {
-        Debug.assert(owner != null);
-        Debug.assert(target != null);
-
-        var newWave:SoldierWaveInfo = new SoldierWaveInfo();
-
-        newWave.generatedSoldierRest = soldierCount;
-        newWave.owner = owner;
-        newWave.target = target;
-        newWave.timeGeneratedFrequency = 300;
-        newWave.generatedSoldierCount = 1;
-
-        _soldierWaves.push(newWave);
-    }
-
-    private function processWave(e:Event):void
+    public function processWave(e:TimerEvent):void
     {
         var wavesForRemove:Array = [];
 
@@ -108,8 +89,8 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
 
             var currentTime:Number = getTimer();
 
-            var isFirstProcess:Boolean = waveInfo.timeGeneratedLast == 0;
-            var isTimeForGenerate:Boolean = currentTime - waveInfo.timeGeneratedLast > waveInfo.timeGeneratedFrequency;
+            var isFirstProcess:Boolean = waveInfo.timeGenerated == 0;
+            var isTimeForGenerate:Boolean = currentTime - waveInfo.timeGenerated > waveInfo.timeGeneratedFrequency;
 
             if (!isTimeForGenerate)
             {
@@ -118,20 +99,17 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
 
             if (isFirstProcess)
             {
-                Debug.assert(waveInfo.owner.soldierCount >= waveInfo.generatedSoldierRest);
-                waveInfo.owner.soldierCount -= waveInfo.generatedSoldierRest;
+                waveInfo.generatedSoldierRest = Math.min(waveInfo.generatedSoldierRest, waveInfo.houseOwner.soldierCount);
+                waveInfo.houseOwner.soldierCount -= waveInfo.generatedSoldierRest;
             }
 
-            waveInfo.timeGeneratedLast = currentTime;
+            waveInfo.timeGenerated = currentTime;
 
-
-            var managerPath:ManagerPath = GameInfo.instance.managerGame.managerPath;
-
-            var paths:Array = managerPath.getPaths(waveInfo.owner, waveInfo.target);
+            var paths:Array = _managerGame.managerPath.getPaths(waveInfo.houseOwner, waveInfo.houseTarget);
 
             for (var i:int = 0; i < waveInfo.generatedSoldierCount; i++)
             {
-                if (waveInfo.generatedSoldierRest == 0 || waveInfo.owner.soldierCount == 0)
+                if (waveInfo.generatedSoldierRest == 0 || waveInfo.houseOwner.soldierCount == 0)
                 {
                     wavesForRemove.push(waveInfo);
                     break;
@@ -150,13 +128,32 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
 
     private function generateWaveSoldiers(waveInfo:SoldierWaveInfo, path:Array):void
     {
-        var newSoldier:SoldierInfo = new SoldierInfo(waveInfo.owner, waveInfo.target, path);
+        var newSoldier:SoldierInfo = new SoldierInfo( waveInfo.houseOwnerType,waveInfo.houseOwnerLevel, waveInfo.houseOwnerLevelMax, waveInfo.houseOwnerPlayer, waveInfo.houseTarget, path);
 
         _soldiers.push(newSoldier);
 
         GameInfo.instance.managerStates.currentState.update(EControllerUpdate.ECU_SOLDIER_STATE_CHANGED);
 
         waveInfo.generatedSoldierRest--;
+
+        if (waveInfo.generatedSoldierRest == 0)
+        {
+            newSoldier.isLastOnWave = true;
+        }
+    }
+
+    public function generateSoldiers(owner:HouseG, target:HouseG, soldierCount:int):void
+    {
+        Debug.assert(owner != null);
+        Debug.assert(target != null);
+
+        var newWave:SoldierWaveInfo = new SoldierWaveInfo(owner, target);
+
+        newWave.generatedSoldierRest = soldierCount;
+
+        trace("generate soldiers " + soldierCount.toString())
+
+        _soldierWaves.push(newWave);
     }
 
     public function removeSoldier(value:SoldierInfo):void

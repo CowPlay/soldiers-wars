@@ -19,12 +19,10 @@ import flash.geom.Point;
 
 import models.interfaces.players.IPlayerInfo;
 
-import mx.utils.UIDUtil;
-
 import serialization.ISerializable;
 
+import soldiers.GameInfo;
 import soldiers.controllers.EControllerUpdate;
-import soldiers.models.GameInfo;
 
 public class HouseG extends DisposableObject implements ISerializable
 {
@@ -39,7 +37,6 @@ public class HouseG extends DisposableObject implements ISerializable
     //[Serializable]
     private var _level:uint;
 
-    //! Use Get\SetSoldierCount
     //[Serializable]
     private var _soldierCount:int;
     //[Serializable]
@@ -53,11 +50,13 @@ public class HouseG extends DisposableObject implements ISerializable
 
     private var _houseConfig:HouseGConfig;
 
-    private var _hash:String;
+    private var _id:String;
 
     /*
      * Properties
      */
+
+
 
     public function set controller(value:IController):void
     {
@@ -146,9 +145,34 @@ public class HouseG extends DisposableObject implements ISerializable
         return _level;
     }
 
+    public function get canLevelUpgrade():Boolean
+    {
+        var condition0:Boolean = _level < houseConfig.levelMax;
+        var condition1:Boolean = _soldierCount >= currentLevelInfo.soldiersMax / 2;
+        var condition2:Boolean = _level < GameInfo.instance.managerGame.currentLevel.housesLevelMax;
+
+        return  condition0 && condition1 && condition2;
+    }
+
+    public function levelUpgrade():void
+    {
+        _level++;
+
+        Debug.assert(_level <= _houseConfig.levelMax);
+
+        _controller.update(EControllerUpdate.ECU_HOUSE_LEVEL_CHANGED);
+
+        this.soldierCount -= this.soldierCount / 2;
+    }
+
     public function get houseConfig():HouseGConfig
     {
         return _houseConfig;
+    }
+
+    public function get soldierCountPercent():int
+    {
+        return _soldierCount / currentLevelInfo.soldiersMax * 100;
     }
 
     public function get soldierCount():int
@@ -172,9 +196,18 @@ public class HouseG extends DisposableObject implements ISerializable
     }
 
 
-    public function get hash():String
+    public function get id():String
     {
-        return _hash;
+        return _id;
+    }
+
+    /*
+     * Events
+     */
+
+    public function onGameStart():void
+    {
+
     }
 
     /*
@@ -185,7 +218,6 @@ public class HouseG extends DisposableObject implements ISerializable
     public function HouseG()
     {
         _houseConfig = GameInfo.instance.managerHousesGame.getHouseConfig(type);
-        _hash = UIDUtil.createUID();
     }
 
     /*
@@ -206,15 +238,14 @@ public class HouseG extends DisposableObject implements ISerializable
         Debug.assert(data0.hasOwnProperty("position_x"));
         Debug.assert(data0.hasOwnProperty("position_y"));
 
+        Debug.assert(data0.hasOwnProperty("id"));
+
         _ownerTypeOnStart = data0["owner"].toUpperCase();
         _level = data0["level"];
         _soldierCount = data0["soldiers"];
+        _id = data0["id"];
 
-        //TODO:remove this hack
-        var positionFromServer:Point = new Point(data0["position_x"], data0["position_y"]);
-        var positionOffset:Point = new Point(-_houseConfig.foundationSize.x / 2, -_houseConfig.foundationSize.y / 2);
-
-        _positionCurrent = positionFromServer.add(positionOffset);
+        _positionCurrent = new Point(data0["position_x"], data0["position_y"]);
 
         initPositionsExit();
     }
@@ -223,11 +254,14 @@ public class HouseG extends DisposableObject implements ISerializable
     {
         _positionsExits = [];
 
-        var left:uint = _positionCurrent.x;
-        var right:uint = _positionCurrent.x + _houseConfig.foundationSize.x;
+        var foundationWidthHalf:int = _houseConfig.foundationSize.x / 2;
+        var foundationHeightHalf:int = _houseConfig.foundationSize.y / 2;
 
-        var top:uint = _positionCurrent.y;
-        var bottom:uint = _positionCurrent.y + _houseConfig.foundationSize.y;
+        var left:uint = _positionCurrent.x - foundationWidthHalf;
+        var right:uint = _positionCurrent.x + foundationWidthHalf;
+
+        var top:uint = _positionCurrent.y - foundationHeightHalf;
+        var bottom:uint = _positionCurrent.y + foundationHeightHalf;
 
         var positionExit0:Point = new Point(left - 1, top - 1);
         _positionsExits.push(positionExit0);

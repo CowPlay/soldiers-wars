@@ -10,13 +10,13 @@ package soldiers.controllers.popups.houses.bakery
 import controllers.IController;
 import controllers.implementations.ControllerPopup;
 
-import controls.EControllerUpdateBase;
+import views.EControllerUpdateBase;
 
-import controls.IView;
+import views.IView;
 
 import flash.events.MouseEvent;
 
-import soldiers.models.GameInfo;
+import soldiers.GameInfo;
 import soldiers.models.housesVillage.bakery.HouseLevelInfoVBakery;
 import soldiers.models.housesVillage.bakery.HouseVBakery;
 import soldiers.models.housesVillage.base.EHouseTypeV;

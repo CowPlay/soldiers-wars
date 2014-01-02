@@ -13,6 +13,8 @@ import flash.utils.Dictionary;
 
 import serialization.ISerializable;
 
+import soldiers.models.housesGame.barracks.HouseGConfigBarracks;
+
 import soldiers.models.housesGame.barracks.HouseGLevelInfoBarracks;
 import soldiers.models.housesGame.base.EHouseTypeG;
 import soldiers.models.housesGame.base.HouseGConfig;
@@ -68,7 +70,7 @@ public class ManagerHousesGame extends DisposableObject implements ISerializable
 
         Debug.assert(data.hasOwnProperty("barracks"));
 
-        var houseConfigBarracks:HouseGConfig = new HouseGConfig(HouseGLevelInfoBarracks);
+        var houseConfigBarracks:HouseGConfig = new HouseGConfigBarracks(HouseGLevelInfoBarracks);
         houseConfigBarracks.deserialize(data["barracks"]);
         _housesConfigs[EHouseTypeG.EHGT_BARRACKS] = houseConfigBarracks;
     }

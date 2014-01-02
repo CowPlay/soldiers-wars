@@ -13,16 +13,17 @@ package soldiers.views.map
 {
 import controllers.IController;
 
-import controls.IView;
-import controls.implementations.ControlBase;
-
 import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
 import flash.geom.Point;
 
-import soldiers.models.GameInfo;
+import soldiers.GameInfo;
+import soldiers.views.base.ViewPlayerInfo;
 
-public class ViewMapScene extends ControlBase
+import views.IView;
+import views.implementations.ViewBase;
+
+public class ViewMapScene extends ViewBase
 {
     /*
      * Fields
@@ -31,9 +32,9 @@ public class ViewMapScene extends ControlBase
 
     private var _source:DisplayObjectContainer;
 
-    private var _viewBackground:IView;
-
     private var _viewMap:IView;
+
+    private var _viewPlayerInfo:ViewPlayerInfo;
 
     /*
      * Properties
@@ -54,18 +55,11 @@ public class ViewMapScene extends ControlBase
     {
         _items = [];
 
-        var backgroundSource:Sprite = new Sprite();
-
-        backgroundSource.graphics.beginFill(0x2A476B);
-        backgroundSource.graphics.drawRect(0, 0, 100, 100);
-        backgroundSource.graphics.endFill();
-
-        _viewBackground = new ControlBase(controller, backgroundSource);
-        _source.addChild(_viewBackground.source);
-
-
-        _viewMap = new ControlBase(controller, new gSceneMap());
+        _viewMap = new ViewBase(controller, new gSceneMap());
         _source.addChild(_viewMap.source);
+
+        _viewPlayerInfo = new ViewPlayerInfo(controller);
+        _source.addChild(_viewPlayerInfo.source);
     }
 
     override public function addSubView(view:IView):void
@@ -79,11 +73,6 @@ public class ViewMapScene extends ControlBase
         super.placeViews(isFullscreen);
 
         var applicationSize:Point = GameInfo.instance.managerApp.applicationSize;
-
-        _viewBackground.source.width = applicationSize.x;
-        _viewBackground.source..height = applicationSize.y;
-
-        _viewMap.translate(0.5, 0.5);
 
         var itemsCoords:Array =
                 [
@@ -109,21 +98,28 @@ public class ViewMapScene extends ControlBase
                     [140, 408]
                 ];
 
+//        TODO: remove
+        var offsetX:Number = 138;
+        var offsetY:Number = 189;
+
         for (var i:int = 0; i < _items.length; i++)
         {
             var subView:IView = _items[i];
 
-            subView.source.x = _viewMap.source.x + itemsCoords[i][0];
-            subView.source.y = _viewMap.source.y + itemsCoords[i][1];
+            subView.source.x = _viewMap.source.x + itemsCoords[i][0] + offsetX;
+            subView.source.y = _viewMap.source.y + itemsCoords[i][1] + offsetY;
         }
+
+        _viewPlayerInfo.source.x = 50;
+        _viewPlayerInfo.source.y = 50;
     }
 
     public override function cleanup():void
     {
         _source = null;
 
-        _viewBackground.cleanup();
-        _viewBackground = null;
+        _viewPlayerInfo.cleanup();
+        _viewPlayerInfo = null;
 
         _viewMap.cleanup();
         _viewMap = null;

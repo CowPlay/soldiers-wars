@@ -7,8 +7,6 @@
  */
 package soldiers.models.housesGame.barracks
 {
-import controls.EControllerUpdateBase;
-
 import flash.events.Event;
 import flash.events.TimerEvent;
 import flash.utils.Timer;
@@ -22,7 +20,8 @@ import utils.memory.UtilsMemory;
 public class HouseGBarracks extends HouseG
 {
 
-    private var _timerSoldierGenerator:Timer;
+    private var _soldiersGenerationSpeed:Number;
+    private var _timerSoldiers:Timer;
 
 
     /*
@@ -32,6 +31,26 @@ public class HouseGBarracks extends HouseG
     public override function get type():String
     {
         return EHouseTypeG.EHGT_BARRACKS;
+    }
+
+    public override function levelUpgrade():void
+    {
+        super.levelUpgrade();
+
+        cleanupTimerSoldiers();
+        createTimerSoldiers();
+    }
+
+    /*
+     * Events
+     */
+
+
+    override public function onGameStart():void
+    {
+        super.onGameStart();
+
+        createTimerSoldiers();
     }
 
     /*
@@ -44,13 +63,23 @@ public class HouseGBarracks extends HouseG
     {
         super();
 
-        //TODO: move time to config
-        _timerSoldierGenerator = new Timer(1000);
-        UtilsMemory.registerEventListener(_timerSoldierGenerator, TimerEvent.TIMER, this, incrementSoldierCount);
-//        _timerSoldierGenerator.start();
+        var houseConfig:HouseGConfigBarracks = houseConfig as HouseGConfigBarracks;
+
+        _soldiersGenerationSpeed = houseConfig.soldiersGenerationSpeed;
     }
 
-    public function incrementSoldierCount(e:Event):void
+    private function createTimerSoldiers():void
+    {
+        Debug.assert(_timerSoldiers == null);
+
+        var time:Number = 1 / Math.pow(_soldiersGenerationSpeed, (level - 1));
+
+        _timerSoldiers = new Timer(time * 1000);
+        UtilsMemory.registerEventListener(_timerSoldiers, TimerEvent.TIMER, this, incrementSoldierCount);
+        _timerSoldiers.start();
+    }
+
+    private function incrementSoldierCount(e:Event):void
     {
         if (owner != null)
         {
@@ -77,6 +106,17 @@ public class HouseGBarracks extends HouseG
     public override function deserialize(data:Object):void
     {
         super.deserialize(data);
+
+    }
+
+    private function cleanupTimerSoldiers():void
+    {
+        if (_timerSoldiers != null)
+        {
+            _timerSoldiers.stop();
+            UtilsMemory.unregisterEventListener(_timerSoldiers, TimerEvent.TIMER, this, incrementSoldierCount);
+            _timerSoldiers = null;
+        }
     }
 
     /*
@@ -85,9 +125,7 @@ public class HouseGBarracks extends HouseG
 
     public override function cleanup():void
     {
-        _timerSoldierGenerator.stop();
-        UtilsMemory.unregisterEventListener(_timerSoldierGenerator, TimerEvent.TIMER, this, incrementSoldierCount);
-        _timerSoldierGenerator = null;
+        cleanupTimerSoldiers();
 
         super.cleanup();
     }

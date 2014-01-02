@@ -7,10 +7,10 @@
  */
 package soldiers.popups.merlinTower
 {
-import controls.IView;
-import controls.implementations.ControlBase;
+import views.IView;
+import views.implementations.ViewBase;
 
-public class SkillView extends ControlBase
+public class SkillView extends ViewBase
 {
     /*
      *Fields

@@ -14,17 +14,9 @@ public class HouseGLevelInfoBarracks extends HouseGLevelInfo
     /*
      * Fields
      */
-    private var _soldierGeneration:uint;
-
     /*
      * Properties
      */
-
-
-    public function get soldierGeneration():uint
-    {
-        return _soldierGeneration;
-    }
 
     /*
      * Methods
@@ -48,10 +40,6 @@ public class HouseGLevelInfoBarracks extends HouseGLevelInfo
     public override function deserialize(data:Object):void
     {
         super.deserialize(data);
-
-        Debug.assert(data.hasOwnProperty("soldiers_generation"));
-
-        _soldierGeneration = data["soldiers_generation"];
     }
 }
 }

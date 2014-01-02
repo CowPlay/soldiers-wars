@@ -9,7 +9,7 @@ package soldiers.controllers.village.ui
 {
 import controllers.implementations.Controller;
 
-import controls.IView;
+import views.IView;
 
 import soldiers.views.village.ui.ViewAddFriend;
 

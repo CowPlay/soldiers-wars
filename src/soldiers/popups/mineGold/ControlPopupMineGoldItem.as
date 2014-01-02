@@ -7,20 +7,20 @@
  */
 package soldiers.popups.mineGold
 {
-import controls.EControllerUpdateBase;
-import controls.IView;
-import controls.IViewButton;
-import controls.implementations.ControlBase;
+import views.EControllerUpdateBase;
+import views.IView;
+import views.IViewButton;
+import views.implementations.ViewBase;
 import controls.implementations.buttons.ViewButtonLabeled;
 
 import flash.events.MouseEvent;
 
-import soldiers.models.GameInfo;
+import soldiers.GameInfo;
 import soldiers.models.housesVillage.base.EHouseTypeV;
 import soldiers.models.housesVillage.mineGold.HouseLevelInfoVMineGold;
 import soldiers.models.housesVillage.mineGold.HouseVMineGold;
 
-public class ControlPopupMineGoldItem extends ControlBase
+public class ControlPopupMineGoldItem extends ViewBase
 {
     /*
      *Fields

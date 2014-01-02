@@ -11,7 +11,7 @@ import com.greensock.TweenLite;
 
 import controllers.implementations.ControllerPopup;
 
-import controls.IView;
+import views.IView;
 
 import flash.events.MouseEvent;
 

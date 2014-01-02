@@ -10,11 +10,11 @@ package soldiers.controllers.game.houses
 import controllers.IController;
 import controllers.implementations.Controller;
 
-import controls.IView;
+import views.IView;
 
 import flash.events.MouseEvent;
 
-import soldiers.models.GameInfo;
+import soldiers.GameInfo;
 import soldiers.models.housesGame.base.EHouseTypeG;
 import soldiers.models.housesGame.base.HouseG;
 import soldiers.views.game.houses.ViewHousesGContainer;
@@ -38,11 +38,10 @@ public class ControllerHousesGContainer extends Controller
      */
 
     //! Default constructor
-    public function ControllerHousesGContainer()
+    public function ControllerHousesGContainer(view:ViewHousesGContainer)
     {
-        _view = new ViewHousesGContainer(this);
+        _view = view;
         super(_view);
-
 
         init();
     }
@@ -81,18 +80,6 @@ public class ControllerHousesGContainer extends Controller
             entry.controller = controllerHouse;
             _houses.push(controllerHouse);
         }
-    }
-
-    public override function onViewMouseUpOut(view:IView, e:MouseEvent):Boolean
-    {
-        var result:Boolean = super.onViewMouseUpOut(view, e);
-
-        if (!result)
-        {
-            GameInfo.instance.managerGame.clearHousesSelection(GameInfo.instance.managerGame.gameOwner);
-        }
-
-        return result;
     }
 
     public override function cleanup():void

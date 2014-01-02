@@ -7,7 +7,7 @@
  */
 package soldiers.views.village.housesV
 {
-import controls.IView;
+import views.IView;
 
 import flash.display.DisplayObjectContainer;
 

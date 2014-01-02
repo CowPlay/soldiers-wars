@@ -16,7 +16,7 @@ import controllers.implementations.Controller;
 import models.interfaces.levels.ILevelContainer;
 import models.interfaces.levels.ILevelInfo;
 
-import soldiers.models.GameInfo;
+import soldiers.GameInfo;
 import soldiers.views.map.ViewMapScene;
 
 public class ControllerMapScene extends Controller
@@ -53,11 +53,14 @@ public class ControllerMapScene extends Controller
 
         var containers:Array = GameInfo.instance.managerLevels.items;
 
+
         for each(var levelContainer:ILevelContainer in containers)
         {
+            var currentLevel:ILevelInfo = levelContainer.firstIncompleteLevel;
+
             for each(var level:ILevelInfo in levelContainer.items)
             {
-                var controllerMapItem:ControllerFlagItem = new ControllerFlagItem(level);
+                var controllerMapItem:ControllerFlag = new ControllerFlag(level, currentLevel == level);
 
                 _view.addSubView(controllerMapItem.view);
                 _items.push(controllerMapItem)
@@ -68,7 +71,7 @@ public class ControllerMapScene extends Controller
 
     public override function cleanup():void
     {
-        for each(var item:ControllerFlagItem in _items)
+        for each(var item:ControllerFlag in _items)
         {
             item.cleanup();
             item = null;

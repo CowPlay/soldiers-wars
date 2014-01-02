@@ -7,18 +7,13 @@
  */
 package soldiers.views.popups.houses.bakery
 {
-import com.greensock.TweenLite;
-import com.greensock.TweenMax;
-
 import controllers.IControllerPopup;
 
-import controls.IView;
-import controls.IViewButton;
-import controls.implementations.ViewPopup;
-import controls.implementations.buttons.ViewButton;
-import controls.implementations.buttons.ViewButtonLabeled;
+import flash.display.Sprite;
 
-import flash.geom.Point;
+import views.IView;
+import views.IViewButton;
+import views.implementations.ViewPopup;
 
 public class ViewPopupBakery extends ViewPopup
 {
@@ -29,7 +24,9 @@ public class ViewPopupBakery extends ViewPopup
 
     private var _items:Array;
 
-    private var _sourceView:gPopupBakery;
+    private var _sourceView:Sprite;
+
+//    private var _sourceView:gPopupBakery;
 
     private var _buttonImprove:IViewButton;
     private var _buttonLeft:IViewButton;
@@ -60,7 +57,7 @@ public class ViewPopupBakery extends ViewPopup
      */
     public function ViewPopupBakery(controller:IControllerPopup)
     {
-        _sourceView = new gPopupBakery();
+//        _sourceView = new gPopupBakery();
         super(controller, _sourceView);
 
         init();
@@ -70,66 +67,66 @@ public class ViewPopupBakery extends ViewPopup
     {
         _items = [];
 
-        var buttonClose:IView = new ViewButton(controller, _sourceView.buttonClose);
-        setButtonClose(buttonClose);
-
-        _buttonImprove = new ViewButtonLabeled(controller, _sourceView.buttonImprove);
-        _buttonLeft = new ViewButton(controller, _sourceView.buttonLeft);
-        _buttonRight = new ViewButton(controller, _sourceView.buttonRight);
+//        var buttonClose:IView = new ViewButton(controller, _sourceView.buttonClose);
+//        setButtonClose(buttonClose);
+//
+//        _buttonImprove = new ViewButtonLabeled(controller, _sourceView.buttonImprove);
+//        _buttonLeft = new ViewButton(controller, _sourceView.buttonLeft);
+//        _buttonRight = new ViewButton(controller, _sourceView.buttonRight);
     }
 
     override public function addSubView(view:IView):void
     {
-        _sourceView.itemsView.placeholder.addChild(view.source);
-        _items.push(view);
+//        _sourceView.itemsView.placeholder.addChild(view.source);
+//        _items.push(view);
     }
 
     public override function placeViews(isFullscreen:Boolean):void
     {
-        super.placeViews(isFullscreen);
-
-        var itemStandard:IView = _items[0];
-
-        var startPosition:Point = new Point(_sourceView.itemsView.width / 2 - itemStandard.source.width / 2,
-                _sourceView.itemsView.height / 2 - itemStandard.source.height / 2);
-
-        for each(var item:IView in _items)
-        {
-            item.placeViews(isFullscreen);
-
-            item.source.x = startPosition.x;
-            item.source.y = startPosition.y;
-
-            startPosition.x += item.source.width + 20;
-        }
+//        super.placeViews(isFullscreen);
+//
+//        var itemStandard:IView = _items[0];
+//
+//        var startPosition:Point = new Point(_sourceView.itemsView.width / 2 - itemStandard.source.width / 2,
+//                _sourceView.itemsView.height / 2 - itemStandard.source.height / 2);
+//
+//        for each(var item:IView in _items)
+//        {
+//            item.placeViews(isFullscreen);
+//
+//            item.source.x = startPosition.x;
+//            item.source.y = startPosition.y;
+//
+//            startPosition.x += item.source.width + 20;
+//        }
     }
 
 
     public function scrollLeft(onComplete:Function, count:uint = 1):void
     {
-        var itemStandard:IView = _items[0];
-
-        var params:Object =
-        {
-            x: _sourceView.itemsView.placeholder.x + (itemStandard.source.width + 20) * count,
-            onComplete: onComplete
-        };
-
-        TweenMax.to(_sourceView.itemsView.placeholder, 2, params);
+//        var itemStandard:IView = _items[0];
+//
+//        var params:Object =
+//        {
+//            x: _sourceView.itemsView.placeholder.x + (itemStandard.source.width + 20) * count,
+//            onComplete: onComplete
+//        };
+//
+//        TweenMax.to(_sourceView.itemsView.placeholder, 2, params);
     }
 
 
     public function scrollRight(onComplete:Function, count:uint = 1):void
     {
-        var itemStandard:IView = _items[0];
-
-        var params:Object =
-        {
-            x: _sourceView.itemsView.placeholder.x - (itemStandard.source.width + 20) * count,
-            onComplete: onComplete
-        };
-
-        TweenMax.to(_sourceView.itemsView.placeholder, 2, params);
+//        var itemStandard:IView = _items[0];
+//
+//        var params:Object =
+//        {
+//            x: _sourceView.itemsView.placeholder.x - (itemStandard.source.width + 20) * count,
+//            onComplete: onComplete
+//        };
+//
+//        TweenMax.to(_sourceView.itemsView.placeholder, 2, params);
     }
 
 

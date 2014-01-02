@@ -13,20 +13,47 @@ package soldiers.views.game.houses
 {
 import controllers.IController;
 
-import controls.implementations.ControlBase;
-
 import flash.display.DisplayObject;
 import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
+import flash.geom.Point;
 import flash.text.TextField;
 
-import soldiers.models.GameInfo;
+import soldiers.GameInfo;
 import soldiers.models.game.managerPath.GridCell;
 import soldiers.models.housesGame.base.EHouseTypeG;
 import soldiers.models.housesGame.base.HouseG;
 
-public class ViewHouseG extends ControlBase
+import views.IView;
+import views.implementations.ViewBase;
+
+public class ViewHouseG extends ViewBase
 {
+    /*
+     * Static methods
+     */
+
+    private static function getHouseClass(type:String):Class
+    {
+        var result:Class = null;
+
+        switch (type)
+        {
+            case EHouseTypeG.EHGT_BARRACKS:
+            {
+                result = gHouseBarracks;
+
+                break;
+            }
+            default :
+            {
+                break;
+            }
+        }
+
+        return result;
+    }
+
     /*
      * Fields
      */
@@ -39,14 +66,22 @@ public class ViewHouseG extends ControlBase
 
     private var _labelSoldiers:TextField;
 
-    private var _entry:HouseG;
+    private var _houseCurrentPosition:Point;
 
-    private var _viewAuraEnemy:DisplayObject;
-    private var _viewAuraPlayer:DisplayObject;
+    private var _viewAuraEnemy:DisplayObjectContainer;
+    private var _viewAuraPlayer:DisplayObjectContainer;
+
+    private var _viewIconLevelUp:IView;
 
     /*
      * Properties
      */
+
+
+    public function get viewIconLevelUp():IView
+    {
+        return _viewIconLevelUp;
+    }
 
     public function get labelSoldiers():TextField
     {
@@ -85,46 +120,44 @@ public class ViewHouseG extends ControlBase
         super(controller, _sourceView);
 
         Debug.assert(entry != null);
-        _entry = entry;
+        _houseCurrentPosition = entry.positionCurrent;
 
         init();
+
+        initHouseView(entry.type);
     }
+
 
     private function init():void
     {
         //click move upOver upOut down over  out
         handleEvents(true, false, true, true, true, true, true);
 
-        initHouseView();
-
         _viewAuraEnemy = new gAuraEnemy();
         _viewAuraEnemy.visible = false;
+
+        _viewAuraEnemy.mouseEnabled = false;
+        _viewAuraEnemy.mouseChildren = false;
+
         _sourceView.addChild(_viewAuraEnemy);
 
         _viewAuraPlayer = new gAuraPlayer();
         _viewAuraPlayer.visible = false;
+
+        _viewAuraPlayer.mouseEnabled = false;
+        _viewAuraPlayer.mouseChildren = false;
+
         _sourceView.addChild(_viewAuraPlayer);
+
+        _viewIconLevelUp = new ViewBase(controller, new gIconLevelUp());
+        _sourceView.addChild(_viewIconLevelUp.source);
+        _viewIconLevelUp.handleEvents(true);
     }
 
-    private function initHouseView():void
+    private function initHouseView(type:String):void
     {
-        var resultClass:Class = null;
-
-        switch (_entry.type)
-        {
-            case EHouseTypeG.EHGT_BARRACKS:
-            {
-                resultClass = gHouseBarracks;
-
-                break;
-            }
-            default :
-            {
-                break;
-            }
-        }
-
-        _houseView = new resultClass();
+        var sourceClass:Class = getHouseClass(type);
+        _houseView = new sourceClass();
 
         Debug.assert(_houseView.hasOwnProperty("viewPlayer"));
         Debug.assert(_houseView.hasOwnProperty("viewEnemy"));
@@ -141,16 +174,17 @@ public class ViewHouseG extends ControlBase
         _sourceView.addChild(_houseView);
     }
 
-    public function setLevel(value:uint):void
+
+    public function setLevel(value:uint, levelMax:uint):void
     {
-        for (var level:int = 1; level <= _entry.houseConfig.levelMax; level++)
+        for (var level:int = 1; level <= levelMax; level++)
         {
             var propertyName:String = "level_" + level.toString();
             Debug.assert(_houseViewEnemy.hasOwnProperty(propertyName), "Not found soldier view: " + propertyName);
             Debug.assert(_houseViewPlayer.hasOwnProperty(propertyName), "Not found soldier view: " + propertyName);
 
-            _houseViewEnemy[propertyName].visible = level == _entry.level;
-            _houseViewPlayer[propertyName].visible = level == _entry.level;
+            _houseViewEnemy[propertyName].visible = level == value;
+            _houseViewPlayer[propertyName].visible = level == value;
         }
     }
 
@@ -158,16 +192,20 @@ public class ViewHouseG extends ControlBase
     {
         super.placeViews(fullscreen);
 
-        var cellEntry:GridCell = GameInfo.instance.managerGame.managerPath.getCell(_entry.positionCurrent);
+        var cellEntry:GridCell = GameInfo.instance.managerGame.managerPath.getCell(_houseCurrentPosition);
         _sourceView.x = cellEntry.view.source.x;
         _sourceView.y = cellEntry.view.source.y;
 
-        var offsetX:Number = _houseView.width / 2;
+        _viewIconLevelUp.source.x = -100;
+        _viewIconLevelUp.source.y = -100;
+    }
 
-        _viewAuraEnemy.x = _viewAuraPlayer.x = offsetX;
+    public override function cleanup():void
+    {
+        _viewIconLevelUp.cleanup();
+        _viewIconLevelUp = null;
 
-        _houseView.x = offsetX
-
+        super.cleanup();
     }
 
 }

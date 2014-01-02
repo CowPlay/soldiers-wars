@@ -13,9 +13,9 @@ package soldiers.views.map
 {
 import controllers.IController;
 
-import controls.implementations.ControlBase;
+import views.implementations.ViewBase;
 
-public class ViewStar extends ControlBase
+public class ViewStar extends ViewBase
 {
     /*
      * Fields

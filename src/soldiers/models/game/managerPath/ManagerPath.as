@@ -5,9 +5,12 @@ import core.DisposableObject;
 import flash.geom.Point;
 import flash.utils.Dictionary;
 
-import soldiers.models.GameInfo;
-import soldiers.models.housesGame.base.EHouseOwner;
+import soldiers.Constants;
+import soldiers.GameInfo;
+import soldiers.models.game.soldiers.ESoldierRotation;
 import soldiers.models.housesGame.base.HouseG;
+
+import utils.UtilsArray;
 
 //! Class which contains info about level grid and provide find path functionally
 public class ManagerPath extends DisposableObject
@@ -18,8 +21,64 @@ public class ManagerPath extends DisposableObject
 
     private static function getPathHash(from:HouseG, to:HouseG):String
     {
-        return  from.hash + "#" + to.hash;
+        return  from.id + "#" + to.id;
     }
+
+    //! returns optimized path(without redundant nodes)
+    private static function getOptimizePath(path:Array):Array
+    {
+        var result:Array = [];
+
+        result.push(path[0]);
+
+        var prevRotation:int = ESoldierRotation.getRotation(path[0], path[1]);
+
+        for (var i:uint = 1; i < path.length - 2; i++)
+        {
+            var cellCurrent:GridCell = path[i];
+            var cellNext:GridCell = path[i + 1];
+
+            var currentRotation:int = ESoldierRotation.getRotation(cellCurrent, cellNext);
+
+            if (currentRotation != prevRotation)
+            {
+                result.push(cellNext);
+                prevRotation = currentRotation;
+            }
+        }
+
+        result.push(path[path.length - 1]);
+
+        //TODO: implement
+//        if (result.length > 2)
+//        {
+//            var redundantCellsIndexes:Array = [];
+//
+//            var needRemoveCell:Boolean = false;
+//
+//            //start from first. Without end cell
+//            for (var cellIndex:int = 0; cellIndex < result.length - 1; cellIndex++)
+//            {
+//                if (needRemoveCell)
+//                {
+//                    redundantCellsIndexes.push(cellIndex);
+//                }
+//
+//                needRemoveCell = !needRemoveCell;
+//            }
+//
+//            //index of index - very funny :D
+//            for (var indexOfIndex:int = redundantCellsIndexes.length - 1; indexOfIndex >= 0; indexOfIndex--)
+//            {
+//                var reduntantCellIndex:int = redundantCellsIndexes[indexOfIndex];
+//
+//                UtilsArray.removeValue(result, result[reduntantCellIndex])
+//            }
+//        }
+
+        return result;
+    }
+
 
     /*
      * Fields
@@ -136,7 +195,7 @@ public class ManagerPath extends DisposableObject
                     var pathHashReversed:String = getPathHash(houseTo, houseFrom);
                     _pathsCache[pathHashReversed] = newPathInfoReversed;
 
-                    for (var i:int = 0; i < 1; i++)
+                    for (var i:int = 0; i < Constants.PATH_COUNT; i++)
                     {
                         var newPath:Array = getPath(nodeFrom, nodeTo);
                         addPathToCache(houseFrom, houseTo, newPath);
@@ -159,12 +218,6 @@ public class ManagerPath extends DisposableObject
                         {
                             cellPath.traversable = true;
                         }
-                    }
-
-                    //TODO:remove this hack
-                    {//remove 2,4 path
-//                        newPathInfo.removePath();
-//                        newPathInfoReversed.removePath();
                     }
                 }
             }
@@ -207,6 +260,29 @@ public class ManagerPath extends DisposableObject
 
         return  pathInfo.savedPaths;
 
+    }
+
+    public function getMinPathDistance(from:HouseG, to:HouseG):int
+    {
+        var result:int = 0;
+
+        if (from != to)
+        {
+            var paths:Array = getPaths(from, to);
+            //first path is shortest
+
+            var shortestPath:Array = paths[0];
+
+            for (var i:uint = 1; i < shortestPath.length; i++)
+            {
+                var cellPrev:GridCell = shortestPath[i - 1];
+                var cellCurrent:GridCell = shortestPath[i];
+
+                result += cellPrev.getDistanceTo(cellCurrent);
+            }
+        }
+
+        return result;
     }
 
     private function getPath(nodeFrom:GridCell, nodeTo:GridCell):Array
@@ -280,8 +356,12 @@ public class ManagerPath extends DisposableObject
 
         Debug.assert(result.length > 0, "Path not found");
 
+//        TODO: implement
+//        result = getOptimizePath(result);
+
         return result;
     }
+
 
     private function findConnectedNodes(node:GridCell):Array
     {
@@ -301,7 +381,6 @@ public class ManagerPath extends DisposableObject
             {
                 var connectedNode:GridCell = row[column];
 
-                //TODO: test it
                 if (connectedNode == node)
                 {
                     continue;
@@ -358,44 +437,6 @@ public class ManagerPath extends DisposableObject
 
         result = rowEntry[position.x] as GridCell;
 
-        return result;
-    }
-
-
-    //! Returns nearest house with specify type. If type = null, returns house with any type
-    public function getNearestHouse(target:HouseG, type:EHouseOwner = null):HouseG
-    {
-        Debug.assert(false);
-        var result:HouseG = null;
-//
-//        var minPath:Array = null;
-//
-//        for each (var house:HouseBase in _currentLevel.houses)
-//        {
-//            if (house == target)
-//            {
-//                continue;
-//            }
-//
-//            if (type != null && house.ownerType != type)
-//            {
-//                continue;
-//            }
-//
-//            var path:Array = getPath(target.houseExitPosition, house.houseExitPosition);
-//
-//            if (minPath == null)
-//            {
-//                minPath = path;
-//                result = house;
-//            }
-//            else
-//            {
-//                minPath = path.length < minPath.length ? path : minPath;
-//                result = house;
-//            }
-//        }
-//
         return result;
     }
 

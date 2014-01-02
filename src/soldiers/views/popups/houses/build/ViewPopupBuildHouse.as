@@ -9,17 +9,21 @@ package soldiers.views.popups.houses.build
 {
 import controllers.IControllerPopup;
 
-import controls.IView;
-import controls.IViewButton;
-import controls.implementations.ViewPopup;
-import controls.implementations.buttons.ViewButton;
+import views.IView;
+import views.IViewButton;
+import views.implementations.ViewPopup;
+
+import flash.display.Sprite;
 
 public class ViewPopupBuildHouse extends ViewPopup
 {
     /*
      * Fields
      */
-    private var _sourceView:gPopupBuildHouse;
+    private var _sourceView:Sprite;
+
+//    TODO: implement
+//    private var _sourceView:gPopupBuildHouse;
 
     private var _buttonBuild:IViewButton;
 
@@ -37,7 +41,7 @@ public class ViewPopupBuildHouse extends ViewPopup
      */
     public function ViewPopupBuildHouse(controller:IControllerPopup)
     {
-        _sourceView = new gPopupBuildHouse();
+//        _sourceView = new gPopupBuildHouse();
         super(controller, _sourceView);
 
         init();
@@ -45,10 +49,10 @@ public class ViewPopupBuildHouse extends ViewPopup
 
     private function init():void
     {
-        var buttonClose:IView = new ViewButton(controller, _sourceView.buttonClose);
-        setButtonClose(buttonClose);
+//        var buttonClose:IView = new ViewButton(controller, _sourceView.buttonClose);
+//        setButtonClose(buttonClose);
 
-        _buttonBuild = new ViewButton(controller, _sourceView.buttonBuild);
+//        _buttonBuild = new ViewButton(controller, _sourceView.buttonBuild);
     }
 
     public override function cleanup():void

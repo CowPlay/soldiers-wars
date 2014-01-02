@@ -9,7 +9,7 @@ package soldiers.states.village
 {
 import controllers.IController;
 
-import controls.IView;
+import views.IView;
 
 import flashx.textLayout.factory.StringTextLineFactory;
 

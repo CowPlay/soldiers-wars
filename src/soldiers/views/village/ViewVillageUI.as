@@ -9,18 +9,17 @@ package soldiers.views.village
 {
 import controllers.IController;
 
-import controls.EViewAlignment;
+import views.EViewPosition;
 
-import controls.IView;
-import controls.IViewButton;
-import controls.implementations.ControlBase;
-import controls.implementations.buttons.ViewButton;
+import views.IView;
+import views.IViewButton;
+import views.implementations.ViewBase;
 
 import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
 import flash.geom.Point;
 
-public class ViewVillageUI extends ControlBase
+public class ViewVillageUI extends ViewBase
 {
     /*
      * Fields
@@ -63,10 +62,11 @@ public class ViewVillageUI extends ControlBase
 
     private function init():void
     {
-        var sourceSingleplayer:gViewSinglePlayer = new gViewSinglePlayer();
-        _buttonSingleplayer = new ViewButton(controller, sourceSingleplayer.buttonSinglePlayer);
+//        TODO: implement
+//        var sourceSingleplayer:gViewSinglePlayer = new gViewSinglePlayer();
+//        _buttonSingleplayer = new ViewButton(controller, sourceSingleplayer.buttonSinglePlayer);
 
-        _viewSingleplayer = new ControlBase(controller, sourceSingleplayer);
+//        _viewSingleplayer = new ControlBase(controller, sourceSingleplayer);
 
         _sourceView.addChild(_viewSingleplayer.source);
 
@@ -110,7 +110,7 @@ public class ViewVillageUI extends ControlBase
     public override function placeViews(isFullscreen:Boolean):void
     {
         _viewSingleplayer.anchorPoint = new Point(0.5, 1);
-        _viewSingleplayer.alignment = EViewAlignment.EVA_ABSOLUTE;
+        _viewSingleplayer.position = EViewPosition.EVP_ABSOLUTE;
         _viewSingleplayer.translate(0.66, 1);
 
 

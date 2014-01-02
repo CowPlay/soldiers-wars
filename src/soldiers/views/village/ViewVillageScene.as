@@ -9,20 +9,23 @@ package soldiers.views.village
 {
 import controllers.IController;
 
-import controls.IViewScroll;
-import controls.implementations.ControlBase;
-import controls.implementations.ViewScroll;
+import views.IViewScroll;
+import views.implementations.ViewBase;
+import views.implementations.ViewScroll;
 
 import flash.display.DisplayObject;
+import flash.display.Sprite;
 
-import soldiers.models.GameInfo;
+import soldiers.GameInfo;
 
-public class ViewVillageScene extends ControlBase
+public class ViewVillageScene extends ViewBase
 {
     /*
      * Fields
      */
-    private var _sourceView:gSceneVillage;
+    //TODO: impleemnt
+//    private var _sourceView:gSceneVillage;
+    private var _sourceView:Sprite;
 
     private var _controlScroll:IViewScroll;
 
@@ -43,7 +46,7 @@ public class ViewVillageScene extends ControlBase
     //! Default constructor
     public function ViewVillageScene(controller:IController)
     {
-        _sourceView = new gSceneVillage();
+//        _sourceView = new gSceneVillage();
         super(controller, _sourceView);
 
         init();
@@ -58,7 +61,7 @@ public class ViewVillageScene extends ControlBase
     {
         super.placeViews(isFullscreen);
 
-        _controlScroll.controlSize = GameInfo.instance.managerApp.applicationSize;
+        _controlScroll.size = GameInfo.instance.managerApp.applicationSize;
     }
 
     public override function cleanup():void

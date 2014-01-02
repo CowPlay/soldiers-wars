@@ -13,10 +13,10 @@ package soldiers.popups.mineGold
 {
 import com.greensock.TweenLite;
 
-import controls.EControllerUpdateBase;
-import controls.IView;
-import controls.IViewButton;
-import controls.implementations.ViewPopup;
+import views.EControllerUpdateBase;
+import views.IView;
+import views.IViewButton;
+import views.implementations.ViewPopup;
 import controls.implementations.buttons.ViewButton;
 import controls.implementations.buttons.ViewButtonLabeled;
 
@@ -25,7 +25,7 @@ import flash.geom.Point;
 
 import models.interfaces.states.IState;
 
-import soldiers.models.GameInfo;
+import soldiers.GameInfo;
 import soldiers.models.housesVillage.base.EHouseTypeV;
 import soldiers.models.housesVillage.mineGold.HouseLevelInfoVMineGold;
 import soldiers.models.housesVillage.mineGold.HouseVMineGold;

@@ -8,11 +8,11 @@
 package soldiers.views.base
 {
 import controls.IState;
-import controls.implementations.ControlBase;
+import views.implementations.ViewBase;
 
 import flash.events.MouseEvent;
 
-public class ControlOptions extends ControlBase
+public class ControlOptions extends ViewBase
 {
     /*
      * Fields

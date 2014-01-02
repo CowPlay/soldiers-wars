@@ -11,7 +11,11 @@ import bwf.models.proxy.IManagerProxy;
 
 import models.interfaces.social.IManagerSocial;
 
-import soldiers.models.housesGame.base.EHouseTypeG;
+import soldiers.models.proxy.level0.ProxyLevel0;
+import soldiers.models.proxy.level1.ProxyLevel1;
+import soldiers.models.proxy.level2.ProxyLevel2;
+import soldiers.models.proxy.level3.ProxyLevel3;
+import soldiers.models.proxy.level4.ProxyLevel4;
 
 public class ManagerProxy implements IManagerProxy
 {
@@ -65,56 +69,6 @@ public class ManagerProxy implements IManagerProxy
 
     public function getLevelsData(data:Object):Object
     {
-        var houseData0:Object =
-        {
-            type : EHouseTypeG.EHGT_BARRACKS,
-            owner: "eho_player",
-            level: 1,
-
-            position_x: 20,
-            position_y: 35,
-
-            soldiers: 100
-        };
-
-        var houseData1:Object =
-        {
-            type : EHouseTypeG.EHGT_BARRACKS,
-            owner: "eho_player",
-            level: 1,
-
-            position_x: 50,
-            position_y: 20,
-
-            soldiers: 2
-        };
-
-        var houseData2:Object =
-        {
-            type : EHouseTypeG.EHGT_BARRACKS,
-            owner: "eho_enemy",
-            level: 1,
-
-            position_x: 70,
-            position_y: 50,
-
-            soldiers: 2
-        };
-
-        var level0Data:Object =
-        {
-            id                  : "0",
-            name                : "",
-            description         : "",
-            number              : 0,
-            complete            : false,
-            reward_currency_soft: 0,
-            reward_points       : 0,
-            grid_width          : 100,
-            grid_height         : 100,
-
-            houses: [houseData0, houseData1, houseData2]
-        };
 
         var levelContainer:Object =
         {
@@ -123,7 +77,7 @@ public class ManagerProxy implements IManagerProxy
             name        : "name",
             description : "",
             requirements: [],
-            levels      : [level0Data, level0Data, level0Data, level0Data, level0Data]
+            levels      : [ProxyLevel0.getLevelData0(), ProxyLevel1.getLevelData1(), ProxyLevel2.getLevelData2(), ProxyLevel3.getLevelData3(), ProxyLevel4.getLevelData4()]
         };
 
         var result:Object =
@@ -136,50 +90,7 @@ public class ManagerProxy implements IManagerProxy
         return result;
     }
 
-    public function getHousesGame(dataObj:Object):Object
-    {
-        var result:Object =
-        {
-            barracks: getBarracksData()
-        };
 
-        return result;
-    }
-
-    private static function getBarracksData():Object
-    {
-        var housesData:Array = [];
-
-        var barracksLevel1:Object =
-        {
-            level: 1,
-
-            soldiers_max       : 200,
-            soldiers_generation: 1
-        };
-
-        housesData.push(barracksLevel1);
-
-        var barracksLevel2:Object =
-        {
-            level: 2,
-
-            soldiers_max       : 20,
-            soldiers_generation: 2
-        };
-
-        housesData.push(barracksLevel2);
-
-        var result:Object =
-        {
-            foundation_width : 20,
-            foundation_height: 20,
-            levels_info      : housesData,
-            level_max        : 5
-        };
-
-        return result;
-    }
 
     public function getHousesVillage(dataObj:Object):Object
     {

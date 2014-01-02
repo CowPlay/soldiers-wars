@@ -11,24 +11,23 @@
  */
 package soldiers.views.popups.houses.tavern
 {
-import com.greensock.TweenLite;
-
 import controllers.IControllerPopup;
 
-import controls.IView;
-import controls.IViewButton;
-import controls.implementations.ViewPopup;
-import controls.implementations.buttons.ViewButton;
+import flash.display.Sprite;
 
-import flash.events.MouseEvent;
-import flash.geom.Point;
+import views.IView;
+import views.IViewButton;
+import views.implementations.ViewPopup;
 
 public class ViewPopupTavern extends ViewPopup
 {
     /*
      * Fields
      */
-    private var _sourceView:gPopupTavern;
+
+    private var _sourceView:Sprite;
+//TODO: implement
+//    private var _sourceView:gPopupTavern;
 
     private var _buttonTabMilitaryAcademy:IViewButton;
     private var _buttonTabMerlin:IViewButton;
@@ -39,7 +38,6 @@ public class ViewPopupTavern extends ViewPopup
     private var _buttonRight:IViewButton;
 
     private var _items:Array;
-
 
 
     /*
@@ -82,7 +80,7 @@ public class ViewPopupTavern extends ViewPopup
      */
     public function ViewPopupTavern(controller:IControllerPopup)
     {
-        _sourceView = new gPopupTavern();
+//        _sourceView = new gPopupTavern();
         super(controller, _sourceView);
 
         init();
@@ -90,58 +88,54 @@ public class ViewPopupTavern extends ViewPopup
 
     private function init():void
     {
-        var buttonClose:IView = new ViewButton(controller, _sourceView.buttonClose);
-        setButtonClose(buttonClose);
+//        var buttonClose:IView = new ViewButton(controller, _sourceView.buttonClose);
+//        setButtonClose(buttonClose);
 
 
-        _buttonTabMilitaryAcademy = new ViewButton(controller, _sourceView.buttonTabMilitaryAcademy);
-        _buttonTabMerlin = new ViewButton(controller, _sourceView.buttonTabMerlin);
-        _buttonTabUniversityMM = new ViewButton(controller, _sourceView.buttonTabUniversityMM);
+//        _buttonTabMilitaryAcademy = new ViewButton(controller, _sourceView.buttonTabMilitaryAcademy);
+//        _buttonTabMerlin = new ViewButton(controller, _sourceView.buttonTabMerlin);
+//        _buttonTabUniversityMM = new ViewButton(controller, _sourceView.buttonTabUniversityMM);
+//
+//        _buttonLeft = new ViewButton(controller, _sourceView.buttonLeft);
+//        _buttonRight = new ViewButton(controller, _sourceView.buttonRight);
+//
+//        _buttonImprove = new ViewButton(controller, _sourceView.buttonImprove);
 
-        _buttonLeft = new ViewButton(controller, _sourceView.buttonLeft);
-        _buttonRight = new ViewButton(controller, _sourceView.buttonRight);
 
-        _buttonImprove = new ViewButton(controller, _sourceView.buttonImprove);
-
-
-        _items = [];
-
-        var item0:IView = new ViewPopupTavernItem(controller);
-        _sourceView.itemsView.placeholder.addChild(item0.source);
-        _items.push(item0);
-
-        var item1:IView = new ViewPopupTavernItem(controller);
-        _sourceView.itemsView.placeholder.addChild(item1.source);
-        _items.push(item1);
-
-        var item3:IView = new ViewPopupTavernItem(controller);
-        _sourceView.itemsView.placeholder.addChild(item3.source);
-        _items.push(item3);
+//        _items = [];
+//
+//        var item0:IView = new ViewPopupTavernItem(controller);
+//        _sourceView.itemsView.placeholder.addChild(item0.source);
+//        _items.push(item0);
+//
+//        var item1:IView = new ViewPopupTavernItem(controller);
+//        _sourceView.itemsView.placeholder.addChild(item1.source);
+//        _items.push(item1);
+//
+//        var item3:IView = new ViewPopupTavernItem(controller);
+//        _sourceView.itemsView.placeholder.addChild(item3.source);
+//        _items.push(item3);
     }
 
     public override function placeViews(isFullscreen:Boolean):void
     {
-        super.placeViews(isFullscreen);
-
-        var itemStandard:IView = _items[0];
-
-        var startPosition:Point = new Point(_sourceView.itemsView.width / 2 - itemStandard.source.width / 2,
-                _sourceView.itemsView.height / 2 - itemStandard.source.height / 2);
-
-        for each(var item:IView in _items)
-        {
-            item.placeViews(isFullscreen);
-
-            item.source.x = startPosition.x;
-            item.source.y = startPosition.y;
-
-            startPosition.x += item.source.width + 20;
-        }
+//        super.placeViews(isFullscreen);
+//
+//        var itemStandard:IView = _items[0];
+//
+//        var startPosition:Point = new Point(_sourceView.itemsView.width / 2 - itemStandard.source.width / 2,
+//                _sourceView.itemsView.height / 2 - itemStandard.source.height / 2);
+//
+//        for each(var item:IView in _items)
+//        {
+//            item.placeViews(isFullscreen);
+//
+//            item.source.x = startPosition.x;
+//            item.source.y = startPosition.y;
+//
+//            startPosition.x += item.source.width + 20;
+//        }
     }
-
-
-
-
 
 
     public override function cleanup():void

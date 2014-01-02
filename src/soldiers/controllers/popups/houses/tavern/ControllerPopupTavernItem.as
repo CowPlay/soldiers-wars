@@ -9,7 +9,7 @@ package soldiers.controllers.popups.houses.tavern
 {
 import controllers.implementations.Controller;
 
-import controls.IView;
+import views.IView;
 
 import flash.events.MouseEvent;
 

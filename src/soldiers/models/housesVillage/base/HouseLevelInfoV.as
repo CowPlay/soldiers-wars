@@ -9,7 +9,7 @@ package soldiers.models.housesVillage.base
 {
 import controllers.IController;
 
-import controls.IView;
+import views.IView;
 
 import core.DisposableObject;
 

@@ -13,22 +13,27 @@ package soldiers.views.game
 {
 import controllers.IController;
 
-import controls.EViewAlignment;
-import controls.IView;
-import controls.implementations.ControlBase;
-
 import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
+import flash.geom.Point;
 
+import soldiers.GameInfo;
 import soldiers.views.game.grid.ViewGrid;
 
-public class ViewSceneGame extends ControlBase
+import views.EViewPosition;
+import views.IView;
+import views.IViewScroll;
+import views.implementations.ViewBase;
+import views.implementations.ViewScroll;
+
+public class ViewSceneGame extends ViewBase
 {
     /*
      * Fields
      */
     private var _sourceView:DisplayObjectContainer;
 
+    private var _viewScrollGrid:IViewScroll;
     private var _viewGrid:ViewGrid;
 
     private var _subViews:Array;
@@ -37,6 +42,12 @@ public class ViewSceneGame extends ControlBase
     /*
      * Properties
      */
+
+
+    public function get viewScrollGrid():IViewScroll
+    {
+        return _viewScrollGrid;
+    }
 
     public function get viewGrid():ViewGrid
     {
@@ -61,7 +72,6 @@ public class ViewSceneGame extends ControlBase
         _subViews = [];
 
         _viewGrid = new ViewGrid(controller);
-        _viewGrid.alignment = EViewAlignment.EVA_ABSOLUTE;
         _viewGrid.handleEvents(false);
 
         _sourceView.addChild(_viewGrid.source);
@@ -79,7 +89,6 @@ public class ViewSceneGame extends ControlBase
         super.placeViews(fullscreen);
 
         _viewGrid.placeViews(fullscreen);
-        _viewGrid.translate(0.5, 0.5);
 
         for each(var subView:IView in _subViews)
         {
@@ -88,13 +97,32 @@ public class ViewSceneGame extends ControlBase
             subView.x = _viewGrid.x;
             subView.y = _viewGrid.y;
         }
+
+        var appSize:Point = GameInfo.instance.managerApp.applicationSize;
+
+        if (_viewGrid.source.width > appSize.x || _viewGrid.source.height > appSize.y)
+        {
+            _viewScrollGrid = new ViewScroll(controller, _viewGrid.source, appSize);
+            _sourceView.addChild(_viewScrollGrid.source);
+
+            _viewGrid.source.y += _viewGrid.source.height / 2;
+        }
+        else
+        {
+            _viewGrid.position = EViewPosition.EVP_ABSOLUTE;
+            _viewGrid.translate(0.5, 0.5);
+        }
+
+        showDebug = true;
     }
 
     public override function cleanup():void
     {
-        _viewGrid.cleanup();
-        _subViews = null;
-
+        if (_viewScrollGrid != null)
+        {
+            _viewScrollGrid.cleanup();
+            _viewScrollGrid = null;
+        }
 
         super.cleanup();
     }

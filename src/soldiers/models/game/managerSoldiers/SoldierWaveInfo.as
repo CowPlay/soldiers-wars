@@ -9,6 +9,9 @@ package soldiers.models.game.managerSoldiers
 {
 import core.DisposableObject;
 
+import models.interfaces.players.IPlayerInfo;
+
+import soldiers.Constants;
 import soldiers.models.housesGame.base.HouseG;
 
 public class SoldierWaveInfo extends DisposableObject
@@ -17,13 +20,20 @@ public class SoldierWaveInfo extends DisposableObject
      * Fields
      */
     private var _generatedSoldierRest:uint;
-    private var _generatedSoldierCount:uint;
 
-    private var _owner:HouseG;
-    private var _target:HouseG;
+    private var _waveOwnerType:String;
 
-    private var _timeGeneratedLast:int;
-    private var _timeGeneratedFrequency:int;
+    private var _houseOwner:HouseG;
+
+    //cache
+    private var _houseOwnerLevel:uint;
+    private var _houseOwnerLevelMax:uint;
+    private var _houseOwnerType:String;
+    private var _houseOwnerPlayer:IPlayerInfo;
+
+    private var _houseTarget:HouseG;
+
+    private var _timeGenerated:int;
 
     /*
      * Properties
@@ -40,52 +50,58 @@ public class SoldierWaveInfo extends DisposableObject
 
     public function get generatedSoldierCount():uint
     {
-        return _generatedSoldierCount;
+        return Constants.PATH_COUNT;
     }
 
-    public function set generatedSoldierCount(value:uint):void
+    public function get waveOwnerType():String
     {
-        _generatedSoldierCount = value;
+        return _waveOwnerType;
     }
 
-    public function get owner():HouseG
+    public function get houseOwner():HouseG
     {
-        return _owner;
+        return _houseOwner;
     }
 
-    public function set owner(value:HouseG):void
+    public function get houseTarget():HouseG
     {
-        _owner = value;
+        return _houseTarget;
     }
 
-    public function get target():HouseG
+    public function get timeGenerated():int
     {
-        return _target;
+        return _timeGenerated;
     }
 
-    public function set target(value:HouseG):void
+    public function set timeGenerated(value:int):void
     {
-        _target = value;
-    }
-
-    public function get timeGeneratedLast():int
-    {
-        return _timeGeneratedLast;
-    }
-
-    public function set timeGeneratedLast(value:int):void
-    {
-        _timeGeneratedLast = value;
+        _timeGenerated = value;
     }
 
     public function get timeGeneratedFrequency():int
     {
-        return _timeGeneratedFrequency;
+        return ConstantsBase.ANIMATION_DURATION * 4 * 1000;
     }
 
-    public function set timeGeneratedFrequency(value:int):void
+
+    public function get houseOwnerLevelMax():uint
     {
-        _timeGeneratedFrequency = value;
+        return _houseOwner.ownerType == _houseOwnerType ? _houseOwner.houseConfig.levelMax : _houseOwnerLevelMax;
+    }
+
+    public function get houseOwnerType():String
+    {
+        return _houseOwnerType;
+    }
+
+    public function get houseOwnerLevel():uint
+    {
+        return _houseOwner.ownerType == _houseOwnerType ? _houseOwner.level : _houseOwnerLevel;
+    }
+
+    public function get houseOwnerPlayer():IPlayerInfo
+    {
+        return _houseOwnerPlayer;
     }
 
     /*
@@ -93,14 +109,23 @@ public class SoldierWaveInfo extends DisposableObject
      */
 
     //! Default constructor
-    public function SoldierWaveInfo()
+    public function SoldierWaveInfo(houseOwner:HouseG, houseTarget:HouseG)
     {
+        _houseOwner = houseOwner;
+        _houseOwnerLevel = houseOwner.level;
+        _houseOwnerLevelMax = houseOwner.houseConfig.levelMax;
+        _houseOwnerType = houseOwner.ownerType;
+        _houseOwnerPlayer = houseOwner.owner;
+
+        _houseTarget = houseTarget;
+
+        _waveOwnerType = _houseOwner.ownerType;
     }
 
     public override function cleanup():void
     {
-        _owner = null;
-        _target = null;
+        _houseOwner = null;
+        _houseTarget = null;
 
         super.cleanup();
     }

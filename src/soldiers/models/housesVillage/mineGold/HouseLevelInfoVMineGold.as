@@ -7,7 +7,7 @@
  */
 package soldiers.models.housesVillage.mineGold
 {
-import controls.EControllerUpdateBase;
+import views.EControllerUpdateBase;
 
 import flash.events.TimerEvent;
 import flash.utils.Timer;
@@ -72,7 +72,7 @@ public class HouseLevelInfoVMineGold extends HouseLevelInfoV
         _timer.start();
     }
 
-    public function onTimerTick(e:TimerEvent):void
+    private function onTimerTick(e:TimerEvent):void
     {
         _timeLeft--;
 
@@ -82,7 +82,7 @@ public class HouseLevelInfoVMineGold extends HouseLevelInfoV
         }
     }
 
-    public function onTimerComplete(e:TimerEvent):void
+    private function onTimerComplete(e:TimerEvent):void
     {
         UtilsMemory.unregisterEventListener(_timer, TimerEvent.TIMER, this, onTimerTick);
         UtilsMemory.unregisterEventListener(_timer, TimerEvent.TIMER_COMPLETE, this, onTimerComplete);

@@ -7,8 +7,8 @@
  */
 package soldiers.views.village.housesV
 {
-import controls.IView;
-import controls.implementations.ControlBase;
+import views.IView;
+import views.implementations.ViewBase;
 
 import flash.display.DisplayObjectContainer;
 
@@ -17,7 +17,7 @@ import mx.utils.StringUtil;
 import soldiers.models.housesVillage.base.HouseLevelInfoV;
 import soldiers.models.housesVillage.base.HouseV;
 
-public class ControlHouseViewV extends ControlBase
+public class ControlHouseViewV extends ViewBase
 {
     /*
      * Fields

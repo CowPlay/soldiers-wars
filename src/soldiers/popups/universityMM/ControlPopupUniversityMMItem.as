@@ -12,12 +12,12 @@
 
 package soldiers.popups.universityMM
 {
-import controls.IView;
-import controls.IViewButton;
-import controls.implementations.ControlBase;
+import views.IView;
+import views.IViewButton;
+import views.implementations.ViewBase;
 import controls.implementations.buttons.ViewButtonLabeled;
 
-public class ControlPopupUniversityMMItem extends ControlBase
+public class ControlPopupUniversityMMItem extends ViewBase
 {
 
     /*

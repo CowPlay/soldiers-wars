@@ -9,16 +9,21 @@ package soldiers.views.popups.houses.tavern
 {
 import controllers.IController;
 
-import controls.IViewButton;
-import controls.implementations.ControlBase;
+import views.IViewButton;
+import views.implementations.ViewBase;
 import controls.implementations.buttons.ViewButton;
 
-public class ViewPopupTavernItem extends ControlBase
+import flash.display.Sprite;
+
+public class ViewPopupTavernItem extends ViewBase
 {
     /*
      * Fields
      */
-    private var _sourceView:gPopupTavernItem;
+//    TODO: implement
+    private var _sourceView:Sprite;
+
+//    private var _sourceView:gPopupTavernItem;
 
     private var _buttonAccelerate:IViewButton;
     /*
@@ -37,7 +42,7 @@ public class ViewPopupTavernItem extends ControlBase
 
     public function ViewPopupTavernItem(controller:IController)
     {
-        _sourceView = new gPopupTavernItem();
+//        _sourceView = new gPopupTavernItem();
         super(controller, _sourceView);
 
         init();
@@ -45,7 +50,7 @@ public class ViewPopupTavernItem extends ControlBase
 
     private function init():void
     {
-        _buttonAccelerate = new ViewButton(controller, _sourceView.buttonAccelerate);
+//        _buttonAccelerate = new ViewButton(controller, _sourceView.buttonAccelerate);
     }
 
 

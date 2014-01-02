@@ -10,12 +10,12 @@ package soldiers.controllers.village
 import controllers.IController;
 import controllers.implementations.Controller;
 
-import controls.IView;
+import views.IView;
 
 import flash.events.MouseEvent;
 
 import soldiers.controllers.village.ui.ControllerAddFriend;
-import soldiers.models.GameInfo;
+import soldiers.GameInfo;
 import soldiers.popups.EPopupType;
 import soldiers.views.village.*;
 

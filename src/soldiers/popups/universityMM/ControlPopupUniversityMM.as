@@ -14,9 +14,9 @@ package soldiers.popups.universityMM
 {
 import com.greensock.TweenLite;
 
-import controls.IView;
-import controls.IViewButton;
-import controls.implementations.ViewPopup;
+import views.IView;
+import views.IViewButton;
+import views.implementations.ViewPopup;
 import controls.implementations.buttons.ViewButton;
 
 import flash.events.MouseEvent;

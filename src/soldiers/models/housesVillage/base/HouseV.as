@@ -8,7 +8,7 @@
 package soldiers.models.housesVillage.base
 {
 
-import controls.IView;
+import views.IView;
 
 import core.DisposableObject;
 
@@ -17,7 +17,7 @@ import flash.utils.Dictionary;
 
 import serialization.ISerializable;
 
-import soldiers.models.GameInfo;
+import soldiers.GameInfo;
 
 public class HouseV extends DisposableObject implements ISerializable
 {

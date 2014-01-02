@@ -11,22 +11,21 @@
  */
 package soldiers.views.map
 {
-import controls.IView;
-import controls.implementations.ControlBase;
-import controls.implementations.ViewSprite;
+import views.IView;
+import views.implementations.ViewBase;
 
 import flash.events.MouseEvent;
 
-import soldiers.models.GameInfo;
+import soldiers.GameInfo;
 
-public class ControlPointFlagItem extends ControlBase
+public class ControlPointFlagItem extends ViewBase
 {
     /*
      *Fields
      */
     private var _sourceViewTyped:gFlag;
 
-    private var _buttonFlag:ViewSprite;
+    private var _buttonFlag:ViewBase;
 
     private var _stars:Array;
 
@@ -49,7 +48,7 @@ public class ControlPointFlagItem extends ControlBase
         _sourceViewTyped = new gFlag();
         setSourceView(_sourceViewTyped);
 
-        _buttonFlag = new ViewSprite(this, _sourceViewTyped.flag);
+        _buttonFlag = new ViewBase(this, _sourceViewTyped.flag);
         //TODO: implement
 //        _buttonFlag.controller = this;
 

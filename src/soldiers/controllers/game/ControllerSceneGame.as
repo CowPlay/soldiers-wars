@@ -10,16 +10,16 @@ package soldiers.controllers.game
 import controllers.IController;
 import controllers.implementations.Controller;
 
-import controls.EControllerUpdateBase;
-
+import soldiers.GameInfo;
 import soldiers.controllers.EControllerUpdate;
 import soldiers.controllers.game.arrow.ControllerArrowContainer;
 import soldiers.controllers.game.grid.ControllerGrid;
 import soldiers.controllers.game.houses.ControllerHousesGContainer;
 import soldiers.controllers.game.soldiers.ControllerSoldiersContainer;
-import soldiers.models.GameInfo;
 import soldiers.popups.EPopupType;
 import soldiers.views.game.ViewSceneGame;
+
+import views.EControllerUpdateBase;
 
 public class ControllerSceneGame extends Controller
 {
@@ -54,14 +54,9 @@ public class ControllerSceneGame extends Controller
     {
         _controllerGrid = new ControllerGrid(_view.viewGrid);
 
-        _controllerArrow = new ControllerArrowContainer();
-        _view.addSubView(_controllerArrow.view);
-
-        _controllerHouses = new ControllerHousesGContainer();
-        _view.addSubView(_controllerHouses.view);
-
-        _controllerSoldiers = new ControllerSoldiersContainer();
-        _view.addSubView(_controllerSoldiers.view);
+        _controllerHouses = new ControllerHousesGContainer(_view.viewGrid.viewHousesContainer);
+        _controllerSoldiers = new ControllerSoldiersContainer(_view.viewGrid.viewSoldiersContainer);
+        _controllerArrow = new ControllerArrowContainer(_view.viewGrid.viewArrowsContainer);
     }
 
     public override function update(type:String):void
@@ -71,6 +66,11 @@ public class ControllerSceneGame extends Controller
             case EControllerUpdate.ECU_HOUSE_SELECTION_CHANGED:
             {
                 _controllerArrow.update(type);
+
+                if(_view.viewScrollGrid != null)
+                {
+                    _view.viewScrollGrid.enableDragging = !GameInfo.instance.managerGame.isAnyHouseSelected(GameInfo.instance.managerGame.gameOwner);
+                }
 
                 break;
             }
