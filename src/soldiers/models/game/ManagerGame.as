@@ -24,6 +24,7 @@ import soldiers.controllers.EControllerUpdate;
 import soldiers.models.game.managerAi.ManagerAi;
 import soldiers.models.game.managerPath.GridCell;
 import soldiers.models.game.managerPath.ManagerPath;
+import soldiers.models.game.decor.Decor;
 import soldiers.models.game.managerProgress.ManagerProgress;
 import soldiers.models.game.managerSoldiers.ManagerSoldiers;
 import soldiers.models.game.soldiers.SoldierInfo;
@@ -55,12 +56,20 @@ public class ManagerGame extends ManagerGameBase
 
     //[ISerializable]
     private var _houses:Array;
+    private var _decor:Array;
+
     //key - house, value - array other houses by distances
     private var _housesByDistances:Dictionary;
 
     /*
      * Properties
      */
+
+
+    public function get decor():Array
+    {
+        return _decor;
+    }
 
     public function get houses():Array
     {
@@ -139,10 +148,6 @@ public class ManagerGame extends ManagerGameBase
     public override function onGameStart():void
     {
         super.onGameStart();
-
-        _managerPath.generateLevelPaths();
-
-        initHousesByDistances();
 
         _managerAi.onGameStart();
 
@@ -235,7 +240,7 @@ public class ManagerGame extends ManagerGameBase
 
     private function init():void
     {
-        _managerPath = new ManagerPath(currentLevel.gridSize);
+        _managerPath = new ManagerPath(currentLevel.gridSize, this);
         _managerSoldiers = new ManagerSoldiers(this);
         _mangerProgress = new ManagerProgress(this);
 
@@ -246,74 +251,13 @@ public class ManagerGame extends ManagerGameBase
 
         initHouses();
         initFoundations();
+        initDecor();
+
+        _managerPath.generateLevelPaths();
+
+        initHousesByDistances();
 
         _managerAi = new ManagerAi(this);
-    }
-
-    private function initFoundations():void
-    {
-        for each(var house:HouseG in _houses)
-        {
-            var foundationWidthHalf:int = house.houseConfig.foundationSize.x / 2;
-            var foundationHeightHalf:int = house.houseConfig.foundationSize.y / 2;
-
-            var rowFrom:int = house.positionCurrent.y - foundationHeightHalf;
-            var rowTo:int = house.positionCurrent.y + foundationHeightHalf;
-
-            var columnFrom:int = house.positionCurrent.x - foundationWidthHalf;
-            var columnTo:int = house.positionCurrent.x + foundationWidthHalf;
-
-            //make foundations not walkable
-            for (var row:uint = rowFrom; row <= rowTo; row++)
-            {
-                for (var column:uint = columnFrom; column <= columnTo; column++)
-                {
-                    var foundationCell:GridCell = _managerPath.getCell(new Point(column, row));
-                    foundationCell.traversable = false;
-                }
-            }
-        }
-    }
-
-    private function initHousesByDistances():void
-    {
-        _housesByDistances = new Dictionary(true);
-
-        var propertyDistance:String = "distance";
-        var propertyHouse:String = "house";
-
-        for each(var target:HouseG in _houses)
-        {
-            var housesInfo:Array = [];
-
-            for each(var otherHouse:HouseG in _houses)
-            {
-                if (target == otherHouse)
-                {
-                    continue;
-                }
-
-                var distance:int = _managerPath.getMinPathDistance(target, otherHouse);
-
-                var distanceInfo:Object = {};
-
-                distanceInfo[propertyDistance] = distance;
-                distanceInfo[propertyHouse] = otherHouse;
-
-                housesInfo.push(distanceInfo);
-            }
-
-            housesInfo.sortOn(propertyDistance, Array.NUMERIC);
-
-            var houses:Array = [];
-
-            for each(var houseInfo:Object in housesInfo)
-            {
-                houses.push(houseInfo[propertyHouse]);
-            }
-
-            _housesByDistances[target] = houses;
-        }
     }
 
     private function initHouses():void
@@ -370,6 +314,89 @@ public class ManagerGame extends ManagerGameBase
             _houses.push(house);
         }
     }
+
+    private function initFoundations():void
+    {
+        for each(var house:HouseG in _houses)
+        {
+            var foundationWidthHalf:int = house.houseConfig.foundationSize.x / 2;
+            var foundationHeightHalf:int = house.houseConfig.foundationSize.y / 2;
+
+            var rowFrom:int = house.positionCurrent.y - foundationHeightHalf;
+            var rowTo:int = house.positionCurrent.y + foundationHeightHalf;
+
+            var columnFrom:int = house.positionCurrent.x - foundationWidthHalf;
+            var columnTo:int = house.positionCurrent.x + foundationWidthHalf;
+
+            _managerPath.makeTraversable(rowFrom, rowTo, columnFrom, columnTo, false);
+        }
+    }
+
+    private function initDecor():void
+    {
+        _decor =  [];
+
+        for each(var decorData:Object in _currentLevel.decorData)
+        {
+            var decor:Decor = new Decor();
+            decor.deserialize(decorData);
+            _decor.push(decor);
+
+            var decorWidthHalf:int = decor.size.x / 2;
+            var decorHeightHalf:int = decor.size.y / 2;
+
+            var rowFrom:int = decor.position.y - decorHeightHalf;
+            var rowTo:int = decor.position.y + decorHeightHalf;
+
+            var columnFrom:int = decor.position.x - decorWidthHalf;
+            var columnTo:int = decor.position.x + decorWidthHalf;
+
+            _managerPath.makeTraversable(rowFrom, rowTo, columnFrom, columnTo, false);
+        }
+    }
+
+    private function initHousesByDistances():void
+    {
+        _housesByDistances = new Dictionary(true);
+
+        var propertyDistance:String = "distance";
+        var propertyHouse:String = "house";
+
+        for each(var target:HouseG in _houses)
+        {
+            var housesInfo:Array = [];
+
+            for each(var otherHouse:HouseG in _houses)
+            {
+                if (target == otherHouse)
+                {
+                    continue;
+                }
+
+                var distance:int = _managerPath.getMinPathDistance(target, otherHouse);
+
+                var distanceInfo:Object = {};
+
+                distanceInfo[propertyDistance] = distance;
+                distanceInfo[propertyHouse] = otherHouse;
+
+                housesInfo.push(distanceInfo);
+            }
+
+            housesInfo.sortOn(propertyDistance, Array.NUMERIC);
+
+            var houses:Array = [];
+
+            for each(var houseInfo:Object in housesInfo)
+            {
+                houses.push(houseInfo[propertyHouse]);
+            }
+
+            _housesByDistances[target] = houses;
+        }
+    }
+
+
 
     public function clearHousesSelection(player:IPlayerInfo):void
     {

@@ -14,10 +14,8 @@ package soldiers.models.proxy.level0
 import mx.utils.UIDUtil;
 
 import soldiers.models.housesGame.base.EHouseOwner;
-
 import soldiers.models.housesGame.base.EHouseTypeG;
 import soldiers.models.proxy.levelTargets.ProxyLevelTargets;
-import soldiers.models.proxy.aiActions.ProxyAiActions;
 
 public class ProxyLevel0
 {
@@ -90,10 +88,10 @@ public class ProxyLevel0
             reward_currency_soft: 0,
             reward_points       : 0,
 
-            grid_width          : 30,
-            grid_height         : 30,
+            grid_width : 30,
+            grid_height: 30,
 
-            houses_level_max    : 2,
+            houses_level_max: 2,
 
             targets_star_1: [ProxyLevelTargets.getTargetGrabAllHouses()],
             targets_star_2: [ProxyLevelTargets.getTargetGrabTargetHouse(houseData0_3.id)],
@@ -107,6 +105,7 @@ public class ProxyLevel0
 
             ai_actions: [],
 
+            decor : [],
             houses: [houseData0_0, houseData0_1, houseData0_2, houseData0_3]
         };
 

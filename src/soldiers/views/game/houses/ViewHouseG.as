@@ -15,6 +15,7 @@ import controllers.IController;
 
 import flash.display.DisplayObject;
 import flash.display.DisplayObjectContainer;
+import flash.display.MovieClip;
 import flash.display.Sprite;
 import flash.geom.Point;
 import flash.text.TextField;
@@ -63,6 +64,7 @@ public class ViewHouseG extends ViewBase
 
     private var _houseViewEnemy:DisplayObject;
     private var _houseViewPlayer:DisplayObject;
+    private var _viewRank:MovieClip;
 
     private var _labelSoldiers:TextField;
 
@@ -109,6 +111,8 @@ public class ViewHouseG extends ViewBase
         return _viewAuraPlayer;
     }
 
+
+
     /*
      * Methods
      */
@@ -151,7 +155,7 @@ public class ViewHouseG extends ViewBase
 
         _viewIconLevelUp = new ViewBase(controller, new gIconLevelUp());
         _sourceView.addChild(_viewIconLevelUp.source);
-        _viewIconLevelUp.handleEvents(true);
+        _viewIconLevelUp.handleEvents(true, false, false, false, true);
     }
 
     private function initHouseView(type:String):void
@@ -162,12 +166,15 @@ public class ViewHouseG extends ViewBase
         Debug.assert(_houseView.hasOwnProperty("viewPlayer"));
         Debug.assert(_houseView.hasOwnProperty("viewEnemy"));
         Debug.assert(_houseView.hasOwnProperty("labelSoldiers"));
+        Debug.assert(_houseView.hasOwnProperty("viewRank"));
 
         _houseView.mouseEnabled = false;
         _houseView.mouseChildren = false;
 
         _houseViewEnemy = _houseView["viewEnemy"];
         _houseViewPlayer = _houseView["viewPlayer"];
+
+        _viewRank = _houseView["viewRank"];
 
         _labelSoldiers = _houseView["labelSoldiers"];
 
@@ -186,6 +193,8 @@ public class ViewHouseG extends ViewBase
             _houseViewEnemy[propertyName].visible = level == value;
             _houseViewPlayer[propertyName].visible = level == value;
         }
+
+        _viewRank.gotoAndStop(value);
     }
 
     public override function placeViews(fullscreen:Boolean):void

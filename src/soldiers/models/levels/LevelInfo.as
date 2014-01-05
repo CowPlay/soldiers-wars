@@ -25,6 +25,7 @@ public class LevelInfo extends LevelInfoBase
      * Fields
      */
     private var _housesData:Array;
+    private var _decorData:Array;
 
     //[ISerializable]
     private var _gridSize:Point;
@@ -86,6 +87,11 @@ public class LevelInfo extends LevelInfoBase
     }
 
 
+    public function get decorData():Array
+    {
+        return _decorData;
+    }
+
     public function get housesData():Array
     {
         return _housesData;
@@ -119,7 +125,13 @@ public class LevelInfo extends LevelInfoBase
         super.deserialize(data);
         Debug.assert(data.hasOwnProperty("grid_width"));
         Debug.assert(data.hasOwnProperty("grid_height"));
+
         Debug.assert(data.hasOwnProperty("houses"));
+        Debug.assert(data["houses"] is Array);
+
+        Debug.assert(data.hasOwnProperty("decor"));
+        Debug.assert(data["decor"] is Array);
+
 
         Debug.assert(data.hasOwnProperty("targets_star_1"));
         Debug.assert(data["targets_star_1"] is Array);
@@ -134,6 +146,7 @@ public class LevelInfo extends LevelInfoBase
         _gridSize = new Point(data["grid_width"], data["grid_height"]);
 
         _housesData = data["houses"] as Array;
+        _decorData = data["decor"] as Array;
 
         _housesLevelMax = data.hasOwnProperty("houses_level_max") ? data["houses_level_max"] : uint.MAX_VALUE;
 

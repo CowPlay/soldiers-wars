@@ -30,6 +30,8 @@ public class ControllerHouseG extends Controller
 
     private var _managerGame:ManagerGame;
 
+    private var _enableSelection:Boolean;
+
     /*
      * Properties
      */
@@ -63,6 +65,7 @@ public class ControllerHouseG extends Controller
         update(EControllerUpdate.ECU_HOUSE_SOLDIERS_CHANGED);
         update(EControllerUpdate.ECU_HOUSE_LEVEL_CHANGED);
 
+        _enableSelection = true;
 //        update(EControllerUpdateBase.ECUT_ENTRY_UPDATED);
     }
 
@@ -195,9 +198,16 @@ public class ControllerHouseG extends Controller
         {
             switch (view)
             {
+                case _view.viewIconLevelUp:
+                {
+                    //do nothing
+                    _enableSelection = false;
+
+                    break;
+                }
                 case _view:
                 {
-                    if (entry.ownerType == EHouseOwner.EHO_PLAYER)
+                    if (entry.ownerType == EHouseOwner.EHO_PLAYER && _enableSelection)
                     {
                         _managerGame.onPlayerSelectHouse(_managerGame.gameOwner, entry);
                     }
@@ -221,6 +231,8 @@ public class ControllerHouseG extends Controller
     public override function onViewMouseUp(target:IView, e:MouseEvent):Boolean
     {
         var result:Boolean = super.onViewMouseUp(target, e);
+
+        _enableSelection = true;
 
         if (!result)
         {
@@ -253,6 +265,8 @@ public class ControllerHouseG extends Controller
     public override function onViewMouseUpOut(v:IView, e:MouseEvent):Boolean
     {
         var result:Boolean = super.onViewMouseUp(v, e);
+
+        _enableSelection = true;
 
         if (!result)
         {

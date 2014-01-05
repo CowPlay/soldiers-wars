@@ -13,10 +13,10 @@ package soldiers.models.proxy.level2
 {
 import mx.utils.UIDUtil;
 
+import soldiers.models.game.decor.EDecorType;
 import soldiers.models.housesGame.base.EHouseOwner;
 import soldiers.models.housesGame.base.EHouseTypeG;
 import soldiers.models.proxy.levelTargets.ProxyLevelTargets;
-import soldiers.models.proxy.aiActions.ProxyAiActions;
 
 public class ProxyLevel2
 {
@@ -120,6 +120,17 @@ public class ProxyLevel2
             soldiers: 10
         };
 
+        var decorData2_0:Object =
+        {
+            type: EDecorType.EDT_0,
+
+            width : 1,
+            height: 1,
+
+            position_x: 27,
+            position_y: 25
+        };
+
         var level2Data:Object =
         {
             id                  : "2",
@@ -129,15 +140,18 @@ public class ProxyLevel2
             complete            : false,
             reward_currency_soft: 0,
             reward_points       : 0,
-            grid_width          : 60,
-            grid_height         : 60,
+
+            grid_width : 60,
+            grid_height: 60,
 
             targets_star_1: [ProxyLevelTargets.getTargetGrabAllHouses()],
             targets_star_2: [],
             targets_star_3: [],
 
-            ai_actions: [ProxyAiActions.getActionAttack0(), ProxyAiActions.getActionAttack1(), ProxyAiActions.getActionDeffence0(), ProxyAiActions.getActionUpgrade0() ],
+            //[ProxyAiActions.getActionAttack0(), ProxyAiActions.getActionAttack1(), ProxyAiActions.getActionDeffence0(), ProxyAiActions.getActionUpgrade0() ],
+            ai_actions    : [],
 
+            decor : [decorData2_0],
             houses: [houseData2_0, houseData2_1, houseData2_2, houseData2_3, houseData2_4, houseData2_5, houseData2_6]
         };
 

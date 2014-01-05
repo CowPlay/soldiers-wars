@@ -165,6 +165,7 @@ public class ProxyLevel3
 
             ai_actions: [],
 
+            decor : [],
             houses: [houseData3_0, houseData3_1, houseData3_2, houseData3_3, houseData3_4, houseData3_5, houseData3_6, houseData3_7, houseData3_8]
         };
 

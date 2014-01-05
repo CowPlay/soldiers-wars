@@ -13,6 +13,8 @@ import controllers.implementations.Controller;
 import soldiers.GameInfo;
 import soldiers.controllers.EControllerUpdate;
 import soldiers.controllers.game.arrow.ControllerArrowContainer;
+import soldiers.controllers.game.decor.ControllerDecor;
+import soldiers.controllers.game.decor.ControllerDecorContainer;
 import soldiers.controllers.game.grid.ControllerGrid;
 import soldiers.controllers.game.houses.ControllerHousesGContainer;
 import soldiers.controllers.game.soldiers.ControllerSoldiersContainer;
@@ -36,6 +38,7 @@ public class ControllerSceneGame extends Controller
     private var _controllerArrow:IController;
     private var _controllerSoldiers:IController;
     private var _controllerHouses:IController;
+    private var _controllerDecor:IController;
     private var _controllerGrid:IController;
 
     /*
@@ -56,6 +59,7 @@ public class ControllerSceneGame extends Controller
 
         _controllerHouses = new ControllerHousesGContainer(_view.viewGrid.viewHousesContainer);
         _controllerSoldiers = new ControllerSoldiersContainer(_view.viewGrid.viewSoldiersContainer);
+        _controllerDecor = new ControllerDecorContainer(_view.viewGrid.viewDecorContainer);
         _controllerArrow = new ControllerArrowContainer(_view.viewGrid.viewArrowsContainer);
     }
 

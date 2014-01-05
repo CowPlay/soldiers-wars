@@ -90,12 +90,11 @@ public class ControllerGrid extends Controller
     {
         _sourceObjects = _view.sourceObjects;
 
-//        _gridObjects = [];
-
         _view.showFoundation();
         _view.showPaths();
         _view.showHouseExits();
         _view.showHousePositions();
+        _view.showDecor();
 
         GameInfo.instance.managerApp.applicationStage.addEventListener(Event.ENTER_FRAME, onEnterFrame);
     }

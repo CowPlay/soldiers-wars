@@ -34,29 +34,6 @@ public class ViewSoldiersContainer extends ViewBase
      * Properties
      */
 
-//    private function onEnterFrame(e:Event):void
-//    {
-//        for each(var viewSoldier:ViewSoldier in _soldiers)
-//        {
-//            viewSoldier.update();
-//        }
-
-//        for (var i:int = 1; i < _soldiers.length; i++)
-//        {
-//            var key:int = _soldiers[i];
-//
-//            var j:int = i - 1;
-//
-//            while (_soldiers[j] > key)
-//            {
-//                _soldiers[j + 1] = _soldiers[j];
-//                j = j - 1;
-//            }
-//
-//            _soldiers[j + 1] = key;
-//        }
-//    }
-
     /*
      * Methods
      */

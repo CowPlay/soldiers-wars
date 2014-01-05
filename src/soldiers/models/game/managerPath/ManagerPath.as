@@ -7,6 +7,7 @@ import flash.utils.Dictionary;
 
 import soldiers.Constants;
 import soldiers.GameInfo;
+import soldiers.models.game.ManagerGame;
 import soldiers.models.game.soldiers.ESoldierRotation;
 import soldiers.models.housesGame.base.HouseG;
 
@@ -94,6 +95,8 @@ public class ManagerPath extends DisposableObject
 
     private var _heuristicFunction:Function;
 
+    private var _managerGame:ManagerGame;
+
     /*
      * Properties
      */
@@ -109,11 +112,12 @@ public class ManagerPath extends DisposableObject
      */
 
     //! Default constructor
-    public function ManagerPath(gridSize:Point)
+    public function ManagerPath(gridSize:Point, managerGame:ManagerGame)
     {
         Debug.assert(gridSize != null);
 
         _gridSize = gridSize;
+        _managerGame = managerGame;
 
         _heuristicFunction = ManagerPath.manhattanHeuristic;
 
@@ -148,7 +152,7 @@ public class ManagerPath extends DisposableObject
 
     public function generateLevelPaths():void
     {
-        var houses:Array = GameInfo.instance.managerGame.houses;
+        var houses:Array = _managerGame.houses;
 
         for each(var houseFrom:HouseG in houses)
         {
@@ -438,6 +442,21 @@ public class ManagerPath extends DisposableObject
         result = rowEntry[position.x] as GridCell;
 
         return result;
+    }
+
+    public function makeTraversable(rowFrom:int, rowTo:int, columnFrom:int, columnTo:int, traversable:Boolean):void
+    {
+        //make foundations not walkable
+        for (var row:uint = rowFrom; row <= rowTo; row++)
+        {
+            var rowEntry:Array = _grid[row] as Array;
+
+            for (var column:uint = columnFrom; column <= columnTo; column++)
+            {
+                var cell:GridCell  = rowEntry[column] as GridCell;
+                cell.traversable = traversable;
+            }
+        }
     }
 
     public override function cleanup():void

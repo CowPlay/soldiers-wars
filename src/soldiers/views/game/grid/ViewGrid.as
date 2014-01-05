@@ -14,10 +14,12 @@ import flash.display.Sprite;
 import flash.geom.Point;
 
 import soldiers.GameInfo;
+import soldiers.models.game.decor.Decor;
 import soldiers.models.game.managerPath.GridCell;
 import soldiers.models.game.managerPath.ManagerPath;
 import soldiers.models.housesGame.base.HouseG;
 import soldiers.views.game.arrows.ViewArrowContainer;
+import soldiers.views.game.decor.ViewDecorContainer;
 import soldiers.views.game.houses.ViewHousesGContainer;
 import soldiers.views.game.soldiers.ViewSoldiersContainer;
 
@@ -34,6 +36,8 @@ public class ViewGrid extends ViewBase
 
     private var _viewSoldiersContainer:ViewSoldiersContainer;
     private var _viewHousesContainer:ViewHousesGContainer;
+    private var _viewDecorContainer:ViewDecorContainer;
+
     private var _viewArrowsContainer:ViewArrowContainer;
 
     private var _cells:Array;
@@ -51,6 +55,11 @@ public class ViewGrid extends ViewBase
     public function get viewArrowsContainer():ViewArrowContainer
     {
         return _viewArrowsContainer;
+    }
+
+    public function get viewDecorContainer():ViewDecorContainer
+    {
+        return _viewDecorContainer;
     }
 
     public function get viewSoldiersContainer():ViewSoldiersContainer
@@ -79,9 +88,6 @@ public class ViewGrid extends ViewBase
 
     private function init():void
     {
-        _sourceObjects = new Sprite();
-        _sourceView.addChild(_sourceObjects);
-
         anchorPoint = new Point(0.5, 0);
 
         _cells = [];
@@ -110,9 +116,13 @@ public class ViewGrid extends ViewBase
             _cells.push(rowView);
         }
 
+        _sourceObjects = new Sprite();
+        _sourceView.addChild(_sourceObjects);
 
         _viewSoldiersContainer = new ViewSoldiersContainer(controller, _sourceObjects);
         _viewHousesContainer = new ViewHousesGContainer(controller, _sourceObjects);
+        _viewDecorContainer = new ViewDecorContainer(controller, _sourceObjects);
+
         _viewArrowsContainer = new ViewArrowContainer(controller);
         _sourceView.addChild(_viewArrowsContainer.source);
     }
@@ -137,14 +147,8 @@ public class ViewGrid extends ViewBase
 
                 for (var columnIndex:uint = columnStart; columnIndex <= columnEnd; columnIndex++)
                 {
-                    var cellView:IView = row[columnIndex];
-
-                    var cellSource:Sprite = cellView.source as Sprite;
-
-                    cellSource.graphics.beginFill(0x000000, 1);
-                    cellSource.graphics.drawCircle(0, 0, 2);
-                    cellSource.graphics.endFill();
-
+                    var cellView:ViewGridCell = row[columnIndex];
+                    cellView.showDebugData(0x000000);
                 }
             }
         }
@@ -172,13 +176,10 @@ public class ViewGrid extends ViewBase
                     for each(var gridCell:GridCell in path)
                     {
                         var row:Array = _cells[gridCell.row];
-                        var cellView:IView = row[gridCell.column];
+                        var cellView:ViewGridCell = row[gridCell.column];
 
-                        var cellSource:Sprite = gridCell.view.source as Sprite;
+                        cellView.showDebugData(0x00ff00);
 
-                        cellSource.graphics.beginFill(0x00FF00, 1);
-                        cellSource.graphics.drawCircle(0, 0, 2);
-                        cellSource.graphics.endFill();
                     }
                 }
             }
@@ -190,13 +191,35 @@ public class ViewGrid extends ViewBase
         var houses:Array = GameInfo.instance.managerGame.houses;
         for each(var house:HouseG in houses)
         {
-            var cellView:IView = _cells[house.positionCurrent.y][house.positionCurrent.x];
+            var cellView:ViewGridCell = _cells[house.positionCurrent.y][house.positionCurrent.x];
+            cellView.showDebugData(0x00ff00);
+        }
+    }
 
-            var cellSource:Sprite = cellView.source as Sprite;
+    public function showDecor():void
+    {
+        var decorItems:Array = GameInfo.instance.managerGame.decor;
+        for each(var decor:Decor in decorItems)
+        {
+            var decorWidthHalf:int = decor.size.x / 2;
+            var decorHeightHalf:int = decor.size.y / 2;
 
-            cellSource.graphics.beginFill(0x00ff00, 1);
-            cellSource.graphics.drawCircle(0, 0, 2);
-            cellSource.graphics.endFill();
+            var rowFrom:int = decor.position.y - decorHeightHalf;
+            var rowTo:int = decor.position.y + decorHeightHalf;
+
+            var columnFrom:int = decor.position.x - decorWidthHalf;
+            var columnTo:int = decor.position.x + decorWidthHalf;
+
+            for (var rowIndex:uint = rowFrom; rowIndex <= rowTo; rowIndex++)
+            {
+                var row:Array = _cells[rowIndex];
+
+                for (var columnIndex:uint = columnFrom; columnIndex <= columnTo; columnIndex++)
+                {
+                    var cellView:ViewGridCell = row[columnIndex];
+                    cellView.showDebugData(0x0000ff);
+                }
+            }
         }
     }
 
@@ -208,28 +231,25 @@ public class ViewGrid extends ViewBase
             for each(var exitPosition:Point in house.positionsExits)
             {
                 var row:Array = _cells[exitPosition.y];
-                var cellView:IView = row[exitPosition.x];
-
-                var cellSource:Sprite = cellView.source as Sprite;
-
-                cellSource.graphics.beginFill(0xFF0000, 1);
-                cellSource.graphics.drawCircle(0, 0, 2);
-                cellSource.graphics.endFill();
+                var cellView:ViewGridCell = row[exitPosition.x];
+                cellView.showDebugData(0xff0000);
             }
         }
     }
 
     public override function placeViews(fullscreen:Boolean):void
     {
-        var startX:Number = 0;
-        var startY:Number = 0;
+        var grid:Array = GameInfo.instance.managerGame.managerPath.grid;
 
-        var firstNode:GridCell = GameInfo.instance.managerGame.managerPath.getCell(new Point(0, 0));
+
+        var firstNode:GridCell = grid[0][0];
 
         var nodeWidth:Number = firstNode.view.source.width;
         var nodeHeight:Number = firstNode.view.source.height;
 
-        var grid:Array = GameInfo.instance.managerGame.managerPath.grid;
+        var startX:Number = 0;
+        var startY:Number = 0;
+
 
         for (var currentRow:int = 0; currentRow < grid.length; currentRow++)
         {
@@ -252,6 +272,7 @@ public class ViewGrid extends ViewBase
 
         _viewSoldiersContainer.placeViews(fullscreen);
         _viewHousesContainer.placeViews(fullscreen);
+        _viewDecorContainer.placeViews(fullscreen);
         _viewArrowsContainer.placeViews(fullscreen);
 
         super.placeViews(fullscreen);

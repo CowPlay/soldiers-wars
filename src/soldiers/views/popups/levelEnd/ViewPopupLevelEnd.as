@@ -14,7 +14,6 @@ package soldiers.views.popups.levelEnd
 import controllers.IControllerPopup;
 
 import views.IView;
-import views.IViewButton;
 import views.implementations.ViewPopup;
 import views.implementations.buttons.ViewButton;
 
@@ -25,16 +24,11 @@ public class ViewPopupLevelEnd extends ViewPopup
      */
     private var _sourceView:gPopupLevelEnd;
 
-    private var _buttonNext:IViewButton;
 
 
     /*
      * Properties
      */
-    public function get buttonNext():IViewButton
-    {
-        return _buttonNext;
-    }
 
     /*
      * Methods
@@ -52,16 +46,11 @@ public class ViewPopupLevelEnd extends ViewPopup
     {
         var buttonClose:IView = new ViewButton(controller, _sourceView.buttonClose);
         setButtonClose(buttonClose);
-
-        _buttonNext = new ViewButton(controller, _sourceView.buttonNext);
     }
 
     public override function cleanup():void
     {
         _sourceView = null;
-
-        _buttonNext.cleanup();
-        _buttonNext = null;
 
         super.cleanup();
     }

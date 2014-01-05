@@ -13,6 +13,8 @@ package soldiers.views.game.grid
 {
 import controllers.IController;
 
+import flash.display.Sprite;
+
 import views.implementations.ViewBase;
 
 public class ViewGridCell extends ViewBase
@@ -20,7 +22,7 @@ public class ViewGridCell extends ViewBase
     /*
      * Fields
      */
-    private var _source:gGridCell;
+    private var _source:gGridCell00;
 
     /*
      * Properties
@@ -33,7 +35,7 @@ public class ViewGridCell extends ViewBase
     //! Default constructor
     public function ViewGridCell(controller:IController)
     {
-        _source = new gGridCell();
+        _source = new gGridCell00();
         super(controller, _source);
 
         init();
@@ -41,9 +43,17 @@ public class ViewGridCell extends ViewBase
 
     private function init():void
     {
-//        _source.visible = false;
-        _source.mouseChildren = false;
-        _source.mouseEnabled = false;
+    }
+
+    public function showDebugData(color:uint):void
+    {
+        var marker:Sprite = new Sprite();
+
+        marker.graphics.beginFill(color, 1);
+        marker.graphics.drawCircle(0, 0, 2);
+        marker.graphics.endFill();
+
+        _source.addChild(marker);
     }
 }
 }

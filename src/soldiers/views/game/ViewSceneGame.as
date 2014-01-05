@@ -16,6 +16,7 @@ import controllers.IController;
 import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
 import flash.geom.Point;
+import flash.geom.Rectangle;
 
 import soldiers.GameInfo;
 import soldiers.views.game.grid.ViewGrid;
@@ -104,6 +105,10 @@ public class ViewSceneGame extends ViewBase
         {
             _viewScrollGrid = new ViewScroll(controller, _viewGrid.source, appSize);
             _sourceView.addChild(_viewScrollGrid.source);
+            _sourceView.setChildIndex(_viewScrollGrid.source, 0);
+//            _sourceView.
+
+            _viewScrollGrid.scrollTo(0.5, 0.5);
 
             _viewGrid.source.y += _viewGrid.source.height / 2;
         }

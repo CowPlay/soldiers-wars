@@ -95,7 +95,7 @@ public class ProxyLevel1
 
             ai_actions: [],
 
-
+            decor : [],
             houses: [houseData1_0, houseData1_1, houseData1_2, houseData1_3]
         };
 

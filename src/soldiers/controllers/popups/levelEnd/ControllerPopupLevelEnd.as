@@ -74,15 +74,15 @@ public class ControllerPopupLevelEnd extends ControllerPopup
         {
             switch (view)
             {
+//                case _view.buttonClose:
+//                {
+//                    GameInfo.instance.onGameEnd();
+
+//                    GameInfo.instance.managerStates.setState(EStateType.EST_GAME_MAP);
+//
+//  /                  break;
+//                }
                 case _view.buttonClose:
-                {
-                    GameInfo.instance.onGameEnd();
-
-                    GameInfo.instance.managerStates.setState(EStateType.EST_GAME_MAP);
-
-                    break;
-                }
-                case _view.buttonNext:
                 {
                     GameInfo.instance.onGameEnd();
 
