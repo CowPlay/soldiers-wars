@@ -13,11 +13,11 @@ import controllers.implementations.Controller;
 import soldiers.GameInfo;
 import soldiers.controllers.EControllerUpdate;
 import soldiers.controllers.game.arrow.ControllerArrowContainer;
-import soldiers.controllers.game.decor.ControllerDecor;
 import soldiers.controllers.game.decor.ControllerDecorContainer;
 import soldiers.controllers.game.grid.ControllerGrid;
 import soldiers.controllers.game.houses.ControllerHousesGContainer;
 import soldiers.controllers.game.soldiers.ControllerSoldiersContainer;
+import soldiers.controllers.game.ControllerGameUI;
 import soldiers.popups.EPopupType;
 import soldiers.views.game.ViewSceneGame;
 
@@ -40,6 +40,7 @@ public class ControllerSceneGame extends Controller
     private var _controllerHouses:IController;
     private var _controllerDecor:IController;
     private var _controllerGrid:IController;
+
 
     /*
      * Methods
@@ -71,7 +72,7 @@ public class ControllerSceneGame extends Controller
             {
                 _controllerArrow.update(type);
 
-                if(_view.viewScrollGrid != null)
+                if (_view.viewScrollGrid != null)
                 {
                     _view.viewScrollGrid.enableDragging = !GameInfo.instance.managerGame.isAnyHouseSelected(GameInfo.instance.managerGame.gameOwner);
                 }
@@ -85,6 +86,8 @@ public class ControllerSceneGame extends Controller
             }
             case EControllerUpdateBase.ECUT_GAME_FINISHED:
             {
+                _controllerHouses.update(type);
+
                 GameInfo.instance.managerStates.currentState.showPopup(EPopupType.EPT_LEVEL_END);
 
                 break;
@@ -102,6 +105,7 @@ public class ControllerSceneGame extends Controller
         _controllerArrow.cleanup();
         _controllerSoldiers.cleanup();
         _controllerHouses.cleanup();
+        _controllerDecor.cleanup();
         _controllerGrid.cleanup();
 
         super.cleanup();

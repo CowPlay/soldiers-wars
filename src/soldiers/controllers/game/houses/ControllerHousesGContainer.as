@@ -10,14 +10,14 @@ package soldiers.controllers.game.houses
 import controllers.IController;
 import controllers.implementations.Controller;
 
-import views.IView;
-
-import flash.events.MouseEvent;
+import flash.events.FullScreenEvent;
 
 import soldiers.GameInfo;
 import soldiers.models.housesGame.base.EHouseTypeG;
 import soldiers.models.housesGame.base.HouseG;
 import soldiers.views.game.houses.ViewHousesGContainer;
+
+import views.EControllerUpdateBase;
 
 public class ControllerHousesGContainer extends Controller
 {
@@ -49,6 +49,14 @@ public class ControllerHousesGContainer extends Controller
     private function init():void
     {
         initHouses();
+
+        GameInfoBase.instance.managerApp.applicationStage.addEventListener(FullScreenEvent.FULL_SCREEN, onFullscreenModeChanged);
+
+    }
+
+    private static function onFullscreenModeChanged(e:FullScreenEvent):void
+    {
+        GameInfo.instance.managerGame.clearHousesSelection(GameInfo.instance.managerGame.gameOwner);
     }
 
     private function initHouses():void
@@ -82,8 +90,28 @@ public class ControllerHousesGContainer extends Controller
         }
     }
 
+    public override function update(type:String):void
+    {
+        switch (type)
+        {
+            case EControllerUpdateBase.ECUT_GAME_FINISHED:
+            {
+                GameInfo.instance.managerGame.clearHousesSelection(GameInfo.instance.managerGame.gameOwner);
+                break;
+            }
+            default :
+            {
+                Debug.assert(false);
+                break;
+            }
+        }
+
+    }
+
     public override function cleanup():void
     {
+        GameInfoBase.instance.managerApp.applicationStage.removeEventListener(FullScreenEvent.FULL_SCREEN, onFullscreenModeChanged);
+
         for each(var controller:IController in _houses)
         {
             controller.cleanup();

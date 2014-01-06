@@ -13,6 +13,8 @@ package soldiers.views.game.arrows
 {
 import controllers.IController;
 
+import flash.geom.Point;
+
 import views.IView;
 import views.implementations.ViewBase;
 
@@ -41,6 +43,7 @@ public class ViewArrowContainer extends ViewBase
     {
         _sourceView = new Sprite();
         super(controller, _sourceView);
+
 
         init();
     }

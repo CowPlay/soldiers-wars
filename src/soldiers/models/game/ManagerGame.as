@@ -12,7 +12,6 @@
 package soldiers.models.game
 {
 
-import flash.geom.Point;
 import flash.utils.Dictionary;
 
 import models.implementations.game.ManagerGameBase;
@@ -21,10 +20,9 @@ import models.interfaces.players.IPlayerInfo;
 
 import soldiers.GameInfo;
 import soldiers.controllers.EControllerUpdate;
-import soldiers.models.game.managerAi.ManagerAi;
-import soldiers.models.game.managerPath.GridCell;
-import soldiers.models.game.managerPath.ManagerPath;
 import soldiers.models.game.decor.Decor;
+import soldiers.models.game.managerAi.ManagerAi;
+import soldiers.models.game.managerPath.ManagerPath;
 import soldiers.models.game.managerProgress.ManagerProgress;
 import soldiers.models.game.managerSoldiers.ManagerSoldiers;
 import soldiers.models.game.soldiers.SoldierInfo;
@@ -33,6 +31,8 @@ import soldiers.models.housesGame.base.EHouseOwner;
 import soldiers.models.housesGame.base.EHouseTypeG;
 import soldiers.models.housesGame.base.HouseG;
 import soldiers.models.levels.LevelInfo;
+
+import utils.UtilsArray;
 
 import views.EControllerUpdateBase;
 
@@ -218,6 +218,22 @@ public class ManagerGame extends ManagerGameBase
         }
     }
 
+    public function onPlayerDeselectHouse(player:IPlayerInfo, value:HouseG):void
+    {
+        var selectedHouses:Array = _selectedHouses[player];
+
+        value.isSelect = false;
+
+        UtilsArray.removeValue(selectedHouses, value);
+
+        _selectedHouses[player] = selectedHouses;
+
+        if (player == _gameOwner)
+        {
+            _stateGame.update(EControllerUpdate.ECU_HOUSE_SELECTION_CHANGED);
+        }
+    }
+
     /*
      * Methods
      */
@@ -334,7 +350,7 @@ public class ManagerGame extends ManagerGameBase
 
     private function initDecor():void
     {
-        _decor =  [];
+        _decor = [];
 
         for each(var decorData:Object in _currentLevel.decorData)
         {
@@ -395,7 +411,6 @@ public class ManagerGame extends ManagerGameBase
             _housesByDistances[target] = houses;
         }
     }
-
 
 
     public function clearHousesSelection(player:IPlayerInfo):void
@@ -466,6 +481,7 @@ public class ManagerGame extends ManagerGameBase
     {
         _managerPath.cleanup();
         _managerSoldiers.cleanup();
+        _managerAi.cleanup();
 
         for each(var house:IDisposable in _houses)
         {

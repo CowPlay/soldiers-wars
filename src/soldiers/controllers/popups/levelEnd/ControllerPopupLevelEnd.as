@@ -13,19 +13,14 @@ package soldiers.controllers.popups.levelEnd
 {
 import controllers.implementations.ControllerPopup;
 
-import views.IView;
-
 import flash.events.MouseEvent;
 
-import models.implementations.players.PlayerInfoBase;
-import models.interfaces.players.IPlayerInfo;
-
 import soldiers.GameInfo;
-import soldiers.models.game.ManagerGame;
-import soldiers.models.levels.LevelInfo;
 import soldiers.popups.EPopupType;
 import soldiers.states.EStateType;
 import soldiers.views.popups.levelEnd.ViewPopupLevelEnd;
+
+import views.IView;
 
 public class ControllerPopupLevelEnd extends ControllerPopup
 {
@@ -74,34 +69,35 @@ public class ControllerPopupLevelEnd extends ControllerPopup
         {
             switch (view)
             {
-//                case _view.buttonClose:
-//                {
-//                    GameInfo.instance.onGameEnd();
-
-//                    GameInfo.instance.managerStates.setState(EStateType.EST_GAME_MAP);
-//
-//  /                  break;
-//                }
                 case _view.buttonClose:
                 {
                     GameInfo.instance.onGameEnd();
 
-                    var nextLevel:LevelInfo = GameInfo.instance.managerLevels.getSavedOrIncompleteLevel() as LevelInfo;
-
-                    var player0:IPlayerInfo = new PlayerInfoBase();
-                    var player1:IPlayerInfo = new PlayerInfoBase();
-
-                    var managerGame:ManagerGame = new ManagerGame(nextLevel, player0, player1);
-
-                    GameInfo.instance.onGameStart(managerGame);
-
-                    GameInfo.instance.managerStates.setState(EStateType.EST_GAME);
-
+                    GameInfo.instance.managerStates.setState(EStateType.EST_GAME_MAP);
                     result = true;
-                    break;
 
+                    break;
                 }
-                default :
+//                case _view.buttonClose:
+//                {
+//                    GameInfo.instance.onGameEnd();
+//
+//                    var nextLevel:LevelInfo = GameInfo.instance.managerLevels.getSavedOrIncompleteLevel() as LevelInfo;
+//
+//                    var player0:IPlayerInfo = new PlayerInfoBase();
+//                    var player1:IPlayerInfo = new PlayerInfoBase();
+//
+//                    var managerGame:ManagerGame = new ManagerGame(nextLevel, player0, player1);
+//
+//                    GameInfo.instance.onGameStart(managerGame);
+//
+//                    GameInfo.instance.managerStates.setState(EStateType.EST_GAME);
+
+//                    result = true;
+//                    break;
+
+//                }
+                default:
                 {
                     Debug.assert(false);
                     break;

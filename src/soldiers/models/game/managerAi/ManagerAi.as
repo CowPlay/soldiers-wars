@@ -184,7 +184,9 @@ public class ManagerAi extends DisposableObject
             }
 
             _aiDecisionLastTime = currentTime;
-            trace("add actions on" + currentTime.toString());
+
+            //TODO: uncomment
+//            trace("add actions on" + currentTime.toString());
         }
 
     }

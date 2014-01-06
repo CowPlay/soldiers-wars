@@ -25,7 +25,8 @@ public class ViewArrow extends ViewBase
      */
     private var _entry:HouseG;
 
-    private var _sourceView:gSelectArrow;
+    private var _source:gSelectArrow;
+    private var _sizeLimit:Point;
 
     private var _rootViewWidth:Number;
 
@@ -39,41 +40,59 @@ public class ViewArrow extends ViewBase
      */
 
     //! Default initializer
-    public function ViewArrow(contoller:IController, entry:HouseG)
+    public function ViewArrow(contoller:IController, entry:HouseG, sizeLimit:Point)
     {
-        _sourceView = new gSelectArrow();
-        super(contoller, _sourceView);
+        _source = new gSelectArrow();
+        super(contoller, _source);
 
+        Debug.assert(sizeLimit != null);
         Debug.assert(entry != null);
+
         _entry = entry;
+        _sizeLimit = sizeLimit;
 
         init();
     }
 
     private function init():void
     {
-        _rootViewWidth = _sourceView.width;
+        _rootViewWidth = _source.width;
 
         handleEvents(false, true);
     }
 
     public function updateArrowSize(e:MouseEvent):void
     {
-        var rootViewPositionAbsolute:Point = _sourceView.parent.localToGlobal(new Point(_sourceView.x, _sourceView.y));
+        var rootViewPositionAbsolute:Point = _source.parent.localToGlobal(new Point(_source.x, _source.y));
 
-        var point:Point = new Point(e.stageX, e.stageY);
+        var limitWidth:Number = Math.sqrt(Math.pow((e.stageX - rootViewPositionAbsolute.x), 2) + Math.pow((e.stageY - rootViewPositionAbsolute.y), 2));
 
-        _sourceView.scaleX = -Math.sqrt(Math.pow((point.x - rootViewPositionAbsolute.x), 2) + Math.pow((point.y - rootViewPositionAbsolute.y), 2)) / _rootViewWidth;
+        _source.rotation = Math.atan2(rootViewPositionAbsolute.y - e.stageY, rootViewPositionAbsolute.x - e.stageX) / Math.PI * 180;
 
-        _sourceView.rotation = Math.atan2(rootViewPositionAbsolute.y - point.y, rootViewPositionAbsolute.x - point.x) / Math.PI * 180;
+        if (Math.abs(_source.rotation) <= 90 && (_source.x - _source.width <= 0))
+        {
+            limitWidth = Math.min(_source.x / Math.cos(_source.rotation * Math.PI / 180), limitWidth);
+        }
+        else if (Math.abs(_source.rotation) > 90 && (_source.x + _source.width >= _sizeLimit.x))
+        {
+            limitWidth = Math.min((_sizeLimit.x - _source.x) / Math.cos((180 - _source.rotation) * Math.PI / 180), limitWidth);
+        }
+
+        if (_source.rotation > 0 && (_source.y - _source.height <= 0))
+        {
+            limitWidth = Math.min(_source.y / Math.sin(_source.rotation * Math.PI / 180), limitWidth);
+        }
+        else if (_source.rotation <= 0 && (_source.y + _source.height >= _sizeLimit.y))
+        {
+            limitWidth = Math.min((_sizeLimit.y - _source.y) / Math.sin((-_source.rotation) * Math.PI / 180), limitWidth);
+        }
+
+        _source.scaleX = -limitWidth / _rootViewWidth;
     }
 
     public override function placeViews(fullscreen:Boolean):void
     {
         super.placeViews(fullscreen);
-
-        //get center cell
-//        var centerCellPosition:Point = new Point(_entry.positionCurrent.x, _entry.positionCurrent.y);
 
         //TODO: remove offset foundation
         var offsetFoundation:Point = new Point(_entry.houseConfig.foundationSize.x / 2, _entry.houseConfig.foundationSize.y / 2);
@@ -87,7 +106,7 @@ public class ViewArrow extends ViewBase
     override public function cleanup():void
     {
         _entry = null;
-        _sourceView = null;
+        _source = null;
 
         super.cleanup();
     }

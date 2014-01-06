@@ -10,8 +10,11 @@ package soldiers.controllers.game.arrow
 import controllers.IController;
 import controllers.implementations.Controller;
 
-import soldiers.controllers.EControllerUpdate;
+import flash.geom.Point;
+
 import soldiers.GameInfo;
+import soldiers.controllers.EControllerUpdate;
+import soldiers.models.game.managerPath.GridCell;
 import soldiers.models.housesGame.base.HouseG;
 import soldiers.views.game.arrows.ViewArrowContainer;
 
@@ -45,10 +48,20 @@ public class ControllerArrowContainer extends Controller
     {
         var houses:Array = GameInfo.instance.managerGame.houses;
 
+        var sizeLimit:Point = null;
+
+        var grid:Array = GameInfo.instance.managerGame.managerPath.grid;
+
+        var row:Array = grid[0];
+
+        var firstNode:GridCell = row[0];
+
+        sizeLimit = new Point(firstNode.view.source.width * row.length, firstNode.view.source.height * grid.length);
+
         _arrows = [];
         for each(var house:HouseG in houses)
         {
-            var controllerArrow:ControllerArrow = new ControllerArrow(house);
+            var controllerArrow:ControllerArrow = new ControllerArrow(house, sizeLimit);
             _view.addSubView(controllerArrow.view);
 
             _arrows.push(controllerArrow);

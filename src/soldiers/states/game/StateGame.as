@@ -9,13 +9,14 @@ package soldiers.states.game
 {
 import controllers.IControllerPopup;
 
-import views.EViewPosition;
-
-import soldiers.controllers.game.ControllerSceneGame;
-import soldiers.controllers.popups.levelEnd.ControllerPopupLevelEnd;
 import soldiers.GameInfo;
+import soldiers.controllers.game.ControllerSceneGame;
+import soldiers.controllers.game.ControllerGameUI;
+import soldiers.controllers.popups.levelEnd.ControllerPopupLevelEnd;
 import soldiers.states.EStateType;
 import soldiers.states.base.StateGameBase;
+
+import views.EViewPosition;
 
 public class StateGame extends StateGameBase
 {
@@ -45,6 +46,13 @@ public class StateGame extends StateGameBase
         super.prepareLayerScene();
 
         this.controllerScene = new ControllerSceneGame();
+    }
+
+    public override function prepareLayerUI():void
+    {
+        super.prepareLayerUI();
+
+        this.controllerUI = new ControllerGameUI();
     }
 
     public override function prepareLayerPopups():void

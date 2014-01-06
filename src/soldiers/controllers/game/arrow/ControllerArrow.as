@@ -10,6 +10,7 @@ package soldiers.controllers.game.arrow
 import controllers.implementations.Controller;
 
 import flash.events.MouseEvent;
+import flash.geom.Point;
 
 import soldiers.controllers.EControllerUpdate;
 import soldiers.GameInfo;
@@ -37,9 +38,9 @@ public class ControllerArrow extends Controller
      */
 
     //! Default constructor
-    public function ControllerArrow(entry:HouseG)
+    public function ControllerArrow(entry:HouseG, sizeLimit:Point)
     {
-        _view = new ViewArrow(this, entry);
+        _view = new ViewArrow(this, entry, sizeLimit);
         super(_view);
 
         _entry = entry;

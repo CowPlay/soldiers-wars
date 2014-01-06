@@ -16,7 +16,6 @@ import controllers.IController;
 import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
 import flash.geom.Point;
-import flash.geom.Rectangle;
 
 import soldiers.GameInfo;
 import soldiers.views.game.grid.ViewGrid;
@@ -38,6 +37,8 @@ public class ViewSceneGame extends ViewBase
     private var _viewGrid:ViewGrid;
 
     private var _subViews:Array;
+
+    private var _needPlaceContainers:Boolean;
 
 
     /*
@@ -72,10 +73,10 @@ public class ViewSceneGame extends ViewBase
     {
         _subViews = [];
 
+        _needPlaceContainers = true;
+
         _viewGrid = new ViewGrid(controller);
         _viewGrid.handleEvents(false);
-
-        _sourceView.addChild(_viewGrid.source);
     }
 
 
@@ -89,36 +90,47 @@ public class ViewSceneGame extends ViewBase
     {
         super.placeViews(fullscreen);
 
-        _viewGrid.placeViews(fullscreen);
+        if(_needPlaceContainers)
+        {
+            _needPlaceContainers = false;
+            _viewGrid.placeViews(fullscreen);
+        }
 
         for each(var subView:IView in _subViews)
         {
             subView.placeViews(fullscreen);
-
-            subView.x = _viewGrid.x;
-            subView.y = _viewGrid.y;
         }
 
         var appSize:Point = GameInfo.instance.managerApp.applicationSize;
+
+        _viewGrid.source.x = 0
+        _viewGrid.source.y = 0;
+
+        if (_viewScrollGrid != null)
+        {
+            _sourceView.removeChild(_viewScrollGrid.source);
+            _viewScrollGrid.cleanup();
+            _viewScrollGrid = null;
+        }
 
         if (_viewGrid.source.width > appSize.x || _viewGrid.source.height > appSize.y)
         {
             _viewScrollGrid = new ViewScroll(controller, _viewGrid.source, appSize);
             _sourceView.addChild(_viewScrollGrid.source);
             _sourceView.setChildIndex(_viewScrollGrid.source, 0);
-//            _sourceView.
 
             _viewScrollGrid.scrollTo(0.5, 0.5);
 
-            _viewGrid.source.y += _viewGrid.source.height / 2;
+            trace(_viewGrid.source.width);
+            trace(_viewGrid.source.height);
         }
         else
         {
+            _sourceView.addChild(_viewGrid.source);
+
             _viewGrid.position = EViewPosition.EVP_ABSOLUTE;
             _viewGrid.translate(0.5, 0.5);
         }
-
-        showDebug = true;
     }
 
     public override function cleanup():void

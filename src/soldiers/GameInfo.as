@@ -133,9 +133,41 @@ public class GameInfo extends GameInfoBase
 
     protected override function onRemoteGameInitComplete(response:IResponse):void
     {
+//        GameInfo.instance.managerStates.setState(EStateTypeBase.ESTB_TEST);
+
+        GameInfo.instance.managerStates.setState(EStateType.EST_GAME_MAP);
+
+//        startStubGame();
+
+//        onGameEnd();
+
 //        GameInfo.instance.managerStates.setState(EStateType.EST_GAME_MAP);
 
-        startStubGame();
+//        _managerGame.onGameStart()
+    }
+
+    //TODO: remove
+    public override function onGameEnd():void
+    {
+        _managerGame = null;
+
+
+        Debug.assert(_managerGameBase != null);
+
+//        if (!_managerGameBase.isFinished)
+//        {
+//            save progress
+//            _managerLevels.levelProgressSave(_managerGameBase.currentLevelBase.serialize());
+//        }
+//        else
+//        {
+//            _managerLevels.levelProgressDestroy();
+//        }
+
+        _managerGameBase.cleanup();
+
+        Debug.assert(_managerGameBase != null, "Game already ended");
+        _managerGameBase = null;
     }
 
     public function startStubGame():void
@@ -145,11 +177,11 @@ public class GameInfo extends GameInfoBase
 
         var container:ILevelContainer = GameInfo.instance.managerLevels.items[0];
 
-        var managerGame:ManagerGame = new ManagerGame(container.items[2], player0, player1);
+        var managerGame:ManagerGame = new ManagerGame(container.items[0], player0, player1);
 
-        GameInfo.instance.onGameStart(managerGame);
+        onGameStart(managerGame);
 
-        GameInfo.instance.managerStates.setState(EStateType.EST_GAME);
+        _managerStates.setState(EStateType.EST_GAME);
     }
 
     public override function onGameStart(value:IManagerGame):void

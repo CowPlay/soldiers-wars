@@ -16,6 +16,7 @@ import mx.utils.UIDUtil;
 import soldiers.models.game.decor.EDecorType;
 import soldiers.models.housesGame.base.EHouseOwner;
 import soldiers.models.housesGame.base.EHouseTypeG;
+import soldiers.models.proxy.aiActions.ProxyAiActions;
 import soldiers.models.proxy.levelTargets.ProxyLevelTargets;
 
 public class ProxyLevel2
@@ -148,8 +149,7 @@ public class ProxyLevel2
             targets_star_2: [],
             targets_star_3: [],
 
-            //[ProxyAiActions.getActionAttack0(), ProxyAiActions.getActionAttack1(), ProxyAiActions.getActionDeffence0(), ProxyAiActions.getActionUpgrade0() ],
-            ai_actions    : [],
+            ai_actions    : [ProxyAiActions.getActionAttack0(), ProxyAiActions.getActionAttack1(), ProxyAiActions.getActionDeffence0(), ProxyAiActions.getActionUpgrade0() ],
 
             decor : [decorData2_0],
             houses: [houseData2_0, houseData2_1, houseData2_2, houseData2_3, houseData2_4, houseData2_5, houseData2_6]

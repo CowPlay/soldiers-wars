@@ -123,6 +123,7 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
         for each(var waveInfoRemove:SoldierWaveInfo in wavesForRemove)
         {
             UtilsArray.removeValue(_soldierWaves, waveInfoRemove);
+            waveInfoRemove.cleanup();
         }
     }
 

@@ -61,6 +61,8 @@ public class ControllerDecorContainer extends Controller
         }
 
         _items = null;
+
+        super.cleanup();
     }
 }
 }

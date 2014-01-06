@@ -72,7 +72,6 @@ public class ViewGrid extends ViewBase
         return  _viewHousesContainer;
     }
 
-
     /*
      * Methods
      */
@@ -88,8 +87,6 @@ public class ViewGrid extends ViewBase
 
     private function init():void
     {
-        anchorPoint = new Point(0.5, 0);
-
         _cells = [];
 
         var grid:Array = GameInfo.instance.managerGame.managerPath.grid;
@@ -120,10 +117,16 @@ public class ViewGrid extends ViewBase
         _sourceView.addChild(_sourceObjects);
 
         _viewSoldiersContainer = new ViewSoldiersContainer(controller, _sourceObjects);
+
         _viewHousesContainer = new ViewHousesGContainer(controller, _sourceObjects);
         _viewDecorContainer = new ViewDecorContainer(controller, _sourceObjects);
-
         _viewArrowsContainer = new ViewArrowContainer(controller);
+
+//        _viewHousesContainer = new ViewHousesGContainer(controller, new Sprite());
+//        _viewDecorContainer = new ViewDecorContainer(controller, new Sprite());
+//        _viewSoldiersContainer = new ViewSoldiersContainer(controller, new Sprite());
+
+
         _sourceView.addChild(_viewArrowsContainer.source);
     }
 
@@ -179,7 +182,6 @@ public class ViewGrid extends ViewBase
                         var cellView:ViewGridCell = row[gridCell.column];
 
                         cellView.showDebugData(0x00ff00);
-
                     }
                 }
             }
@@ -241,15 +243,13 @@ public class ViewGrid extends ViewBase
     {
         var grid:Array = GameInfo.instance.managerGame.managerPath.grid;
 
-
         var firstNode:GridCell = grid[0][0];
 
         var nodeWidth:Number = firstNode.view.source.width;
         var nodeHeight:Number = firstNode.view.source.height;
 
-        var startX:Number = 0;
-        var startY:Number = 0;
-
+        var startX:Number = 0 + nodeWidth / 2;
+        var startY:Number = grid.length / 2 * nodeHeight;
 
         for (var currentRow:int = 0; currentRow < grid.length; currentRow++)
         {
@@ -274,6 +274,7 @@ public class ViewGrid extends ViewBase
         _viewHousesContainer.placeViews(fullscreen);
         _viewDecorContainer.placeViews(fullscreen);
         _viewArrowsContainer.placeViews(fullscreen);
+
 
         super.placeViews(fullscreen);
     }
