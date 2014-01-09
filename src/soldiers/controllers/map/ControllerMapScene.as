@@ -17,6 +17,7 @@ import models.interfaces.levels.ILevelContainer;
 import models.interfaces.levels.ILevelInfo;
 
 import soldiers.GameInfo;
+import soldiers.models.levels.LevelInfo;
 import soldiers.views.map.ViewMapScene;
 
 public class ControllerMapScene extends Controller
@@ -43,7 +44,6 @@ public class ControllerMapScene extends Controller
         _view = new ViewMapScene(this);
         super(_view);
 
-
         init();
     }
 
@@ -53,17 +53,26 @@ public class ControllerMapScene extends Controller
 
         var containers:Array = GameInfo.instance.managerLevels.items;
 
-
         for each(var levelContainer:ILevelContainer in containers)
         {
             var currentLevel:ILevelInfo = levelContainer.firstIncompleteLevel;
 
-            for each(var level:ILevelInfo in levelContainer.items)
+            var itemEnabled:Boolean = true;
+
+            for each(var level:LevelInfo in levelContainer.items)
             {
-                var controllerMapItem:ControllerFlag = new ControllerFlag(level, currentLevel == level);
+                var isCurrent:Boolean = currentLevel == level;
+
+                var controllerMapItem:ControllerFlag = new ControllerFlag(level, isCurrent);
+                controllerMapItem.isEnabled = itemEnabled;
 
                 _view.addSubView(controllerMapItem.view);
-                _items.push(controllerMapItem)
+                _items.push(controllerMapItem);
+
+                if (isCurrent)
+                {
+                    itemEnabled = false;
+                }
             }
         }
     }

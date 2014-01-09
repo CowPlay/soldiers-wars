@@ -11,28 +11,21 @@
  */
 package soldiers.models.game.managerProgress.targets.time
 {
-import flash.utils.getTimer;
-
-import soldiers.GameInfo;
-import soldiers.models.game.managerProgress.targets.base.LTBase;
-import soldiers.models.game.managerProgress.targets.time.LTTimeBase;
-
 public class LTTimeLimit extends LTTimeBase
 {
     /*
      * Fields
      */
+    private var _timeLeft:int;
 
 
     /*
      * Properties
      */
 
-    override public function isComplete():Boolean
+    public function get timeLeft():uint
     {
-        var result:Boolean = getTimer() - GameInfo.instance.managerGame.currentLevel.timeStart < _time;
-
-        return result;
+        return _timeLeft;
     }
 
     /*
@@ -42,17 +35,24 @@ public class LTTimeLimit extends LTTimeBase
     //! Default constructor
     public function LTTimeLimit()
     {
-        init();
     }
 
-    private function init():void
+
+    override public function onGameStart():void
     {
+        _timeLeft = time;
+
+        super.onGameStart();
     }
 
-    /*
-     *  ISerializable
-     */
+    override public function update():void
+    {
+        _timeLeft -= 1000;
 
+        var isComplete:Boolean = _timeLeft >= 0;
+
+        setIsComplete(isComplete);
+    }
 
 
 }

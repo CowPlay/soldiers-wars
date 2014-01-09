@@ -10,6 +10,8 @@ package soldiers.models.string
 import models.implementations.string.ManagerStringBase;
 import models.interfaces.social.IManagerSocial;
 
+import soldiers.models.game.managerProgress.targets.ELevelTarget;
+
 public class ManagerString extends ManagerStringBase
 {
     /*
@@ -40,32 +42,6 @@ public class ManagerString extends ManagerStringBase
         _currentLanguage[EStringType.EST_GAME_BUTTON_OPEN_WORD] = "Open\nword";
         _currentLanguage[EStringType.EST_GAME_BUTTON_OPEN_CHAR] = "Open\nchar";
 
-        //popup bank
-        _currentLanguage[EStringType.EST_POPUP_BANK_TITLE] = "Buy coins";
-        _currentLanguage[EStringType.EST_POPUP_BANK_BUTTON_BUY] = "Buy";
-
-        //popup no coins
-        _currentLanguage[EStringType.EST_POPUP_NO_COINS_TITLE] = "No coins";
-        _currentLanguage[EStringType.EST_POPUP_NO_COINS_TEXT0] = "Sorry";
-        _currentLanguage[EStringType.EST_POPUP_NO_COINS_TEXT1] = "Not\nenough\ncoins";
-        _currentLanguage[EStringType.EST_POPUP_NO_COINS_BUTTON_BUY] = "Buy";
-
-        //popup no stars
-        _currentLanguage[EStringType.EST_POPUP_NO_STARS_TITLE] = "No stars";
-        _currentLanguage[EStringType.EST_POPUP_NO_STARS_TEXT0] = "Sorry";
-        _currentLanguage[EStringType.EST_POPUP_NO_STARS_TEXT1] = "Not\nenough\nstars";
-
-        //popup bonus
-        _currentLanguage[EStringType.EST_POPUP_BONUS_TITLE] = "Daily bonus";
-        _currentLanguage[EStringType.EST_POPUP_BONUS_TEXT] = "Get presents!";
-        _currentLanguage[EStringType.EST_POPUP_BONUS_BUTTON_CLAIM] = "CLAIM";
-        _currentLanguage[EStringType.EST_POPUP_BONUS_ITEM_TITLE] = "day";
-        _currentLanguage[EStringType.EST_POPUP_BONUS_ITEM_REWARD] = "coins";
-
-        //popup players top
-        _currentLanguage[EStringType.EST_POPUP_PLAYERS_TOP_TITLE] = "Players top";
-        _currentLanguage[EStringType.EST_POPUP_PLAYERS_TOP_TEXT_FORMAT] = "Your place is {0}";
-        _currentLanguage[EStringType.EST_POPUP_PLAYERS_TOP_ITEM_TITLE_FORMAT] = "{0}";
     }
 
     protected override function initLanguageRussian():void
@@ -73,37 +49,20 @@ public class ManagerString extends ManagerStringBase
         super.initLanguageRussian();
 
         //game
-        _currentLanguage[EStringType.EST_GAME_BUTTON_FRIEND_HELP] = "Помощь\nдруга";
-        _currentLanguage[EStringType.EST_GAME_BUTTON_OPEN_ALL_WORDS] = "Открыть\nслова";
-        _currentLanguage[EStringType.EST_GAME_BUTTON_OPEN_WORD] = "Открыть\nслово";
-        _currentLanguage[EStringType.EST_GAME_BUTTON_OPEN_CHAR] = "Открыть\nбукву";
+        _currentLanguage[ELevelTarget.ELT_GRAB_ALL] = "Grab all. Rest:{0}";
 
-        //popup bank
-        _currentLanguage[EStringType.EST_POPUP_BANK_TITLE] = "Купить монет";
-        _currentLanguage[EStringType.EST_POPUP_BANK_BUTTON_BUY] = "Купить";
+        _currentLanguage[ELevelTarget.ELT_TARGET_NOT_GRAB] = "Not grab target {0}";
+        _currentLanguage[ELevelTarget.ELT_TARGET_GRAB] = "Grab target {0}";
 
-        //popup no coins
-        _currentLanguage[EStringType.EST_POPUP_NO_COINS_TITLE] = "Недостаточно монет";
-        _currentLanguage[EStringType.EST_POPUP_NO_COINS_TEXT0] = "Внимание!";
-        _currentLanguage[EStringType.EST_POPUP_NO_COINS_TEXT1] = "У Вас недостаточно монет\nдля осуществления\nданной покупки";
-        _currentLanguage[EStringType.EST_POPUP_NO_COINS_BUTTON_BUY] = "Пополнить";
+        _currentLanguage[ELevelTarget.ELT_OWNER_GRAB_ALL] = "Grab all {0}. Rest:{1}";
+        _currentLanguage[ELevelTarget.ELT_OWNER_NOT_GRAB_ANY] = "Not grab any {0}";
+        _currentLanguage[ELevelTarget.ELT_OWNER_NOT_MISSING_ANY] = "{0} not missing any";
 
-        //popup no stars
-        _currentLanguage[EStringType.EST_POPUP_NO_STARS_TITLE] = "Недостаточно звезд";
-        _currentLanguage[EStringType.EST_POPUP_NO_STARS_TEXT0] = "Внимание!";
-        _currentLanguage[EStringType.EST_POPUP_NO_STARS_TEXT1] = "У Вас недостаточно звезд\nдля открытия этого\nкроссворда.";
+        _currentLanguage[ELevelTarget.ELT_TIME_LIMIT] = "Time left {0}";
+        _currentLanguage[ELevelTarget.ELT_TIME_PLAY] = "Need play {0}";
 
-        //popup bonus
-        _currentLanguage[EStringType.EST_POPUP_BONUS_TITLE] = "Ежедневный бонус";
-        _currentLanguage[EStringType.EST_POPUP_BONUS_TEXT] = "Заходи в игру 5 дней подряд\nи получай подарки!";
-        _currentLanguage[EStringType.EST_POPUP_BONUS_BUTTON_CLAIM] = "Забрать награду";
-        _currentLanguage[EStringType.EST_POPUP_BONUS_ITEM_TITLE] = "день";
-        _currentLanguage[EStringType.EST_POPUP_BONUS_ITEM_REWARD] = "монет";
+        _currentLanguage[ELevelTarget.ELT_NONE] = "none";
 
-        //popup players top
-        _currentLanguage[EStringType.EST_POPUP_PLAYERS_TOP_TITLE] = "Топ игроков";
-        _currentLanguage[EStringType.EST_POPUP_PLAYERS_TOP_TEXT_FORMAT] = "Вы на {0} месте";
-        _currentLanguage[EStringType.EST_POPUP_PLAYERS_TOP_ITEM_TITLE_FORMAT] = "{0} место";
     }
 }
 }

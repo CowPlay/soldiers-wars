@@ -1,12 +1,12 @@
 /*
- * Copyright gregory.tkach (c) 2013.
+ * Copyright gregory.tkach (c) 2014.
  */
 
 /**
  * Created with IntelliJ IDEA.
  * User: gregorytkach
- * Date: 12/23/13
- * Time: 11:32 AM
+ * Date: 1/8/14
+ * Time: 10:44 AM
  * To change this template use File | Settings | File Templates.
  */
 package soldiers.models.game.managerProgress.targets.time
@@ -18,11 +18,17 @@ public class LTTimeBase extends LTBase
     /*
      * Fields
      */
-    protected var _time:uint;
+    private var _time:uint;
 
     /*
      * Properties
      */
+
+
+    public function get time():uint
+    {
+        return _time;
+    }
 
     /*
      * Methods
@@ -33,13 +39,22 @@ public class LTTimeBase extends LTBase
     {
     }
 
+
+    override public function onGameStart():void
+    {
+
+        super.onGameStart();
+    }
+
+
     override public function deserialize(data:Object):void
     {
         super.deserialize(data);
 
         Debug.assert(data.hasOwnProperty("time"));
-
         _time = data["time"];
     }
+
+
 }
 }

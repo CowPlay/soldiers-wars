@@ -12,8 +12,14 @@
 package soldiers.models.game.managerProgress.targets
 {
 import soldiers.models.game.managerProgress.targets.base.LTBase;
-import soldiers.models.game.managerProgress.targets.grab.LTGrab;
 import soldiers.models.game.managerProgress.targets.grab.LTGrabAll;
+import soldiers.models.game.managerProgress.targets.grab.owner.LTOwnerGrabAll;
+import soldiers.models.game.managerProgress.targets.grab.owner.LTOwnerNotGrabAny;
+import soldiers.models.game.managerProgress.targets.grab.owner.LTOwnerNotMissingAny;
+import soldiers.models.game.managerProgress.targets.grab.target.LTTargetGrab;
+import soldiers.models.game.managerProgress.targets.grab.target.LTTargetNotGrab;
+import soldiers.models.game.managerProgress.targets.time.LTTimeLimit;
+import soldiers.models.game.managerProgress.targets.time.LTTimePlay;
 import soldiers.models.game.managerProgress.targets.other.LTNone;
 
 public class FactoryTargets
@@ -28,10 +34,10 @@ public class FactoryTargets
 
         switch (targetType)
         {
+
             case ELevelTarget.ELT_NONE:
             {
                 classTarget = LTNone;
-
                 break
             }
 
@@ -41,11 +47,44 @@ public class FactoryTargets
                 break;
             }
 
-            case ELevelTarget.ELT_GRAB:
+            case ELevelTarget.ELT_OWNER_GRAB_ALL:
             {
-                classTarget = LTGrab;
+                classTarget = LTOwnerGrabAll;
                 break;
             }
+            case ELevelTarget.ELT_OWNER_NOT_GRAB_ANY:
+            {
+                classTarget = LTOwnerNotGrabAny;
+                break;
+            }
+            case  ELevelTarget.ELT_OWNER_NOT_MISSING_ANY:
+            {
+                classTarget = LTOwnerNotMissingAny;
+                break;
+            }
+
+            case ELevelTarget.ELT_TARGET_GRAB:
+            {
+                classTarget = LTTargetGrab;
+                break;
+            }
+            case ELevelTarget.ELT_TARGET_NOT_GRAB:
+            {
+                classTarget = LTTargetNotGrab;
+                break;
+            }
+
+            case ELevelTarget.ELT_TIME_LIMIT:
+            {
+                classTarget = LTTimeLimit;
+                break;
+            }
+            case ELevelTarget.ELT_TIME_PLAY:
+            {
+                classTarget = LTTimePlay;
+                break;
+            }
+
             default :
             {
                 Debug.assert(false);

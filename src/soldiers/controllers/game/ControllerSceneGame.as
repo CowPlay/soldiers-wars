@@ -17,7 +17,6 @@ import soldiers.controllers.game.decor.ControllerDecorContainer;
 import soldiers.controllers.game.grid.ControllerGrid;
 import soldiers.controllers.game.houses.ControllerHousesGContainer;
 import soldiers.controllers.game.soldiers.ControllerSoldiersContainer;
-import soldiers.controllers.game.ControllerGameUI;
 import soldiers.popups.EPopupType;
 import soldiers.views.game.ViewSceneGame;
 
@@ -68,7 +67,7 @@ public class ControllerSceneGame extends Controller
     {
         switch (type)
         {
-            case EControllerUpdate.ECU_HOUSE_SELECTION_CHANGED:
+            case EControllerUpdate.ECU_HOUSE_SELECTION:
             {
                 _controllerArrow.update(type);
 
@@ -79,7 +78,7 @@ public class ControllerSceneGame extends Controller
 
                 break;
             }
-            case EControllerUpdate.ECU_SOLDIER_STATE_CHANGED:
+            case EControllerUpdate.ECU_SOLDIER_STATE:
             {
                 _controllerSoldiers.update(type);
                 break;

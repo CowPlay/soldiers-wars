@@ -12,10 +12,14 @@ import bwf.models.proxy.IManagerProxy;
 import models.interfaces.social.IManagerSocial;
 
 import soldiers.models.proxy.level0.ProxyLevel0;
-import soldiers.models.proxy.level1.ProxyLevel1;
 import soldiers.models.proxy.level2.ProxyLevel2;
 import soldiers.models.proxy.level3.ProxyLevel3;
 import soldiers.models.proxy.level4.ProxyLevel4;
+import soldiers.models.proxy.level5.ProxyLevel5;
+import soldiers.models.proxy.level6.ProxyLevel6;
+import soldiers.models.proxy.level7.ProxyLevel7;
+import soldiers.models.proxy.level8.ProxyLevel8;
+import soldiers.models.proxy.level9.ProxyLevel9;
 
 public class ManagerProxy implements IManagerProxy
 {
@@ -77,7 +81,17 @@ public class ManagerProxy implements IManagerProxy
             name        : "name",
             description : "",
             requirements: [],
-            levels      : [ProxyLevel0.getLevelData0(), ProxyLevel1.getLevelData1(), ProxyLevel2.getLevelData2(), ProxyLevel3.getLevelData3(), ProxyLevel4.getLevelData4()]
+            levels      : [
+                ProxyLevel0.getLevelData0(),
+                ProxyLevel2.getLevelData2(),
+                ProxyLevel3.getLevelData3(),
+                ProxyLevel4.getLevelData4(),
+                ProxyLevel5.getLevelData5(),
+                ProxyLevel6.getLevelData6(),
+                ProxyLevel7.getLevelData7(),
+                ProxyLevel8.getLevelData8(),
+                ProxyLevel9.getLevelData9()
+            ]
         };
 
         var result:Object =
@@ -89,7 +103,6 @@ public class ManagerProxy implements IManagerProxy
 
         return result;
     }
-
 
 
     public function getHousesVillage(dataObj:Object):Object

@@ -13,9 +13,6 @@ package soldiers.controllers.map
 {
 import controllers.implementations.Controller;
 
-import views.IView;
-import views.implementations.ViewBase;
-
 import flash.events.MouseEvent;
 
 import models.interfaces.levels.ILevelInfo;
@@ -24,6 +21,11 @@ import soldiers.GameInfo;
 import soldiers.controllers.popups.levelStart.ControllerPopupLevelStart;
 import soldiers.models.levels.LevelInfo;
 import soldiers.popups.EPopupType;
+import soldiers.views.map.ViewFlag;
+
+import utils.UtilsFilters;
+
+import views.IView;
 
 public class ControllerFlag extends Controller
 {
@@ -38,27 +40,25 @@ public class ControllerFlag extends Controller
      * Properties
      */
 
+    public function set isEnabled(value:Boolean):void
+    {
+        _view.handleEvents(value);
+        _view.source.filters = value ? [] : [UtilsFilters.FILTER_GRAYSCALE];
+    }
+
     /*
      * Methods
      */
 
     //! Default constructor
-    public function ControllerFlag(entry:ILevelInfo, isCurrent:Boolean)
+    public function ControllerFlag(entry:LevelInfo, isCurrent:Boolean)
     {
-        _view = new ViewBase(this, isCurrent ? new gViewFlagCurrent() : new gViewFlag());
-
-        _entry = entry;
+        _view = new ViewFlag(this, isCurrent, entry.starsCount);
 
         super(_view);
 
-        init();
+        _entry = entry;
     }
-
-    private function init():void
-    {
-        _view.handleEvents(true);
-    }
-
 
     /*
      *ActionDelegate

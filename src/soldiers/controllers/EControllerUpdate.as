@@ -9,12 +9,15 @@ package soldiers.controllers
 {
 public class EControllerUpdate
 {
-    public static const ECU_SOLDIER_STATE_CHANGED:String = "ECU_SOLDIER_STATE_CHANGED";
+    public static const ECU_SOLDIER_STATE:String = "ECU_SOLDIER_STATE";
 
-    public static const ECU_HOUSE_LEVEL_CHANGED:String = "ECU_HOUSE_LEVEL_CHANGED";
-    public static const ECU_HOUSE_SOLDIERS_CHANGED:String = "ECU_HOUSE_SOLDIERS_CHANGED";
-    public static const ECU_HOUSE_OWNER_CHANGED:String = "ECU_HOUSE_OWNER_CHANGED";
-    public static const ECU_HOUSE_SELECTION_CHANGED:String = "ECU_HOUSE_SELECTION_CHANGED";
+
+    public static const ECU_LEVEL_TARGET_STATUS:String = "ECU_LEVEL_TARGET_STATUS";
+
+    public static const ECU_HOUSE_LEVEL:String = "ECU_HOUSE_LEVEL";
+    public static const ECU_HOUSE_SOLDIERS:String = "ECU_HOUSE_SOLDIERS";
+    public static const ECU_HOUSE_OWNER:String = "ECU_HOUSE_OWNER";
+    public static const ECU_HOUSE_SELECTION:String = "ECU_HOUSE_SELECTION";
 
 }
 }

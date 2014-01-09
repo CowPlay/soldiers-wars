@@ -52,7 +52,7 @@ public class ControllerSoldiersContainer extends Controller
     {
         switch (type)
         {
-            case EControllerUpdate.ECU_SOLDIER_STATE_CHANGED:
+            case EControllerUpdate.ECU_SOLDIER_STATE:
             {
                 var soldiers:Array = GameInfo.instance.managerGame.managerSoldiers.soldiers;
 

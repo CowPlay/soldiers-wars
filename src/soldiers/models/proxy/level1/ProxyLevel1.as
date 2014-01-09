@@ -13,7 +13,10 @@ package soldiers.models.proxy.level1
 {
 import mx.utils.UIDUtil;
 
+import soldiers.models.housesGame.base.EHouseOwner;
+
 import soldiers.models.housesGame.base.EHouseTypeG;
+import soldiers.models.proxy.aiActions.ProxyAiActions;
 import soldiers.models.proxy.levelTargets.ProxyLevelTargets;
 
 public class ProxyLevel1
@@ -23,57 +26,57 @@ public class ProxyLevel1
         var houseData1_0:Object =
         {
             type : EHouseTypeG.EHGT_BARRACKS,
-            owner: "eho_player",
+            owner: EHouseOwner.EHO_PLAYER,
             level: 1,
 
             position_x: 15,
-            position_y: 3,
+            position_y: 4,
 
             id: UIDUtil.createUID(),
 
-            soldiers: 10
+            soldiers: 5
         };
 
         var houseData1_1:Object =
         {
             type : EHouseTypeG.EHGT_BARRACKS,
-            owner: "eho_neutral",
+            owner: EHouseOwner.EHO_ENEMY,
             level: 1,
 
             position_x: 15,
-            position_y: 23,
+            position_y: 26,
 
             id: UIDUtil.createUID(),
 
-            soldiers: 10
+            soldiers: 5
         };
 
         var houseData1_2:Object =
         {
             type : EHouseTypeG.EHGT_BARRACKS,
-            owner: "eho_neutral",
+            owner: EHouseOwner.EHO_NEUTRAL,
             level: 1,
 
-            position_x: 11,
+            position_x: 10,
             position_y: 15,
 
             id: UIDUtil.createUID(),
 
-            soldiers: 5
+            soldiers: 4
         };
 
         var houseData1_3:Object =
         {
             type : EHouseTypeG.EHGT_BARRACKS,
-            owner: "eho_enemy",
+            owner: EHouseOwner.EHO_NEUTRAL,
             level: 1,
 
-            position_x: 19,
+            position_x: 20,
             position_y: 15,
 
             id: UIDUtil.createUID(),
 
-            soldiers: 5
+            soldiers: 8
         };
 
 
@@ -89,11 +92,18 @@ public class ProxyLevel1
             grid_width          : 30,
             grid_height         : 30,
 
-            targets_star_1: [ProxyLevelTargets.getTargetGrabAllHouses()],
-            targets_star_2: [],
-            targets_star_3: [],
+            houses_level_max: 1,
 
-            ai_actions: [],
+            stars_count   : 0,
+
+            // Захватить все вражеские здания на уровне
+            targets_star_1: [ProxyLevelTargets.getOwnerGrabAll(EHouseOwner.EHO_ENEMY)],
+            // Захватить все здания на уровне
+            targets_star_2: [ProxyLevelTargets.getGrabAll()],
+            // Отсутствует
+            targets_star_3: [ProxyLevelTargets.getNone()],
+
+            ai_actions    : [ProxyAiActions.getActionAttack0(), ProxyAiActions.getActionAttack1(), ProxyAiActions.getActionDeffence0(), ProxyAiActions.getActionUpgrade0() ],
 
             decor : [],
             houses: [houseData1_0, houseData1_1, houseData1_2, houseData1_3]

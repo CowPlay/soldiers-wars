@@ -11,9 +11,13 @@
  */
 package soldiers.controllers.game
 {
+import controllers.IController;
 import controllers.implementations.Controller;
 
 import flash.events.MouseEvent;
+
+import soldiers.controllers.EControllerUpdate;
+import soldiers.controllers.game.ui.ControllerProgress;
 
 import soldiers.views.game.ViewGameUI;
 
@@ -25,6 +29,7 @@ public class ControllerGameUI extends Controller
      * Fields
      */
     private var _view:ViewGameUI;
+    private  var _controllerProgress:IController;
 
     /*
      * Properties
@@ -44,6 +49,8 @@ public class ControllerGameUI extends Controller
 
     private function init():void
     {
+        _controllerProgress = new ControllerProgress();
+        _view.viewProgress = _controllerProgress.view;
     }
 
 
@@ -81,8 +88,27 @@ public class ControllerGameUI extends Controller
         return result;
     }
 
+
+    override public function update(type:String):void
+    {
+        switch (type)
+        {
+            case EControllerUpdate.ECU_LEVEL_TARGET_STATUS:
+            {
+                _controllerProgress.update(type);
+                break;
+            }
+            default :
+            {
+                Debug.assert(false);
+                break;
+            }
+        }
+    }
+
     public override function cleanup():void
     {
+        _controllerProgress.cleanup();
         super.cleanup();
     }
 }

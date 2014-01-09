@@ -10,8 +10,9 @@ package soldiers.states.game
 import controllers.IControllerPopup;
 
 import soldiers.GameInfo;
-import soldiers.controllers.game.ControllerSceneGame;
+import soldiers.controllers.EControllerUpdate;
 import soldiers.controllers.game.ControllerGameUI;
+import soldiers.controllers.game.ControllerSceneGame;
 import soldiers.controllers.popups.levelEnd.ControllerPopupLevelEnd;
 import soldiers.states.EStateType;
 import soldiers.states.base.StateGameBase;
@@ -64,12 +65,26 @@ public class StateGame extends StateGameBase
 
     public override function update(type:String):void
     {
-        this.controllerScene.update(type);
+        switch (type)
+        {
+            case EControllerUpdate.ECU_LEVEL_TARGET_STATUS:
+            {
+                this.controllerUI.update(type);
+                break;
+            }
+            default :
+            {
+                this.controllerScene.update(type);
+                break;
+            }
+        }
+
     }
 
     public override function onLoadingEnd():void
     {
         GameInfo.instance.managerGame.registerStateGame(this);
+        GameInfo.instance.managerGame.onGameStart();
         super.onLoadingEnd();
     }
 

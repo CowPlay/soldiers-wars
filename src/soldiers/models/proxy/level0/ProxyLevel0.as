@@ -32,7 +32,7 @@ public class ProxyLevel0
 
             id: UIDUtil.createUID(),
 
-            soldiers: 10
+            soldiers: 5
         };
 
         var houseData0_1:Object =
@@ -41,36 +41,36 @@ public class ProxyLevel0
             owner: EHouseOwner.EHO_PLAYER,
             level: 1,
 
-            position_x: 20,
-            position_y: 5,
+            position_x: 22,
+            position_y: 8,
 
             id: UIDUtil.createUID(),
 
-            soldiers: 10
+            soldiers: 5
         };
 
         var houseData0_2:Object =
         {
             type : EHouseTypeG.EHGT_BARRACKS,
-            owner: EHouseOwner.EHO_ENEMY,
+            owner: EHouseOwner.EHO_PLAYER,
             level: 1,
 
-            position_x: 20,
-            position_y: 24,
+            position_x: 25,
+            position_y: 25,
 
             id: UIDUtil.createUID(),
 
-            soldiers: 10
+            soldiers: 5
         };
 
         var houseData0_3:Object =
         {
             type : EHouseTypeG.EHGT_BARRACKS,
-            owner: EHouseOwner.EHO_ENEMY,
+            owner: EHouseOwner.EHO_NEUTRAL,
             level: 1,
 
-            position_x: 5,
-            position_y: 15,
+            position_x: 8,
+            position_y: 22,
 
             id: UIDUtil.createUID(),
 
@@ -91,17 +91,16 @@ public class ProxyLevel0
             grid_width : 30,
             grid_height: 30,
 
-            houses_level_max: 2,
+            houses_level_max: 1,
 
-            targets_star_1: [ProxyLevelTargets.getTargetGrabAllHouses()],
-            targets_star_2: [ProxyLevelTargets.getTargetGrabTargetHouse(houseData0_3.id)],
-            targets_star_3: [ProxyLevelTargets.getTargetNone()],
+            stars_count   : 0,
 
-//              ProxyAiActions.getActionAttack0()
-//              ProxyAiActions.getActionAttack1()
-//              ProxyAiActions.getActionDeffence0()
-//              ProxyAiActions.getActionUpgrade0()
-
+            // Захватить все здания на уровне
+            targets_star_1: [ProxyLevelTargets.getGrabAll()],
+            // Отсутствует
+            targets_star_2: [ProxyLevelTargets.getNone()],
+            // Отсутствует
+            targets_star_3: [ProxyLevelTargets.getNone()],
 
             ai_actions: [],
 

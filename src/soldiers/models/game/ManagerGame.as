@@ -15,7 +15,6 @@ package soldiers.models.game
 import flash.utils.Dictionary;
 
 import models.implementations.game.ManagerGameBase;
-import models.interfaces.levels.ILevelInfo;
 import models.interfaces.players.IPlayerInfo;
 
 import soldiers.GameInfo;
@@ -51,7 +50,7 @@ public class ManagerGame extends ManagerGameBase
 
     private var _managerPath:ManagerPath;
     private var _managerSoldiers:ManagerSoldiers;
-    private var _mangerProgress:ManagerProgress;
+    private var _managerProgress:ManagerProgress;
     private var _managerAi:ManagerAi;
 
     //[ISerializable]
@@ -136,8 +135,25 @@ public class ManagerGame extends ManagerGameBase
 
     public function onHouseOwnerChanged():void
     {
-        //TODO:implement
-        _mangerProgress.onHouseOwnerChanged();
+        var isPlayerLose:Boolean = true;
+
+        for each(var house:HouseG in _houses)
+        {
+            if (house.ownerType == EHouseOwner.EHO_PLAYER)
+            {
+                isPlayerLose = false;
+                break;
+            }
+        }
+
+        if (isPlayerLose)
+        {
+            onGameEnd(false);
+        }
+        else
+        {
+            _managerProgress.onHouseOwnerChanged();
+        }
     }
 
     public function onTarget1Complete():void
@@ -155,20 +171,40 @@ public class ManagerGame extends ManagerGameBase
         {
             house.onGameStart();
         }
+
+        _managerProgress.onGameStart();
+    }
+
+    public function onPlayerLose():void
+    {
+        onGameEnd(false);
     }
 
     //TODO: remove and use base version when complete server side
-    protected override function onGameEnd():void
+    protected override function onGameEnd(isPlayerWin:Boolean = true):void
     {
         _isFinished = true;
 
         _managerAi.onGameEnd();
 
+        _managerProgress.onGameEnd();
+
         GameInfo.instance.managerStates.currentState.update(EControllerUpdateBase.ECUT_GAME_FINISHED);
 
         {//get level manually because current level possible deserialize from data and not contains in manager branches
-            var level:ILevelInfo = GameInfoBase.instance.managerLevels.getLevel(_currentLevelBase.id);
+            var level:LevelInfo = GameInfoBase.instance.managerLevels.getLevel(_currentLevelBase.id) as LevelInfo;
             level.complete = true;
+
+            if (isPlayerWin)
+            {
+                var starsCount:uint = 0;
+
+                starsCount = level.target1Complete ? starsCount + 1 : starsCount;
+                starsCount = level.target2Complete ? starsCount + 1 : starsCount;
+                starsCount = level.target3Complete ? starsCount + 1 : starsCount;
+
+                level.starsCount = starsCount;
+            }
         }
     }
 
@@ -214,7 +250,7 @@ public class ManagerGame extends ManagerGameBase
 
         if (player == _gameOwner)
         {
-            _stateGame.update(EControllerUpdate.ECU_HOUSE_SELECTION_CHANGED);
+            _stateGame.update(EControllerUpdate.ECU_HOUSE_SELECTION);
         }
     }
 
@@ -230,7 +266,7 @@ public class ManagerGame extends ManagerGameBase
 
         if (player == _gameOwner)
         {
-            _stateGame.update(EControllerUpdate.ECU_HOUSE_SELECTION_CHANGED);
+            _stateGame.update(EControllerUpdate.ECU_HOUSE_SELECTION);
         }
     }
 
@@ -258,7 +294,7 @@ public class ManagerGame extends ManagerGameBase
     {
         _managerPath = new ManagerPath(currentLevel.gridSize, this);
         _managerSoldiers = new ManagerSoldiers(this);
-        _mangerProgress = new ManagerProgress(this);
+        _managerProgress = new ManagerProgress(this);
 
         _selectedHouses = new Dictionary(true);
 
@@ -426,7 +462,7 @@ public class ManagerGame extends ManagerGameBase
 
         if (player == _gameOwner)
         {
-            _stateGame.update(EControllerUpdate.ECU_HOUSE_SELECTION_CHANGED);
+            _stateGame.update(EControllerUpdate.ECU_HOUSE_SELECTION);
         }
     }
 

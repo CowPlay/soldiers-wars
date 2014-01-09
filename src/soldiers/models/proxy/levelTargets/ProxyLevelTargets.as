@@ -19,7 +19,7 @@ public class ProxyLevelTargets
      * Other
      */
 
-    public static function getTargetNone():Object
+    public static function getNone():Object
     {
         var result:Object =
         {
@@ -33,7 +33,7 @@ public class ProxyLevelTargets
      * Grab
      */
 
-    public static function getTargetGrabAllHouses():Object
+    public static function getGrabAll():Object
     {
         var result:Object =
         {
@@ -43,12 +43,79 @@ public class ProxyLevelTargets
         return result;
     }
 
-    public static function getTargetGrabTargetHouse(id:String):Object
+    public static function getOwnerGrabAll(ownerType:String):Object
     {
         var result:Object =
         {
-            type           : ELevelTarget.ELT_GRAB,
+            type      : ELevelTarget.ELT_OWNER_GRAB_ALL,
+            owner_type: ownerType
+        };
+
+        return result;
+    }
+
+    public static function getOwnerNotGrabAny(ownerType:String):Object
+    {
+        var result:Object =
+        {
+            type      : ELevelTarget.ELT_OWNER_NOT_GRAB_ANY,
+            owner_type: ownerType
+        };
+
+        return result;
+    }
+
+    public static function getOwnerNotMissingAny(ownerType:String):Object
+    {
+        var result:Object =
+        {
+            type      : ELevelTarget.ELT_OWNER_NOT_MISSING_ANY,
+            owner_type: ownerType
+        };
+
+        return result;
+    }
+
+
+    public static function getTargetNotGrab(id:String):Object
+    {
+        var result:Object =
+        {
+            type     : ELevelTarget.ELT_TARGET_NOT_GRAB,
             target_id: id
+        };
+
+        return result;
+    }
+
+    public static function getTargetGrab(id:String):Object
+    {
+        var result:Object =
+        {
+            type     : ELevelTarget.ELT_TARGET_GRAB,
+            target_id: id
+        };
+
+        return result;
+    }
+
+    public static function getTimeLimit(time:uint):Object
+    {
+        var result:Object =
+        {
+            type: ELevelTarget.ELT_TIME_LIMIT,
+            time: time
+        };
+
+        return result;
+    }
+
+    public static function getTimePlay(time:uint):Object
+    {
+        var result:Object =
+        {
+            type: ELevelTarget.ELT_TIME_PLAY,
+            time: time
         };
 
         return result;

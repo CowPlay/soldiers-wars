@@ -15,6 +15,9 @@ import core.DisposableObject;
 
 import serialization.ISerializable;
 
+import soldiers.GameInfo;
+import soldiers.controllers.EControllerUpdate;
+
 public class LTBase extends DisposableObject implements ISerializable
 {
     /*
@@ -22,6 +25,8 @@ public class LTBase extends DisposableObject implements ISerializable
      */
 
     private var _type:String;
+
+    private var _isComplete:Boolean;
 
     /*
      * Properties
@@ -35,8 +40,17 @@ public class LTBase extends DisposableObject implements ISerializable
 
     public function isComplete():Boolean
     {
-        Debug.assert(false, "Please override it");
-        return false;
+        return _isComplete;
+    }
+
+    protected function setIsComplete(value:Boolean):void
+    {
+        if (_isComplete == value)
+            return;
+
+        _isComplete = value;
+
+        GameInfo.instance.managerStates.currentState.update(EControllerUpdate.ECU_LEVEL_TARGET_STATUS);
     }
 
     /*
@@ -47,11 +61,16 @@ public class LTBase extends DisposableObject implements ISerializable
     public function LTBase()
     {
         super(false);
-        init();
     }
 
-    private function init():void
+    public function onGameStart():void
     {
+        update();
+    }
+
+    public function update():void
+    {
+        Debug.assert(false, "Please override");
     }
 
     /*
@@ -66,9 +85,7 @@ public class LTBase extends DisposableObject implements ISerializable
     public function deserialize(data:Object):void
     {
         Debug.assert(data.hasOwnProperty("type"));
-
         _type = data["type"];
-
     }
 }
 }

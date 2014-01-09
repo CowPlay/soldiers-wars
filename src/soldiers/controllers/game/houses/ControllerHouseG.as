@@ -61,30 +61,28 @@ public class ControllerHouseG extends Controller
     {
         _managerGame = GameInfo.instance.managerGame;
 
-        update(EControllerUpdate.ECU_HOUSE_OWNER_CHANGED);
-        update(EControllerUpdate.ECU_HOUSE_SOLDIERS_CHANGED);
-        update(EControllerUpdate.ECU_HOUSE_LEVEL_CHANGED);
+        updateViewHouseOwner();
+
+        update(EControllerUpdate.ECU_HOUSE_SOLDIERS);
+        update(EControllerUpdate.ECU_HOUSE_LEVEL);
 
         _enableSelection = true;
-//        update(EControllerUpdateBase.ECUT_ENTRY_UPDATED);
     }
+
 
     public override function update(type:String):void
     {
         switch (type)
         {
-            case EControllerUpdate.ECU_HOUSE_OWNER_CHANGED:
+            case EControllerUpdate.ECU_HOUSE_OWNER:
             {
-                _view.houseViewPlayer.visible = _entry.ownerType == EHouseOwner.EHO_PLAYER;
-                _view.houseViewEnemy.visible = !_view.houseViewPlayer.visible;
-
-                updateIconLevelUp();
+                updateViewHouseOwner();
 
                 GameInfo.instance.managerGame.onHouseOwnerChanged();
 
                 break;
             }
-            case EControllerUpdate.ECU_HOUSE_SOLDIERS_CHANGED:
+            case EControllerUpdate.ECU_HOUSE_SOLDIERS:
             {
                 _view.labelSoldiers.text = _entry.soldierCount.toString();
 
@@ -92,7 +90,7 @@ public class ControllerHouseG extends Controller
 
                 break;
             }
-            case EControllerUpdate.ECU_HOUSE_LEVEL_CHANGED:
+            case EControllerUpdate.ECU_HOUSE_LEVEL:
             {
                 _view.setLevel(_entry.level, _entry.houseConfig.levelMax);
 
@@ -107,6 +105,14 @@ public class ControllerHouseG extends Controller
                 break;
             }
         }
+    }
+
+    private function updateViewHouseOwner():void
+    {
+        _view.houseViewPlayer.visible = _entry.ownerType == EHouseOwner.EHO_PLAYER;
+        _view.houseViewEnemy.visible = !_view.houseViewPlayer.visible;
+
+        updateIconLevelUp();
     }
 
     private function updateIconLevelUp():void

@@ -1,68 +1,59 @@
 /*
- * Copyright gregory.tkach (c) 2013.
+ * Copyright gregory.tkach (c) 2014.
  */
 
 /**
  * Created with IntelliJ IDEA.
  * User: gregorytkach
- * Date: 12/23/13
- * Time: 10:45 AM
+ * Date: 1/7/14
+ * Time: 10:33 PM
  * To change this template use File | Settings | File Templates.
  */
-package soldiers.models.game.managerProgress.targets.grab
+package soldiers.models.game.managerProgress.targets.grab.owner
 {
-import soldiers.GameInfo;
-import soldiers.models.game.managerProgress.targets.base.LTBase;
 import soldiers.models.housesGame.base.EHouseOwner;
 import soldiers.models.housesGame.base.HouseG;
 
-public class LTGrabAll extends LTBase
+public class LTOwnerGrabAll extends LTOwnerBase
 {
     /*
      * Fields
      */
-    private var _housesRest:uint;
-    private var _houses:Array;
 
+
+    private var _housesRest:uint;
     /*
      * Properties
      */
-
-
     public function get housesRest():uint
     {
         return _housesRest;
     }
+
 
     /*
      * Methods
      */
 
     //! Default constructor
-    public function LTGrabAll()
+
+    public function LTOwnerGrabAll()
     {
     }
 
 
-    override public function onGameStart():void
+    override public function update():void
     {
-
-        _houses = GameInfo.instance.managerGame.houses;
-
-        super.onGameStart();
-    }
-
-    public override function update():void
-    {
-        var isComplete:Boolean = true;
-
         _housesRest = 0;
 
-        for each(var house:HouseG in _houses)
+        var isComplete:Boolean = true;
+
+        for each(var house:HouseG in _targetHouses)
         {
             if (house.ownerType != EHouseOwner.EHO_PLAYER)
             {
                 isComplete = false;
+
                 _housesRest++;
             }
         }

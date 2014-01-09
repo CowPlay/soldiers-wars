@@ -13,14 +13,18 @@ package soldiers.views.map
 {
 import controllers.IController;
 
+import flash.display.DisplayObjectContainer;
+
+import utils.UtilsFilters;
+
 import views.implementations.ViewBase;
 
-public class ViewStar extends ViewBase
+public class ViewFlag extends ViewBase
 {
     /*
      * Fields
      */
-    private var _sourceView:gStar;
+    private var _sourceView:DisplayObjectContainer;
 
     /*
      * Properties
@@ -29,17 +33,21 @@ public class ViewStar extends ViewBase
     /*
      * Methods
      */
-    public function ViewStar(controller:IController)
+    public function ViewFlag(controller:IController, isCurrent:Boolean, starsCount:uint = 0)
     {
-        _sourceView = new gStar();
+        if (isCurrent)
+        {
+            _sourceView = new gViewFlagCurrent();
+        }
+        else
+        {
+            var source:gViewFlag = new gViewFlag();
+            source.levelStars.gotoAndStop(starsCount + 1);
+
+            _sourceView = source;
+        }
+
         super(controller, _sourceView);
-
-        init();
-    }
-
-    private function init():void
-    {
-
     }
 
     public override function placeViews(isFullscreen:Boolean):void

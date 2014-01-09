@@ -111,7 +111,7 @@ public class SoldierInfo extends DisposableObject implements IDisposable
 
         _state = value;
 
-        GameInfo.instance.managerStates.currentState.update(EControllerUpdate.ECU_SOLDIER_STATE_CHANGED)
+        GameInfo.instance.managerStates.currentState.update(EControllerUpdate.ECU_SOLDIER_STATE)
     }
 
     public function get isLastOnWave():Boolean

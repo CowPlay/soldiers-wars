@@ -139,11 +139,6 @@ public class GameInfo extends GameInfoBase
 
 //        startStubGame();
 
-//        onGameEnd();
-
-//        GameInfo.instance.managerStates.setState(EStateType.EST_GAME_MAP);
-
-//        _managerGame.onGameStart()
     }
 
     //TODO: remove
@@ -151,18 +146,7 @@ public class GameInfo extends GameInfoBase
     {
         _managerGame = null;
 
-
         Debug.assert(_managerGameBase != null);
-
-//        if (!_managerGameBase.isFinished)
-//        {
-//            save progress
-//            _managerLevels.levelProgressSave(_managerGameBase.currentLevelBase.serialize());
-//        }
-//        else
-//        {
-//            _managerLevels.levelProgressDestroy();
-//        }
 
         _managerGameBase.cleanup();
 

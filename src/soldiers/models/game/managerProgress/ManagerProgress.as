@@ -13,11 +13,20 @@ package soldiers.models.game.managerProgress
 {
 import core.DisposableObject;
 
+import flash.events.TimerEvent;
+import flash.utils.Timer;
+
+import models.interfaces.states.IState;
+
+import soldiers.GameInfo;
+
 import soldiers.controllers.EControllerUpdate;
 
 import soldiers.models.game.ManagerGame;
-import soldiers.models.housesGame.base.EHouseOwner;
-import soldiers.models.housesGame.base.HouseG;
+import soldiers.models.game.managerProgress.targets.ELevelTarget;
+import soldiers.models.game.managerProgress.targets.base.LTBase;
+
+import utils.memory.UtilsMemory;
 
 public class ManagerProgress extends DisposableObject
 {
@@ -26,9 +35,10 @@ public class ManagerProgress extends DisposableObject
      */
     private var _managerGame:ManagerGame;
 
-    private var _housesNeutralCount:uint;
-    private var _housesEnemyCount:uint;
-    private var _housesPlayerCount:uint;
+    private var _listenersHouseOwner:Array;
+    private var _listenersTime:Array;
+
+    private var _timer:Timer;
 
     /*
      * Properties
@@ -39,12 +49,25 @@ public class ManagerProgress extends DisposableObject
      */
     public function onHouseOwnerChanged():void
     {
-        if(_managerGame.currentLevel.target1Complete)
+        for each(var target:LTBase in _listenersHouseOwner)
         {
-            _managerGame.onTarget1Complete();
+            target.update();
+        }
+    }
+
+    private function onTimer(e:TimerEvent):void
+    {
+        for each(var target:LTBase in _listenersTime)
+        {
+            target.update();
         }
 
-        //TODO: implement
+        var currentState:IState = GameInfo.instance.managerStates.currentState;
+
+        if (currentState != null)
+        {
+            currentState.update(EControllerUpdate.ECU_LEVEL_TARGET_STATUS);
+        }
     }
 
     /*
@@ -63,34 +86,77 @@ public class ManagerProgress extends DisposableObject
 
     private function init():void
     {
-        for each(var house:HouseG in _managerGame.houses)
+        _listenersHouseOwner = [];
+        _listenersTime = [];
+
+        initListeners(_managerGame.currentLevel.targetsStar1);
+        initListeners(_managerGame.currentLevel.targetsStar2);
+        initListeners(_managerGame.currentLevel.targetsStar3);
+
+        _timer = new Timer(ConstantsBase.ANIMATION_DURATION * 4 * 1000);
+        UtilsMemory.registerEventListener(_timer, TimerEvent.TIMER, this, onTimer);
+    }
+
+    private function initListeners(targets:Array):void
+    {
+        for each(var target:LTBase in targets)
         {
-            switch (house.ownerType)
+            switch (target.type)
             {
-                case EHouseOwner.EHO_NEUTRAL:
+                case ELevelTarget.ELT_GRAB_ALL:
+                case ELevelTarget.ELT_OWNER_NOT_GRAB_ANY:
+                case ELevelTarget.ELT_OWNER_GRAB_ALL:
+                case ELevelTarget.ELT_TARGET_GRAB:
+                case ELevelTarget.ELT_TARGET_NOT_GRAB:
                 {
-                    _housesNeutralCount++;
+                    _listenersHouseOwner.push(target);
                     break;
                 }
-                case EHouseOwner.EHO_PLAYER:
+                case ELevelTarget.ELT_TIME_LIMIT:
+                case ELevelTarget.ELT_TIME_PLAY:
                 {
-                    _housesPlayerCount++;
+                    _listenersTime.push(target);
                     break;
                 }
-                case EHouseOwner.EHO_ENEMY:
+                default :
                 {
-                    _housesEnemyCount++;
-                    break;
-                }
-                default:
-                {
-                    Debug.assert(false);
                     break;
                 }
             }
-
         }
+    }
 
+    public function onGameStart():void
+    {
+        _timer.start();
+
+        for each(var target:LTBase in _managerGame.currentLevel.targets)
+        {
+            target.onGameStart();
+        }
+    }
+
+    public function onGameEnd():void
+    {
+        cleanupTimer();
+    }
+
+    private function cleanupTimer():void
+    {
+        if (_timer != null)
+        {
+            _timer.stop();
+            UtilsMemory.unregisterEventListener(_timer, TimerEvent.TIMER, this, onTimer);
+            _timer = null;
+        }
+    }
+
+
+    override public function cleanup():void
+    {
+        cleanupTimer();
+
+        super.cleanup();
     }
 }
 }

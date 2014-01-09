@@ -133,7 +133,7 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
 
         _soldiers.push(newSoldier);
 
-        GameInfo.instance.managerStates.currentState.update(EControllerUpdate.ECU_SOLDIER_STATE_CHANGED);
+        GameInfo.instance.managerStates.currentState.update(EControllerUpdate.ECU_SOLDIER_STATE);
 
         waveInfo.generatedSoldierRest--;
 

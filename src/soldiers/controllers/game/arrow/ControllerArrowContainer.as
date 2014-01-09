@@ -72,7 +72,7 @@ public class ControllerArrowContainer extends Controller
     {
         switch (type)
         {
-            case EControllerUpdate.ECU_HOUSE_SELECTION_CHANGED:
+            case EControllerUpdate.ECU_HOUSE_SELECTION:
             {
                 for each(var arrow:IController in  _arrows)
                 {

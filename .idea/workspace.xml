@@ -2,28 +2,58 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0c58ea7-91d2-429f-8aac-01418852bc28" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/soldiers/controllers/game/ControllerGameUI.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/soldiers/views/game/ViewGameUI.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/soldiers/views/game/ui/ViewOptions.as" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/soldiers/views/base/ControlOptions.as" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/soldiers/controllers/game/ui/ControllerProgress.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/grab/owner/LTOwnerBase.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/grab/owner/LTOwnerGrabAll.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/grab/owner/LTOwnerNotGrabAny.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/grab/target/LTTargetBase.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/grab/target/LTTargetGrab.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/grab/target/LTTargetNotGrab.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/soldiers/views/game/ui/ViewProgress.as" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/grab/LTGrab.as" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/grab/LTGrabBase.as" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/soldiers/views/base/ControlScalableStrip.as" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/soldiers/views/map/ControlPointFlagItem.as" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/grab/LTNotGrab.as" afterPath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/grab/owner/LTOwnerNotMissingAny.as" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/other/LTWithoutMissingHouse.as" afterPath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/grab/owner/LTOwnerGrabLimit.as" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/soldiers/views/map/ViewStar.as" afterPath="$PROJECT_DIR$/src/soldiers/views/map/ViewFlag.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/graphics.swc" afterPath="$PROJECT_DIR$/assets/graphics.swc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/controllers/game/arrow/ControllerArrow.as" afterPath="$PROJECT_DIR$/src/soldiers/controllers/game/arrow/ControllerArrow.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/controllers/game/arrow/ControllerArrowContainer.as" afterPath="$PROJECT_DIR$/src/soldiers/controllers/game/arrow/ControllerArrowContainer.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/controllers/game/decor/ControllerDecorContainer.as" afterPath="$PROJECT_DIR$/src/soldiers/controllers/game/decor/ControllerDecorContainer.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/controllers/game/houses/ControllerHousesGContainer.as" afterPath="$PROJECT_DIR$/src/soldiers/controllers/game/houses/ControllerHousesGContainer.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/controllers/popups/levelEnd/ControllerPopupLevelEnd.as" afterPath="$PROJECT_DIR$/src/soldiers/controllers/popups/levelEnd/ControllerPopupLevelEnd.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/controllers/map/ControllerFlag.as" afterPath="$PROJECT_DIR$/src/soldiers/controllers/map/ControllerFlag.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/controllers/game/ControllerGameUI.as" afterPath="$PROJECT_DIR$/src/soldiers/controllers/game/ControllerGameUI.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/controllers/game/houses/ControllerHouseG.as" afterPath="$PROJECT_DIR$/src/soldiers/controllers/game/houses/ControllerHouseG.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/controllers/map/ControllerMapScene.as" afterPath="$PROJECT_DIR$/src/soldiers/controllers/map/ControllerMapScene.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/controllers/game/ControllerSceneGame.as" afterPath="$PROJECT_DIR$/src/soldiers/controllers/game/ControllerSceneGame.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/controllers/game/soldiers/ControllerSoldiersContainer.as" afterPath="$PROJECT_DIR$/src/soldiers/controllers/game/soldiers/ControllerSoldiersContainer.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/controllers/EControllerUpdate.as" afterPath="$PROJECT_DIR$/src/soldiers/controllers/EControllerUpdate.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/ELevelTarget.as" afterPath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/ELevelTarget.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/string/EStringType.as" afterPath="$PROJECT_DIR$/src/soldiers/models/string/EStringType.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/FactoryTargets.as" afterPath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/FactoryTargets.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/GameInfo.as" afterPath="$PROJECT_DIR$/src/soldiers/GameInfo.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/game/managerAi/ManagerAi.as" afterPath="$PROJECT_DIR$/src/soldiers/models/game/managerAi/ManagerAi.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/housesGame/base/HouseG.as" afterPath="$PROJECT_DIR$/src/soldiers/models/housesGame/base/HouseG.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/base/LTBase.as" afterPath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/base/LTBase.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/grab/LTGrabAll.as" afterPath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/grab/LTGrabAll.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/other/LTNone.as" afterPath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/other/LTNone.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/time/LTTimeBase.as" afterPath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/time/LTTimeBase.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/time/LTTimeLimit.as" afterPath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/time/LTTimeLimit.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/time/LTTimePlay.as" afterPath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/time/LTTimePlay.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/levels/LevelInfo.as" afterPath="$PROJECT_DIR$/src/soldiers/models/levels/LevelInfo.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/game/ManagerGame.as" afterPath="$PROJECT_DIR$/src/soldiers/models/game/ManagerGame.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/ManagerProgress.as" afterPath="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/ManagerProgress.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/proxy/ManagerProxy.as" afterPath="$PROJECT_DIR$/src/soldiers/models/proxy/ManagerProxy.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/game/managerSoldiers/ManagerSoldiers.as" afterPath="$PROJECT_DIR$/src/soldiers/models/game/managerSoldiers/ManagerSoldiers.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/string/ManagerString.as" afterPath="$PROJECT_DIR$/src/soldiers/models/string/ManagerString.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/proxy/aiActions/ProxyAiActions.as" afterPath="$PROJECT_DIR$/src/soldiers/models/proxy/aiActions/ProxyAiActions.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/proxy/level0/ProxyLevel0.as" afterPath="$PROJECT_DIR$/src/soldiers/models/proxy/level0/ProxyLevel0.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/proxy/level1/ProxyLevel1.as" afterPath="$PROJECT_DIR$/src/soldiers/models/proxy/level1/ProxyLevel1.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/proxy/level2/ProxyLevel2.as" afterPath="$PROJECT_DIR$/src/soldiers/models/proxy/level2/ProxyLevel2.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/proxy/level3/ProxyLevel3.as" afterPath="$PROJECT_DIR$/src/soldiers/models/proxy/level3/ProxyLevel3.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/proxy/level4/ProxyLevel4.as" afterPath="$PROJECT_DIR$/src/soldiers/models/proxy/level4/ProxyLevel4.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/proxy/levelTargets/ProxyLevelTargets.as" afterPath="$PROJECT_DIR$/src/soldiers/models/proxy/levelTargets/ProxyLevelTargets.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/models/game/soldiers/SoldierInfo.as" afterPath="$PROJECT_DIR$/src/soldiers/models/game/soldiers/SoldierInfo.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/states/game/StateGame.as" afterPath="$PROJECT_DIR$/src/soldiers/states/game/StateGame.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/states/base/StateGameBase.as" afterPath="$PROJECT_DIR$/src/soldiers/states/base/StateGameBase.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/views/game/arrows/ViewArrow.as" afterPath="$PROJECT_DIR$/src/soldiers/views/game/arrows/ViewArrow.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/views/game/arrows/ViewArrowContainer.as" afterPath="$PROJECT_DIR$/src/soldiers/views/game/arrows/ViewArrowContainer.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/views/game/grid/ViewGrid.as" afterPath="$PROJECT_DIR$/src/soldiers/views/game/grid/ViewGrid.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/views/game/ViewSceneGame.as" afterPath="$PROJECT_DIR$/src/soldiers/views/game/ViewSceneGame.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/soldiers/views/game/ViewGameUI.as" afterPath="$PROJECT_DIR$/src/soldiers/views/game/ViewGameUI.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="com.cowplay.soldiers.iws" />
@@ -41,23 +71,23 @@
     <file path="$PROJECT_DIR$/../../../mrpin/flash/crosswords/src/crosswords/controllers/game/ui/ControllerCrosswordWord.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1386408175400" ignored="false" />
     <file path="$PROJECT_DIR$/../../../mrpin/flash/crosswords/src/crosswords/models/data/WordInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388262179523" ignored="false" />
     <file path="/WordInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388262178607" ignored="false" />
-    <file path="/fragment.js2" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388925328822" ignored="false" />
+    <file path="/fragment.js2" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389175890075" ignored="false" />
     <file path="/ManagerSoldiers.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388957435711" ignored="false" />
     <file path="/ViewSoldier.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388408402545" ignored="false" />
     <file path="/ManagerPath.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388923999252" ignored="false" />
     <file path="/ESoldierRotation.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1386425507886" ignored="false" />
-    <file path="/fragment.js" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388933594054" ignored="false" />
+    <file path="/fragment.js" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389183042141" ignored="false" />
     <file path="/A.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1386448319296" ignored="false" />
     <file path="/Main.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387117838736" ignored="false" />
     <file path="/ViewGrid.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388940224453" ignored="false" />
     <file path="/ViewSoldiersContainer.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1386450574903" ignored="false" />
     <file path="/ControllerSoldiersContainer.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1386448829758" ignored="false" />
-    <file path="/ControllerSceneGame.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388957106926" ignored="false" />
+    <file path="/ControllerSceneGame.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389125929490" ignored="false" />
     <file path="/ControllerSoldier.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387793450541" ignored="false" />
     <file path="/ControllerHousesGContainer.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388957167676" ignored="false" />
-    <file path="/a.dummy" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388957316366" ignored="false" />
+    <file path="/a.dummy" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389259426115" ignored="false" />
     <file path="/ViewGridCell.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388913881285" ignored="false" />
-    <file path="/ControllerHouseG.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388924695750" ignored="false" />
+    <file path="/ControllerHouseG.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389129697772" ignored="false" />
     <file path="/ControllerArrowContainer.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388940368299" ignored="false" />
     <file path="/ViewHouseG.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388909068618" ignored="false" />
     <file path="/ViewArrow.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388946446184" ignored="false" />
@@ -66,7 +96,7 @@
     <file path="/Debug.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387371123154" ignored="false" />
     <file path="/Constants.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388413761971" ignored="false" />
     <file path="/ControllerFlagItem.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387371696488" ignored="false" />
-    <file path="/ControllerMapScene.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387371654929" ignored="false" />
+    <file path="/ControllerMapScene.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389260312524" ignored="false" />
     <file path="/ViewVillageScene.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387371761424" ignored="false" />
     <file path="/ViewVillageUI.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387371798366" ignored="false" />
     <file path="/ViewPopupTavernItem.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387371825774" ignored="false" />
@@ -75,20 +105,20 @@
     <file path="/ViewPopupBakeryItem.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387371957483" ignored="false" />
     <file path="/ViewPopupBakery.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387371971185" ignored="false" />
     <file path="/ViewMapScene.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388410848601" ignored="false" />
-    <file path="/ControllerFlag.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387375200251" ignored="false" />
+    <file path="/ControllerFlag.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389260029464" ignored="false" />
     <file path="/ControllerPopupLevelStart.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387373931079" ignored="false" />
     <file path="/ControllerPopupLevelEnd.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388871149559" ignored="false" />
     <file path="/ManagerProxy.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387895318680" ignored="false" />
     <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/bwf/models/proxy/ManagerProxyBWF.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387375949257" ignored="false" />
     <file path="/ViewPopupLevelEnd.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387376214558" ignored="false" />
     <file path="/HouseGBarracks.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388413475253" ignored="false" />
-    <file path="/ManagerGame.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388956793495" ignored="false" />
+    <file path="/ManagerGame.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389184214026" ignored="false" />
     <file path="/HouseG.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388412594891" ignored="false" />
-    <file path="/EControllerUpdate.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387476902210" ignored="false" />
+    <file path="/EControllerUpdate.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389090457219" ignored="false" />
     <file path="/HouseGLevelInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387478043003" ignored="false" />
-    <file path="/LevelInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388912996126" ignored="false" />
-    <file path="/ManagerProgress.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387896192646" ignored="false" />
-    <file path="/ELevelTarget.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387890673072" ignored="false" />
+    <file path="/LevelInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389182562693" ignored="false" />
+    <file path="/ManagerProgress.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389174359768" ignored="false" />
+    <file path="/ELevelTarget.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389169457620" ignored="false" />
     <file path="/LevelTarget.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387786358168" ignored="false" />
     <file path="/LevelTargetGrabTargetHouse.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387791083210" ignored="false" />
     <file path="/LevelTargetTimeLimit.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387791158951" ignored="false" />
@@ -105,7 +135,7 @@
     <file path="/PlayerNPC.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387792827339" ignored="false" />
     <file path="/ManagerAi.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388068443752" ignored="false" />
     <file path="/IManagerGame.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387794623424" ignored="false" />
-    <file path="/ManagerGameBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387794645825" ignored="false" />
+    <file path="/ManagerGameBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389184238318" ignored="false" />
     <file path="$PROJECT_DIR$/../../../mrpin/flash/crosswords/src/crosswords/controllers/game/ui/ControllerPhotoItem.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387802510414" ignored="false" />
     <file path="$PROJECT_DIR$/../../../mrpin/flash/crosswords/src/crosswords/controllers/game/ControllerSceneGame.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388262278966" ignored="false" />
     <file path="$PROJECT_DIR$/../../../mrpin/flash/crosswords/src/crosswords/models/data/LevelInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387801832570" ignored="false" />
@@ -126,7 +156,6 @@
     <file path="$PROJECT_DIR$/../../../mrpin/flash/crosswords/src/crosswords/states/base/StateCrosswordsBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388224270669" ignored="false" />
     <file path="$PROJECT_DIR$/../../../mrpin/flash/crosswords/src/crosswords/controllers/popups/ControllerPopupWin.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387802123220" ignored="false" />
     <file path="$PROJECT_DIR$/../../../mrpin/flash/crosswords/src/crosswords/view/popups/ViewPopupWin.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388239043698" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/interfaces/states/IState.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387802207262" ignored="false" />
     <file path="$PROJECT_DIR$/../../../mrpin/flash/crosswords/src/crosswords/view/popups/viewPopupTop/ViewPopupTop.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387802224358" ignored="false" />
     <file path="/ControllerSceneBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387802284463" ignored="false" />
     <file path="$PROJECT_DIR$/../../../mrpin/flash/crosswords/src/crosswords/controllers/popups/ControllerPopupBonus.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387802313143" ignored="false" />
@@ -141,13 +170,13 @@
     <file path="$PROJECT_DIR$/../../../mrpin/flash/crosswords/src/crosswords/controllers/game/ui/ControllerKeyboard.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388233759746" ignored="false" />
     <file path="/a.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387808492850" ignored="false" />
     <file path="/LevelTargetNone.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387890698680" ignored="false" />
-    <file path="/FactoryTargets.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387896352726" ignored="false" />
-    <file path="/ProxyLevelTargets.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387895582526" ignored="false" />
-    <file path="/ProxyLevel0.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388913413437" ignored="false" />
-    <file path="/ProxyLevel1.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387895360762" ignored="false" />
-    <file path="/ProxyLevel2.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388913126838" ignored="false" />
-    <file path="/ProxyLevel3.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387895427514" ignored="false" />
-    <file path="/ProxyLevel4.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387895449305" ignored="false" />
+    <file path="/FactoryTargets.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389172779636" ignored="false" />
+    <file path="/ProxyLevelTargets.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389172702693" ignored="false" />
+    <file path="/ProxyLevel0.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389259759084" ignored="false" />
+    <file path="/ProxyLevel1.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389259541760" ignored="false" />
+    <file path="/ProxyLevel2.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389259570003" ignored="false" />
+    <file path="/ProxyLevel3.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389259611751" ignored="false" />
+    <file path="/ProxyLevel4.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389259344258" ignored="false" />
     <file path="/EAiStrategy.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387972813157" ignored="false" />
     <file path="/AiStrategyAttack.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387977417289" ignored="false" />
     <file path="/AiStrategyBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1387977007701" ignored="false" />
@@ -182,18 +211,15 @@
     <file path="/EStateTypeBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388073262452" ignored="false" />
     <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/implementations/levels/LevelContainerBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388073305065" ignored="false" />
     <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/bwf/models/proxy/RemoteParamsBWF.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388073305067" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/implementations/states/game/ControlSceneGameBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388073305068" ignored="false" />
     <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/implementations/social/managers/SocialManagerBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388073305068" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/implementations/states/ManagerStatesBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388073305069" ignored="false" />
     <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/utils/Utils.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388073305069" ignored="false" />
     <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/implementations/players/ManagerPlayersBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388073305070" ignored="false" />
     <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/utils/UtilsDisplayObject.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388073305070" ignored="false" />
     <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/utils/UtilsString.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388073305070" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/utils/memory/UtilsMemory.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388073305070" ignored="false" />
     <file path="/GameInfoBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388073342976" ignored="false" />
     <file path="/GameInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388956639345" ignored="false" />
     <file path="/ViewCircle.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388074175642" ignored="false" />
-    <file path="/StateGame.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388956384391" ignored="false" />
+    <file path="/StateGame.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389174224680" ignored="false" />
     <file path="/IView.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388081593771" ignored="false" />
     <file path="$PROJECT_DIR$/../../../mrpin/flash/crosswords/src/crosswords/models/GameInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388224242690" ignored="false" />
     <file path="/StateCrosswordsBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388224270669" ignored="false" />
@@ -205,7 +231,7 @@
     <file path="$PROJECT_DIR$/../../../mrpin/flash/crosswords/src/crosswords/models/string/EStringType.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388235251512" ignored="false" />
     <file path="/EStringType.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388235181870" ignored="false" />
     <file path="$PROJECT_DIR$/../../../mrpin/flash/crosswords/src/crosswords/models/string/ManagerString.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388235401973" ignored="false" />
-    <file path="/ManagerString.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388235202580" ignored="false" />
+    <file path="/ManagerString.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389173152789" ignored="false" />
     <file path="/ControllerKeyboard.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388243159450" ignored="false" />
     <file path="$PROJECT_DIR$/../../../mrpin/flash/crosswords/src/crosswords/GameInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388236527555" ignored="false" />
     <file path="$PROJECT_DIR$/../../../mrpin/flash/crosswords/src/crosswords/controllers/game/ui/ControllerKeyboardCrosswords.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388261516978" ignored="false" />
@@ -215,7 +241,6 @@
     <file path="/ViewCloud.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388239924997" ignored="false" />
     <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/interfaces/string/IManagerString.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388242620520" ignored="false" />
     <file path="/IManagerString.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388242620520" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/implementations/string/ManagerStringBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388242753292" ignored="false" />
     <file path="/ManagerStringBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388242751128" ignored="false" />
     <file path="$PROJECT_DIR$/../../../mrpin/flash/crosswords/src/crosswords/models/data/CharInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388261627368" ignored="false" />
     <file path="/CharInfo.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388261607695" ignored="false" />
@@ -234,10 +259,37 @@
     <file path="/ViewDecor.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388915469280" ignored="false" />
     <file path="/ControllerDecor.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388915603296" ignored="false" />
     <file path="/ControllerUI.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388925698985" ignored="false" />
-    <file path="/ViewGameUI.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388956910600" ignored="false" />
+    <file path="/ViewGameUI.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389121432659" ignored="false" />
     <file path="/ViewOptions.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388956876880" ignored="false" />
-    <file path="/ControllerGameUI.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388948365461" ignored="false" />
+    <file path="/ControllerGameUI.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389183457545" ignored="false" />
     <file path="/SocialUserBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1388956764677" ignored="false" />
+    <file path="/ManagerAppBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389084740973" ignored="false" />
+    <file path="/ViewProgress.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389124272858" ignored="false" />
+    <file path="/ControllerProgress.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389176655685" ignored="false" />
+    <file path="/LTBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389174072401" ignored="false" />
+    <file path="/LTGrab.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389125494716" ignored="false" />
+    <file path="/LTGrabAll.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389174094813" ignored="false" />
+    <file path="/LTNone.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389259900385" ignored="false" />
+    <file path="/LTGrabOwner.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389128933566" ignored="false" />
+    <file path="/LTGrabAllOwner.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389128919194" ignored="false" />
+    <file path="/LTGrabBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389128690648" ignored="false" />
+    <file path="/LTGrabTarget.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389128704294" ignored="false" />
+    <file path="/LTNotGrabAllOwner.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389168506645" ignored="false" />
+    <file path="/LTOwnerBase.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389168312852" ignored="false" />
+    <file path="/LTOwnerNotGrabAny.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389168373588" ignored="false" />
+    <file path="/LTNotMissingAny.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389169410253" ignored="false" />
+    <file path="/LTOwnerNotMissingAny.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389169386318" ignored="false" />
+    <file path="/LTTime.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389172362513" ignored="false" />
+    <file path="/LTTimePlay.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389172530330" ignored="false" />
+    <file path="/LTTimeLimit.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389172982722" ignored="false" />
+    <file path="/LTOwnerGrabLimit.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389176208891" ignored="false" />
+    <file path="/ViewFlag.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389182810058" ignored="false" />
+    <file path="$PROJECT_DIR$/assets/graphics.swc!/library.swf" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389183253578" ignored="false" />
+    <file path="/ProxyLevel9.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389259734327" ignored="false" />
+    <file path="/ProxyLevel6.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389259660622" ignored="false" />
+    <file path="/ProxyLevel8.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389259184965" ignored="false" />
+    <file path="/ProxyLevel7.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389259198239" ignored="false" />
+    <file path="/ProxyLevel5.as" changelist="b0c58ea7-91d2-429f-8aac-01418852bc28" time="1389259633724" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,19 +353,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GameInfo.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/soldiers/GameInfo.as">
+      <file leaf-file-name="ProxyLevel3.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/soldiers/models/proxy/level3/ProxyLevel3.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="140" column="13" selection-start="4025" selection-end="4025" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ManagerAppBase.as" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/implementations/app/ManagerAppBase.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="90" selection-start="2006" selection-end="2006" vertical-scroll-proportion="0.5777461">
+            <state line="111" column="19" selection-start="2411" selection-end="2442" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -321,19 +364,77 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ControllerHouseG.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/soldiers/controllers/game/houses/ControllerHouseG.as">
+      <file leaf-file-name="ProxyLevel4.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/soldiers/models/proxy/level4/ProxyLevel4.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="164" column="19" selection-start="3547" selection-end="3578" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#245#269#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProxyLevel0.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/soldiers/models/proxy/level0/ProxyLevel0.as">
+      <file leaf-file-name="ProxyLevel5.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/soldiers/models/proxy/level5/ProxyLevel5.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="182" column="16" selection-start="3815" selection-end="3843" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#245#269#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProxyLevel6.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/soldiers/models/proxy/level6/ProxyLevel6.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="107" column="18" selection-start="2377" selection-end="2408" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#245#269#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProxyLevel7.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/soldiers/models/proxy/level7/ProxyLevel7.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="179" column="19" selection-start="3850" selection-end="3881" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#245#269#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProxyLevel8.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/soldiers/models/proxy/level8/ProxyLevel8.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="179" column="15" selection-start="3850" selection-end="3878" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#245#269#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProxyLevel9.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/soldiers/models/proxy/level9/ProxyLevel9.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="185" column="40" selection-start="4015" selection-end="4015" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#245#269#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LTNone.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/other/LTNone.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="0" selection-start="575" selection-end="575" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -341,58 +442,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProxyLevel2.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/soldiers/models/proxy/level2/ProxyLevel2.as">
+      <file leaf-file-name="ControllerFlag.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/soldiers/controllers/map/ControllerFlag.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="151" column="0" selection-start="3335" selection-end="3335" vertical-scroll-proportion="0.0">
+            <state line="53" column="28" selection-start="1062" selection-end="1062" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
+                <element signature="e#231#277#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ControllerSceneGame.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/soldiers/controllers/game/ControllerSceneGame.as">
+      <file leaf-file-name="ControllerMapScene.as" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/soldiers/controllers/map/ControllerMapScene.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="26" selection-start="2569" selection-end="2628" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ControllerHousesGContainer.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/soldiers/controllers/game/houses/ControllerHousesGContainer.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="103" column="36" selection-start="2502" selection-end="2502" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewOptions.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/soldiers/views/game/ui/ViewOptions.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="19" selection-start="404" selection-end="404" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewGameUI.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/soldiers/views/game/ViewGameUI.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="8" selection-start="1517" selection-end="1517" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ControllerPopupLevelEnd.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/soldiers/controllers/popups/levelEnd/ControllerPopupLevelEnd.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="0" selection-start="1332" selection-end="1332" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="67" column="39" selection-start="1505" selection-end="1505" vertical-scroll-proportion="0.49500713">
+              <folding>
+                <element signature="e#231#277#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -415,22 +483,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/soldiers/controllers/popups/levelEnd/ControllerPopupLevelEnd.as" />
-        <option value="$PROJECT_DIR$/src/soldiers/controllers/game/ui/ControllerGameUI.as" />
-        <option value="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/states/views/ViewStateTest.as" />
-        <option value="$PROJECT_DIR$/src/soldiers/states/game/StateGame.as" />
-        <option value="$PROJECT_DIR$/src/soldiers/states/base/StateGameBase.as" />
-        <option value="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/implementations/social/SocialUserBase.as" />
-        <option value="$PROJECT_DIR$/src/soldiers/models/game/ManagerGame.as" />
-        <option value="$PROJECT_DIR$/src/soldiers/controllers/game/decor/ControllerDecorContainer.as" />
-        <option value="$PROJECT_DIR$/src/soldiers/views/game/ui/ViewOptions.as" />
-        <option value="$PROJECT_DIR$/src/soldiers/views/game/ViewGameUI.as" />
-        <option value="$PROJECT_DIR$/src/soldiers/controllers/game/ControllerSceneGame.as" />
-        <option value="$PROJECT_DIR$/src/soldiers/controllers/game/houses/ControllerHousesGContainer.as" />
-        <option value="$PROJECT_DIR$/src/soldiers/models/game/managerSoldiers/ManagerSoldiers.as" />
+        <option value="$PROJECT_DIR$/src/soldiers/models/proxy/ManagerProxy.as" />
+        <option value="$PROJECT_DIR$/src/soldiers/models/proxy/back/level1/ProxyLevel1.as" />
+        <option value="$PROJECT_DIR$/src/soldiers/models/proxy/level0/ProxyLevel0.as" />
+        <option value="$PROJECT_DIR$/src/soldiers/models/proxy/level1/ProxyLevel1.as" />
         <option value="$PROJECT_DIR$/src/soldiers/models/proxy/level2/ProxyLevel2.as" />
-        <option value="$PROJECT_DIR$/src/soldiers/GameInfo.as" />
-        <option value="$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/implementations/app/ManagerAppBase.as" />
+        <option value="$PROJECT_DIR$/src/soldiers/models/proxy/level3/ProxyLevel3.as" />
+        <option value="$PROJECT_DIR$/src/soldiers/models/proxy/level4/ProxyLevel4.as" />
+        <option value="$PROJECT_DIR$/src/soldiers/models/proxy/level5/ProxyLevel5.as" />
+        <option value="$PROJECT_DIR$/src/soldiers/models/proxy/level6/ProxyLevel6.as" />
+        <option value="$PROJECT_DIR$/src/soldiers/models/proxy/level7/ProxyLevel7.as" />
+        <option value="$PROJECT_DIR$/src/soldiers/models/proxy/level8/ProxyLevel8.as" />
+        <option value="$PROJECT_DIR$/src/soldiers/models/proxy/level9/ProxyLevel9.as" />
+        <option value="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/other/LTNone.as" />
+        <option value="$PROJECT_DIR$/src/soldiers/views/map/ViewFlag.as" />
+        <option value="$PROJECT_DIR$/src/soldiers/controllers/map/ControllerFlag.as" />
+        <option value="$PROJECT_DIR$/src/soldiers/controllers/map/ControllerMapScene.as" />
       </list>
     </option>
   </component>
@@ -653,7 +721,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
+              <option name="myItemId" value="popups" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -683,11 +751,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
+              <option name="myItemId" value="map" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -713,11 +777,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base" />
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -743,33 +803,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="states" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers-wars" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="states" />
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -802,132 +836,12 @@
               <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers-wars" />
+              <option name="myItemId" value="game" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="remote" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers-wars" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="proxy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers-wars" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="proxy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="level2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers-wars" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="proxy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="level0" />
+              <option name="myItemId" value="managerProgress" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -958,6 +872,56 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="managerProgress" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="targets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.cowplay.soldiers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="soldiers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="soldiers-wars" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="soldiers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="managerProgress" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="targets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="other" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1013,7 +977,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
+              <option name="myItemId" value="map" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1025,172 +989,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="soldiers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers-wars" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game-sdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game-sdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game-sdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="states" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game-sdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="states" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game-sdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game-sdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="implementations" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.cowplay.soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soldiers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game-sdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="implementations" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -1238,18 +1036,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateActionScriptClassDialog.DESTINATION_PACKAGE_RECENT_KEY">
-      <recent name="soldiers.views.game.ui" />
+      <recent name="soldiers.models.game.managerProgress.targets.other" />
+      <recent name="soldiers.models.game.managerProgress.targets.grab.time" />
+      <recent name="soldiers.models.game.managerProgress.targets.grab.owner" />
+      <recent name="soldiers.models.game.managerProgress.targets.grab" />
       <recent name="soldiers.controllers.game.ui" />
-      <recent name="soldiers.controllers.game.decor" />
-      <recent name="soldiers.views.game.decor" />
-      <recent name="soldiers.views.game.grid" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/grab/owner" />
+      <recent name="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/grab/time" />
+      <recent name="$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/grab/target" />
       <recent name="$PROJECT_DIR$/src/soldiers/views/game" />
       <recent name="$PROJECT_DIR$/src/soldiers/controllers/game" />
-      <recent name="$PROJECT_DIR$/src/soldiers/views/game/grid/decor" />
-      <recent name="$PROJECT_DIR$/src/soldiers/models/game/managerPath/decor" />
-      <recent name="$PROJECT_DIR$/src/soldiers/models/proxy/levelTargets" />
     </key>
   </component>
   <component name="RunManager" selected="Flash App.offline.debug">
@@ -1574,9 +1372,11 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28379673" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27900288" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Profile" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27900288" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24721603" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2593628" sideWeight="0.18216683" order="2" side_tool="true" content_ui="tabs" />
@@ -1599,8 +1399,6 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28379673" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Profile" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.75278395" order="8" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1672,7 +1470,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="1111" />
+      <option name="time" value="1127" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1680,116 +1478,147 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/implementations/social/SocialUserBase.as">
+    <entry file="file://$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/Debug.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="10" selection-start="2144" selection-end="2144" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/soldiers/controllers/game/decor/ControllerDecorContainer.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="29" selection-start="689" selection-end="689" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/soldiers/models/game/managerSoldiers/SoldierWaveInfo.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="13" selection-start="373" selection-end="373" vertical-scroll-proportion="0.10775862">
+        <state line="25" column="0" selection-start="436" selection-end="436" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/soldiers/models/game/ManagerGame.as">
+    <entry file="file://$PROJECT_DIR$/src/soldiers/models/levels/LevelInfo.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="13" selection-start="1129" selection-end="1129" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/soldiers/models/game/managerSoldiers/ManagerSoldiers.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="165" column="143" selection-start="4472" selection-end="4472" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/soldiers/models/game/managerPath/ManagerPath.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="463" column="0" selection-start="13602" selection-end="13602" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/soldiers/controllers/game/ControllerSceneGame.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="26" selection-start="2569" selection-end="2628" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/soldiers/controllers/game/houses/ControllerHouseG.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/soldiers/controllers/game/houses/ControllerHousesGContainer.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="36" selection-start="2502" selection-end="2502" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/soldiers/views/game/ui/ViewOptions.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="19" selection-start="404" selection-end="404" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/soldiers/views/game/ViewGameUI.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="8" selection-start="1517" selection-end="1517" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/soldiers/controllers/popups/levelEnd/ControllerPopupLevelEnd.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="0" selection-start="1332" selection-end="1332" vertical-scroll-proportion="0.0">
+        <state line="170" column="53" selection-start="3295" selection-end="3306" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/soldiers/models/proxy/level0/ProxyLevel0.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="95" column="21" selection-start="2070" selection-end="2101" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="e#245#269#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/soldiers/models/proxy/level1/ProxyLevel1.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="96" column="19" selection-start="2145" selection-end="2176" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#245#269#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/soldiers/models/proxy/level2/ProxyLevel2.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="151" column="0" selection-start="3335" selection-end="3335" vertical-scroll-proportion="0.0">
+        <state line="149" column="16" selection-start="3232" selection-end="3263" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#245#269#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/soldiers/models/proxy/level3/ProxyLevel3.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="111" column="19" selection-start="2411" selection-end="2442" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/soldiers/GameInfo.as">
+    <entry file="file://$PROJECT_DIR$/src/soldiers/models/proxy/level4/ProxyLevel4.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="140" column="13" selection-start="4025" selection-end="4025" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="164" column="19" selection-start="3547" selection-end="3578" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#245#269#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../sdks-flash/game-sdk/src/models/implementations/app/ManagerAppBase.as">
+    <entry file="file://$PROJECT_DIR$/src/soldiers/models/proxy/level5/ProxyLevel5.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="90" selection-start="2006" selection-end="2006" vertical-scroll-proportion="0.5777461">
+        <state line="182" column="16" selection-start="3815" selection-end="3843" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="e#245#269#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/soldiers/models/proxy/level6/ProxyLevel6.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="107" column="18" selection-start="2377" selection-end="2408" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#245#269#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/soldiers/models/proxy/level7/ProxyLevel7.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="179" column="19" selection-start="3850" selection-end="3881" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#245#269#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/soldiers/models/proxy/level8/ProxyLevel8.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="179" column="15" selection-start="3850" selection-end="3878" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#245#269#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/soldiers/models/proxy/level9/ProxyLevel9.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="185" column="40" selection-start="4015" selection-end="4015" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#245#269#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/soldiers/models/game/managerProgress/targets/other/LTNone.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="0" selection-start="575" selection-end="575" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/soldiers/views/map/ViewFlag.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="0" selection-start="920" selection-end="920" vertical-scroll-proportion="0.68508285">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#225#256#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/soldiers/controllers/map/ControllerFlag.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="28" selection-start="1062" selection-end="1062" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#231#277#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/soldiers/controllers/map/ControllerMapScene.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="39" selection-start="1505" selection-end="1505" vertical-scroll-proportion="0.49500713">
+          <folding>
+            <element signature="e#231#277#0" expanded="true" />
           </folding>
         </state>
       </provider>

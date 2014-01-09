@@ -65,7 +65,7 @@ public class ControllerArrow extends Controller
     {
         switch (type)
         {
-            case EControllerUpdate.ECU_HOUSE_SELECTION_CHANGED:
+            case EControllerUpdate.ECU_HOUSE_SELECTION:
             {
                 _entry.isSelect ? _view.show() : _view.hide();
 

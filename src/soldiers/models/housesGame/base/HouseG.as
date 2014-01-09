@@ -106,7 +106,7 @@ public class HouseG extends DisposableObject implements ISerializable
 
         if (_controller != null)
         {
-            _controller.update(EControllerUpdate.ECU_HOUSE_OWNER_CHANGED);
+            _controller.update(EControllerUpdate.ECU_HOUSE_OWNER);
         }
     }
 
@@ -160,7 +160,7 @@ public class HouseG extends DisposableObject implements ISerializable
 
         Debug.assert(_level <= _houseConfig.levelMax);
 
-        _controller.update(EControllerUpdate.ECU_HOUSE_LEVEL_CHANGED);
+        _controller.update(EControllerUpdate.ECU_HOUSE_LEVEL);
 
         this.soldierCount -= this.soldierCount / 2;
     }
@@ -187,7 +187,7 @@ public class HouseG extends DisposableObject implements ISerializable
 
         _soldierCount = value;
 
-        _controller.update(EControllerUpdate.ECU_HOUSE_SOLDIERS_CHANGED);
+        _controller.update(EControllerUpdate.ECU_HOUSE_SOLDIERS);
     }
 
     public function get currentLevelInfo():HouseGLevelInfo

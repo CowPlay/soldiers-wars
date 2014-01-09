@@ -20,7 +20,7 @@ public class ProxyAiActions
         var result:Object =
         {
             type         : EAiAction.EAS_ATTACK_0,
-            time_reaction: 5000,
+            time_reaction: 3000,
 
             soldiers_limit_player : 70,
             soldiers_limit_neutral: 50

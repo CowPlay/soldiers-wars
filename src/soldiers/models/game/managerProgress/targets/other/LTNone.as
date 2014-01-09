@@ -13,16 +13,11 @@ package soldiers.models.game.managerProgress.targets.other
 {
 import soldiers.models.game.managerProgress.targets.base.LTBase;
 
-public class LTNone   extends LTBase
+public class LTNone extends LTBase
 {
     /*
      * Properties
      */
-
-    override public function isComplete():Boolean
-    {
-        return true;
-    }
 
     /*
      * Methods
@@ -31,6 +26,12 @@ public class LTNone   extends LTBase
     //! Default constructor
     public function LTNone()
     {
+    }
+
+    public override function update():void
+    {
+        //do nothing
+        setIsComplete(true);
     }
 }
 }
