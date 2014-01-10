@@ -21,7 +21,6 @@ import soldiers.GameInfo;
 import soldiers.views.game.grid.ViewGrid;
 
 import views.EViewPosition;
-import views.IView;
 import views.IViewScroll;
 import views.implementations.ViewBase;
 import views.implementations.ViewScroll;
@@ -32,11 +31,10 @@ public class ViewSceneGame extends ViewBase
      * Fields
      */
     private var _sourceView:DisplayObjectContainer;
+    private var _background:Sprite;
 
     private var _viewScrollGrid:IViewScroll;
     private var _viewGrid:ViewGrid;
-
-    private var _subViews:Array;
 
     private var _needPlaceContainers:Boolean;
 
@@ -71,40 +69,36 @@ public class ViewSceneGame extends ViewBase
 
     private function init():void
     {
-        _subViews = [];
-
         _needPlaceContainers = true;
+
+        _background = new Sprite();
+        _sourceView.addChild(_background);
+
+        _background.graphics.beginFill(0xC4B060);
+        _background.graphics.drawRect(0, 0, 1, 1);
+        _background.graphics.endFill();
 
         _viewGrid = new ViewGrid(controller);
         _viewGrid.handleEvents(false);
-    }
-
-
-    public override function addSubView(view:IView):void
-    {
-        _sourceView.addChild(view.source);
-        _subViews.push(view);
     }
 
     public override function placeViews(fullscreen:Boolean):void
     {
         super.placeViews(fullscreen);
 
-        if(_needPlaceContainers)
+        if (_needPlaceContainers)
         {
             _needPlaceContainers = false;
             _viewGrid.placeViews(fullscreen);
         }
 
-        for each(var subView:IView in _subViews)
-        {
-            subView.placeViews(fullscreen);
-        }
-
         var appSize:Point = GameInfo.instance.managerApp.applicationSize;
 
-        _viewGrid.source.x = 0
+        _viewGrid.source.x = 0;
         _viewGrid.source.y = 0;
+
+        _background.width = appSize.x;
+        _background.height = appSize.y;
 
         if (_viewScrollGrid != null)
         {
@@ -117,7 +111,6 @@ public class ViewSceneGame extends ViewBase
         {
             _viewScrollGrid = new ViewScroll(controller, _viewGrid.source, appSize);
             _sourceView.addChild(_viewScrollGrid.source);
-            _sourceView.setChildIndex(_viewScrollGrid.source, 0);
 
             _viewScrollGrid.scrollTo(0.5, 0.5);
 
