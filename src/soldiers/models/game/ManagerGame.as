@@ -115,9 +115,10 @@ public class ManagerGame extends ManagerGameBase
         {
             soldier.houseTarget.soldierCount--;
 
-            if (soldier.houseTarget.soldierCount == 0)
+            if (soldier.houseTarget.soldierCount == -1)
             {
                 soldier.houseTarget.owner = soldier.houseOwnerPlayer;
+                soldier.houseTarget.soldierCount = 1;
             }
         }
         else

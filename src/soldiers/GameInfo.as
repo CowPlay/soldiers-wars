@@ -138,7 +138,6 @@ public class GameInfo extends GameInfoBase
         GameInfo.instance.managerStates.setState(EStateType.EST_GAME_MAP);
 
 //        startStubGame();
-
     }
 
     //TODO: remove

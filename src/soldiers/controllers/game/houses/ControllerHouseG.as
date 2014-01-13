@@ -11,6 +11,8 @@ import controllers.implementations.Controller;
 
 import flash.events.MouseEvent;
 
+import mx.utils.StringUtil;
+
 import soldiers.GameInfo;
 import soldiers.controllers.EControllerUpdate;
 import soldiers.models.game.ManagerGame;
@@ -84,7 +86,7 @@ public class ControllerHouseG extends Controller
             }
             case EControllerUpdate.ECU_HOUSE_SOLDIERS:
             {
-                _view.labelSoldiers.text = _entry.soldierCount.toString();
+                _view.labelSoldiers.text = StringUtil.substitute("{0} \\ {1}", _entry.soldierCount.toString(), _entry.currentLevelInfo.soldiersMax);
 
                 updateIconLevelUp();
 
@@ -110,7 +112,8 @@ public class ControllerHouseG extends Controller
     private function updateViewHouseOwner():void
     {
         _view.houseViewPlayer.visible = _entry.ownerType == EHouseOwner.EHO_PLAYER;
-        _view.houseViewEnemy.visible = !_view.houseViewPlayer.visible;
+        _view.houseViewEnemy.visible = _entry.ownerType == EHouseOwner.EHO_ENEMY;
+        _view.houseViewNeutral.visible = _entry.ownerType == EHouseOwner.EHO_NEUTRAL;
 
         updateIconLevelUp();
     }

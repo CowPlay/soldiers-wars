@@ -64,6 +64,8 @@ public class ViewHouseG extends ViewBase
 
     private var _houseViewEnemy:DisplayObject;
     private var _houseViewPlayer:DisplayObject;
+    private var _houseViewNeutral:DisplayObject;
+
     private var _viewRank:MovieClip;
 
     private var _labelSoldiers:TextField;
@@ -100,6 +102,10 @@ public class ViewHouseG extends ViewBase
         return _houseViewPlayer;
     }
 
+    public function get houseViewNeutral():DisplayObject
+    {
+        return _houseViewNeutral;
+    }
 
     public function get viewAuraEnemy():DisplayObject
     {
@@ -110,7 +116,6 @@ public class ViewHouseG extends ViewBase
     {
         return _viewAuraPlayer;
     }
-
 
 
     /*
@@ -165,6 +170,7 @@ public class ViewHouseG extends ViewBase
 
         Debug.assert(_houseView.hasOwnProperty("viewPlayer"));
         Debug.assert(_houseView.hasOwnProperty("viewEnemy"));
+        Debug.assert(_houseView.hasOwnProperty("viewNeutral"));
         Debug.assert(_houseView.hasOwnProperty("labelSoldiers"));
         Debug.assert(_houseView.hasOwnProperty("viewRank"));
 
@@ -173,6 +179,7 @@ public class ViewHouseG extends ViewBase
 
         _houseViewEnemy = _houseView["viewEnemy"];
         _houseViewPlayer = _houseView["viewPlayer"];
+        _houseViewNeutral = _houseView["viewNeutral"];
 
         _viewRank = _houseView["viewRank"];
 

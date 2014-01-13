@@ -34,7 +34,12 @@ public class AiActionAttack0 extends AiActionBase
     {
         var result:Boolean = false;
 
-        if (_target == null)
+//        "attack_0:
+//        1. Под ближайшим зданием должно подразумевается ближайшее здание, которое НЕ принадлежит стороне AI
+//        2. Для нападение на здание необходимо чтобы в здании AI находилось заданное количество войск, а не в здании цели
+//        "
+
+        if (_target == null || _target.ownerType == EHouseOwner.EHO_ENEMY)
         {
             _target = _managerGame.getNearestHouse(owner, [EHouseOwner.EHO_NEUTRAL, EHouseOwner.EHO_PLAYER]);
         }
@@ -43,11 +48,11 @@ public class AiActionAttack0 extends AiActionBase
         {
             if (_target.ownerType == EHouseOwner.EHO_NEUTRAL)
             {
-                result = _target.soldierCountPercent > _soldierLimitNeutral
+                result = owner.soldierCountPercent > _soldierLimitNeutral
             }
             else if (_target.ownerType == EHouseOwner.EHO_PLAYER)
             {
-                result = _target.soldierCountPercent > _soldierLimitPlayer
+                result = owner.soldierCountPercent > _soldierLimitPlayer
             }
         }
 

@@ -18,7 +18,6 @@ import flash.utils.getTimer;
 import soldiers.GameInfo;
 import soldiers.controllers.EControllerUpdate;
 import soldiers.models.game.ManagerGame;
-import soldiers.models.game.managerPath.ManagerPath;
 import soldiers.models.game.soldiers.ESoldierState;
 import soldiers.models.game.soldiers.SoldierInfo;
 import soldiers.models.housesGame.base.HouseG;
@@ -71,11 +70,11 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
         _soldiers = [];
 
         _timerSoldierGenerator = new Timer(ConstantsBase.ANIMATION_DURATION * 1000 * 4);
-        _timerSoldierGenerator.addEventListener(TimerEvent.TIMER, processWave);
+        _timerSoldierGenerator.addEventListener(TimerEvent.TIMER, processWaves);
         _timerSoldierGenerator.start();
     }
 
-    public function processWave(e:TimerEvent):void
+    public function processWaves(e:TimerEvent):void
     {
         var wavesForRemove:Array = [];
 
@@ -89,7 +88,6 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
 
             var currentTime:Number = getTimer();
 
-            var isFirstProcess:Boolean = waveInfo.timeGenerated == 0;
             var isTimeForGenerate:Boolean = currentTime - waveInfo.timeGenerated > waveInfo.timeGeneratedFrequency;
 
             if (!isTimeForGenerate)
@@ -97,25 +95,11 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
                 continue;
             }
 
-            if (isFirstProcess)
+            var needRemove:Boolean = processWave(waveInfo);
+
+            if (needRemove)
             {
-                waveInfo.generatedSoldierRest = Math.min(waveInfo.generatedSoldierRest, waveInfo.houseOwner.soldierCount);
-                waveInfo.houseOwner.soldierCount -= waveInfo.generatedSoldierRest;
-            }
-
-            waveInfo.timeGenerated = currentTime;
-
-            var paths:Array = _managerGame.managerPath.getPaths(waveInfo.houseOwner, waveInfo.houseTarget);
-
-            for (var i:int = 0; i < waveInfo.generatedSoldierCount; i++)
-            {
-                if (waveInfo.generatedSoldierRest == 0 || waveInfo.houseOwner.soldierCount == 0)
-                {
-                    wavesForRemove.push(waveInfo);
-                    break;
-                }
-
-                generateWaveSoldiers(waveInfo, paths[i]);
+                wavesForRemove.push(waveInfo);
             }
         }
 
@@ -127,9 +111,32 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
         }
     }
 
+    //Returns true if wave need remove
+    private function processWave(wave:SoldierWaveInfo):Boolean
+    {
+        var result:Boolean = false;
+
+        wave.timeGenerated = getTimer();
+
+        var paths:Array = _managerGame.managerPath.getPaths(wave.houseOwner, wave.houseTarget);
+
+        for (var i:int = 0; i < wave.generatedSoldierCount; i++)
+        {
+            if (wave.generatedSoldierRest == 0 || wave.houseOwner.soldierCount == 0)
+            {
+                result = true;
+                break;
+            }
+
+            generateWaveSoldiers(wave, paths[i]);
+        }
+
+        return result;
+    }
+
     private function generateWaveSoldiers(waveInfo:SoldierWaveInfo, path:Array):void
     {
-        var newSoldier:SoldierInfo = new SoldierInfo( waveInfo.houseOwnerType,waveInfo.houseOwnerLevel, waveInfo.houseOwnerLevelMax, waveInfo.houseOwnerPlayer, waveInfo.houseTarget, path);
+        var newSoldier:SoldierInfo = new SoldierInfo(waveInfo.houseOwnerType, waveInfo.houseOwnerLevel, waveInfo.houseOwnerLevelMax, waveInfo.houseOwnerPlayer, waveInfo.houseTarget, path);
 
         _soldiers.push(newSoldier);
 
@@ -152,7 +159,12 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
 
         newWave.generatedSoldierRest = soldierCount;
 
-        trace("generate soldiers " + soldierCount.toString())
+        newWave.generatedSoldierRest = Math.min(newWave.generatedSoldierRest, newWave.houseOwner.soldierCount);
+        newWave.houseOwner.soldierCount -= newWave.generatedSoldierRest;
+
+        processWave(newWave);
+
+        trace("generate soldiers " + soldierCount.toString());
 
         _soldierWaves.push(newWave);
     }
@@ -172,7 +184,7 @@ public class ManagerSoldiers extends DisposableObject implements IDisposable
     public override function cleanup():void
     {
         _timerSoldierGenerator.stop();
-        _timerSoldierGenerator.removeEventListener(TimerEvent.TIMER, processWave);
+        _timerSoldierGenerator.removeEventListener(TimerEvent.TIMER, processWaves);
         _timerSoldierGenerator = null;
 
         for each(var wave:IDisposable in _soldierWaves)

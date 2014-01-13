@@ -158,11 +158,14 @@ public class HouseG extends DisposableObject implements ISerializable
     {
         _level++;
 
+        var soldiersPenalty:uint = currentLevelInfo.soldiersMax / 2;
+
         Debug.assert(_level <= _houseConfig.levelMax);
+        Debug.assert(this.soldierCount >= soldiersPenalty);
 
         _controller.update(EControllerUpdate.ECU_HOUSE_LEVEL);
 
-        this.soldierCount -= this.soldierCount / 2;
+        this.soldierCount -= soldiersPenalty;
     }
 
     public function get houseConfig():HouseGConfig

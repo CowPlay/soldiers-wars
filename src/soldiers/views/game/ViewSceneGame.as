@@ -13,6 +13,7 @@ package soldiers.views.game
 {
 import controllers.IController;
 
+import flash.display.Bitmap;
 import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
 import flash.geom.Point;
@@ -21,6 +22,7 @@ import soldiers.GameInfo;
 import soldiers.views.game.grid.ViewGrid;
 
 import views.EViewPosition;
+import views.IView;
 import views.IViewScroll;
 import views.implementations.ViewBase;
 import views.implementations.ViewScroll;
@@ -31,7 +33,7 @@ public class ViewSceneGame extends ViewBase
      * Fields
      */
     private var _sourceView:DisplayObjectContainer;
-    private var _background:Sprite;
+    private var _background:IView;
 
     private var _viewScrollGrid:IViewScroll;
     private var _viewGrid:ViewGrid;
@@ -71,12 +73,14 @@ public class ViewSceneGame extends ViewBase
     {
         _needPlaceContainers = true;
 
-        _background = new Sprite();
-        _sourceView.addChild(_background);
+        var bg:Bitmap = new Bitmap(new gLevelBackground1());
+        var bgSource:Sprite = new Sprite();
+        bgSource.addChild(bg);
 
-        _background.graphics.beginFill(0xC4B060);
-        _background.graphics.drawRect(0, 0, 1, 1);
-        _background.graphics.endFill();
+        _background = new ViewBase(controller, bgSource);
+        _sourceView.addChild(_background.source);
+
+        _background.position = EViewPosition.EVP_ABSOLUTE;
 
         _viewGrid = new ViewGrid(controller);
         _viewGrid.handleEvents(false);
@@ -97,8 +101,7 @@ public class ViewSceneGame extends ViewBase
         _viewGrid.source.x = 0;
         _viewGrid.source.y = 0;
 
-        _background.width = appSize.x;
-        _background.height = appSize.y;
+        _background.translate(0.5, 0.5);
 
         if (_viewScrollGrid != null)
         {
@@ -133,6 +136,9 @@ public class ViewSceneGame extends ViewBase
             _viewScrollGrid.cleanup();
             _viewScrollGrid = null;
         }
+
+        _background.cleanup();
+        _background = null;
 
         super.cleanup();
     }
