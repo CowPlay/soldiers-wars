@@ -32,14 +32,13 @@ public class ViewSceneGame extends ViewBase
     /*
      * Fields
      */
-    private var _sourceView:DisplayObjectContainer;
+    private var _source:DisplayObjectContainer;
     private var _background:IView;
 
     private var _viewScrollGrid:IViewScroll;
     private var _viewGrid:ViewGrid;
 
     private var _needPlaceContainers:Boolean;
-
 
     /*
      * Properties
@@ -63,8 +62,8 @@ public class ViewSceneGame extends ViewBase
     //! Default constructor
     public function ViewSceneGame(controller:IController)
     {
-        _sourceView = new Sprite();
-        super(controller, _sourceView);
+        _source = new Sprite();
+        super(controller, _source);
 
         init();
     }
@@ -78,7 +77,7 @@ public class ViewSceneGame extends ViewBase
         bgSource.addChild(bg);
 
         _background = new ViewBase(controller, bgSource);
-        _sourceView.addChild(_background.source);
+        _source.addChild(_background.source);
 
         _background.position = EViewPosition.EVP_ABSOLUTE;
 
@@ -105,7 +104,7 @@ public class ViewSceneGame extends ViewBase
 
         if (_viewScrollGrid != null)
         {
-            _sourceView.removeChild(_viewScrollGrid.source);
+            _source.removeChild(_viewScrollGrid.source);
             _viewScrollGrid.cleanup();
             _viewScrollGrid = null;
         }
@@ -113,7 +112,7 @@ public class ViewSceneGame extends ViewBase
         if (_viewGrid.source.width > appSize.x || _viewGrid.source.height > appSize.y)
         {
             _viewScrollGrid = new ViewScroll(controller, _viewGrid.source, appSize);
-            _sourceView.addChild(_viewScrollGrid.source);
+            _source.addChild(_viewScrollGrid.source);
 
             _viewScrollGrid.scrollTo(0.5, 0.5);
 
@@ -122,7 +121,7 @@ public class ViewSceneGame extends ViewBase
         }
         else
         {
-            _sourceView.addChild(_viewGrid.source);
+            _source.addChild(_viewGrid.source);
 
             _viewGrid.position = EViewPosition.EVP_ABSOLUTE;
             _viewGrid.translate(0.5, 0.5);

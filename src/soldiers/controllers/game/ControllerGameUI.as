@@ -12,24 +12,19 @@
 package soldiers.controllers.game
 {
 import controllers.IController;
-import controllers.implementations.Controller;
-
-import flash.events.MouseEvent;
 
 import soldiers.controllers.EControllerUpdate;
+import soldiers.controllers.base.ControllerUIBase;
 import soldiers.controllers.game.ui.ControllerProgress;
-
 import soldiers.views.game.ViewGameUI;
 
-import views.IView;
-
-public class ControllerGameUI extends Controller
+public class ControllerGameUI extends ControllerUIBase
 {
     /*
      * Fields
      */
     private var _view:ViewGameUI;
-    private  var _controllerProgress:IController;
+    private var _controllerProgress:IController;
 
     /*
      * Properties
@@ -52,42 +47,6 @@ public class ControllerGameUI extends Controller
         _controllerProgress = new ControllerProgress();
         _view.viewProgress = _controllerProgress.view;
     }
-
-
-    override public function onViewClicked(view:IView, e:MouseEvent):Boolean
-    {
-        var result:Boolean = super.onViewClicked(view, e);
-
-        if (!result)
-        {
-            switch (view)
-            {
-                case _view.viewOptions.buttonFullscreen:
-                {
-                    GameInfoBase.instance.managerApp.fullScreenEnable = !GameInfoBase.instance.managerApp.fullScreenEnable;
-
-                    result = true;
-
-                    break;
-                }
-                case _view.viewOptions.buttonMusic:
-                case _view.viewOptions.buttonScreenshot:
-                case _view.viewOptions.buttonSound:
-                {
-                    //do nothing
-                    break;
-                }
-                default :
-                {
-                    Debug.assert(false);
-                    break;
-                }
-            }
-        }
-
-        return result;
-    }
-
 
     override public function update(type:String):void
     {

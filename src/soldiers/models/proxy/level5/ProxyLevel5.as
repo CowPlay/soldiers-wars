@@ -1,5 +1,5 @@
 /*
- * Copyright gregory.tkach (c) 2014.
+ * Copyright gregory.tkach (c) 2013.
  */
 
 /**
@@ -13,7 +13,6 @@ package soldiers.models.proxy.level5
 {
 import mx.utils.UIDUtil;
 
-import soldiers.models.game.decor.EDecorType;
 import soldiers.models.housesGame.base.EHouseOwner;
 import soldiers.models.housesGame.base.EHouseTypeG;
 import soldiers.models.proxy.aiActions.ProxyAiActions;
@@ -27,147 +26,130 @@ public class ProxyLevel5
         {
             type : EHouseTypeG.EHGT_BARRACKS,
             owner: EHouseOwner.EHO_PLAYER,
-            level: 1,
+            level: 3,
 
-            position_x: 30,
-            position_y: 35,
+            position_x: 20,
+            position_y: 20,
 
             id: UIDUtil.createUID(),
 
-            soldiers: 8
+            soldiers: 24
         };
 
         var houseData5_1:Object =
         {
             type : EHouseTypeG.EHGT_BARRACKS,
             owner: EHouseOwner.EHO_ENEMY,
-            level: 3,
+            level: 1,
 
-            position_x: 43,
-            position_y: 43,
+            position_x: 8,
+            position_y: 8,
 
             id: UIDUtil.createUID(),
 
-            soldiers: 12
+            soldiers: 1
         };
 
         var houseData5_2:Object =
         {
             type : EHouseTypeG.EHGT_BARRACKS,
-            owner: EHouseOwner.EHO_NEUTRAL,
+            owner: EHouseOwner.EHO_ENEMY,
             level: 1,
 
-            position_x: 5,
-            position_y: 5,
+            position_x: 32,
+            position_y: 32,
 
             id: UIDUtil.createUID(),
 
-            soldiers: 6
+            soldiers: 5
         };
 
         var houseData5_3:Object =
         {
             type : EHouseTypeG.EHGT_BARRACKS,
-            owner: EHouseOwner.EHO_NEUTRAL,
+            owner: EHouseOwner.EHO_ENEMY,
             level: 1,
 
-            position_x: 20,
+            position_x: 32,
             position_y: 8,
 
             id: UIDUtil.createUID(),
 
-            soldiers: 6
+            soldiers: 3
         };
 
         var houseData5_4:Object =
         {
             type : EHouseTypeG.EHGT_BARRACKS,
-            owner: EHouseOwner.EHO_NEUTRAL,
+            owner: EHouseOwner.EHO_ENEMY,
             level: 1,
 
             position_x: 8,
+            position_y: 32,
+
+            id: UIDUtil.createUID(),
+
+            soldiers: 7
+        };
+
+        var houseData5_5:Object =
+        {
+            type : EHouseTypeG.EHGT_BARRACKS,
+            owner: EHouseOwner.EHO_ENEMY,
+            level: 1,
+
+            position_x: 20,
+            position_y: 4,
+
+            id: UIDUtil.createUID(),
+
+            soldiers: 2
+        };
+
+        var houseData5_6:Object =
+        {
+            type : EHouseTypeG.EHGT_BARRACKS,
+            owner: EHouseOwner.EHO_ENEMY,
+            level: 1,
+
+            position_x: 4,
             position_y: 20,
+
+            id: UIDUtil.createUID(),
+
+            soldiers: 8
+        };
+
+        var houseData5_7:Object =
+        {
+            type : EHouseTypeG.EHGT_BARRACKS,
+            owner: EHouseOwner.EHO_ENEMY,
+            level: 1,
+
+            position_x: 20,
+            position_y: 36,
 
             id: UIDUtil.createUID(),
 
             soldiers: 6
         };
 
-        var houseData5_5:Object =
+        var houseData5_8:Object =
         {
             type : EHouseTypeG.EHGT_BARRACKS,
-            owner: EHouseOwner.EHO_NEUTRAL,
+            owner: EHouseOwner.EHO_ENEMY,
             level: 1,
 
-            position_x: 6,
-            position_y: 44,
+            position_x: 36,
+            position_y: 20,
 
             id: UIDUtil.createUID(),
 
-            soldiers: 8
+            soldiers: 4
         };
-
-        var houseData5_6:Object =
-        {
-            type : EHouseTypeG.EHGT_BARRACKS,
-            owner: EHouseOwner.EHO_NEUTRAL,
-            level: 1,
-
-            position_x: 44,
-            position_y: 6,
-
-            id: UIDUtil.createUID(),
-
-            soldiers: 8
-        };
-
-        var decorData5_0:Object =
-        {
-            type: EDecorType.EDT_0,
-
-            width : 3,
-            height: 18,
-
-            position_x: 24,
-            position_y: 40
-        };
-
-        var decorData5_1:Object =
-        {
-            type: EDecorType.EDT_0,
-
-            width : 9,
-            height: 2,
-
-            position_x: 45,
-            position_y: 20
-        };
-
-        var decorData5_2:Object =
-        {
-            type: EDecorType.EDT_0,
-
-            width : 15,
-            height: 12,
-
-            position_x: 25,
-            position_y: 25
-        };
-
-        var decorData5_3:Object =
-        {
-            type: EDecorType.EDT_0,
-
-            width : 4,
-            height: 4,
-
-            position_x: 40,
-            position_y: 46
-        };
-
         var level5Data:Object =
         {
-            id                  : "5",
+            id                  : "4",
             name                : "",
             description         : "",
             number              : 0,
@@ -175,21 +157,24 @@ public class ProxyLevel5
             reward_currency_soft: 0,
             reward_points       : 0,
 
-            grid_width : 50,
-            grid_height: 50,
+            grid_width : 40,
+            grid_height: 40,
 
             houses_level_max: 3,
 
-            stars_count: 0,
+            stars_count   : 0,
 
-            targets_star_1: [ProxyLevelTargets.getGrabAll()],
+            // Продержаться 2 минуты
+            targets_star_1: [ProxyLevelTargets.getTimePlay(60 * 2 * 1000)],
+            //TODO: Улучшить все здания до 3 уровня
             targets_star_2: [],
-            targets_star_3: [],
+            // Захватить все вражеские здания
+            targets_star_3: [ProxyLevelTargets.getOwnerGrabAll(EHouseOwner.EHO_ENEMY)],
 
             ai_actions: [ProxyAiActions.getActionAttack0(), ProxyAiActions.getActionAttack1(), ProxyAiActions.getActionDeffence0(), ProxyAiActions.getActionUpgrade0() ],
 
-            decor : [decorData5_0, decorData5_1, decorData5_2/*, decorData4_3*/],
-            houses: [houseData5_0, houseData5_1, houseData5_2, houseData5_3, houseData5_4, houseData5_5, houseData5_6]
+            decor : [],
+            houses: [houseData5_0, houseData5_1, houseData5_2, houseData5_3, houseData5_4, houseData5_5, houseData5_6, houseData5_7, houseData5_8]
         };
 
 

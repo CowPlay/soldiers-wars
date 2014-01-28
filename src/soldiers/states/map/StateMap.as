@@ -13,6 +13,8 @@ package soldiers.states.map
 {
 import controllers.IControllerPopup;
 
+import soldiers.controllers.map.ControllerMapUI;
+
 import views.EViewPosition;
 
 import soldiers.controllers.map.ControllerMapScene;
@@ -46,6 +48,14 @@ public class StateMap extends StateGameBase
         super.prepareLayerScene();
 
         this.controllerScene = new ControllerMapScene();
+    }
+
+
+    override public function prepareLayerUI():void
+    {
+        super.prepareLayerUI();
+
+        this.controllerUI = new ControllerMapUI();
     }
 
     public override function prepareLayerPopups():void

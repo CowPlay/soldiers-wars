@@ -28,143 +28,73 @@ public class ProxyLevel7
             owner: EHouseOwner.EHO_PLAYER,
             level: 1,
 
-            position_x: 15,
-            position_y: 15,
+            position_x: 4,
+            position_y: 4,
 
             id: UIDUtil.createUID(),
 
-            soldiers: 5
+            soldiers: 1
         };
 
         var houseData7_1:Object =
         {
             type : EHouseTypeG.EHGT_BARRACKS,
-            owner: EHouseOwner.EHO_ENEMY,
-            level: 2,
-
-            position_x: 47,
-            position_y: 47,
-
-            id: UIDUtil.createUID(),
-
-            soldiers: 5
-        };
-
-        var houseData7_2:Object =
-        {
-            type : EHouseTypeG.EHGT_BARRACKS,
-            owner: EHouseOwner.EHO_ENEMY,
-            level: 2,
-
-            position_x: 47,
-            position_y: 35,
-
-            id: UIDUtil.createUID(),
-
-            soldiers: 3
-        };
-
-        var houseData7_3:Object =
-        {
-            type : EHouseTypeG.EHGT_BARRACKS,
-            owner: EHouseOwner.EHO_ENEMY,
-            level: 2,
-
-            position_x: 35,
-            position_y: 47,
-
-            id: UIDUtil.createUID(),
-
-            soldiers: 3
-        };
-
-        var houseData7_4:Object =
-        {
-            type : EHouseTypeG.EHGT_BARRACKS,
             owner: EHouseOwner.EHO_NEUTRAL,
             level: 1,
 
-            position_x: 27,
-            position_y: 27,
+            position_x: 17,
+            position_y: 17,
 
             id: UIDUtil.createUID(),
 
             soldiers: 30
         };
 
-        var houseData7_5:Object =
+        var houseData7_2:Object =
         {
             type : EHouseTypeG.EHGT_BARRACKS,
             owner: EHouseOwner.EHO_NEUTRAL,
             level: 1,
 
             position_x: 29,
-            position_y: 13,
+            position_y: 5,
 
             id: UIDUtil.createUID(),
 
-            soldiers: 10
+            soldiers: 15
         };
 
-        var houseData7_6:Object =
+        var houseData7_3:Object =
         {
             type : EHouseTypeG.EHGT_BARRACKS,
-            owner: EHouseOwner.EHO_NEUTRAL,
-            level: 1,
-
-            position_x: 13,
-            position_y: 29,
-
-            id: UIDUtil.createUID(),
-
-            soldiers: 10
-        };
-
-        var houseData7_7:Object =
-        {
-            type : EHouseTypeG.EHGT_BARRACKS,
-            owner: EHouseOwner.EHO_NEUTRAL,
+            owner: EHouseOwner.EHO_ENEMY,
             level: 1,
 
             position_x: 5,
-            position_y: 5,
+            position_y: 29,
 
             id: UIDUtil.createUID(),
 
             soldiers: 5
         };
 
-        var houseData7_8:Object =
+        var houseData7_4:Object =
         {
             type : EHouseTypeG.EHGT_BARRACKS,
-            owner: EHouseOwner.EHO_NEUTRAL,
-            level: 1,
+            owner: EHouseOwner.EHO_ENEMY,
+            level: 2,
 
-            position_x: 45,
-            position_y: 5,
+            position_x: 30,
+            position_y: 30,
 
             id: UIDUtil.createUID(),
 
-            soldiers: 3
-        };
-
-        var houseData7_9:Object =
-        {
-            type : EHouseTypeG.EHGT_BARRACKS,
-            owner: EHouseOwner.EHO_NEUTRAL,
-            level: 1,
-
-            position_x: 5,
-            position_y: 45,
-
-            id: UIDUtil.createUID(),
-
-            soldiers: 3
+            soldiers: 8
         };
 
         var level7Data:Object =
         {
-            id                  : "7",
+            id                  : "6",
             name                : "",
             description         : "",
             number              : 0,
@@ -172,24 +102,24 @@ public class ProxyLevel7
             reward_currency_soft: 0,
             reward_points       : 0,
 
-            grid_width : 52,
-            grid_height: 52,
-
-            houses_level_max: 2,
+            grid_width : 34,
+            grid_height: 34,
 
             stars_count   : 0,
 
-            //
-            targets_star_1: [ProxyLevelTargets.getGrabAll()],
-            //
-            targets_star_2: [],
-            //
+            // Захватить все здания противника
+            targets_star_1: [ProxyLevelTargets.getOwnerGrabAll(EHouseOwner.EHO_ENEMY)],
+            // Не потерять ниодного здания
+            targets_star_2: [ProxyLevelTargets.getOwnerNotMissingAny(EHouseOwner.EHO_PLAYER)],
+            //TODO: Убить не более 50 вражеских юнитов
             targets_star_3: [],
+
+            houses_level_max: 3,
 
             ai_actions: [ProxyAiActions.getActionAttack0(), ProxyAiActions.getActionAttack1(), ProxyAiActions.getActionDeffence0(), ProxyAiActions.getActionUpgrade0() ],
 
             decor : [],
-            houses: [houseData7_0, houseData7_1, houseData7_2, houseData7_3, houseData7_4, houseData7_5, houseData7_6, houseData7_7, houseData7_8, houseData7_9]
+            houses: [houseData7_0, houseData7_1, houseData7_2, houseData7_3, houseData7_4]
         };
 
 

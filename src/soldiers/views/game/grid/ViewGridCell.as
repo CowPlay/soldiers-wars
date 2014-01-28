@@ -43,6 +43,7 @@ public class ViewGridCell extends ViewBase
 
     private function init():void
     {
+        _source.alpha = 0.01;
     }
 
     public function showDebugData(color:uint):void

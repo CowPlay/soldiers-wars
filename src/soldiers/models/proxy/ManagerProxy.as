@@ -12,6 +12,7 @@ import bwf.models.proxy.IManagerProxy;
 import models.interfaces.social.IManagerSocial;
 
 import soldiers.models.proxy.level0.ProxyLevel0;
+import soldiers.models.proxy.level1.ProxyLevel1;
 import soldiers.models.proxy.level2.ProxyLevel2;
 import soldiers.models.proxy.level3.ProxyLevel3;
 import soldiers.models.proxy.level4.ProxyLevel4;
@@ -83,6 +84,7 @@ public class ManagerProxy implements IManagerProxy
             requirements: [],
             levels      : [
                 ProxyLevel0.getLevelData0(),
+                ProxyLevel1.getLevelData1(),
                 ProxyLevel2.getLevelData2(),
                 ProxyLevel3.getLevelData3(),
                 ProxyLevel4.getLevelData4(),

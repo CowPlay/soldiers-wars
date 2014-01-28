@@ -36,6 +36,7 @@ public class ViewMapScene extends ViewBase
 
     private var _viewPlayerInfo:ViewPlayerInfo;
 
+
     /*
      * Properties
      */
@@ -60,6 +61,8 @@ public class ViewMapScene extends ViewBase
 
         _viewPlayerInfo = new ViewPlayerInfo(controller);
         _source.addChild(_viewPlayerInfo.source);
+
+
     }
 
     override public function addSubView(view:IView):void
@@ -98,6 +101,7 @@ public class ViewMapScene extends ViewBase
                     [140, 408]
                 ];
 
+
 //        TODO: remove
         var offsetX:Number = 138;
         var offsetY:Number = 189;
@@ -111,7 +115,7 @@ public class ViewMapScene extends ViewBase
         }
 
         _viewPlayerInfo.source.x = 50;
-        _viewPlayerInfo.source.y = 50;
+        _viewPlayerInfo.source.y = 150;
     }
 
     public override function cleanup():void

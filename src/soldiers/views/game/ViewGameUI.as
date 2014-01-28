@@ -17,30 +17,23 @@ import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
 import flash.geom.Point;
 
-import soldiers.views.game.ui.*;
+import soldiers.views.base.ViewUIBase;
 
 import views.EViewPosition;
 import views.IView;
-import views.implementations.ViewBase;
 
-public class ViewGameUI extends ViewBase
+public class ViewGameUI extends ViewUIBase
 {
     /*
      * Fields
      */
     private var _source:DisplayObjectContainer;
 
-    private var _viewOptions:ViewOptions;
     private var _viewProgress:IView;
 
     /*
      * Properties
      */
-
-    public function get viewOptions():ViewOptions
-    {
-        return _viewOptions;
-    }
 
     public function set viewProgress(value:IView):void
     {
@@ -60,17 +53,6 @@ public class ViewGameUI extends ViewBase
     {
         _source = new Sprite();
         super(controller, _source);
-
-        init();
-    }
-
-    private function init():void
-    {
-        _viewOptions = new ViewOptions(controller);
-        _source.addChild(_viewOptions.source);
-
-        _viewOptions.anchorPoint = new Point(1, 0);
-        _viewOptions.position = EViewPosition.EVP_ABSOLUTE;
     }
 
 
@@ -78,18 +60,16 @@ public class ViewGameUI extends ViewBase
     {
         super.placeViews(fullscreen);
 
-        _viewOptions.translate(1, 0);
-
         _viewProgress.placeViews(fullscreen);
         _viewProgress.translate(0, 0);
+
+        _viewProgress.source.y += 70;
+
     }
 
 
     override public function cleanup():void
     {
-        _viewOptions.cleanup();
-        _viewOptions = null;
-
         super.cleanup();
     }
 }

@@ -41,36 +41,22 @@ public class ProxyLevel0
             owner: EHouseOwner.EHO_PLAYER,
             level: 1,
 
-            position_x: 22,
-            position_y: 8,
+            position_x: 17,
+            position_y: 5,
 
             id: UIDUtil.createUID(),
 
-            soldiers: 5
+            soldiers: 0
         };
 
         var houseData0_2:Object =
         {
             type : EHouseTypeG.EHGT_BARRACKS,
-            owner: EHouseOwner.EHO_PLAYER,
-            level: 1,
-
-            position_x: 25,
-            position_y: 25,
-
-            id: UIDUtil.createUID(),
-
-            soldiers: 5
-        };
-
-        var houseData0_3:Object =
-        {
-            type : EHouseTypeG.EHGT_BARRACKS,
             owner: EHouseOwner.EHO_NEUTRAL,
             level: 1,
 
-            position_x: 8,
-            position_y: 22,
+            position_x: 11,
+            position_y: 19,
 
             id: UIDUtil.createUID(),
 
@@ -88,8 +74,8 @@ public class ProxyLevel0
             reward_currency_soft: 0,
             reward_points       : 0,
 
-            grid_width : 30,
-            grid_height: 30,
+            grid_width : 23,
+            grid_height: 25,
 
             houses_level_max: 1,
 
@@ -105,7 +91,7 @@ public class ProxyLevel0
             ai_actions: [],
 
             decor : [],
-            houses: [houseData0_0, houseData0_1, houseData0_2, houseData0_3]
+            houses: [houseData0_0, houseData0_1, houseData0_2]
         };
 
         return  level0Data;
